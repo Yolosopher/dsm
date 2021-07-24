@@ -1,0 +1,245 @@
+-
+    const basketitems = [
+        {
+            image: 'assets/img/homeslider/1.png',
+            category: '1 moisturize',
+            title: '1 Powerful Olive Oil & Honey Cream',
+            size: '5ml',
+            color: '#3BCEAC',
+            price: 9.99,
+            id: 1,
+            qty: 3,
+            sale: 3.44,
+        },
+        {
+            image: 'assets/img/homeslider/2.png',
+            category: '2 moisturize',
+            title: 'Effective Extra Rich Shea Butter Cream',
+            size: '1ml',
+            color: '#FFD23F',
+            price: 12.1,
+            id: 2,
+            qty: 1,
+            sale: 6.77
+        },
+        {
+            image: 'assets/img/homeslider/3.png',
+            category: '3 moisturize',
+            title: '3 Powerful Olive Oil & Honey Cream',
+            size: '0.5ml',
+            color: '#CDD1C4',
+            price: 20.0,
+            id: 3,
+            qty: 5,
+            sale: 7.23
+        }
+    ]
+
+.basketmodal__bg
+.basketmodal
+    .basketmodal__mains
+        .basketmodal__mains__basket
+            .basketmodal__mains__basket__content
+                .basketmodal__X.backtostore back to store
+                .basketmodal__mains__basket__content__header
+                    h5.ptitle shopping bag
+                    .basketmodal__mains__basket__content__header__qty
+                        span 5
+                        |  items
+                ul.basketmodal__mains__basket__list__titles
+                    li Item
+                    li Size
+                    li Color
+                    li Quantity
+                    li Price
+                ul.basketmodal__mains__basket__list
+                    each item, indexx in basketitems
+                        li.basketmodal__mains__basket__list__li__fixer.fixer
+                            .basketmodal__mains__basket__list__li
+                                .basketmodal__mains__basket__list__li__item
+                                    a.basketmodal__mains__basket__list__li__imgbox(href="#")
+                                        img(src=item.image, alt=item.title)
+                                    .basketmodal__mains__basket__list__li__texts
+                                        p.basketmodal__mains__basket__list__li__category=item.category
+                                        h6.basketmodal__mains__basket__list__li__title
+                                            a(href="#")= item.title
+                                .basketmodal__mains__basket__list__li__size
+                                    span.labelll Size
+                                    span= item.size
+                                .basketmodal__mains__basket__list__li__color(style=`--color: ${item.color}`)
+                                    span.labelll Color
+                                .basketmodal__mains__basket__list__li__quantity(data-id=item.id)
+                                    .basket__minus(class=`${item.qty > 1 ? '' : 'inactive'}`)
+                                        include ../components/basketinminus
+                                    input(type="number", value=item.qty, name="quantity")
+                                    .basket__plus
+                                        include ../components/basketinplus
+                                .basketmodal__mains__basket__list__li__price
+                                    span(data-sale=item.sale)= item.price
+                                    |  USD
+                                .basketmodal__mains__basket__list__li__moredetails more details
+                                .basketmodal__mains__basket__list__li__removebtn(data-id=item.id)
+
+
+
+            .basketmodal__mains__basket__right.orderdetails
+                .orderdetails__rest
+                    h6 Summary
+                    .orderdetails__infos
+                        .orderdetails__infos__item
+                            p.orderdetails__infos__label subtotal
+                            p.orderdetails__infos__value.subtotal
+                                span 0.00
+                                |  USD
+                        
+                        .orderdetails__infos__item
+                            p.orderdetails__infos__label product
+                            p.orderdetails__infos__value.product
+                                span 0.00
+                                |  USD
+                        
+                        .orderdetails__infos__item
+                            p.orderdetails__infos__label sale
+                            p.orderdetails__infos__value.sale
+                                span 0.00
+                                |  USD
+                    .orderdetails__promocode
+                        label(for="promocodeinput1") promocode
+                        input#promocodeinput1.promocodeinput(type="text", name="promocode", placeholder="enter code")
+                .orderdetails__totals
+                    p Total:
+                    p.orderdetails__totals__value
+                        span 0.00
+                        |  USD
+                .orderdetails__totals__checkout.checkoutbtn.yellowbtn.br60 Checkout
+            .basketmodal__X
+                include ../components/basketx
+
+
+        .basketmodal__mains__ordering
+            .basketmodal__mains__ordering__staticinfo
+                .dsm dsm.ge
+                .chkout checkout
+                .basketmodal__mains__ordering__staticinfo__back.backtostore back
+            form#basketmodalform.basketmodal__mains__ordering__form(data-pg="1")
+                .basketmodal__mains__ordering__form__nav
+                    span
+                    span
+                    span
+                .basketmodal__mains__ordering__form__contents.basketform
+                    .basketform__who
+                        .form__fixer.basketform__heading__fixer
+                            h6.basketform__heading Who is placing this order?
+                        .form__fixer.basketform__label__fixer
+                            label.basketform__label(for="basketemail") email
+                        .form__fixer.basketform__input__fixer
+                            input#basketemail.basketform__input(type="text", placeholder="example@gmail.com", name="email")
+                        .basketform__inputcombiner
+                            .basketform__inputcombiner__item
+                                .form__fixer.basketform__label__fixer
+                                    label.basketform__label(for="basketfirstname") first name
+                                .form__fixer.basketform__input__fixer
+                                    input#basketfirstname.basketform__input(type="text", name="firstname", placeholder="first name")
+                            .basketform__inputcombiner__item
+                                .form__fixer.basketform__label__fixer
+                                    label.basketform__label(for="basketlastname") last name
+                                .form__fixer.basketform__input__fixer
+                                    input#basketlastname.basketform__input(type="text", name="lastname", placeholder="last name")
+                        .form__fixer.proctosheep__fixer
+                            .proctosheep.towhere.yellowbtn proceed to shipping
+                    .basketform__where
+                        .form__fixer.basketform__heading__fixer
+                            h6.basketform__heading Where would you like your order to be sent?
+                        .form__fixer.basketform__label__fixer
+                            label.basketform__label(for="basketcity") city
+                        .form__fixer.basketform__input__fixer
+                            input#basketcity.basketform__input(type="text", placeholder="city", name="city")
+                        .form__fixer.basketform__label__fixer
+                            label.basketform__label(for="basketaddress") address
+                        .form__fixer.basketform__input__fixer
+                            input#basketaddress.basketform__input(type="text", placeholder="address", name="address")
+                        .form__fixer.basketform__label__fixer
+                            label.basketform__label(for="basketphone") mobile phone
+                        .form__fixer.basketform__input__fixer
+                            input#basketphone.basketform__input(type="tel", placeholder="phone", value="+995 ")
+                        
+                        .form__fixer.basketform__heading__fixer.f18__fixer
+                            h6.basketform__heading.f18 Delivery option
+                        label.form__fixer.basketform__radio__label.first(for="standartshipping") 
+                            input#standartshipping(type="radio", name="shipping", value="1", checked)
+                            .customcheck
+                            .descr Standart (3-5 bussines day) shipping
+                            .price
+                                | $ 
+                                span 10.00
+                        label.form__fixer.basketform__radio__label.express(for="expressshipping") 
+                            input#expressshipping(type="radio", name="shipping", value="2")
+                            .customcheck
+                            .descr Express (1-2 bussines day) shipping
+                            .price
+                                | $ 
+                                span 20.00
+
+                        .form__fixer.proctosheep__fixer
+                            .proctosheep.topaytype.yellowbtn proceed to payment
+                    .basketform__paytype
+                        .form__fixer.basketform__heading__fixer
+                            h6.basketform__heading Where would you like to pay?
+
+                        label.form__fixer.basketform__radio__label.first(for="creditcard") 
+                            input#creditcard(type="radio", name="payment", value="1", checked)
+                            .customcheck
+                            .descr Pay with Credit Card
+
+                        label.form__fixer.basketform__radio__label.emoney(for="emoney") 
+                            input#emoney(type="radio", name="payment", value="2")
+                            .customcheck
+                            .descr Pay with E-money
+                        label.form__fixer.basketform__radio__label.terms(for="acceptterms")
+                            input#acceptterms(type="checkbox", name="terms")
+                            .customcheckmark
+                            .descr I accept DSM Terms & Conditions
+
+
+                        .form__fixer.proctosheep__fixer
+                            button.proctosheep.topay.yellowbtn(type="submit") pay
+            .basketmodal__mains__ordering__right.itemsinfo
+                .item__restmobile
+                    .item__restmobile__yellows(data-pg="1")
+                        .proctosheep.towhere.yellowbtn proceed to shipping
+                        .proctosheep.topaytype.yellowbtn proceed to payment
+                        button.proctosheep.topay.yellowbtn(type="submit") pay
+                    .item__restmobile__left
+                        p.item__restmobile__qty
+                            | You have 
+                            span 3
+                            |  in the bag
+                        .item__restmobile__checkbag checkbag
+                    .itemsinfo__editbag edit bag
+                .itemsinfo__rest__bg
+                .itemsinfo__rest
+                    .itemsinfo__rest__X
+                        include ../components/basketx
+                    .itemsinfo__header
+                        .itemsinfo__heading items
+                        .itemsinfo__editbag edit bag
+                    .itemsinfo__list
+                        each item, indexx in basketitems
+                            .itemsinfo__list__item
+                                p.itemsinfo__list__item__title=item.title
+                                .itemsinfo__list__item__qtyprice
+                                    .itemsinfo__list__item__qtyprice__qty=`${item.qty}x`
+                                    .itemsinfo__list__item__qtyprice__price=`${item.price} USD`
+                .orderdetails__promocode
+                    label(for="promocodeinput2") promocode
+                    input#promocodeinput2.promocodeinput(type="text", name="promocode", placeholder="enter code")
+                .orderdetails__totals
+                    p Total:
+                    p.orderdetails__totals__value
+                        span 0.00
+                        |  USD
+                        
+
+
+        .basketmodal__mains__finished
+            .basketmodal__mains__content

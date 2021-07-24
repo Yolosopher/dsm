@@ -1,0 +1,290 @@
+- const title = 'Home'
+- const loggedin = false
+doctype html
+html(lang="en")
+    head
+        link(rel="stylesheet", href="assets/css/swiper-bundle.min.css")
+        include ../layouts/_head
+
+    body 
+        include ../layouts/_header
+        include ../layouts/_loginmodal
+
+        main.main.homemain.container
+            .homemain__slider.fadein.fadeinimg
+                .homemain__swiper.left.swiper-container
+                    .homemain__wrapper.swiper-wrapper
+                        each slide, index in slides
+                            .homemain__slide.swiper-slide.starting
+                                .homemain__slide__left
+                                    .homemain__slide__left__category__container
+                                        p.homemain__slide__left__category= slide.category
+                                    .homemain__slide__left__title__container
+                                        h2.homemain__slide__left__title= slide.title
+                                    .homemain__slide__left__priceNreview__container
+                                        .homemain__slide__left__priceNreview
+                                            .homemain__slide__left__price
+                                                span= slide.price
+                                                span= ' USD'
+                                            .homemain__slide__left__reviews
+                                                .homemain__slide__left__reviews__stars(style=`--multix: ${slide.review};`)
+                                                span.homemain__slide__left__review__qty= `(${slide.review_qty} reviews)`
+                                    .homemain__slide__left__textboxNlink
+                                        .homemain__slide__left__textbox
+                                            p=slide.text
+                                        a.homemain__slide__left__link(href=slide.link) view product
+
+                    .homemain__navpag
+                        .homemain__navigation
+                            .homemain__navigation__left
+                            .homemain__navigation__right
+                        .homemain__navpag__hr
+                        .homemain__pagination
+                
+                .homemain__swiper.right.swiper-container
+                    .homemain__wrapper.swiper-wrapper   
+                        each slide, index in slides
+                            .homemain__slide.swiper-slide.starting
+                                .homemain__slide__right(data-sp=slide.sp ? '1' : '0')
+                                    .homemain__slide__right__imgbox
+                                        img(src=slide.image, alt=slide.title)
+            .homemain__categories
+                .homemain__categories__headings
+                    h3.ptitle Categories
+                    a.viewallprods(href="/products") view all products
+                ul.homemain__categories__list
+                    each cat, index in categories
+                        li.homemain__categories__item
+                            .homemain__categories__item__imgbox
+                                img(src=cat.image, alt=cat.title)
+                            .homemain__categories__item__textcontent
+                                h4.homemain__categories__item__title
+                                    a(href="#")= cat.title
+                                p
+                                    span=cat.qty
+                                    |  products
+                                a.homemain__categories__item__link(href="basket.html") shop now
+                    li.homemain__categories__item.promotions
+                        .homemain__categories__item__textcontent
+                            h4.homemain__categories__item__title
+                                a(href="product.html") promotions
+            .homemain__populars
+                .homemain__categories__headings
+                    h3.ptitle Popular products
+                    .homemain__populars__navigation
+                        .homemain__populars__navigation__left
+                            include ../components/popularsnavleft
+                        .homemain__populars__navigation__right
+                            include ../components/popularsnavright
+                .homemain__populars__slider
+                    .homemain__populars__swiper.swiper-container
+                        .homemain__populars__wrapper.swiper-wrapper
+                            each slide, index in slides
+                                .homemain__populars__slide.swiper-slide
+                                    a.homemain__populars__slide__imgbox(href=slide.link) 
+                                        img(src=slide.image, alt=slide.name)
+                                    .homemain__populars__slide__textcontent
+                                        p.homemain__populars__slide__category= slide.category
+                                        h4.homemain__populars__slide__title
+                                            a(href=slide.link)= slide.title
+                                        h4.homemain__populars__slide__price
+                                            span.homemain__populars__slide__price__discount=`${slide.price} USD`
+                                            span.homemain__populars__slide__price__current
+                                                    span=slide.price
+                                                    |  USD
+                                        .homemain__populars__slide__btns
+                                            .addtobag.addinbasketbtn(data-id=slide.id)
+                                                include ../components/bag
+                                                .flip
+                                                    span.add add to bag
+                                                    span.remove remove
+                                            .homemain__populars__slide__btns__hr
+                                            .addtofav(data-id=slide.id)
+                                                include ../components/heart
+                                            .addtocompare(data-id=slide.id)
+                                                include ../components/smth
+
+                        .homemain__populars__scrollbar
+            .homemain__sales
+                .homemain__categories__headings
+                    h3.ptitle Sales
+                    .homemain__sales__categories__activetext(data-value='All')
+                    .homemain__sales__categories
+                        ul.homemain__sales__categories__list
+                            li.active(data-id='0' data-image="assets/img/homesales/coverall.jpg") All
+                            each category, index in categories
+                                li(data-id=category.id data-image=category.image)= category.title
+                .homemain__sales__content             
+                    .homemain__sales__coverbox
+                        img(src="assets/img/homesales/coverall.jpg", alt="")
+                    .homemain__sales__products
+                        each slide, index in slides
+                            .homemain__sales__item(data-id=slide.id)
+                                .homemain__sales__item__saving
+                                    span save 
+                                    span=Math.floor(Math.random() * 30 * 100) / 100
+                                    span  USD
+                                a.homemain__sales__item__imgbox(href=slide.link)
+                                    img(src=slide.image, alt="")
+                                .homemain__sales__item__textcontent
+                                    p.homemain__sales__item__category=slide.category
+                                    h5.homemain__sales__item__title
+                                        a(href=slide.link)=slide.title
+                                    .homemain__sales__item__bagNprice.addinbasketbtn(data-id=slide.id)
+                                        .addtobag
+                                            include ../components/bag
+                                            .flip
+                                                span.add add to bag
+                                                span.remove remove
+                                        .homemain__sales__item__prices
+                                            .homemain__sales__item__price.discount
+                                                span=slide.price
+                                                |  USD
+                                            .homemain__sales__item__price.current
+                                                span=slide.price
+                                                |  USD
+                                    .homemain__sales__item__hoverbtns
+                                        .homemain__sales__item__addtofav.addtofav(data-id=slide.id)
+                                            include ../components/heart
+                                        .homemain__sales__item__addtocompare.addtocompare(data-id=slide.id)
+                                            include ../components/smth
+                        each slide, index in slides
+                            .homemain__sales__item(data-id=slide.id)
+                                .homemain__sales__item__saving
+                                    span save 
+                                    span=Math.floor(Math.random() * 30 * 100) / 100
+                                    span  USD
+                                a.homemain__sales__item__imgbox(href=slide.link)
+                                    img(src=slide.image, alt="")
+                                .homemain__sales__item__textcontent
+                                    p.homemain__sales__item__category=slide.category
+                                    h5.homemain__sales__item__title
+                                        a(href=slide.link)=slide.title
+                                    .homemain__sales__item__bagNprice.addinbasketbtn(data-id=slide.id)
+                                        .addtobag
+                                            include ../components/bag
+                                            .flip
+                                                span.add add to bag
+                                                span.remove remove
+                                        .homemain__sales__item__prices
+                                            .homemain__sales__item__price.discount
+                                                span=slide.price
+                                                |  USD
+                                            .homemain__sales__item__price.current
+                                                span=slide.price
+                                                |  USD
+                                    .homemain__sales__item__hoverbtns
+                                        .homemain__sales__item__addtofav.addtofav(data-id=slide.id)
+                                            include ../components/heart
+                                        .homemain__sales__item__addtocompare.addtocompare(data-id=slide.id)
+                                            include ../components/smth
+            .homemain__interestedInDiscounts
+                h6.homemain__interestedInDiscounts__title Were you interested in discounts?
+                p.homemain__interestedInDiscounts__text Products that give you options but never cover you up, turn you into someone else, or over-complicate your routine. Because beauty should make you feel good.
+                a.homemain__slide__left__link(href='#') view all discounted product
+            .homemain__newproducts
+                .homemain__categories__headings
+                    h3.ptitle New products
+                ul.homemain__newproducts__list
+                    each slide, index in slides
+                        li.homemain__sales__item(data-id=slide.id)
+                            .homemain__sales__item__saving
+                                span save 
+                                span=Math.floor(Math.random() * 30 * 100) / 100
+                                span  USD
+                            a.homemain__sales__item__imgbox(href=slide.link)
+                                img(src=slide.image, alt="")
+                            .homemain__sales__item__textcontent
+                                p.homemain__sales__item__category=slide.category
+                                h5.homemain__sales__item__title
+                                    a(href=slide.link)=slide.title
+                                .homemain__sales__item__bagNprice.addinbasketbtn(data-id=slide.id)
+                                    .addtobag
+                                        include ../components/bag
+                                        .flip
+                                            span.add add to bag
+                                            span.remove remove
+                                    .homemain__sales__item__prices
+                                        .homemain__sales__item__price.discount
+                                            span=slide.price
+                                            |  USD
+                                        .homemain__sales__item__price.current
+                                            span=slide.price
+                                            |  USD
+                                .homemain__sales__item__hoverbtns
+                                    .homemain__sales__item__addtofav.addtofav(data-id=slide.id)
+                                        include ../components/heart
+                                    .homemain__sales__item__addtocompare.addtocompare(data-id=slide.id)
+                                        include ../components/smth
+                    each slide, index in slides
+                        li.homemain__sales__item(data-id=slide.id)
+                            .homemain__sales__item__saving
+                                span save 
+                                span=Math.floor(Math.random() * 30 * 100) / 100
+                                span  USD
+                            a.homemain__sales__item__imgbox(href=slide.link)
+                                img(src=slide.image, alt="")
+                            .homemain__sales__item__textcontent
+                                p.homemain__sales__item__category=slide.category
+                                h5.homemain__sales__item__title
+                                    a(href=slide.link)=slide.title
+                                .homemain__sales__item__bagNprice.addinbasketbtn(data-id=slide.id)
+                                    .addtobag
+                                        include ../components/bag
+                                        .flip
+                                            span.add add to bag
+                                            span.remove remove
+                                    .homemain__sales__item__prices
+                                        .homemain__sales__item__price.discount
+                                            span=slide.price
+                                            |  USD
+                                        .homemain__sales__item__price.current
+                                            span=slide.price
+                                            |  USD
+                                .homemain__sales__item__hoverbtns
+                                    .homemain__sales__item__addtofav.addtofav(data-id=slide.id)
+                                        include ../components/heart
+                                    .homemain__sales__item__addtocompare.addtocompare(data-id=slide.id)
+                                        include ../components/smth
+                    each slide, index in slides
+                        li.homemain__sales__item(data-id=slide.id)
+                            .homemain__sales__item__saving
+                                span save 
+                                span=Math.floor(Math.random() * 30 * 100) / 100
+                                span  USD
+                            a.homemain__sales__item__imgbox(href=slide.link)
+                                img(src=slide.image, alt="")
+                            .homemain__sales__item__textcontent
+                                p.homemain__sales__item__category=slide.category
+                                h5.homemain__sales__item__title
+                                    a(href=slide.link)=slide.title
+                                .homemain__sales__item__bagNprice.addinbasketbtn(data-id=slide.id)
+                                    .addtobag
+                                        include ../components/bag
+                                        .flip
+                                            span.add add to bag
+                                            span.remove remove
+                                    .homemain__sales__item__prices
+                                        .homemain__sales__item__price.discount
+                                            span=slide.price
+                                            |  USD
+                                        .homemain__sales__item__price.current
+                                            span=slide.price
+                                            |  USD
+                                .homemain__sales__item__hoverbtns
+                                    .homemain__sales__item__addtofav.addtofav(data-id=slide.id)
+                                        include ../components/heart
+                                    .homemain__sales__item__addtocompare.addtocompare(data-id=slide.id)
+                                        include ../components/smth
+                
+                .homemain__newproducts__viewall
+                    a.homemain__slide__left__link(href='product.html') view all product
+        
+        
+        include ../layouts/_basket
+        include ../layouts/_footer
+        
+        include ../layouts/_respomenu
+        
+        include ../layouts/_scripts
+        script(src="assets/js/homepage.js") 

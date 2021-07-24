@@ -1,0 +1,53 @@
+footer.footer
+    .footer__content
+        .footer__columns.container
+            .footer__columns__column
+                h4.footer__columns__column__title Shop
+                ul
+                    each shopli, index in shopul
+                        li
+                            a(href='#')= shopli
+            .footer__columns__column
+                h4.footer__columns__column__title Company
+                ul
+                    li
+                        a(href="about.pug") About us 
+                    li
+                        a(href="help.pug") Help & FAQ
+                    li
+                        a(href="blog.pug") Blog
+                    li
+                        a(href="contact.pug") Contact us 
+            .footer__columns__column
+                h4.footer__columns__column__title Career
+                ul
+                    li
+                        a(href="referal.pug") refferal system
+                    li
+                        a(href="howitwork.pug") How it Work?
+            .footer__columns__column
+                h4.footer__columns__column__title Account
+                ul
+                    li.loginlink Login
+                    li.registerlink Sign up
+            .footer__columns__column
+                h4.footer__columns__column__title Become our friend
+                ul
+                    li
+                        a(href="https://www.facebook.com/", target="_blank") Facebook
+                    li
+                        a(href="https://www.instagram.com/", target="_blank") Instagram
+                    li
+                        a(href="https://twitter.com/", target="_blank") Twitter
+                    li
+                        a(href="https://www.youtube.com/", target="_blank") Youtube
+            .footer__columns__column.logo
+                a.footer__columns__column__title(href="index.pug")
+                    include ../components/logo
+                .footer__langbar
+                    a(href="#")
+                        img(src="assets/img/flags/geo.svg", alt="")
+                    a(href="#")
+                        img(src="assets/img/flags/eng.svg", alt="")
+                    a.active(href="#")
+                        img(src="assets/img/flags/rus.svg", alt="")

@@ -1,0 +1,268 @@
+- const title = 'ProductIn'
+- const loggedin = false
+
+doctype html
+html(lang="en")
+    head
+        link(rel="stylesheet", href="assets/css/swiper-bundle.min.css")
+        include ../layouts/_head
+
+    body 
+        include ../layouts/_header
+        include ../layouts/_loginmodal
+        include ../components/_reviewmodal
+
+        .main.productin.container
+            main.productinmain
+                .productinmain__gallery
+                    .productinmain__gallery__mainswiper.scaling.swiper-container
+                        .productinmain__gallery__mainswiper__wrapper.swiper-wrapper
+                            each image, index in slides
+                                .productinmain__gallery__mainswiper__slide.swiper-slide
+                                    img(src=image.image, alt="")
+                    .productinmain__gallery__thumbswiper.swiper-container
+                        .productinmain__gallery__thumbswiper__wrapper.swiper-wrapper
+                            each image, index in slides
+                                .productinmain__gallery__thumbswiper__slide.swiper-slide
+                                    img(src=image.image, alt="")
+                .productinmain__info
+                    .productinmain__info__headings
+                        .productinmain__info__headings__catNcode
+                            .productinmain__info__headings__category moisturize
+                            .productinmain__info__headings__code #1342524123
+                        h1 Intensive Obliphicha Multi-Purpose Cream
+                    .productinmain__info__priceinfo
+                        .homemain__sales__item__saving.static
+                            span save 
+                            span 4
+                            span  USD
+                        .homemain__populars__slide__price
+                            span.homemain__populars__slide__price__discount 24.3 USD
+                            span.homemain__populars__slide__price__current
+                                span 20.3
+                                |  USD
+                        .productinmain__info__priceinfo__stockinfo
+                            | (only 
+                            span 3
+                            |  left in stoke)
+                    .productinmain__info__radio.milligrams
+                        label(for="milligram1")
+                            input#milligram1(type="radio", name="milligram", value="1", form='basketform', checked)
+                            .activecheckbox 0.5 ml
+                        label(for="milligram2")
+                            input#milligram2(type="radio", name="milligram", value="2", form='basketform')
+                            .activecheckbox 1 ml
+                        label(for="milligram3")
+                            input#milligram3(type="radio", name="milligram", value="3", form='basketform')
+                            .activecheckbox 5 ml
+                    .productinmain__info__radio.colors
+                        label(for="color1")
+                            input#color1(type="radio", name="color", value="1", form='basketform', checked)
+                            .activecheckbox(style="background-color: #B7C88E")
+                        label(for="color2")
+                            input#color2(type="radio", name="color", value="2", form='basketform')
+                            .activecheckbox(style="background-color: #FDF8E8")
+                        label(for="color3")
+                            input#color3(type="radio", name="color", value="3", form='basketform')
+                            .activecheckbox(style="background-color: #131313")
+                    .productinmain__info__details
+                        .productinmain__info__details__tabs
+                            .productinmain__info__details__tab.description.active description
+                            .productinmain__info__details__tab.ingredients ingredients
+                        .productinmain__info__details__contents
+                            .productinmain__info__details__content.description
+                                p
+                                    | It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                            .productinmain__info__details__content.ingredients
+                                ul.ingredients__list
+                                    each ingr, index in ingredients
+                                        li.ingredients__list__item
+                                            .ingredients__list__item__imgbox
+                                                img(src=ingr.image, alt=ingr.name)
+                                            h6= ingr.name
+                                    each ingr, index in ingredients
+                                        li.ingredients__list__item
+                                            .ingredients__list__item__imgbox
+                                                img(src=ingr.image, alt=ingr.name)
+                                            h6= ingr.name
+                                    each ingr, index in ingredients
+                                        li.ingredients__list__item
+                                            .ingredients__list__item__imgbox
+                                                img(src=ingr.image, alt=ingr.name)
+                                            h6= ingr.name
+                                    each ingr, index in ingredients
+                                        li.ingredients__list__item
+                                            .ingredients__list__item__imgbox
+                                                img(src=ingr.image, alt=ingr.name)
+                                            h6= ingr.name
+                                    each ingr, index in ingredients
+                                        li.ingredients__list__item
+                                            .ingredients__list__item__imgbox
+                                                img(src=ingr.image, alt=ingr.name)
+                                            h6= ingr.name
+                                .ingredients__toggler
+                                    span 
+                                        span.default view all
+                                        span.toggled show less
+                                    span.dark  ingredients
+                    .productinmain__info__formAndOtherBtns
+                        form#basketform.productinmain__info__basketform
+                            .productinmain__info__basketform__quantity
+                                .productinmain__info__basketform__quantity__minusbtn
+                                    include ../components/basketminus
+                                input#quantity(type="number", name="quantity", value="1", min="0", max="1000", step="1")
+                                .productinmain__info__basketform__quantity__plusbtn
+                                    include ../components/basketplus
+                            .addtobag.addinbasketbtn.inform(data-id="6")
+                                include ../components/bag
+                                .flip
+                                    span.add add to bag
+                                    span.remove remove
+                        .productinmain__info__otherbtns
+                            .productinmain__info__compare.addtocompare(data-id="87")
+                                include ../components/smth
+                            .productinmain__info__addtofav.addtofav(data-id="87")
+                                include ../components/heart
+            section.homemain__interestedInDiscounts
+                h6.homemain__interestedInDiscounts__title Delivery info
+                .homemain__interestedInDiscounts__additionalinfo
+                    .homemain__interestedInDiscounts__additionalinfo__truck
+                        | Delivery in 
+                        span 4 days
+                    .homemain__interestedInDiscounts__additionalinfo__pricetag
+                        | Delivery price 
+                        span 10.00 
+                        span $
+                    a.homemain__interestedInDiscounts__additionalinfo__returnpolicy(href="#") Return policy
+                .homemain__interestedInDiscounts__contactus
+                    | have a question? 
+                    a(href="#") contact us
+            section.productin__similars
+                .homemain__categories__headings
+                    h3.ptitle Similar Products
+                    .homemain__populars__navigation
+                        .homemain__populars__navigation__left.productin__similars__nav__left
+                            include ../components/popularsnavleft
+                        .homemain__populars__navigation__right.productin__similars__nav__right
+                            include ../components/popularsnavright
+                .productin__similars__slider.swiper-cointainer
+                    ul.productin__similars__wrapper.swiper-wrapper
+                        each slide, index in slides
+                            li.homemain__sales__item.swiper-slide(data-id=slide.id)
+                                .homemain__sales__item__saving
+                                    span save 
+                                    span=Math.floor(Math.random() * 30 * 100) / 100
+                                    span  USD
+                                a.homemain__sales__item__imgbox(href=slide.link)
+                                    img(src=slide.image, alt="")
+                                .homemain__sales__item__textcontent
+                                    p.homemain__sales__item__category=slide.category
+                                    h5.homemain__sales__item__title
+                                        a(href=slide.link)=slide.title
+                                    .homemain__sales__item__bagNprice.addinbasketbtn(data-id=slide.id)
+                                        .addtobag
+                                            include ../components/bag
+                                            .flip
+                                                span.add add to bag
+                                                span.remove remove
+                                        .homemain__sales__item__prices
+                                            .homemain__sales__item__price.discount
+                                                span=slide.price
+                                                |  USD
+                                            .homemain__sales__item__price.current
+                                                span=slide.price
+                                                |  USD
+                                    .homemain__sales__item__hoverbtns
+                                        .homemain__sales__item__addtofav.addtofav(data-id=slide.id)
+                                            include ../components/heart
+                                        .homemain__sales__item__addtocompare.addtocompare(data-id=slide.id)
+                                            include ../components/smth
+            
+            section.productin__reviews
+                .productin__reviews__list
+                    .homemain__slide__left__reviews
+                        .homemain__slide__left__reviews__stars(style=`--multix: 5;`)
+                        span.homemain__slide__left__review__qty= `${Math.floor(Math.random() * 100)} reviews`
+                    .homemain__slide__left__reviews
+                        .homemain__slide__left__reviews__stars(style=`--multix: 4;`)
+                        span.homemain__slide__left__review__qty= `${Math.floor(Math.random() * 100)} reviews`
+                    .homemain__slide__left__reviews
+                        .homemain__slide__left__reviews__stars(style=`--multix: 3;`)
+                        span.homemain__slide__left__review__qty= `${Math.floor(Math.random() * 100)} reviews`
+                    .homemain__slide__left__reviews
+                        .homemain__slide__left__reviews__stars(style=`--multix: 2;`)
+                        span.homemain__slide__left__review__qty= `${Math.floor(Math.random() * 100)} reviews`
+                    .homemain__slide__left__reviews
+                        .homemain__slide__left__reviews__stars(style=`--multix: 1;`)
+                        span.homemain__slide__left__review__qty= `${Math.floor(Math.random() * 100)} reviews`
+                .productin__reviews__coverbottom
+            section.productin__reviewcomments
+                ul.productin__reviewcomments__list
+                    each person, index in reviews
+                        li.productin__reviewcomments__list__item
+                            .productin__reviewcomments__list__item__X
+                                include ../components/reviewx
+                            .productin__reviewcomments__list__item__imgbox
+                                img(src=`${person.image !== '' ?person.image : 'assets/img/persons/default.svg'}`, alt=person.fullname)
+                            .productin__reviewcomments__list__item__rest
+                                h6=person.fullname
+                                .homemain__slide__left__reviews
+                                    .homemain__slide__left__reviews__stars(style=`--multix: ${person.review};`)
+                                .productin__reviewcomments__list__item__commentbox
+                                    p= person.comment
+                .productin__reviewcomments__menu
+                    .homemain__slide__left__link.loadmorecommentsbtn
+                            span.default load more
+                            span.toggled load less
+                    .or or
+                    .productin__reviewcomments__menu__writeareview write a review
+            //- cloned
+            section.productin__alsointerested
+                .homemain__categories__headings
+                    h3.ptitle You also interested
+                    .homemain__populars__navigation
+                        .homemain__populars__navigation__left.productin__alsointerested__nav__left
+                            include ../components/popularsnavleft
+                        .homemain__populars__navigation__right.productin__alsointerested__nav__right
+                            include ../components/popularsnavright
+                .productin__alsointerested__slider.swiper-cointainer
+                    ul.productin__alsointerested__wrapper.swiper-wrapper
+                        each slide, index in slides
+                            li.homemain__sales__item.swiper-slide(data-id=slide.id)
+                                .homemain__sales__item__saving
+                                    span save 
+                                    span=Math.floor(Math.random() * 30 * 100) / 100
+                                    span  USD
+                                a.homemain__sales__item__imgbox(href=slide.link)
+                                    img(src=slide.image, alt="")
+                                .homemain__sales__item__textcontent
+                                    p.homemain__sales__item__category=slide.category
+                                    h5.homemain__sales__item__title
+                                        a(href=slide.link)=slide.title
+                                    .homemain__sales__item__bagNprice.addinbasketbtn(data-id=slide.id)
+                                        .addtobag
+                                            include ../components/bag
+                                            .flip
+                                                span.add add to bag
+                                                span.remove remove
+                                        .homemain__sales__item__prices
+                                            .homemain__sales__item__price.discount
+                                                span=slide.price
+                                                |  USD
+                                            .homemain__sales__item__price.current
+                                                span=slide.price
+                                                |  USD
+                                    .homemain__sales__item__hoverbtns
+                                        .homemain__sales__item__addtofav.addtofav(data-id=slide.id)
+                                            include ../components/heart
+                                        .homemain__sales__item__addtocompare.addtocompare(data-id=slide.id)
+                                            include ../components/smth
+            
+        include ../layouts/_basket
+        include ../layouts/_footer
+        
+        include ../layouts/_respomenu
+        
+        include ../layouts/_scripts
+
+        script(src="assets/js/productin.js") 

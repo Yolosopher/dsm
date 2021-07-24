@@ -1,0 +1,235 @@
+
+.loginmodal, .reviewmodal
+    position: fixed
+    z-index: 11
+    width: calc(100% - 20px)
+    height: max-content
+    background-color: #fff
+    border-radius: 30px
+    opacity: 0
+    top: 101vh
+    left: 50%
+    transform: translateX(-50%)
+    overflow: hidden
+    height: calc(100vh - 180px)
+    transition: .25s ease-out
+    padding-bottom: #{60px + 54px}
+    @include plus1025()
+        max-width: 540px
+        height: 732px
+        min-height: auto
+        max-height: calc(100vh - 20px)
+    @include plus1900()
+        // height: 608px
+        // top: -101vh
+    &::after
+        content: ''
+        background-image: url(../img/loginmodalbg.png)
+        background-repeat: no-repeat
+        background-size: contain
+        background-position: right bottom
+        // content: url(../img/loginmodalbg.png)
+        position: absolute
+        height: 332px
+        bottom: 0
+        right: 0
+        width: 100%
+        max-width: 236px
+        z-index: -1
+    &__forms
+        padding: 0 10px
+        height: 100%
+        display: flex
+    &__X
+        cursor: pointer
+        position: absolute
+        bottom: 40px
+        left: 50%
+        transform: translateX(-50%)
+        svg
+            circle, path
+                transition: .1s ease
+        &:hover
+            svg
+                circle
+                    opacity: 1
+                path
+                    fill: $yellow
+
+    form
+        width: 100%
+        height: 100%
+        overflow: auto
+        display: flex
+        flex-direction: column
+        padding: 40px 15px
+        @include plus1025()
+            padding: 40px 95px
+        &::-webkit-scrollbar
+            width: 2px
+            background-color: transparent
+        &::-webkit-scrollbar-thumb
+            border-radius: 30px
+            background-color: rgba($dark, .2)
+        &::-webkit-scrollbar-track
+            margin: 15px 0
+            background-color: transparent
+    &__bg
+        @extend .header__navbar__bg
+        z-index: 10
+    &.toggled
+        top: 90px
+        opacity: 1
+        @include plus1025()
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%)
+    
+    h5
+        font-family: firagosemibold
+        font-size: 24px
+        line-height: 34px
+        font-weight: 600
+        text-align: center
+        color: #000
+        margin-bottom: 20px
+        text-transform: uppercase
+    label
+        margin-bottom: 8px
+        font-family: firagosemibold
+        color: $dark
+        font-weight: 600
+        font-size: 12px
+        text-transform: uppercase
+        letter-spacing: 0.012em
+        display: block
+    .input-div
+        background-color: #fff
+        display: flex
+        width: 100%
+        height: 54px
+        min-height: 54px
+        border-radius: 12px
+        // border: 1px solid #e6e6e6
+        border: 1px solid $dark
+        align-items: center
+        padding: 0 15px
+        margin-bottom: 20px
+        &__icon
+            width: max-content
+            flex-shrink: 0
+            height: 24px
+            &::after
+                content: ''
+                width: 1px
+                display: inline-block
+                height: 24px
+                border-radius: 2px
+                background-color: #E6E6E6
+                margin: 0 15px
+        input
+            flex-grow: 1
+            font-family: firagobook
+            font-weight: 400
+            font-size: 12px
+            letter-spacing: 0.012em
+            color: $dark
+            display: flex
+            align-items: center
+        &.lastinlogin
+            margin-bottom: 8px
+    .forgotpass
+        cursor: pointer
+        display: block
+        text-align: right
+        width: 100%
+        align-self: flex-end
+        max-width: max-content
+        font-family: firagobook
+        font-style: normal
+        font-weight: normal
+        font-size: 12px
+        line-height: 16px
+        letter-spacing: 0.012em
+        margin-bottom: 30px
+        text-transform: capitalize
+    .yellowbtn
+        margin-bottom: 30px
+    p
+        text-align: center
+        margin-bottom: 8px
+        font-family: firagobook
+        @include font(14px, 20px)
+        display: block
+        width: 100%
+        color: $dark
+        letter-spacing: 0.012em
+    .register, .login
+        cursor: pointer
+        text-align: center
+        align-self: center
+        @include font(14px, 20px)
+        color: $dark
+        font-family: firagosemibold
+        text-transform: uppercase
+        letter-spacing: 0.012em
+        margin-bottom: 40px
+    #recoveryform, #registerform
+        display: none
+    &.recovery
+        #loginform, #registerform
+            display: none
+        #recoveryform
+            display: flex
+        .recovery__bottom
+            // position: absolute
+            // bottom: 40px
+            // left: 50%
+            // transform: translateX(-50%)
+            display: flex
+            flex-direction: column
+            align-items: center
+    &.register
+        #loginform, #recoveryform
+            display: none
+        #registerform
+            display: flex
+
+    .loginwithFBorGmail
+        display: grid
+        grid-template-columns: 1fr 1fr
+        grid-gap: 10px
+        a
+            display: flex
+            justify-content: center
+            align-items: center
+            border-radius: 12px
+            border: 1px solid #E6E6E6
+            text-transform: uppercase
+            font-family: firagosemibold
+            font-size: 14px
+            line-height: 18px
+            color: #000
+            height: 54px
+            background-color: rgba(#E6E6E6, .2)
+        
+.yellowbtn
+    cursor: pointer
+    width: 100%
+    max-width: 350px
+    height: 54px
+    min-height: 54px
+    display: flex
+    justify-content: center
+    align-items: center
+    border-radius: 12px
+    background-color: $yellow
+    color: $dark
+    font-family: firagosemibold
+    font-size: 14px
+    line-height: 18px
+    text-transform: uppercase
+    &.br60
+        border-radius: 60px
+
+

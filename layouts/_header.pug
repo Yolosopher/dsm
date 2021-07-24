@@ -1,0 +1,72 @@
+-
+    const shopul = ['perfume', 'decorative cosmetics', 'skin care', 'body care', 'spa cosmetics', 'hair care', 'healing cosmetics', 'makeup', 'promotions']
+header.header
+    a.header__logo(href="index.html") 
+        img(src="assets/img/logo.svg", alt="dsm.ge", title="dsm_logo")
+    .header__left
+        nav.header__navbar
+            .header__navbar__icons
+                span.header__navbar__icons__top
+                span.header__navbar__icons__bottom
+
+        .header__hr
+        .header__langbar
+            span.active
+                include ../components/flags/eng 
+            a(href="#")
+                include ../components/flags/geo 
+            a(href="#")
+                include ../components/flags/rus 
+        .header__hr  
+        form.header__searchform
+            button(type="submit")
+                include ../components/search_header
+            input#search(type="text", name="search", placeholder="Search your product")
+    .header__right
+        .header__smth
+            include ../components/smth
+            span.length(data-length="0")
+        .header__hr
+        .header__favourites
+            include ../components/heart
+            span.length(data-length="0")
+        .header__hr
+        if loggedin
+            a.header__loginbtn.loggedin(href='#')
+                include ../components/person
+                span= `Hello, ${loggedin}`
+        else
+            .header__loginbtn.login
+                include ../components/person
+                span login
+        .header__basket
+            include ../components/bag
+form.header__searchform.mobile
+    button(type="submit")
+        include ../components/search_header
+    input#searchmob(type="text", name="search", placeholder="Search your product")
+    include ../components/searchx
+.header__navbar__bg
+.header__navbar__content
+    .header__navbar__content__withscroll
+        h3.header__navbar__title shop
+        ul.header__navbar__shop
+            each shopli, index in shopul
+                li
+                    a(href='product.html')= shopli
+        h3.header__navbar__title company
+        ul.header__navbar__company
+            li
+                a(href="about.html") About us 
+            li
+                a(href="/help.html") Help & FAQ
+            li
+                a(href="/blog.html") Blog
+            li
+                a(href="contact.html") Contact us 
+        h3.header__navbar__title refferal system
+        ul.header__navbar__company
+            li
+                a(href="/referal.html") refferal system
+            li
+                a(href="/howitwork.html") How it Work?

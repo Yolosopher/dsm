@@ -1,0 +1,161 @@
+- const title = 'Products'
+- const loggedin = false
+
+
+doctype html
+html(lang="en")
+    head
+        include ../layouts/_head
+
+    body 
+        include ../layouts/_header
+        include ../layouts/_loginmodal
+        include ../layouts/_pagenav
+
+        main.main.productsmain.pagesmain.container
+            .productsmain__mobilebtns
+                .productsmain__mobilebtns__filterbtn filter
+                .productsmain__mobilebtns__sortbtn__container
+                    .productsmain__mobilebtns__sortbtn.productsmain__filter
+                        select#sortmob(name="sort", title='sort', form='filterform')
+                            option(value="0", selected="selected") no sort
+                            option(value="1") lastest
+                            option(value="2") oldest
+                            option(value="3") price(from lowest)
+                            option(value="4") price(from highest)
+                        .productsmain__filter__niceselect
+                            .productsmain__filter__niceselect__activetext.mobsor
+                                .svgbox
+                                    include ../components/mobilesorticon
+                            ul.productsmain__filter__niceul
+            form#filterform.productsmain__filters(action="http://localhost:2000", method='post', name='filterform', enctype='multipart/form-data')
+                .productsmain__filters__content
+                    .productsmain__filter.price
+                        .productsmain__filter__label price
+                        select#price(name="price", title='price')
+                            option(value="0", selected="selected") any
+                            option(value="1") from 1 to 50
+                            option(value="2") from 51 to 100
+                        .productsmain__filter__niceselect
+                            .productsmain__filter__niceselect__activetext
+                                .svgbox
+                                    include ../components/filterarrow
+                            ul.productsmain__filter__niceul
+                    .productsmain__filter.brand
+                        .productsmain__filter__label brand
+                        select#brand(name="brand", multiple="multiple", title='brand')
+                            option(value="0", selected="selected") Any
+                            option(value="1") almay
+                            option(value="2") alva
+                            option(value="3") annabelle
+                            option(value="4") butter london
+                        .productsmain__filter__niceselect
+                            .productsmain__filter__niceselect__activetext
+                                .svgbox
+                                    include ../components/filterarrow
+                            ul.productsmain__filter__niceul
+                    .productsmain__filter.product
+                        .productsmain__filter__label product
+                        select#product(name="product", title='product')
+                            option(value="0", selected="selected") Any
+                            option(value="1") category 1
+                            option(value="2") category 2
+                        .productsmain__filter__niceselect
+                            .productsmain__filter__niceselect__activetext
+                                .svgbox
+                                    include ../components/filterarrow
+                            ul.productsmain__filter__niceul
+                    .productsmain__filter.color
+                        .productsmain__filter__label color
+                        select#color(name="color", title="color",  multiple="multiple")
+                            option(value="0", selected="selected") Any
+                            option(value="1") red
+                            option(value="2") blue
+                            option(value="3") yellow
+                            option(value="4") green
+                        .productsmain__filter__niceselect
+                            .productsmain__filter__niceselect__activetext
+                                .svgbox
+                                    include ../components/filterarrow
+                            ul.productsmain__filter__niceul
+                    .productsmain__filter.milligrams
+                        .productsmain__filter__label milligrams
+                        select#milligrams(name="milligrams")
+                            option(value="0", selected="selected") any
+                            option(value="1") milligrams 1
+                            option(value="2") milligrams 2
+                        .productsmain__filter__niceselect
+                            .productsmain__filter__niceselect__activetext
+                                .svgbox
+                                    include ../components/filterarrow
+                            ul.productsmain__filter__niceul
+                    .productsmain__filter.sort
+                        .productsmain__filter__label sort by
+                        select#sort(name="sort", title='sort')
+                            option(value="0", selected="selected") no sort
+                            option(value="1") lastest
+                            option(value="2") oldest
+                            option(value="3") price(from lowest)
+                            option(value="4") price(from highest)
+                        .productsmain__filter__niceselect
+                            .productsmain__filter__niceselect__activetext
+                                .svgbox
+                                    include ../components/sorticon
+                            ul.productsmain__filter__niceul
+                    .productsmain__filters__X close
+                button#filterformbtn(type="submit")
+            ul.productsmain__items
+                each slide, index in slides
+                    if (index < 9)
+                        li.homemain__sales__item(data-id=slide.id)
+                            .homemain__sales__item__saving
+                                span save 
+                                span=Math.floor(Math.random() * 30 * 100) / 100
+                                span  USD
+                            a.homemain__sales__item__imgbox(href="productin.html")
+                                img(src=slide.image_link, alt="")
+                            .homemain__sales__item__textcontent
+                                p.homemain__sales__item__category=slide.brand
+                                h5.homemain__sales__item__title
+                                    a(href="productin.html")=slide.name
+                                .homemain__sales__item__bagNprice.addinbasketbtn(data-id=slide.id)
+                                    .addtobag
+                                        include ../components/bag
+                                        .flip
+                                            span.add add to bag
+                                            span.remove remove
+                                    .homemain__sales__item__prices
+                                        .homemain__sales__item__price.discount
+                                            span=slide.price
+                                            |  USD
+                                        .homemain__sales__item__price.current
+                                            span=slide.price
+                                            |  USD
+                                .homemain__sales__item__hoverbtns
+                                    .homemain__sales__item__addtofav.addtofav(data-id=slide.id)
+                                        include ../components/heart
+                                    .homemain__sales__item__addtocompare.addtocompare(data-id=slide.id)
+                                        include ../components/smth
+            .productsmain__pagination
+                .productsmain__pagination__left
+                    include ../components/productpagleftarrow
+                    
+                ul.productsmain__pagination__ul
+                    each a, b in Array(5)
+                        if b === 0
+                            li.active=b+1
+                        else
+                            li=b+1
+                .productsmain__pagination__right
+                    include ../components/productpagleftarrow
+
+        include ../layouts/_basket
+        include ../layouts/_footer
+        
+        include ../layouts/_respomenu
+        
+        include ../layouts/_scripts
+
+        script.
+            let SEND_FILTER_FORM = 'http://localhost:2000/' // ვაგზავნი ფილტრის მთლიანი ფორმის json-ს. post რიქვესთით
+        script(src="assets/js/products.js") 

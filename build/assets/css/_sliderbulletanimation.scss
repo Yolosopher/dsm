@@ -1,0 +1,307 @@
+.pagbullet {
+	--opacity: 0.2;
+	--radius: 14px;
+	--borderSize: 1px;
+	--bgcolor: #131313;
+	--radius: 14px;
+	cursor: pointer;
+	width: var(--radius);
+	height: var(--radius);
+	border-radius: 50%;
+	overflow: hidden;
+	opacity: var(--opacity);
+	background-color: #fff;
+	transform: rotate(-135deg);
+	position: relative;
+	transition: opacity 0.8s 0.8s linear;
+	&::after,
+	&::before {
+		position: absolute;
+		content: '';
+		display: flex;
+		top: var(--borderSize);
+		left: var(--borderSize);
+	}
+	&::after {
+		width: calc(var(--radius) - (var(--borderSize) * 2));
+		height: calc(var(--radius) - (var(--borderSize) * 2));
+		background-color: #fff;
+		box-sizing: border-box;
+		// box-shadow: inset 0px 0px 0 2px #fff, inset 0px 0px 0 6px var(--bgcolor);
+		z-index: 3;
+		border-radius: 50%;
+		transition: 0.8s linear;
+	}
+	> div {
+		position: absolute;
+		display: flex;
+		width: 8px;
+		height: 8px;
+		top: 50%;
+		left: 50%;
+		z-index: 4;
+		transform: translate(-50%, -50%);
+		border-radius: 50%;
+		background-color: var(--bgcolor);
+	}
+	&::before {
+		z-index: 2;
+		background-color: var(--bgcolor);
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		clip-path: polygon(
+			0 100%,
+			// fourth (2)
+			50% 50%,
+			0 0,
+			0 0,
+			// first (1)
+			50% 50%,
+			100% 0,
+			100% 0,
+			// second (2)
+			50% 50%,
+			100% 100%,
+			100% 100%,
+			// third (1)
+			50% 50%,
+			0 100%
+		);
+		animation: gotofullreverse 0.8s linear reverse;
+	}
+	&.pagbullet__active {
+		opacity: 1;
+		&::before {
+			clip-path: polygon(
+				0 100%,
+				// fourth (2)
+				50% 50%,
+				0 0,
+				100% 0,
+				// first (1)
+				50% 50%,
+				100% 0,
+				100% 100%,
+				// second (2)
+				50% 50%,
+				100% 100%,
+				0 100%,
+				// third (1)
+				50% 50%,
+				0 100%
+			);
+			transition: clip-path 0s .8s linear;
+			animation: gotofull 0.8s 0.8s linear forwards;
+		}
+	}
+	&:not(:last-child) {
+		margin-right: 15px;
+	}
+}
+
+@keyframes gotofull {
+	0% {
+		clip-path: polygon(
+			0 100%,
+			// fourth (2)
+			50% 50%,
+			0 0,
+			0 0,
+			// first (1)
+			50% 50%,
+			100% 0,
+			100% 0,
+			// second (2)
+			50% 50%,
+			100% 100%,
+			100% 100%,
+			// third (1)
+			50% 50%,
+			0 100%
+		);
+	}
+	33% {
+		clip-path: polygon(
+			0 100%,
+			// fourth (2)
+			50% 50%,
+			0 0,
+			100% 0,
+			// first (1)
+			50% 50%,
+			100% 0,
+			100% 0,
+			// second (2)
+			50% 50%,
+			100% 100%,
+			100% 100%,
+			// third (1)
+			50% 50%,
+			0 100%
+		);
+	}
+	66% {
+		clip-path: polygon(
+			0 100%,
+			// fourth (2)
+			50% 50%,
+			0 0,
+			100% 0,
+			// first (1)
+			50% 50%,
+			100% 0,
+			100% 100%,
+			// second (2)
+			50% 50%,
+			100% 100%,
+			100% 100%,
+			// third (1)
+			50% 50%,
+			0 100%
+		);
+	}
+	100% {
+		clip-path: polygon(
+			0 100%,
+			// fourth (2)
+			50% 50%,
+			0 0,
+			100% 0,
+			// first (1)
+			50% 50%,
+			100% 0,
+			100% 100%,
+			// second (2)
+			50% 50%,
+			100% 100%,
+			0 100%,
+			// third (1)
+			50% 50%,
+			0 100%
+		);
+	}
+	// 100% {
+	// 	clip-path: polygon(
+	// 		0 0,
+	// 		// fourth (2)
+	// 		50% 50%,
+	// 		0 0,
+	// 		100% 0,
+	// 		// first (1)
+	// 		50% 50%,
+	// 		100% 0,
+	// 		100% 100%,
+	// 		// second (2)
+	// 		50% 50%,
+	// 		100% 100%,
+	// 		0 100%,
+	// 		// third (1)
+	// 		50% 50%,
+	// 		0 100%
+	// 	);
+	// }
+}
+@keyframes gotofullreverse {
+	0% {
+		clip-path: polygon(
+			0 100%,
+			// fourth (2)
+			50% 50%,
+			0 0,
+			0 0,
+			// first (1)
+			50% 50%,
+			100% 0,
+			100% 0,
+			// second (2)
+			50% 50%,
+			100% 100%,
+			100% 100%,
+			// third (1)
+			50% 50%,
+			0 100%
+		);
+	}
+	33% {
+		clip-path: polygon(
+			0 100%,
+			// fourth (2)
+			50% 50%,
+			0 0,
+			100% 0,
+			// first (1)
+			50% 50%,
+			100% 0,
+			100% 0,
+			// second (2)
+			50% 50%,
+			100% 100%,
+			100% 100%,
+			// third (1)
+			50% 50%,
+			0 100%
+		);
+	}
+	66% {
+		clip-path: polygon(
+			0 100%,
+			// fourth (2)
+			50% 50%,
+			0 0,
+			100% 0,
+			// first (1)
+			50% 50%,
+			100% 0,
+			100% 100%,
+			// second (2)
+			50% 50%,
+			100% 100%,
+			100% 100%,
+			// third (1)
+			50% 50%,
+			0 100%
+		);
+	}
+	100% {
+		clip-path: polygon(
+			0 100%,
+			// fourth (2)
+			50% 50%,
+			0 0,
+			100% 0,
+			// first (1)
+			50% 50%,
+			100% 0,
+			100% 100%,
+			// second (2)
+			50% 50%,
+			100% 100%,
+			0 100%,
+			// third (1)
+			50% 50%,
+			0 100%
+		);
+	}
+	// 100% {
+	// 	clip-path: polygon(
+	// 		0 0,
+	// 		// fourth (2)
+	// 		50% 50%,
+	// 		0 0,
+	// 		100% 0,
+	// 		// first (1)
+	// 		50% 50%,
+	// 		100% 0,
+	// 		100% 100%,
+	// 		// second (2)
+	// 		50% 50%,
+	// 		100% 100%,
+	// 		0 100%,
+	// 		// third (1)
+	// 		50% 50%,
+	// 		0 100%
+	// 	);
+	// }
+}

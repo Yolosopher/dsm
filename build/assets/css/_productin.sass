@@ -1,0 +1,825 @@
+.productinmain
+    position: relative
+    padding-top: 144px
+    display: grid
+    width: 100%
+    margin-bottom: 50px
+    @include plus1025()
+        position: static
+        padding-top: 40px
+        grid-template-columns: minmax(528px, 1fr) 1fr
+        grid-gap: 30px
+    &__gallery
+        width: 100%
+        overflow: hidden
+        margin-bottom: 30px
+        @include plus1025()
+            margin-bottom: 0
+        &__mainswiper
+            margin-bottom: 20px
+            width: 100%
+            padding: 30px
+            height: 290px
+            @include plus1025()
+                height: 528px
+                max-height: calc(100vh - #{90px + 40px + 40px + 70px})
+            &__wrapper
+                max-height: calc(100vh - #{90px + 40px + 40px + 70px})
+                height: 100%
+                transition-delay: 400ms !important
+            &__slide
+                max-height: calc(100vh - #{90px + 40px + 40px + 70px})
+                height: 100%
+                padding: 30px
+                transform: scale(.5)
+                transition: transform .4s
+                @include plus1025()
+                    padding: 40px 76px
+                img
+                    width: 100%
+                    height: 100%
+                    object-fit: contain
+            &.scaling
+                .productinmain__gallery__mainswiper__slide
+                    transform: scale(1)
+        &__thumbswiper
+            height: 50px
+            width: 100%
+            overflow: hidden
+            &__wrapper
+                height: 100%
+            &__slide
+                opacity: .3
+                height: 100%
+                cursor: pointer
+                transition: opacity .4s ease-out
+                img
+                    width: 100%
+                    height: 100%
+                    object-fit: contain
+                &.swiper-slide-thumb-active
+                    opacity: 1
+
+
+    &__info
+        &__headings
+            position: absolute
+            top: 0
+            @include plus1025()
+                position: static
+                margin-bottom: 30px
+            &__catNcode
+                display: grid
+                grid-template-columns: auto auto
+                width: max-content
+                align-items: center
+                grid-gap: 20px
+                font-family: firagobook
+                color: #707477
+                font-weight: 400
+                @include font(14px, 20px)
+                margin-bottom: 16px
+                @include plus1025()
+                    margin-bottom: 13px
+                        
+            &__category
+                text-transform: uppercase
+            &__code
+                opacity: .6
+
+            h1
+                color: $dark
+                overflow: hidden
+                @include maxcolumn(2)
+                min-height: 68px
+                max-height: 68px
+                font-family: firagobook
+                @include font(24px, 33.6px)
+                font-weight: 400 !important
+                text-transform: uppercase
+                @include plus1025()
+                    min-height: 96px
+                    max-height: 96px
+                    @include font(34px, 47.6px)
+
+        &__priceinfo
+            display: flex
+            flex-direction: column
+            align-items: center
+            width: 100%
+            margin-bottom: 30px
+            @include plus1025()
+                display: grid
+                grid-template-columns: auto auto auto
+                width: max-content
+                flex-direction: unset
+                grid-gap: 20px
+            > *
+                flex-grow: 0
+
+
+            .homemain__sales__item__saving
+                margin-bottom: 20px
+                @include plus1025()
+                    margin-bottom: 0
+            .homemain__populars__slide__price
+                margin-bottom: 16px
+                @include font(24px, 34px)
+                
+                @include plus1025()
+                    margin-bottom: 0
+                &__discount
+                    font-family: firagobook
+                    span
+                        font-family: inherit
+                &__current
+                    span
+                        font-family: inherit
+                    font-family: firagosemibold
+            &__stockinfo
+                font-family: firagobook
+                color: $redstock
+                @include font(14px, 20px)
+
+        &__radio
+            margin-bottom: 30px
+            display: flex
+            align-items: center
+            input
+                display: none
+            label
+                &:not(:last-of-type)
+                    margin-right: 10px
+            &.milligrams
+                label
+                    border-radius: 60px
+                    overflow: hidden         
+
+                .activecheckbox
+                    cursor: pointer
+                    height: 44px
+                    font-family: firagosemibold
+                    @include font(14px, 20px)
+                    color: #707477
+                    border: 1px solid #E6E6E6
+                    border-radius: 60px
+                    display: flex
+                    width: max-content
+                    align-items: center
+                    justify-content: center
+                    padding: 0 24px
+                    transition: .3s ease-out
+                input:checked + .activecheckbox
+                    background-color: $yellow
+                    border-color: $yellow
+                    color: $dark
+            &.colors
+                label
+                    border-radius: 50%
+                    overflow: hidden
+                .activecheckbox
+                    cursor: pointer
+                    display: flex
+                    justify-content: center
+                    align-items: center
+                    width: 34px
+                    height: 34px
+                    position: relative
+                    &::after
+                        content: ''
+                        z-index: 1
+                        position: absolute
+                        left: 50%
+                        top: 50%
+                        transform: translate(-50%, -50%)
+                        display: flex
+                        width: 0
+                        height: 0
+                        opacity: 0
+                        border-radius: 50%
+                        border: 2px solid #fff
+                        background-color: $yellow
+                        transition: .3s ease-out
+                input:checked + .activecheckbox
+                    &::after
+                        width: 12px
+                        height: 12px
+                        opacity: 1
+
+        &__details
+            margin-bottom: 30px
+            @include plus1025()
+                margin-bottom: 50px
+            &__tabs
+                margin-bottom: 16px
+                font-family: firagosemibold
+                @include font(12px, 16px)
+                text-transform: uppercase
+                letter-spacing: 0.012em
+                font-weight: 600
+            &__tab
+                color: #707477
+                display: inline-block
+                cursor: pointer
+                font-family: firagosemibold
+                transition: .2s ease-out
+                font-weight: 600
+                font-size: 12px
+                line-height: 16px
+                /* or 140% */
+
+                letter-spacing: 0.012em
+                &.description
+                    margin-right: 20px
+                &.active
+                    color: $dark
+
+            &__contents
+                display: flex
+                width: 100%
+                overflow: hidden
+
+
+            &__content
+                width: 100%
+                flex-shrink: 0
+                overflow: hidden
+                transform: translateX(0)
+                transition: opacity .2s ease-out, transform .2s ease-out, max-height 0s .2s linear
+                &.description
+                    opacity: 1
+                    font-family: firagobook
+                    color: $dark34
+                    @include font(14px, 19.6px)
+                    font-weight: 400
+                    transition-delay: .2s
+                    max-height: 100vh
+                &.ingredients
+                    opacity: 0
+                    max-height: 0
+                    ul
+                        --height: max-content
+                        display: grid
+                        grid-template-columns: repeat(2, 1fr)
+                        grid-gap: 10px
+                        height: 170px
+                        transition: height .4s ease-out
+                        overflow: hidden
+                        margin-bottom: 16px
+                        @include plus1025()
+                            grid-template-columns: repeat(3, 1fr)
+                            grid-gap: 10px 30px
+                            height: 150px
+                        &.toggled
+                            height: var(--height)
+                            + .ingredients__toggler
+                                .default
+                                    display: none
+                                .toggled
+                                    display: inline
+                    li
+                        display: grid
+                        grid-template-columns: 1fr 63px
+                        grid-gap: 10px
+                        align-items: center
+                        width: 100%
+                        height: 50px
+                        border: 1px solid #E6E6E6
+                        background-color: #fff
+                        border-radius: 30px
+                        padding: 5px 10px
+                        @include plus1025()
+                            height: 70px
+                            padding: 10px
+                        .ingredients__list__item__imgbox
+                            width: 100%
+                            display: flex
+                            height: 30px
+                            @include plus1025()
+                                height: 50px
+
+                            img
+                                width: 100%
+                                height: 100%
+                                object-fit: contain
+                        h6
+                            font-weight: 400
+                            font-family: firagobook
+                            @include font(14px, 20px)
+                            color: #000
+                            text-transform: capitalize
+                    .ingredients__toggler
+                        color: $yellow
+                        font-family: firagosemibold
+                        text-transform: uppercase
+                        @include font(14px, 18px)
+                        font-weight: 600
+                        cursor: pointer
+                        margin: 0 auto
+                        width: max-content
+                        .dark
+                            color: $dark
+                        span
+                            font-family: inherit
+                        .toggled
+                            display: none
+                        
+
+                &.switched
+                    transform: translateX(-100%)
+                    &.description
+                        opacity: 0
+                        max-height: 0
+                        transition-delay: 0s
+                    &.ingredients
+                        opacity: 1
+                        max-height: 100vh
+                        transition-delay: .2s
+
+        &__formAndOtherBtns
+            display: flex
+            align-items: center
+            flex-direction: column
+            @include plus1025()
+                flex-direction: row
+                grid-gap: 10px
+        &__basketform
+            display: flex
+            align-items: center
+            gap: 10px            
+            margin-bottom: 20px
+            @include plus1025()
+                margin-bottom: 0
+            &__quantity
+                overflow: hidden
+                display: flex
+                align-items: center
+                height: 54px
+                border-radius: 60px
+                border: 1px solid #E6E6E6
+                width: 126px
+                padding: 0 20px
+                justify-content: center
+                &__minusbtn, &__plusbtn
+                    // flex-shrink: 1
+                    width: max-content
+                    cursor: pointer
+                input
+                    // 1
+                    width: 1px
+                    // flex-shrink: 1
+                    flex-grow: 1
+                    display: flex
+                    text-align: center
+                    justify-content: center
+                    align-items: center
+                    font-weight: 600
+                    font-family: firagosemibold
+                    @include font(14px, 18px)
+                    color: $dark
+            .addtobag
+                border: 1px solid #E6E6E6
+                height: 54px
+                border-radius: 60px
+                padding: 0 30px
+                overflow: hidden
+        &__otherbtns
+            display: flex
+            grid-gap: 10px
+            .addtocompare, .addtofav
+                // border: 1px solid #E6E6E6
+                border-radius: 50%
+                width: 54px
+                height: 54px
+                display: flex
+                justify-content: center
+                align-items: center
+                // .addtocompare
+                border: none
+                position: relative
+                transition: .4s ease-out
+                &::after
+                    border: 2px dashed #E6E6E6
+                    content: ''
+                    position: absolute
+                    left: 0
+                    top: 0
+                    display: flex
+                    width: 100%
+                    height: 100%
+                    border-radius: 50%
+                    z-index: -1
+                    box-sizing: border-box
+                    background-color: transparent
+                    animation: none
+                &:hover
+                    &::after
+                        border-color: $yellow
+                        animation: rot 3s linear
+                        // transform: rotate(360)
+                &.added
+                    border-color: $yellow
+                    background-color: $yellow
+.homemain__sales__item__addtofav, .homemain__sales__item__addtocompare
+    &.added
+        opacity: 1 !important
+        transform: translateY(0) !important
+        background-color: $yellow !important
+        border-color: $yellow !important
+
+
+.productin
+    .homemain__interestedInDiscounts
+        // padding: 50px 0 !important
+        height: unset !important
+        &__title
+            margin-bottom: 50px !important
+
+        &__additionalinfo
+            display: grid
+            width: 100%
+            grid-gap: 20px
+            
+            justify-items: center
+            margin-bottom: 50px
+            align-items: center
+            align-content: center
+            width: max-content
+            @include plus1025()
+                display: grid
+                grid-template-columns: repeat(3, auto)
+                grid-gap: 50px
+            > div, a
+                display: flex
+                align-items: center
+                width: max-content
+                color: $dark
+                white-space: break-spaces
+                font-family: firagobook
+                font-weight: 400
+                @include font(16px, 24px)
+                @include plus1025()
+                    font-size: 18px
+                &::before
+                    margin-right: 12px
+                span
+                    font-weight: 600
+                    font-family: firagosemibold
+            &__truck
+                &::before
+                    content: url(../img/truck.svg)
+            &__pricetag
+                padding: 0 51px
+                @include plus1025()
+                    border-left: 1px solid rgba($dark, .1)
+                    border-right: 1px solid rgba($dark, .1)
+                    height: 34px
+                &::before
+                    content: url(../img/pricetag.svg)
+            &__returnpolicy
+                &::before
+                    content: url(../img/returnpolicy.svg)
+        &__contactus
+            text-transform: uppercase
+            font-weight: 400
+            font-family: firagobook
+            @include font(16px, 22.4px)
+            
+            a
+                font-weight: 600
+                font-family: firagosemibold
+
+    &__similars, &__alsointerested
+        margin-bottom: 30px
+        overflow: hidden
+        width: 100%
+        @include plus1025()
+            margin-bottom: 70px
+        &__slider
+            padding-bottom: 20px
+    &__reviews
+        position: relative
+        height: 251px
+        overflow: hidden
+        width: 100%
+        display: flex
+        padding-bottom: 30px
+        margin-bottom: 65px
+        @include plus1025()
+            height: 115px
+        &::before
+            z-index: 1
+            content: ''
+            display: flex
+            position: absolute
+            width: 100%
+            height: 1px
+            background-color: #E6E6E6
+            border-radius: 2px
+        &__list
+            display: grid
+            width: 100%
+            padding-top: 20px
+            grid-gap: 15px
+            justify-items: center
+            justify-content: center
+            padding-bottom: 30px
+            @include plus1025()
+                grid-template-columns: repeat(5, 1fr)
+                grid-gap: 5px
+        &::after
+            content: url(../img/union.svg)
+            position: absolute
+            height: 30px
+            bottom: 0
+            left: 50%
+            transform: translateX(-50%)
+        .homemain__slide__left__reviews__stars
+            height: 24px
+            width: 132px
+            &::before
+                width: calc(100% - (var(--multix) * 20%))
+                content: url(../img/stars24.svg)
+            &::after
+                background-color: #fff
+    &__reviewcomments
+        margin-bottom: 68px
+        @include plus1025()
+            margin-bottom: 108px
+        .homemain__slide__left__reviews__stars
+            &::after
+                background-color: #F8F8F8
+        &__list
+            display: grid
+            width: 100%
+            grid-gap: 55px
+            margin-bottom: 68px
+            @include plus1025()
+                grid-gap: 75px
+
+            &__item
+                display: flex
+                background-color: #F8F8F8
+                border-radius: 30px
+                flex-direction: column
+                align-items: center
+                padding: 30px 20px
+                padding-top: 0
+                position: relative
+                
+                @include plus1025()
+                    padding: 30px 14%
+                    padding-top: 0
+                &__imgbox
+                    border: 3px solid #fff
+                    width: 76px
+                    transform: translateY(-50%)
+                    height: 76px
+                    border-radius: 50%
+                    overflow: hidden
+                    margin-bottom: 16px
+                    
+                    img
+                        width: 100%
+                        height: 100%
+                        object-fit: cover
+                        object-position: center
+                        // &.default
+                        //     object-fit: contain
+                &__rest
+                    margin-top: -38px
+                &__X
+                    position: absolute
+                    top: 10px
+                    right: 10px
+                    cursor: pointer
+                    display: flex
+                    justify-content: center
+                    align-items: center
+                    width: 34px
+                    height: 34px
+                    border-radius: 50%
+                    background-color: #fff
+                    transition: .1s ease-out
+                    @include plus1025()
+                        top: 20px
+                        right: 20px
+                    svg
+                        path
+                            fill: #FE7E7E
+                            transition: .1s ease-out
+                    &:hover
+                        background-color: #FE7E7E
+                        svg
+                            path
+                                fill: #fff
+                > *
+                    text-align: center
+                h6
+                    @include font(18px, 20px)
+                    font-family: firagosemibold
+                    font-weight: 600
+                    color: #000
+                    margin-bottom: 8px
+                .homemain__slide__left__reviews
+                    grid-template-columns: auto !important
+                    justify-content: center
+                    display: inline-block
+                    margin-bottom: 16px
+                &__commentbox
+                    font-family: firagobook
+                    color: $dark34
+                    @include font(14px, 19.6px)
+                    font-weight: 400
+                &:nth-of-type(n+3)
+                    display: none
+            &.toggled
+                .productin__reviewcomments__list__item
+                    &:nth-of-type(n+3)
+                        display: flex
+
+        &__menu
+            display: flex
+            align-items: center
+            width: max-content
+            margin: 0 auto
+            gap: 30px
+
+            .loadmorecommentsbtn
+                span
+                    font-family: firagosemibold !important
+            .or
+                font-family: Roboto
+                color: #707477
+                font-style: normal
+                @include font(12px, 14px)
+                
+            &__writeareview
+                cursor: pointer
+                text-transform: uppercase
+                font-family: firagobold
+                color: $dark     
+                @include font(14px, 18px)
+                text-decoration: underline     
+.addinbasketbtn
+    // perspective: 300px
+    .flip
+        display: flex
+        align-items: center
+        height: calc( 100% - 2px )
+        background-color: #fff
+        will-change: transform
+        // transform: rotateY(0turn)
+        // transition: .4s transform linear
+        animation: flippingBack 1s linear 
+        span
+            --offsetwidth: max-content
+            overflow: hidden
+            display: flex
+            white-space: nowrap
+            width: var(--offsetwidth)
+            transition: width 0s .5s linear, opacity 1s linear
+
+        .remove
+            width: 0
+            color: $yellow
+
+    &.added
+        .flip
+            animation: flipping 1s linear
+            .add
+                width: 0
+            .remove
+                width: var(--offsetwidth)
+
+
+.homemain__slide__left__link
+    cursor: pointer
+.loadmorecommentsbtn
+    .toggled
+        display: none
+    &.toggled
+        .default
+            display: none
+        .toggled
+            display: inline
+        
+@keyframes flipping
+    0%
+        transform: rotateX(0turn)
+        opacity: 1
+    50%
+        transform: rotateX(.25turn)
+        opacity: 0
+    100%
+        transform: rotateX(0turn)
+        opacity: 1
+        
+@keyframes flippingBack
+    0%
+        transform: rotateX(0turn)
+        opacity: 1
+    50%
+        transform: rotateX(.25turn)
+        opacity: 0
+    100%
+        transform: rotateX(0turn)
+        opacity: 1
+        
+
+.reviewmodal
+    // max-height: 520px
+    max-width: 640px
+    &__form
+        display: flex
+        flex-direction: column
+        align-items: center
+    &::after
+        content: none !important
+        display: none !important
+    h5
+        margin-bottom: 30px !important
+    .reviewmodal__names
+        @include plus1025()
+            display: grid
+            grid-template-columns: 1fr 1fr
+            grid-gap: 29px
+    input
+        flex: 1
+        width: 1px
+        &.hidden
+            display: none !important
+    input, textarea
+        // box-sizing: border-box !important
+        background-color: #fff
+        display: flex !important
+        width: 100%
+        height: 54px
+        min-height: 54px
+        border-radius: 12px
+        // border: 1px solid #e6e6e6
+        border: 1px solid $dark
+        align-items: center
+        padding: 0 15px
+        margin-bottom: 20px
+        font-family: firagobook
+        font-style: normal
+        font-weight: normal
+        font-size: 12px
+        line-height: 16.8px
+        /* or 140% */
+
+        letter-spacing: 0.012em
+    textarea
+        height: 100px
+        padding: 10px
+        overflow-y: scroll
+        margin-bottom: 30px
+        // webkit browsers
+        scrollbar-width: none!important
+        //Firefox
+        &::-webkit-scrollbar 
+            display: none !important
+    &__names
+        width: 100%
+    &__writereview
+        margin-bottom: 30px
+        &__stars
+            // flex-direction: row-reverse
+            --multix: 1
+            height: 24px
+            width: 200px
+            display: flex
+            justify-content: space-between
+            align-items: center
+            position: relative
+            z-index: 1
+            &__parent
+                height: 24px
+                width: 200px
+                margin: 0 auto
+                position: relative
+
+            .star
+                cursor: pointer
+                height: 100%
+                &::after
+                    content: url(../img/reviewmodalstar.svg)
+                    height: 100%
+                    display: inline-block
+            &:not(.hidden)
+                &::after
+                    content: ''
+                    position: absolute
+                    top: 0
+                    right: 0
+                    width: calc(100% - (var(--multix) * 20%))
+                    height: 100%
+                    z-index: 1
+                    transition: width .05s ease
+                    opacity: .7
+                    background-color: #fff
+            &.hidden
+                position: absolute
+                z-index: 2
+                opacity: 0

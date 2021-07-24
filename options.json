@@ -1,0 +1,208 @@
+{
+    "slides": [
+        {
+            "title": "1 Powerful Olive Oil & Honey Cream",
+            "price": 9.99,
+            "review_qty": 34,
+            "review": 3,
+            "text": "1 The Powerful Olive Oil & Honey Cream is a multipurpose cream with a unique formula based on smoothing Olive oil and softening and nourishing Honey....",
+            "link": "productin.html",
+            "category": "1 moisturize",
+            "sp": true,
+            "image": "assets/img/homeslider/1.png",
+            "id": 1
+        },
+        {
+            "title": "Effective Extra Rich Shea Butter Cream",
+            "price": 12.1,
+            "review_qty": 81,
+            "review": 1,
+            "text": "2 The Powerful Olive Oil & Honey Cream is a multipurpose cream with a unique formula based on smoothing Olive oil and softening and nourishing Honey....",
+            "link": "productin.html",
+            "category": "2 moisturize",
+            "sp": true,
+            "image": "assets/img/homeslider/2.png",
+            "id": 2
+        },
+        {
+            "title": "3 Powerful Olive Oil & Honey Cream",
+            "price": 20,
+            "review_qty": 67,
+            "review": 5,
+            "text": "3 The Powerful Olive Oil & Honey Cream is a multipurpose cream with a unique formula based on smoothing Olive oil and softening and nourishing Honey....",
+            "link": "productin.html",
+            "category": "3 moisturize",
+            "sp": false,
+            "image": "assets/img/homeslider/3.png",
+            "id": 3
+        },
+        {
+            "title": "4 Powerful Olive Oil & Honey Cream",
+            "price": 37.72,
+            "review_qty": 21,
+            "review": 4,
+            "text": "4 The Powerful Olive Oil & Honey Cream is a multipurpose cream with a unique formula based on smoothing Olive oil and softening and nourishing Honey....",
+            "link": "productin.html",
+            "category": "4 moisturize",
+            "sp": true,
+            "image": "assets/img/homeslider/4.png",
+            "id": 4
+        },
+        {
+            "title": "1 Powerful Olive Oil & Honey Cream",
+            "price": 9.99,
+            "review_qty": 34,
+            "review": 3,
+            "text": "1 The Powerful Olive Oil & Honey Cream is a multipurpose cream with a unique formula based on smoothing Olive oil and softening and nourishing Honey....",
+            "link": "productin.html",
+            "category": "1 moisturize",
+            "sp": true,
+            "image": "assets/img/homeslider/1.png",
+            "id": 1
+        },
+        {
+            "title": "Effective Extra Rich Shea Butter Cream",
+            "price": 12.1,
+            "review_qty": 81,
+            "review": 1,
+            "text": "2 The Powerful Olive Oil & Honey Cream is a multipurpose cream with a unique formula based on smoothing Olive oil and softening and nourishing Honey....",
+            "link": "productin.html",
+            "category": "2 moisturize",
+            "sp": true,
+            "image": "assets/img/homeslider/2.png",
+            "id": 2
+        },
+        {
+            "title": "3 Powerful Olive Oil & Honey Cream",
+            "price": 20,
+            "review_qty": 67,
+            "review": 5,
+            "text": "3 The Powerful Olive Oil & Honey Cream is a multipurpose cream with a unique formula based on smoothing Olive oil and softening and nourishing Honey....",
+            "link": "productin.html",
+            "category": "3 moisturize",
+            "sp": false,
+            "image": "assets/img/homeslider/3.png",
+            "id": 3
+        },
+        {
+            "title": "4 Powerful Olive Oil & Honey Cream",
+            "price": 37.72,
+            "review_qty": 21,
+            "review": 4,
+            "text": "4 The Powerful Olive Oil & Honey Cream is a multipurpose cream with a unique formula based on smoothing Olive oil and softening and nourishing Honey....",
+            "link": "productin.html",
+            "category": "4 moisturize",
+            "sp": true,
+            "image": "assets/img/homeslider/4.png",
+            "id": 4
+        }
+    ],
+    "categories": [
+        {
+            "title": "perfume",
+            "qty": 1231,
+            "image": "assets/img/homecategories/perfume.jpg",
+            "id": 1
+        },
+        {
+            "title": "decorative cosmetics",
+            "qty": 728,
+            "image": "assets/img/homecategories/decorative-cosmetics.jpg",
+            "id": 2
+        },
+        {
+            "title": "skin care",
+            "qty": 986,
+            "image": "assets/img/homecategories/skin-care.jpg",
+            "id": 3
+        },
+        {
+            "title": "body care",
+            "qty": 129,
+            "image": "assets/img/homecategories/body-care.jpg",
+            "id": 4
+        },
+        {
+            "title": "spa cosmetics",
+            "qty": 446,
+            "image": "assets/img/homecategories/spa-cosmetics.jpg",
+            "id": 5
+        },
+        {
+            "title": "hair care",
+            "qty": 6489,
+            "image": "assets/img/homecategories/hair-care.jpg",
+            "id": 6
+        },
+        {
+            "title": "healing cosmetics",
+            "qty": 208,
+            "image": "assets/img/homecategories/healing-cosmetics.jpg",
+            "id": 7
+        },
+        {
+            "title": "makeup",
+            "qty": 9014,
+            "image": "assets/img/homecategories/makeup.jpg",
+            "id": 8
+        }
+    ],
+    "ingredients": [
+        {
+            "name": "argan oil",
+            "image": "assets/img/ingredients/1.png"
+        },
+        {
+            "name": "dead sea salt",
+            "image": "assets/img/ingredients/2.png"
+        },
+        {
+            "name": "peanut oil",
+            "image": "assets/img/ingredients/3.png"
+        }
+    ],
+    "reviews": [
+        {
+            "fullname": "Michael Gabson",
+            "image": "assets/img/persons/1.jpg",
+            "comment": "It is a long established fact that a reader will be distracted by the readable content.",
+            "review": 4,
+            "id": 446
+        },
+        {
+            "fullname": "Michael Gabson",
+            "image": "",
+            "comment": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
+            "review": 3,
+            "id": 1
+        },
+        {
+            "fullname": "Michael Gabson",
+            "image": "assets/img/persons/1.jpg",
+            "comment": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
+            "review": 2,
+            "id": 449
+        },
+        {
+            "fullname": "Michael Gabson",
+            "image": "assets/img/persons/2.jpg",
+            "comment": "It is a long established fact that a reader will be distracted by the rea, as opposed to using 'Content here, content here', making it look like readable English.",
+            "review": 4,
+            "id": 455
+        },
+        {
+            "fullname": "Michael Gabson",
+            "image": "",
+            "comment": "It to using 'Content here. ",
+            "review": 5,
+            "id": 442
+        },
+        {
+            "fullname": "Michael Gabson",
+            "image": "assets/img/persons/2.jpg",
+            "comment": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here",
+            "review": 2,
+            "id": 441
+        }
+    ]
+}

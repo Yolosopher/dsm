@@ -1,0 +1,37 @@
+.reviewmodal__bg
+.reviewmodal
+    .reviewmodal__X
+        include ../components/loginx
+    .reviewmodal__forms
+        form#reviewform.reviewmodal__form.reviewform
+            h5 write a review
+            .reviewmodal__names
+                .label__parent
+                    label(for="reviewfirstname") first name
+                    input#reviewfirstname(type="text", name="firstname", placeholder="first name")
+                .label__parent
+                    label(for="reviewlastname") last name
+                    input#reviewlastname(type="text", name="lastname", placeholder="last name")
+            label(for="reviewtext") review
+            textarea#reviewtext(name="review", rows="10", placeholder="Text", maxlength="128") 
+            .reviewmodal__writereview
+                //-hidden input start
+                input#stars.hidden(name="star", type="number", min="1", max="5", step="1", value="1")
+                //-hidden input end
+                .reviewmodal__writereview__stars__parent
+                    .reviewmodal__writereview__stars.hidden
+                        .star.real
+                        .star.real
+                        .star.real
+                        .star.real
+                        .star.real
+                    .reviewmodal__writereview__stars.real(style=`--multix: 1;`)
+                        .star
+                        .star
+                        .star
+                        .star
+                        .star
+            button.yellowbtn(type='submit') write
+
+
+                        

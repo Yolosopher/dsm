@@ -1,0 +1,46 @@
+.pagenav
+    height: 116px
+    display: flex
+    flex-direction: column
+    justify-content: center
+    @include plus1025()
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        align-items: center
+        height: 134px
+    &::after
+        content: ''
+        position: absolute
+        height: #{116px + 90px}
+        top: 0
+        right: 0
+        width: 100%
+        background-color: #F8F8F8
+        z-index: -2
+        @include plus1025()
+            height: #{134px + 90px}
+    .ptitle
+        margin-bottom: 16px
+        @include plus1025()
+            margin-bottom: 0
+    &__nav
+        width: max-content
+        display: flex
+        align-items: center
+        color: #999999
+        font-family: firagobook
+        font-size: 14px
+        line-height: 18px
+
+        a
+            display: flex
+            align-items: center
+            &:not(:last-of-type)
+                margin-right: 10px    
+                &::after
+                    content: url(../img/pagenavarrow.svg)
+                    margin-left: 10px
+                    height: 16px
+                    width: 16px
+                    transform: rotate(-90deg)

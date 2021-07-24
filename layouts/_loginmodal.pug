@@ -1,0 +1,70 @@
+.loginmodal__bg
+.loginmodal
+    .loginmodal__X
+        include ../components/loginx
+    .loginmodal__forms
+        form#loginform.loginmodal__form
+            h5 login
+            p Don't have an account?
+            .register sign up
+            label(for="loginemail") e-mail
+            .input-div
+                .input-div__icon
+                    include ../components/emailicon
+                input#loginemail(type="text", name="email", placeholder="example@gmail.com")
+            label(for="loginpassword") password
+            .input-div.lastinlogin
+                .input-div__icon
+                    include ../components/passicon
+                input#loginpassword(type="password", name="password", placeholder="Pass****")
+            button.forgotpass(type='button') forgot password?
+            button.yellowbtn(type='submit') login
+
+            //- or login with fb & google
+            .loginwithFBorGmail
+                a.loginwithFBorGmail__fb(href="#") facebook 
+                a.loginwithFBorGmail__gmail(href="#") gmail 
+        
+        form#recoveryform.loginmodal__form
+            h5 password recovery
+            .recovery__bottom
+                p Remember the Password?
+                .login login
+            label(for="recoveryemail") e-mail
+            .input-div
+                .input-div__icon
+                    include ../components/emailicon
+                input#recoveryemail(type="text", name="email", placeholder="example@gmail.com")
+            button.yellowbtn(type='submit') send link
+        
+        form#registerform.loginmodal__form
+            h5 register
+            .register__bottom
+                p Already have an account?
+                .login login
+            label(for="registeremail") e-mail
+            .input-div
+                .input-div__icon
+                    include ../components/emailicon
+                input#registeremail(type="text", name="email", placeholder="example@gmail.com")
+            label(for="registername") name
+            .input-div
+                .input-div__icon
+                    include ../components/emailicon
+                input#registername(type="text", name="name", placeholder="name")
+            label(for="registerpassword") password
+            .input-div.lastinlogin
+                .input-div__icon
+                    include ../components/passicon
+                input#registerpassword(type="password", name="password", placeholder="Pass****")
+            label(for="registerconfirmpassword") password
+            .input-div.lastinlogin
+                .input-div__icon
+                    include ../components/passicon
+                input#registerconfirmpassword(type="password", name="password", placeholder="Pass****")
+            button.yellowbtn(type='submit') register
+            //- or login with fb & google
+            .loginwithFBorGmail
+                a.loginwithFBorGmail__fb(href="#") facebook 
+                a.loginwithFBorGmail__gmail(href="#") gmail 
+        

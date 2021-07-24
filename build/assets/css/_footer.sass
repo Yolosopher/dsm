@@ -1,0 +1,97 @@
+.footer
+    padding: 10px
+    width: 100%
+    margin-bottom: 80px
+    @include plus1025()
+        margin-bottom: 0
+    &__content
+        background-color: $dark
+        border-radius: 30px
+        color: #fff
+        padding: 40px
+        padding-bottom: 30px
+        @include plus1025()
+            padding: 70px 20px
+            padding-bottom: 60px
+
+    
+    &__langbar
+        padding-top: 21px
+        position: relative
+        width: max-content
+        display: grid
+        grid-template-columns: auto auto auto
+        grid-gap: 10px
+        align-items: center
+        &::before
+            display: inline-block
+            content: ''
+            position: absolute
+            top: 0
+            left: 50%
+            transform: translateX(-50%)
+            width: 46px
+            height: 1px
+            background-color: $dark34
+        a
+            opacity: .3
+            &.active
+                opacity: 1
+    &__columns
+        
+        display: grid
+        grid-gap: 30px
+        @include plus1025()
+            display: flex
+            justify-content: space-between
+            grid-gap: 5px
+        &__column
+            
+            &__title
+                display: flex
+                justify-content: space-between
+                align-items: flex-start
+                transition: margin-bottom .3s ease-out
+                @include plus1025()
+                    margin-bottom: 30px
+                &:not(a)
+                    &::after
+                        height: 16px
+                        transition: .2s ease-out
+                        content: url(../img/footerul-arrow.svg)
+                        @include plus1025()
+                            display: none
+            ul
+                --mobheight: max-content
+                display: grid
+                grid-gap: 16px
+                height: 0
+                overflow-y: hidden
+                font-family: firagobook
+                font-size: 14px
+                line-height: 18px
+                font-weight: 400
+                transition: height .2s ease-out
+                @include plus1025()
+                    height: unset
+                li
+                    cursor: pointer
+            &.toggled
+                h4.footer__columns__column__title
+                    margin-bottom: 30px
+                    transition: margin-bottom .3s ease-in
+                    &::after
+                        transition: .2s ease-in
+                        transform: rotate(-180deg)
+                ul
+                    height: var(--mobheight)
+                    transition: height .2s ease-in
+                    @include plus1025()
+                        height: unset
+            &.logo
+                margin: 0 auto
+                text-align: center
+                @include plus1025()
+                    margin: 0
+                .footer__columns__column__title
+                    margin-bottom: 20px

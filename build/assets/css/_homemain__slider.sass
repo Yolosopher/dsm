@@ -1,0 +1,371 @@
+.homemain__slider.fadein
+    .homemain__slide__left__category
+        transition-delay: 100ms
+    .homemain__slide__left__title
+        transition-delay: 200ms
+    .homemain__slide__left__priceNreview
+        transition-delay: 300ms
+    .homemain__slide__left__textbox p
+        transition-delay: 400ms
+
+    .homemain__slide__left__category,
+    .homemain__slide__left__title,
+    .homemain__slide__left__priceNreview,
+    .homemain__slide__left__textbox p 
+        opacity: 1
+        transform: translateY(0)
+.homemain__slider.fadeinimg
+    .homemain__slide__right__imgbox
+        transform: scale(1)
+.homemain
+    &::after
+        content: ''
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        z-index: -1
+        background-color: #F8F8F8
+        height: 291px
+        @include plus1025()
+            height: 370px
+        
+    &__slider
+        width: 100%
+        // display: flex
+        padding-top: 20px
+        overflow: hidden
+        grid-template-columns: 1fr
+        padding-bottom: 222px
+        position: relative
+        @include plus1025()
+            position: static
+            max-height: 605px
+            display: grid
+            padding-bottom: 97px
+            padding-top: 70px
+            grid-template-columns: 60% 1fr
+            grid-gap: 25px
+            transition-duration: 0ms !important
+    &__swiper
+        width: 100%
+        // height: 100%
+        height: auto
+        overflow: hidden
+        @include plus1025()
+            height: 427px
+
+        &.left
+            height: 201px
+            position: static
+            overflow: initial
+            @include plus1025()
+                height: 427px
+                position: relative
+                overflow: hidden
+            .homemain__slide
+                position: static
+                overflow: initial
+                @include plus1025()
+                    position: relative
+                    overflow: hidden
+                
+                &__left
+                    position: static
+                    overflow: initial
+                    @include plus1025()
+                        position: relative
+                        overflow: hidden
+            .homemain__wrapper
+                position: static
+                overflow: initial
+                @include plus1025()
+                    position: relative
+                    overflow: hidden
+        &.right
+            box-sizing: border-box
+            position: relative
+            height: 250px
+            overflow: initial
+            @include plus1025()
+                padding: 20px
+                overflow: hidden
+                // border: 1px solid $yellow
+                height: 427px
+                max-height: 605px
+            &::after
+                content: url(../img/homeslider/specialoffer.svg)
+                position: absolute
+                z-index: 1
+                // width: max-content
+                // height: max-content
+                display: inline-block
+                transform: translate(0, -50%)
+                animation: rot 15s infinite linear
+                top: -60px
+                right: -19px
+                @include plus1025()
+                    top: -20px
+                    right: 0
+                
+            .homemain__wrapper.swiper-wrapper 
+                height: 250px
+                transition-delay: 400ms !important
+            .homemain__slide
+                height: 250px
+                display: flex
+                transition-delay: 200ms !important
+                &.starting
+                    transition-delay: 0ms !important
+            .homemain__slide__right__imgbox
+                height: 100%
+
+    &__wrapper
+        width: 100%
+        display: flex
+        height: 100%
+        // align-items: center
+        // width: 100%
+        // transform: translateX(0) !important
+        // max-height: 605px
+        @include plus1025()
+            flex-direction: column !important
+        
+    &__slide
+        width: 100%
+        transition-delay: 200ms
+        transition-duration: 0 !important
+        color: $dark
+        display: grid
+        &__left
+            width: 100%
+            display: flex
+            flex-direction: column
+            overflow: hidden
+            &__category
+                font-family: firagobook
+                font-size: 14px
+                line-height: 20px
+                font-weight: 400
+                text-transform: uppercase
+                // transform: translateY(40px)
+                transform: translateY(100%)
+                transition: 100ms ease
+                
+                &__container
+                    height: max-content
+                    overflow: hidden
+                    margin-bottom: 8px
+            &__title
+                max-width: 230px
+                font-family: firagosemibold
+                font-size: 24px
+                line-height: 33.6px
+                font-weight: 600
+                @include maxcolumn(2)
+
+                overflow: hidden
+                min-height: 67px
+                max-height: 67px
+                text-transform: uppercase
+                // transform: translateY(40px)
+                transform: translateY(100%)
+                transition: 200ms ease
+                @include plus1025()
+                    min-height: 92px
+                    max-height: 92px
+                    font-size: 34px
+                    max-width: 385px
+                    line-height: 47.6px
+                &__container
+                    height: min-content
+                    overflow: hidden
+                    margin-bottom: 16px
+                    @include plus1025()
+                        margin-bottom: 20px
+                    
+            &__priceNreview
+                display: grid
+                grid-template-columns: auto auto
+                width: max-content
+                grid-gap: 30px
+                align-items: center
+                transform: translateY(100%)
+                transition: 200ms ease
+                &__container
+                    margin-bottom: 60px
+                    height: max-content
+                    overflow: hidden
+            &__price
+                span
+                    font-family: firagobold
+                    font-weight: 700
+                    line-height: 40px
+                    text-transform: uppercase
+                    font-size: 28px
+                    &:last-child
+                        font-size: 14px
+            &__reviews
+                display: grid
+                grid-template-columns: auto auto
+                width: max-content
+                grid-gap: 8px
+                align-items: center
+                &__stars
+                    --multix: 0%
+                    position: relative
+                    width: 92px
+                    height: 16px
+                    display: flex
+
+                    &::before
+                        content: url(../img/homeslider/stars.svg)
+                        height: auto
+                    &::after
+                        content: ''
+                        position: absolute
+                        top: 0
+                        right: 0
+                        width: calc(100% - (var(--multix) * 20%))
+                        height: 100%
+                        z-index: 1
+                        opacity: .7
+                        background-color: #F8F8F8
+                &__qty
+                    font-family: firagobook
+                    font-weight: normal
+                    font-size: 14px
+                    line-height: 20px
+                    width: fit-content
+                    display: inline-block
+            &__textboxNlink
+                // transform: translateY(40px)
+                position: absolute
+                top: 458px
+                @include plus1025()
+                    position: static
+            &__textbox
+                height: max-content
+                overflow: hidden
+                margin-bottom: 48px
+                // @include plus1025()
+                p
+                    @include font(14px, 19.6px)
+                    font-family: firago
+                    color: $dark34
+                    font-weight: 400
+                    @include maxcolumn(4)
+                    overflow: hidden
+                    transform: translateY(100%)
+                    transition: 200ms ease
+
+                    @include plus1025()
+                        @include maxcolumn(2)
+            &__link
+                color: $dark
+                font-family: firagobold
+                font-size: 14px
+                font-weight: 700
+                line-height: 18px
+                text-transform: uppercase
+                padding-left: 20px
+                display: inline-block
+                position: relative
+                &::before
+                    content: ''
+                    position: absolute
+                    left: 0
+                    top: 50%
+                    transform: translateY(-50%)
+                    width: 54px
+                    height: 54px
+                    display: flex
+                    border-radius: 50%
+                    background-color: $yellow
+                    border: 2px dashed $yellow
+                    z-index: -1
+                    opacity: 1
+                    transition: .1s ease-in-out
+                &:hover
+                    &::before
+                        background-color: transparent
+                        animation: rot_Y50 5s infinite linear
+
+        &__right
+
+            width: 100%
+
+            &__imgbox
+                // overflow: hidden
+                display: flex
+                width: 100%
+                height: 100%
+                opacity: 1
+                transform: scale(.5)
+                // transform: translateY(40px)
+                transition: .3s ease-out
+                // transition-delay: .3s
+                img
+                    object-fit: contain
+                    width: 100%
+                    height: 100%
+
+
+    &__navpag
+        position: absolute
+        z-index: 1
+        bottom: 75px
+        right: 20px
+        display: flex
+        align-items: center
+        width: max-content
+        @include plus1025()
+            bottom: 0
+            left: 0
+            right: unset
+        
+        &__hr
+            display: none
+            width: 1px
+            height: 24px
+            background-color: #E6E6E6
+            border-radius: 2px
+            margin: 0 20px
+            @include plus1025()
+                display: inline-block
+    &__pagination
+        display: flex
+        align-items: center
+        height: 16px
+    &__navigation
+        display: grid
+        align-items: center
+        grid-template-columns: auto auto
+        grid-gap: 20px
+        @media screen and ( max-width: 1024px )
+            display: none !important
+        &__left, &__right
+            cursor: pointer
+            height: 24px
+            display: inline-block
+            &::before
+                content: url(../img/homeslider/arrowleft.svg)
+            &.swiper-button-disabled
+                opacity: .2
+        &__right
+            &::before
+                content: url(../img/homeslider/arrowright.svg)
+@keyframes rot
+    0%
+        transform: rotate(0deg)
+    100%
+        transform: rotate(360deg)
+        
+@keyframes rot_Y50
+    0%
+        transform: translateY(-50%) rotate(0deg)
+    100%
+        transform: translateY(-50%) rotate(360deg)
+@import _sliderbulletanimation
+
+
