@@ -224,10 +224,14 @@ reviewform.addEventListener('submit', async (e) => {
 		Number.isInteger(+reviewform.star.value)
 	) {
 		let newReview = {
-			firstName: reviewform.firstname.value,
-			lastName: reviewform.lastname.value,
-			review: reviewform.review.value,
-			star: +reviewform.star.value,
+			product_id: +document.querySelector('.addtobag.addinbasketbtn.inform').dataset.id,
+			first_name: reviewform.firstname.value,
+			last_name: reviewform.lastname.value,
+			comment: reviewform.review.value,
+			stars: +reviewform.star.value,
+		}
+		if (loggedInUserId) {
+			newReview.userId = loggedInUserId
 		}
 		if (newReview.firstName.length < 1) return
 		if (newReview.lastName.length < 1) return

@@ -78,23 +78,28 @@ html
             // fasdf
     &__mains
         width: 100%
-        overflow: hidden
+        // overflow: hidden
         display: grid
         grid-template-columns: repeat(3, 100%)
         height: 100%
+        transform: translateX(100vw)
 
         @include plus1025()
         > div
+            top: 0
             border-radius: 30px
             display: flex
             overflow: hidden
-            opacity: 0
+            opacity: 1
             width: 100%
             height: 100%
             background-color: #fff
             padding: 20px
-            transform: translateX(0)
-            transition: transform .4s ease-out, opacity .1s ease-out
+            // transform: translateX(100vw)
+            position: absolute
+            right: 0
+
+            transition: right .4s ease-out, opacity .1s ease-out
             @include plus1025()
                 padding: 40px 0 20px 50px
             &.ordering
@@ -102,7 +107,11 @@ html
         &.basket
             .basketmodal__mains__basket
                 opacity: 1 !important
-                transition: transform .4s ease-out, opacity .4s ease-out
+                right: 100vw
+                transition: right .4s ease-out, opacity .4s ease-out
+                > *
+                    opacity: 1
+                    transition: opacity .8s ease-out
             .basketmodal__mains__basket__list__li
                 opacity: 1 
                 transform: translateY(0)
@@ -112,17 +121,29 @@ html
                         .basketmodal__mains__basket__list__li
                             transition-delay: calc(#{$i} * 40ms + 400ms)
         &.ordering
+            .basketmodal__mains__basket
+                opacity: 1 !important
+                right: 100vw
+                transition: right .4s ease-out, opacity .4s ease-out
+                > *
+                    opacity: 0
+                    transition: opacity .01s ease-in
             .basketmodal__mains__ordering
                 opacity: 1 !important
-                transition: transform .4s ease-out, opacity .4s ease-out
-            > div
-                opacity: 0
-                transform: translateX(-100%)
-            .basketmodal__mains__basket
-                @include plus1025()
-                    transform: translateX(calc(-100% - 105px))
-                @include sizePlus(1400px)
-                    transform: translateX(calc(-100% - 155px))
+                right: 100vw
+                transition: right .4s ease-out, opacity .4s ease-out
+                > *
+                    opacity: 1
+                    // transition: opacity .4s ease-out
+                    transition: opacity 1.2s ease-in
+            // > div
+            //     opacity: 1
+            //     transform: translateX(-100%)
+            // .basketmodal__mains__basket
+                // @include plus1025()
+                //     transform: translateX(calc(-100% - 105px))
+                // @include sizePlus(1400px)
+                //     transform: translateX(calc(-100% - 155px))
 
 
 
@@ -130,8 +151,10 @@ html
                 &[data-pg="1"]
                     .basketform
                         > div
-                            transform: translateY(0)
+                            transform: translateX(0)
                     .basketform__who
+                        opacity: 1
+                        transition: opacity .05s ease-out
                         .form__fixer
                             > *
                                 opacity: 1
@@ -140,8 +163,10 @@ html
                 &[data-pg="2"]
                     .basketform
                         > div
-                            transform: translateY(-100%)
+                            transform: translateX(-100%)
                     .basketform__where
+                        opacity: 1
+                        transition: opacity .05s ease-out
                         .form__fixer
                             > *
                                 opacity: 1
@@ -150,8 +175,10 @@ html
                 &[data-pg="3"]
                     .basketform
                         > div
-                            transform: translateY(-200%)
+                            transform: translateX(-200%)
                     .basketform__paytype
+                        opacity: 1
+                        transition: opacity .05s ease-out
                         .form__fixer
                             > *
                                 opacity: 1
@@ -168,6 +195,7 @@ html
 
         &__basket
             width: 100%
+            z-index: 1
             position: relative
             @include plus1025()
                 justify-self: flex-end
@@ -175,6 +203,9 @@ html
                 // margin-left: 105px
             @include sizePlus(1400px)
                 width: calc(100% - 155px) !important
+            > *
+                opacity: 0
+                transition: opacity .1s ease-out
             > .basketmodal__X
                 position: absolute
                 right: 20px
@@ -461,6 +492,12 @@ html
         &__ordering
             background-color: #F8F8F8 !important
             position: relative
+            z-index: 2
+            @media screen and ( max-width: 1024px )
+                padding: 20px 10px !important
+            > *
+                opacity: 0
+                transition: opacity .1s ease-out
             &__staticinfo
                 width: 0
                 height: 0
@@ -546,19 +583,26 @@ html
                     overflow: hidden
                     display: flex
                     justify-content: flex-start
-                    flex-direction: column
+                    // flex-direction: column
                     
                     @include plus1025()
                         max-width: 540px
                     > div
                         transition: transform .4s ease-out
                         flex-shrink: 0
+                        width: 100%
                         height: 100%
                         padding-bottom: 50px
                         display: block
-                        padding-right: 15px
+                        max-width: 
+                        // padding-right: 15px
                         overflow: auto
+                        opacity: 0
                         transform: translateY(0)
+                        // border-left: 10px solid transparent
+                        padding-left: 10px
+                        padding-right: 10px
+                        // border-right: 10px solid transparent
                         &::-webkit-scrollbar
                             width: 2px
                             background-color: transparent
@@ -612,6 +656,8 @@ html
                         align-items: center
                         @include font(12px, 16.8px)
                         letter-spacing: 0.012em
+                        &:focus
+                            border-color: $dark
                         &__fixer
                             margin-bottom: 20px
                     &__inputcombiner
@@ -753,6 +799,7 @@ html
             min-width: 69px
             color: $gr
             width: max-content
+
     &__totals
         display: flex
         align-items: center

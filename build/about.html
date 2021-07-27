@@ -208,7 +208,7 @@
             </div>
             <input id="registerpassword" type="password" name="password" placeholder="Pass****">
           </div>
-          <label for="registerconfirmpassword">password</label>
+          <label for="registerconfirmpassword">confirm password</label>
           <div class="input-div lastinlogin">
             <div class="input-div__icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
@@ -221,7 +221,6 @@
             <input id="registerconfirmpassword" type="password" name="password" placeholder="Pass****">
           </div>
           <button class="yellowbtn" type="submit">register</button>
-          <div class="loginwithFBorGmail"><a class="loginwithFBorGmail__fb" href="#">facebook </a><a class="loginwithFBorGmail__gmail" href="#">gmail </a></div>
         </form>
       </div>
     </div>
@@ -629,8 +628,11 @@
       let BASKET_UPDATE = 'http://localhost:2000/update-basket'
       let REMOVE_FROM_BASKET = 'http://localhost:2000/remove-from-basket'
       let UPDATE_REVIEW = 'http://localhost:2000/update-review'
+      let loggedInUserId = false
+      
+      
     </script>
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/main.js?ver=1"></script>
     <script src="assets/js/swiper-bundle.min.js"></script>
   </body>
 </html>
