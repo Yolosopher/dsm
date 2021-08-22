@@ -112,7 +112,7 @@
             color: #fff
             font-family: firagosemibold
             @include font(14px, 18px)
-            text-transform: uppercase
+            @include upperCase()
             margin-top: 56px
             font-weight: 600
             @include plus1025()
@@ -128,7 +128,7 @@
         overflow: visible
         color: $dark
         &__label
-            text-transform: uppercase
+            @include upperCase()
             font-weight: 600
             margin-bottom: 8px
             font-family: firagosemibold

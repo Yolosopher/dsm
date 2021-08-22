@@ -86,19 +86,19 @@
                 .orderdetails__rest
                     h6 Summary
                     .orderdetails__infos
-                        .orderdetails__infos__item
+                        .orderdetails__infos__item(data-id="1")
                             p.orderdetails__infos__label subtotal
                             p.orderdetails__infos__value.subtotal
                                 span 0.00
                                 |  USD
                         
-                        .orderdetails__infos__item
+                        .orderdetails__infos__item(data-id="2")
                             p.orderdetails__infos__label product
                             p.orderdetails__infos__value.product
                                 span 0.00
                                 |  USD
                         
-                        .orderdetails__infos__item
+                        .orderdetails__infos__item(data-id="3")
                             p.orderdetails__infos__label sale
                             p.orderdetails__infos__value.sale
                                 span 0.00
@@ -126,6 +126,7 @@
                     span
                     span
                     span
+                //- .basketform__container
                 .basketmodal__mains__ordering__form__contents.basketform
                     .basketform__who
                         .form__fixer.basketform__heading__fixer
@@ -151,9 +152,17 @@
                         .form__fixer.basketform__heading__fixer
                             h6.basketform__heading Where would you like your order to be sent?
                         .form__fixer.basketform__label__fixer
-                            label.basketform__label(for="basketcity") city
-                        .form__fixer.basketform__input__fixer
-                            input#basketcity.basketform__input(type="text", placeholder="city", name="city")
+                            .basketform__label city
+                        .form__fixer.basketform__input__fixer(style="z-index: 10")
+                            //- input#basketcity.basketform__input(type="text", placeholder="city", name="city")
+                            .ns__container.input-div
+                                .ns.gr
+                                    .ns__activetext(data-value="Tbilisi")
+                                    select#basketcity(name="city")
+                                        option(value="1" selected) Tbilisi
+                                        option(value="2") Batumi
+                                        option(value="3") Kutaisi
+                                    ul.ns__ul
                         .form__fixer.basketform__label__fixer
                             label.basketform__label(for="basketaddress") address
                         .form__fixer.basketform__input__fixer
@@ -203,6 +212,7 @@
 
                         .form__fixer.proctosheep__fixer
                             button.proctosheep.topay.yellowbtn(type="submit") pay
+            
             .basketmodal__mains__ordering__right.itemsinfo
                 .item__restmobile
                     .item__restmobile__yellows(data-pg="1")

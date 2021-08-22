@@ -1,0 +1,120 @@
+-
+    const randomDate = (start, end) => new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()))
+
+- const loggedin = "Mikheil"
+- const orderNum = 14324231
+- const title = 'Order #' + orderNum
+doctype html
+html(lang="en")
+    head
+        link(rel="stylesheet", href="assets/css/swiper-bundle.min.css")
+        include ../layouts/_head
+
+    body 
+        include ../layouts/_header
+        include ../layouts/_loginmodal
+
+        main.main.profilemain.container
+            .profilemain__greetings__container
+                .profilemain__greetings
+                    h6.profilemain__greetings__hello="Hello " + loggedin
+                    p.profilemain__greetings__welcome welcome to your dsm account!
+                    p.profilemain__greetings__instruction Here you will be able to edit your details, view your order status and update your wishlist.
+                .loggedinmenu__balance
+                    .loggedinmenu__balance__left
+                        .balancesvg
+                        .loggedinmenu__balance__left__content
+                            p balance
+                            .loggedinmenu__balance__price
+                                span.loggedinmenu__balance__price__value 30.40
+                                |  USD
+                    a.loggedinmenu__balance__right(href="payment.html") Payment settings
+            .profilemain__nav
+                ul.profilemain__nav__ul
+                    li.profilemain__nav__ul__li.details
+                        a(href="profile-details.html") my details
+                    li.profilemain__nav__ul__li.history.active
+                        a(href="profile-orders.html") order history
+                    li.profilemain__nav__ul__li.wishlist
+                        a(href="profile-wishlist.html", data-wishes="13") my wishlist
+                    li.profilemain__nav__ul__li.referalls
+                        a(href="profile-referrals.html", data-reffs="135") referrals
+                a.profilemain__nav__logout(href="/logout") Log out!
+            //- here comes changing content
+            section.profilemain__orderin
+                .profilemain__orderin__header
+                    h2.detailforms__title.fororderin= `Order #${orderNum} - delivered` 
+                    .profilemain__orderin__date
+                        span.lab Order Date : 
+                        span.val 18 Jul 2020
+                    a.profilemain__orderin__download(href="#" download) Download PDF
+                .profilemain__orderin__orderinfo
+                    .profilemain__orderin__orderinfo__section
+                        h6 Delivery address
+                        .profilemain__orderin__orderinfo__section__info Michael Gabson
+                        .profilemain__orderin__orderinfo__section__info Tbilisi, Didi Digomi 3 / Mirian Mepe 83
+                        .profilemain__orderin__orderinfo__section__info +995 555 444 333
+                    .profilemain__orderin__orderinfo__section
+                        h6 Delivery method
+                        .profilemain__orderin__orderinfo__section__info On Way
+                    .profilemain__orderin__orderinfo__section
+                        h6 Payment method
+                        .profilemain__orderin__orderinfo__section__info Master Card
+                    .profilemain__orderin__orderinfo__section
+                        h6 Payer E-mail
+                        .profilemain__orderin__orderinfo__section__info example@gmail.com
+                .profilemain__orderin__table
+                    .profilemain__orderin__table__header
+                        div item description
+                    .profilemain__orderin__table__list
+                        each item, index in slides
+                            .profilemain__orderin__table__list__li
+                                .profilemain__orderin__table__list__li__imgbox
+                                    img(src=item.image, alt="")
+                                .profilemain__orderin__table__list__li__textcontent
+                                    .profilemain__orderin__table__list__li__textcontent__left
+                                        h2.profilemain__orderin__table__list__li__title=item.title
+                                        p.profilemain__orderin__table__list__li__detail
+                                            span Milligrams: 
+                                            span.val 5ml
+                                        p.profilemain__orderin__table__list__li__detail
+                                            span Color: 
+                                            span.val.val-col(style=`background-color: ${index % 2 === 0 ? '#B7C88E' : '#FF5E5E'}`)
+                                        p.profilemain__orderin__table__list__li__detail
+                                            span Quantity: 
+                                            span.val=item.review
+                                    .profilemain__orderin__table__list__li__textcontent__price
+                                        span=item.price
+                                        |  USD
+
+                    .profilemain__orderin__table__totals
+                        .profilemain__orderin__table__totals__eachs
+                            .subtotal
+                                span.lab subtotal
+                                span.val
+                                    span 20.00
+                                    |  USD
+                            .deliv
+                                span.lab delivery
+                                span.val
+                                    span 10.00
+                                    |  USD
+                            .discoun
+                                span.lab discount
+                                span.val
+                                    span 10.00
+                                    |  USD
+                        .profilemain__orderin__table__totals__grand
+                            span.lab grand total
+                            span.val
+                                span 25.00
+                                |  USD
+                a.profilemain__orderin__backlink(href="profile-orders.html") Back to order history
+
+        include ../layouts/_basket
+        include ../layouts/_footer
+        
+        include ../layouts/_respomenu
+        
+        include ../layouts/_scripts
+        script(src="assets/js/profile.js") 

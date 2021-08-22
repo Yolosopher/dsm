@@ -229,3 +229,9 @@ categoriUl.querySelectorAll('li').forEach((li) => {
 		// change cover image by category id
 	})
 })
+
+window.addEventListener('load', () => {
+	document.querySelector('.animstartpoint').classList.remove('animstartpoint')
+})
+
+

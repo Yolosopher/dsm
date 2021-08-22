@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css?v=0.2">
   </head>
   <body> 
     <header class="header"><a class="header__logo" href="index.html"> <img src="assets/img/logo.svg" alt="dsm.ge" title="dsm_logo"></a>
@@ -333,15 +333,15 @@
             <div class="orderdetails__rest">
               <h6>Summary</h6>
               <div class="orderdetails__infos">
-                <div class="orderdetails__infos__item">
+                <div class="orderdetails__infos__item" data-id="1">
                   <p class="orderdetails__infos__label">subtotal</p>
                   <p class="orderdetails__infos__value subtotal"><span>0.00</span> USD</p>
                 </div>
-                <div class="orderdetails__infos__item">
+                <div class="orderdetails__infos__item" data-id="2">
                   <p class="orderdetails__infos__label">product</p>
                   <p class="orderdetails__infos__value product"><span>0.00</span> USD</p>
                 </div>
-                <div class="orderdetails__infos__item">
+                <div class="orderdetails__infos__item" data-id="3">
                   <p class="orderdetails__infos__label">sale</p>
                   <p class="orderdetails__infos__value sale"><span>0.00</span> USD</p>
                 </div>
@@ -409,10 +409,20 @@
                   <h6 class="basketform__heading">Where would you like your order to be sent?</h6>
                 </div>
                 <div class="form__fixer basketform__label__fixer">
-                  <label class="basketform__label" for="basketcity">city</label>
+                  <div class="basketform__label">city</div>
                 </div>
-                <div class="form__fixer basketform__input__fixer">
-                  <input class="basketform__input" id="basketcity" type="text" placeholder="city" name="city">
+                <div class="form__fixer basketform__input__fixer" style="z-index: 10">
+                  <div class="ns__container input-div">
+                    <div class="ns gr">
+                      <div class="ns__activetext" data-value="Tbilisi"></div>
+                      <select id="basketcity" name="city">
+                        <option value="1" selected>Tbilisi</option>
+                        <option value="2">Batumi</option>
+                        <option value="3">Kutaisi</option>
+                      </select>
+                      <ul class="ns__ul"></ul>
+                    </div>
+                  </div>
                 </div>
                 <div class="form__fixer basketform__label__fixer">
                   <label class="basketform__label" for="basketaddress">address</label>
@@ -632,7 +642,7 @@
       
       
     </script>
-    <script src="assets/js/main.js?ver=1"></script>
+    <script src="assets/js/main.js?v=0.2"></script>
     <script src="assets/js/swiper-bundle.min.js"></script>
   </body>
 </html>

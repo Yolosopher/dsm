@@ -57,14 +57,11 @@
                 .input-div__icon
                     include ../components/passicon
                 input#registerpassword(type="password", name="password", placeholder="Pass****")
-            label(for="registerconfirmpassword") password
+            label(for="registerconfirmpassword") confirm password
             .input-div.lastinlogin
                 .input-div__icon
                     include ../components/passicon
                 input#registerconfirmpassword(type="password", name="password", placeholder="Pass****")
             button.yellowbtn(type='submit') register
-            //- or login with fb & google
-            .loginwithFBorGmail
-                a.loginwithFBorGmail__fb(href="#") facebook 
-                a.loginwithFBorGmail__gmail(href="#") gmail 
+
         

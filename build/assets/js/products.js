@@ -337,5 +337,5 @@ window.addEventListener('scroll', () => {
 	}
 })
 window.addEventListener('load', () => {
-	filterformbtn.click()
+	// filterformbtn.click()
 })

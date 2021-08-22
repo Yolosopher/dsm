@@ -130,7 +130,9 @@
         // max-height: 605px
         @include plus1025()
             flex-direction: column !important
-        
+        &.animstartpoint
+            .homemain__slide
+                transition: 0s !important
     &__slide
         width: 100%
         transition-delay: 200ms
@@ -147,7 +149,7 @@
                 font-size: 14px
                 line-height: 20px
                 font-weight: 400
-                text-transform: uppercase
+                @include upperCase()
                 // transform: translateY(40px)
                 transform: translateY(100%)
                 transition: 100ms ease
@@ -167,7 +169,7 @@
                 overflow: hidden
                 min-height: 67px
                 max-height: 67px
-                text-transform: uppercase
+                @include upperCase()
                 // transform: translateY(40px)
                 transform: translateY(100%)
                 transition: 200ms ease
@@ -201,7 +203,7 @@
                     font-family: firagobold
                     font-weight: 700
                     line-height: 40px
-                    text-transform: uppercase
+                    @include upperCase()
                     font-size: 28px
                     &:last-child
                         font-size: 14px
@@ -267,7 +269,7 @@
                 font-size: 14px
                 font-weight: 700
                 line-height: 18px
-                text-transform: uppercase
+                @include upperCase()
                 padding-left: 20px
                 display: inline-block
                 position: relative
@@ -369,3 +371,14 @@
 @import _sliderbulletanimation
 
 
+#reviewform
+    input
+        transition: border-color .1s ease-out
+        &.invalid.invalid-shown
+            border-color: $redstock
+
+
+.input-div
+    transition: border-color .1s ease-out
+    &.invalid.invalid-shown
+        border-color: $redstock

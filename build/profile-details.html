@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Profile</title>
+    <link rel="stylesheet" href="assets/css/style.css?v=0.2">
   </head>
   <body> 
     <header class="header"><a class="header__logo" href="index.html"> <img src="assets/img/logo.svg" alt="dsm.ge" title="dsm_logo"></a>
@@ -65,10 +65,26 @@
           </svg><span class="length" data-length="0"></span>
         </div>
         <div class="header__hr"></div>
-        <div class="header__loginbtn login">
+        <div class="header__loginbtn loggedin">
           <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M15.71 12.71C16.6904 11.9387 17.406 10.8809 17.7572 9.68394C18.1085 8.48697 18.0779 7.21027 17.6698 6.03147C17.2617 4.85267 16.4963 3.83039 15.4801 3.10686C14.4639 2.38332 13.2474 1.99451 12 1.99451C10.7525 1.99451 9.53611 2.38332 8.51993 3.10686C7.50374 3.83039 6.73834 4.85267 6.33021 6.03147C5.92208 7.21027 5.89151 8.48697 6.24276 9.68394C6.59401 10.8809 7.3096 11.9387 8.29 12.71C6.61007 13.383 5.14428 14.4994 4.04889 15.9399C2.95349 17.3805 2.26956 19.0913 2.07 20.89C2.05555 21.0213 2.06711 21.1542 2.10402 21.2811C2.14093 21.4079 2.20246 21.5263 2.28511 21.6293C2.45202 21.8375 2.69478 21.9708 2.96 22C3.22521 22.0292 3.49116 21.9518 3.69932 21.7849C3.90749 21.618 4.04082 21.3752 4.07 21.11C4.28958 19.1552 5.22168 17.3498 6.68822 16.0388C8.15475 14.7278 10.0529 14.003 12.02 14.003C13.9871 14.003 15.8852 14.7278 17.3518 16.0388C18.8183 17.3498 19.7504 19.1552 19.97 21.11C19.9972 21.3557 20.1144 21.5827 20.2991 21.747C20.4838 21.9114 20.7228 22.0015 20.97 22H21.08C21.3421 21.9698 21.5817 21.8373 21.7466 21.6313C21.9114 21.4252 21.9881 21.1624 21.96 20.9C21.7595 19.0962 21.0719 17.381 19.9708 15.9382C18.8698 14.4954 17.3969 13.3795 15.71 12.71ZM12 12C11.2089 12 10.4355 11.7654 9.77772 11.3259C9.11992 10.8864 8.60723 10.2616 8.30448 9.53074C8.00173 8.79983 7.92251 7.99557 8.07686 7.21964C8.2312 6.44372 8.61216 5.73099 9.17157 5.17158C9.73098 4.61217 10.4437 4.2312 11.2196 4.07686C11.9956 3.92252 12.7998 4.00173 13.5307 4.30448C14.2616 4.60724 14.8863 5.11993 15.3259 5.77772C15.7654 6.43552 16 7.20888 16 8C16 9.06087 15.5786 10.0783 14.8284 10.8284C14.0783 11.5786 13.0609 12 12 12Z" fill="white"></path>
-          </svg><span>login</span>
+          </svg><span>Hello, Mikheil</span>
+          <div class="loggedinmenu desktop">
+            <div class="loggedinmenu__balance">
+              <div class="loggedinmenu__balance__left">
+                <div class="balancesvg"></div>
+                <div class="loggedinmenu__balance__left__content">
+                  <p>balance</p>
+                  <div class="loggedinmenu__balance__price"><span class="loggedinmenu__balance__price__value">30.40</span> USD</div>
+                </div>
+              </div><a class="loggedinmenu__balance__right" href="payment.html">Payment settings</a>
+            </div>
+            <ul class="loggedinmenu__nav">
+              <li class="loggedinmenu__nav__li"><a class="prof" href="profile-details.html">profile</a></li>
+              <li class="loggedinmenu__nav__li ordhs" data-orders="13"><a class="ordhs" href="profile-orders.html">order history</a></li>
+              <li class="loggedinmenu__nav__li reffs" data-reffs="135"><a class="reffs" href="profile-refferals.html">refferals</a></li>
+            </ul><a class="logout" href="/logout">Log out! </a>
+          </div>
         </div>
         <div class="header__basket">
           <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -88,6 +104,22 @@
         <path d="M17.6569 16.2426L13.4142 12L17.6569 7.75735C17.8444 7.56981 17.9497 7.31546 17.9497 7.05024C17.9497 6.78502 17.8444 6.53067 17.6569 6.34313C17.4693 6.1556 17.215 6.05024 16.9497 6.05024C16.6845 6.05024 16.4302 6.1556 16.2426 6.34313L12 10.5858L7.75736 6.34313C7.56982 6.1556 7.31547 6.05024 7.05025 6.05024C6.78504 6.05024 6.53068 6.1556 6.34315 6.34313C6.15561 6.53067 6.05025 6.78502 6.05025 7.05024C6.05025 7.31546 6.15561 7.56981 6.34315 7.75735L10.5858 12L6.34315 16.2426C6.15561 16.4302 6.05025 16.6845 6.05025 16.9497C6.05025 17.215 6.15561 17.4693 6.34315 17.6568C6.53068 17.8444 6.78504 17.9497 7.05025 17.9497C7.31547 17.9497 7.56982 17.8444 7.75736 17.6568L12 13.4142L16.2426 17.6568C16.4302 17.8444 16.6845 17.9497 16.9497 17.9497C17.215 17.9497 17.4693 17.8444 17.6569 17.6568C17.8444 17.4693 17.9497 17.215 17.9497 16.9497C17.9497 16.6845 17.8444 16.4302 17.6569 16.2426Z" fill="white"></path>
       </svg>
     </form>
+    <div class="loggedinmenu mobile">
+      <div class="loggedinmenu__balance">
+        <div class="loggedinmenu__balance__left">
+          <div class="balancesvg"></div>
+          <div class="loggedinmenu__balance__left__content">
+            <p>balance</p>
+            <div class="loggedinmenu__balance__price"><span class="loggedinmenu__balance__price__value">30.40</span> USD</div>
+          </div>
+        </div><a class="loggedinmenu__balance__right" href="payment.html">Payment settings</a>
+      </div>
+      <ul class="loggedinmenu__nav">
+        <li class="loggedinmenu__nav__li"><a class="prof" href="profile-details.html">profile</a></li>
+        <li class="loggedinmenu__nav__li ordhs" data-orders="13"><a class="ordhs" href="profile-orders.html">order history</a></li>
+        <li class="loggedinmenu__nav__li reffs" data-reffs="135"><a class="reffs" href="profile-refferals.html">refferals</a></li>
+      </ul><a class="logout" href="/logout">Log out! </a>
+    </div>
     <div class="header__navbar__bg"></div>
     <div class="header__navbar__content">
       <div class="header__navbar__content__withscroll">
@@ -224,7 +256,423 @@
         </form>
       </div>
     </div>
-    <main class="main homemain container"></main>
+    <main class="main profilemain container">
+      <div class="profilemain__greetings__container">
+        <div class="profilemain__greetings">
+          <h6 class="profilemain__greetings__hello">Hello Mikheil</h6>
+          <p class="profilemain__greetings__welcome">welcome to your dsm account!</p>
+          <p class="profilemain__greetings__instruction">Here you will be able to edit your details, view your order status and update your wishlist.</p>
+        </div>
+        <div class="loggedinmenu__balance">
+          <div class="loggedinmenu__balance__left">
+            <div class="balancesvg"></div>
+            <div class="loggedinmenu__balance__left__content">
+              <p>balance</p>
+              <div class="loggedinmenu__balance__price"><span class="loggedinmenu__balance__price__value">30.40</span> USD</div>
+            </div>
+          </div><a class="loggedinmenu__balance__right" href="payment.html">Payment settings</a>
+        </div>
+      </div>
+      <div class="profilemain__nav">
+        <ul class="profilemain__nav__ul">
+          <li class="profilemain__nav__ul__li details active"><a href="profile-details.html">my details</a></li>
+          <li class="profilemain__nav__ul__li history"><a href="profile-orders.html">order history</a></li>
+          <li class="profilemain__nav__ul__li wishlist"><a href="profile-wishlist.html" data-wishes="13">my wishlist</a></li>
+          <li class="profilemain__nav__ul__li referalls"><a href="profile-referrals.html" data-reffs="135">referrals</a></li>
+        </ul><a class="profilemain__nav__logout" href="/logout">Log out!</a>
+      </div>
+      <form class="profilemain__detailforms detailforms" action="/profile" method="post">
+        <div class="detailforms__each">
+          <h2 class="detailforms__title">my details</h2>
+          <div class="form" id="mydetails__info" action="/profile" method="post">
+            <label class="detailforms__label" for="profileemail">email</label>
+            <input class="input-div" id="profileemail" type="text" name="email" placeholder="example@gmail.com">
+            <div class="detailforms__inputcontainer">
+              <div class="detailforms__inputcontainer__item">
+                <label class="detailforms__label" for="profilefirstname">first name</label>
+                <input class="input-div" id="profilefirstname" type="text" name="first_name" placeholder="first name">
+              </div>
+              <div class="detailforms__inputcontainer__item">
+                <label class="detailforms__label" for="profilelastname">last name</label>
+                <input class="input-div" id="profilelastname" type="text" name="last_name" placeholder="last name">
+              </div>
+            </div>
+            <div class="detailforms__inputcontainer">
+              <div class="detailforms__inputcontainer__item">
+                <label class="detailforms__label" for="profilepersonalid">personal id</label>
+                <input class="input-div" id="profilepersonalid" type="number" name="personal_id" placeholder="010050xxxxxx">
+              </div>
+              <div class="detailforms__inputcontainer__item">
+                <div class="detailforms__label">gender</div>
+                <div class="ns__container input-div">
+                  <div class="ns">
+                    <div class="ns__activetext" data-value="male"></div>
+                    <select id="genderselect" name="gender">
+                      <option value="1" selected>male</option>
+                      <option value="2">female</option>
+                    </select>
+                    <ul class="ns__ul"></ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="transparentbtn" type="submit">edit</button>
+          </div>
+        </div>
+        <div class="detailforms__each">
+          <h2 class="detailforms__title">change password</h2>
+          <div class="form" id="mydetails__password">
+            <label class="detailforms__label" for="profilecurrentpassword">current password</label>
+            <input class="input-div" id="profilecurrentpassword" type="text" name="password" placeholder="*******">
+            <label class="detailforms__label" for="profilenewpassword">new password</label>
+            <input class="input-div" id="profilenewpassword" type="text" name="new_password" placeholder="*******">
+            <label class="detailforms__label" for="profileconfirmnewpassword">confirm new password</label>
+            <input class="input-div" id="profileconfirmnewpassword" type="text" name="confirm_new_password" placeholder="*******">
+            <button class="transparentbtn" type="submit">edit</button>
+          </div>
+        </div>
+        <div class="detailforms__each">
+          <h2 class="detailforms__title">delivery address</h2>
+          <div class="form" id="mydetails__address">
+            <div class="detailforms__label">city</div>
+            <div class="ns__container input-div">
+              <div class="ns">
+                <div class="ns__activetext" data-value="Tbilisi"></div>
+                <select id="cityselect" name="city">
+                  <option value="1" selected>Tbilisi</option>
+                  <option value="2">Batumi</option>
+                  <option value="3">Kutaisi</option>
+                </select>
+                <ul class="ns__ul"></ul>
+              </div>
+            </div>
+            <label class="detailforms__label" for="profileaddress">address</label>
+            <input class="input-div" id="profileaddress" type="text" name="address" placeholder="Type address">
+            <label class="detailforms__label" for="profiletel">tel</label>
+            <input class="input-div" id="profiletel" type="number" name="tel" placeholder="+995 __ __ __">
+            <button class="transparentbtn" type="submit">edit</button>
+          </div>
+        </div>
+      </form>
+    </main>
+    <div class="basketmodal__bg"></div>
+    <div class="basketmodal">
+      <div class="basketmodal__mains">
+        <div class="basketmodal__mains__basket">
+          <div class="basketmodal__mains__basket__content">
+            <div class="basketmodal__X backtostore">back to store</div>
+            <div class="basketmodal__mains__basket__content__header">
+              <h5 class="ptitle">shopping bag</h5>
+              <div class="basketmodal__mains__basket__content__header__qty"><span>5</span> items</div>
+            </div>
+            <ul class="basketmodal__mains__basket__list__titles">
+              <li>Item</li>
+              <li>Size</li>
+              <li>Color</li>
+              <li>Quantity</li>
+              <li>Price</li>
+            </ul>
+            <ul class="basketmodal__mains__basket__list">
+              <li class="basketmodal__mains__basket__list__li__fixer fixer">
+                <div class="basketmodal__mains__basket__list__li">
+                  <div class="basketmodal__mains__basket__list__li__item"><a class="basketmodal__mains__basket__list__li__imgbox" href="#"><img src="assets/img/homeslider/1.png" alt="1 Powerful Olive Oil &amp; Honey Cream"></a>
+                    <div class="basketmodal__mains__basket__list__li__texts">
+                      <p class="basketmodal__mains__basket__list__li__category">1 moisturize</p>
+                      <h6 class="basketmodal__mains__basket__list__li__title"><a href="#">1 Powerful Olive Oil &amp; Honey Cream</a></h6>
+                    </div>
+                  </div>
+                  <div class="basketmodal__mains__basket__list__li__size"><span class="labelll">Size</span><span>5ml</span></div>
+                  <div class="basketmodal__mains__basket__list__li__color" style="--color: #3BCEAC"><span class="labelll">Color</span></div>
+                  <div class="basketmodal__mains__basket__list__li__quantity" data-id="1">
+                    <div class="basket__minus">
+                      <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C10.0222 2 8.08879 2.58649 6.4443 3.6853C4.79981 4.78412 3.51809 6.3459 2.76121 8.17317C2.00433 10.0004 1.8063 12.0111 2.19215 13.9509C2.578 15.8907 3.53041 17.6725 4.92894 19.0711C6.32746 20.4696 8.10929 21.422 10.0491 21.8079C11.9889 22.1937 13.9996 21.9957 15.8268 21.2388C17.6541 20.4819 19.2159 19.2002 20.3147 17.5557C21.4135 15.9112 22 13.9778 22 12C22 10.6868 21.7413 9.38642 21.2388 8.17317C20.7363 6.95991 19.9997 5.85752 19.0711 4.92893C18.1425 4.00035 17.0401 3.26375 15.8268 2.7612C14.6136 2.25866 13.3132 2 12 2ZM12 20C10.4178 20 8.87104 19.5308 7.55544 18.6518C6.23985 17.7727 5.21447 16.5233 4.60897 15.0615C4.00347 13.5997 3.84504 11.9911 4.15372 10.4393C4.4624 8.88743 5.22433 7.46197 6.34315 6.34315C7.46197 5.22433 8.88743 4.4624 10.4393 4.15372C11.9911 3.84504 13.5997 4.00346 15.0615 4.60896C16.5233 5.21447 17.7727 6.23984 18.6518 7.55544C19.5308 8.87103 20 10.4177 20 12C20 14.1217 19.1572 16.1566 17.6569 17.6569C16.1566 19.1571 14.1217 20 12 20ZM16 11H13H12.5H12H11.5H11H8C7.73479 11 7.48043 11.1054 7.2929 11.2929C7.10536 11.4804 7 11.7348 7 12C7 12.2652 7.10536 12.5196 7.2929 12.7071C7.48043 12.8946 7.73479 13 8 13H11H11.5H13H16C16.2652 13 16.5196 12.8946 16.7071 12.7071C16.8946 12.5196 17 12.2652 17 12C17 11.7348 16.8946 11.4804 16.7071 11.2929C16.5196 11.1054 16.2652 11 16 11Z" fill="#131313"></path>
+                      </svg>
+                    </div>
+                    <input type="number" value="3" name="quantity">
+                    <div class="basket__plus">
+                      <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C10.0222 2 8.08879 2.58649 6.4443 3.6853C4.79981 4.78412 3.51809 6.3459 2.76121 8.17317C2.00433 10.0004 1.8063 12.0111 2.19215 13.9509C2.578 15.8907 3.53041 17.6725 4.92894 19.0711C6.32746 20.4696 8.10929 21.422 10.0491 21.8079C11.9889 22.1937 13.9996 21.9957 15.8268 21.2388C17.6541 20.4819 19.2159 19.2002 20.3147 17.5557C21.4135 15.9112 22 13.9778 22 12C22 10.6868 21.7413 9.38642 21.2388 8.17317C20.7363 6.95991 19.9997 5.85752 19.0711 4.92893C18.1425 4.00035 17.0401 3.26375 15.8268 2.7612C14.6136 2.25866 13.3132 2 12 2ZM12 20C10.4178 20 8.87104 19.5308 7.55544 18.6518C6.23985 17.7727 5.21447 16.5233 4.60897 15.0615C4.00347 13.5997 3.84504 11.9911 4.15372 10.4393C4.4624 8.88743 5.22433 7.46197 6.34315 6.34315C7.46197 5.22433 8.88743 4.4624 10.4393 4.15372C11.9911 3.84504 13.5997 4.00346 15.0615 4.60896C16.5233 5.21447 17.7727 6.23984 18.6518 7.55544C19.5308 8.87103 20 10.4177 20 12C20 14.1217 19.1572 16.1566 17.6569 17.6569C16.1566 19.1571 14.1217 20 12 20ZM16 11H13V8C13 7.73478 12.8946 7.48043 12.7071 7.29289C12.5196 7.10536 12.2652 7 12 7C11.7348 7 11.4804 7.10536 11.2929 7.29289C11.1054 7.48043 11 7.73478 11 8V11H8C7.73479 11 7.48043 11.1054 7.2929 11.2929C7.10536 11.4804 7 11.7348 7 12C7 12.2652 7.10536 12.5196 7.2929 12.7071C7.48043 12.8946 7.73479 13 8 13H11V16C11 16.2652 11.1054 16.5196 11.2929 16.7071C11.4804 16.8946 11.7348 17 12 17C12.2652 17 12.5196 16.8946 12.7071 16.7071C12.8946 16.5196 13 16.2652 13 16V13H16C16.2652 13 16.5196 12.8946 16.7071 12.7071C16.8946 12.5196 17 12.2652 17 12C17 11.7348 16.8946 11.4804 16.7071 11.2929C16.5196 11.1054 16.2652 11 16 11Z" fill="#131313"></path>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="basketmodal__mains__basket__list__li__price"><span data-sale="3.44">9.99</span> USD</div>
+                  <div class="basketmodal__mains__basket__list__li__moredetails">more details</div>
+                  <div class="basketmodal__mains__basket__list__li__removebtn" data-id="1"></div>
+                </div>
+              </li>
+              <li class="basketmodal__mains__basket__list__li__fixer fixer">
+                <div class="basketmodal__mains__basket__list__li">
+                  <div class="basketmodal__mains__basket__list__li__item"><a class="basketmodal__mains__basket__list__li__imgbox" href="#"><img src="assets/img/homeslider/2.png" alt="Effective Extra Rich Shea Butter Cream"></a>
+                    <div class="basketmodal__mains__basket__list__li__texts">
+                      <p class="basketmodal__mains__basket__list__li__category">2 moisturize</p>
+                      <h6 class="basketmodal__mains__basket__list__li__title"><a href="#">Effective Extra Rich Shea Butter Cream</a></h6>
+                    </div>
+                  </div>
+                  <div class="basketmodal__mains__basket__list__li__size"><span class="labelll">Size</span><span>1ml</span></div>
+                  <div class="basketmodal__mains__basket__list__li__color" style="--color: #FFD23F"><span class="labelll">Color</span></div>
+                  <div class="basketmodal__mains__basket__list__li__quantity" data-id="2">
+                    <div class="basket__minus inactive">
+                      <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C10.0222 2 8.08879 2.58649 6.4443 3.6853C4.79981 4.78412 3.51809 6.3459 2.76121 8.17317C2.00433 10.0004 1.8063 12.0111 2.19215 13.9509C2.578 15.8907 3.53041 17.6725 4.92894 19.0711C6.32746 20.4696 8.10929 21.422 10.0491 21.8079C11.9889 22.1937 13.9996 21.9957 15.8268 21.2388C17.6541 20.4819 19.2159 19.2002 20.3147 17.5557C21.4135 15.9112 22 13.9778 22 12C22 10.6868 21.7413 9.38642 21.2388 8.17317C20.7363 6.95991 19.9997 5.85752 19.0711 4.92893C18.1425 4.00035 17.0401 3.26375 15.8268 2.7612C14.6136 2.25866 13.3132 2 12 2ZM12 20C10.4178 20 8.87104 19.5308 7.55544 18.6518C6.23985 17.7727 5.21447 16.5233 4.60897 15.0615C4.00347 13.5997 3.84504 11.9911 4.15372 10.4393C4.4624 8.88743 5.22433 7.46197 6.34315 6.34315C7.46197 5.22433 8.88743 4.4624 10.4393 4.15372C11.9911 3.84504 13.5997 4.00346 15.0615 4.60896C16.5233 5.21447 17.7727 6.23984 18.6518 7.55544C19.5308 8.87103 20 10.4177 20 12C20 14.1217 19.1572 16.1566 17.6569 17.6569C16.1566 19.1571 14.1217 20 12 20ZM16 11H13H12.5H12H11.5H11H8C7.73479 11 7.48043 11.1054 7.2929 11.2929C7.10536 11.4804 7 11.7348 7 12C7 12.2652 7.10536 12.5196 7.2929 12.7071C7.48043 12.8946 7.73479 13 8 13H11H11.5H13H16C16.2652 13 16.5196 12.8946 16.7071 12.7071C16.8946 12.5196 17 12.2652 17 12C17 11.7348 16.8946 11.4804 16.7071 11.2929C16.5196 11.1054 16.2652 11 16 11Z" fill="#131313"></path>
+                      </svg>
+                    </div>
+                    <input type="number" value="1" name="quantity">
+                    <div class="basket__plus">
+                      <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C10.0222 2 8.08879 2.58649 6.4443 3.6853C4.79981 4.78412 3.51809 6.3459 2.76121 8.17317C2.00433 10.0004 1.8063 12.0111 2.19215 13.9509C2.578 15.8907 3.53041 17.6725 4.92894 19.0711C6.32746 20.4696 8.10929 21.422 10.0491 21.8079C11.9889 22.1937 13.9996 21.9957 15.8268 21.2388C17.6541 20.4819 19.2159 19.2002 20.3147 17.5557C21.4135 15.9112 22 13.9778 22 12C22 10.6868 21.7413 9.38642 21.2388 8.17317C20.7363 6.95991 19.9997 5.85752 19.0711 4.92893C18.1425 4.00035 17.0401 3.26375 15.8268 2.7612C14.6136 2.25866 13.3132 2 12 2ZM12 20C10.4178 20 8.87104 19.5308 7.55544 18.6518C6.23985 17.7727 5.21447 16.5233 4.60897 15.0615C4.00347 13.5997 3.84504 11.9911 4.15372 10.4393C4.4624 8.88743 5.22433 7.46197 6.34315 6.34315C7.46197 5.22433 8.88743 4.4624 10.4393 4.15372C11.9911 3.84504 13.5997 4.00346 15.0615 4.60896C16.5233 5.21447 17.7727 6.23984 18.6518 7.55544C19.5308 8.87103 20 10.4177 20 12C20 14.1217 19.1572 16.1566 17.6569 17.6569C16.1566 19.1571 14.1217 20 12 20ZM16 11H13V8C13 7.73478 12.8946 7.48043 12.7071 7.29289C12.5196 7.10536 12.2652 7 12 7C11.7348 7 11.4804 7.10536 11.2929 7.29289C11.1054 7.48043 11 7.73478 11 8V11H8C7.73479 11 7.48043 11.1054 7.2929 11.2929C7.10536 11.4804 7 11.7348 7 12C7 12.2652 7.10536 12.5196 7.2929 12.7071C7.48043 12.8946 7.73479 13 8 13H11V16C11 16.2652 11.1054 16.5196 11.2929 16.7071C11.4804 16.8946 11.7348 17 12 17C12.2652 17 12.5196 16.8946 12.7071 16.7071C12.8946 16.5196 13 16.2652 13 16V13H16C16.2652 13 16.5196 12.8946 16.7071 12.7071C16.8946 12.5196 17 12.2652 17 12C17 11.7348 16.8946 11.4804 16.7071 11.2929C16.5196 11.1054 16.2652 11 16 11Z" fill="#131313"></path>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="basketmodal__mains__basket__list__li__price"><span data-sale="6.77">12.1</span> USD</div>
+                  <div class="basketmodal__mains__basket__list__li__moredetails">more details</div>
+                  <div class="basketmodal__mains__basket__list__li__removebtn" data-id="2"></div>
+                </div>
+              </li>
+              <li class="basketmodal__mains__basket__list__li__fixer fixer">
+                <div class="basketmodal__mains__basket__list__li">
+                  <div class="basketmodal__mains__basket__list__li__item"><a class="basketmodal__mains__basket__list__li__imgbox" href="#"><img src="assets/img/homeslider/3.png" alt="3 Powerful Olive Oil &amp; Honey Cream"></a>
+                    <div class="basketmodal__mains__basket__list__li__texts">
+                      <p class="basketmodal__mains__basket__list__li__category">3 moisturize</p>
+                      <h6 class="basketmodal__mains__basket__list__li__title"><a href="#">3 Powerful Olive Oil &amp; Honey Cream</a></h6>
+                    </div>
+                  </div>
+                  <div class="basketmodal__mains__basket__list__li__size"><span class="labelll">Size</span><span>0.5ml</span></div>
+                  <div class="basketmodal__mains__basket__list__li__color" style="--color: #CDD1C4"><span class="labelll">Color</span></div>
+                  <div class="basketmodal__mains__basket__list__li__quantity" data-id="3">
+                    <div class="basket__minus">
+                      <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C10.0222 2 8.08879 2.58649 6.4443 3.6853C4.79981 4.78412 3.51809 6.3459 2.76121 8.17317C2.00433 10.0004 1.8063 12.0111 2.19215 13.9509C2.578 15.8907 3.53041 17.6725 4.92894 19.0711C6.32746 20.4696 8.10929 21.422 10.0491 21.8079C11.9889 22.1937 13.9996 21.9957 15.8268 21.2388C17.6541 20.4819 19.2159 19.2002 20.3147 17.5557C21.4135 15.9112 22 13.9778 22 12C22 10.6868 21.7413 9.38642 21.2388 8.17317C20.7363 6.95991 19.9997 5.85752 19.0711 4.92893C18.1425 4.00035 17.0401 3.26375 15.8268 2.7612C14.6136 2.25866 13.3132 2 12 2ZM12 20C10.4178 20 8.87104 19.5308 7.55544 18.6518C6.23985 17.7727 5.21447 16.5233 4.60897 15.0615C4.00347 13.5997 3.84504 11.9911 4.15372 10.4393C4.4624 8.88743 5.22433 7.46197 6.34315 6.34315C7.46197 5.22433 8.88743 4.4624 10.4393 4.15372C11.9911 3.84504 13.5997 4.00346 15.0615 4.60896C16.5233 5.21447 17.7727 6.23984 18.6518 7.55544C19.5308 8.87103 20 10.4177 20 12C20 14.1217 19.1572 16.1566 17.6569 17.6569C16.1566 19.1571 14.1217 20 12 20ZM16 11H13H12.5H12H11.5H11H8C7.73479 11 7.48043 11.1054 7.2929 11.2929C7.10536 11.4804 7 11.7348 7 12C7 12.2652 7.10536 12.5196 7.2929 12.7071C7.48043 12.8946 7.73479 13 8 13H11H11.5H13H16C16.2652 13 16.5196 12.8946 16.7071 12.7071C16.8946 12.5196 17 12.2652 17 12C17 11.7348 16.8946 11.4804 16.7071 11.2929C16.5196 11.1054 16.2652 11 16 11Z" fill="#131313"></path>
+                      </svg>
+                    </div>
+                    <input type="number" value="5" name="quantity">
+                    <div class="basket__plus">
+                      <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C10.0222 2 8.08879 2.58649 6.4443 3.6853C4.79981 4.78412 3.51809 6.3459 2.76121 8.17317C2.00433 10.0004 1.8063 12.0111 2.19215 13.9509C2.578 15.8907 3.53041 17.6725 4.92894 19.0711C6.32746 20.4696 8.10929 21.422 10.0491 21.8079C11.9889 22.1937 13.9996 21.9957 15.8268 21.2388C17.6541 20.4819 19.2159 19.2002 20.3147 17.5557C21.4135 15.9112 22 13.9778 22 12C22 10.6868 21.7413 9.38642 21.2388 8.17317C20.7363 6.95991 19.9997 5.85752 19.0711 4.92893C18.1425 4.00035 17.0401 3.26375 15.8268 2.7612C14.6136 2.25866 13.3132 2 12 2ZM12 20C10.4178 20 8.87104 19.5308 7.55544 18.6518C6.23985 17.7727 5.21447 16.5233 4.60897 15.0615C4.00347 13.5997 3.84504 11.9911 4.15372 10.4393C4.4624 8.88743 5.22433 7.46197 6.34315 6.34315C7.46197 5.22433 8.88743 4.4624 10.4393 4.15372C11.9911 3.84504 13.5997 4.00346 15.0615 4.60896C16.5233 5.21447 17.7727 6.23984 18.6518 7.55544C19.5308 8.87103 20 10.4177 20 12C20 14.1217 19.1572 16.1566 17.6569 17.6569C16.1566 19.1571 14.1217 20 12 20ZM16 11H13V8C13 7.73478 12.8946 7.48043 12.7071 7.29289C12.5196 7.10536 12.2652 7 12 7C11.7348 7 11.4804 7.10536 11.2929 7.29289C11.1054 7.48043 11 7.73478 11 8V11H8C7.73479 11 7.48043 11.1054 7.2929 11.2929C7.10536 11.4804 7 11.7348 7 12C7 12.2652 7.10536 12.5196 7.2929 12.7071C7.48043 12.8946 7.73479 13 8 13H11V16C11 16.2652 11.1054 16.5196 11.2929 16.7071C11.4804 16.8946 11.7348 17 12 17C12.2652 17 12.5196 16.8946 12.7071 16.7071C12.8946 16.5196 13 16.2652 13 16V13H16C16.2652 13 16.5196 12.8946 16.7071 12.7071C16.8946 12.5196 17 12.2652 17 12C17 11.7348 16.8946 11.4804 16.7071 11.2929C16.5196 11.1054 16.2652 11 16 11Z" fill="#131313"></path>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="basketmodal__mains__basket__list__li__price"><span data-sale="7.23">20</span> USD</div>
+                  <div class="basketmodal__mains__basket__list__li__moredetails">more details</div>
+                  <div class="basketmodal__mains__basket__list__li__removebtn" data-id="3"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="basketmodal__mains__basket__right orderdetails">
+            <div class="orderdetails__rest">
+              <h6>Summary</h6>
+              <div class="orderdetails__infos">
+                <div class="orderdetails__infos__item" data-id="1">
+                  <p class="orderdetails__infos__label">subtotal</p>
+                  <p class="orderdetails__infos__value subtotal"><span>0.00</span> USD</p>
+                </div>
+                <div class="orderdetails__infos__item" data-id="2">
+                  <p class="orderdetails__infos__label">product</p>
+                  <p class="orderdetails__infos__value product"><span>0.00</span> USD</p>
+                </div>
+                <div class="orderdetails__infos__item" data-id="3">
+                  <p class="orderdetails__infos__label">sale</p>
+                  <p class="orderdetails__infos__value sale"><span>0.00</span> USD</p>
+                </div>
+              </div>
+              <div class="orderdetails__promocode">
+                <label for="promocodeinput1">promocode</label>
+                <input class="promocodeinput" id="promocodeinput1" type="text" name="promocode" placeholder="enter code">
+              </div>
+            </div>
+            <div class="orderdetails__totals">
+              <p>Total:</p>
+              <p class="orderdetails__totals__value"><span>0.00</span> USD</p>
+            </div>
+            <div class="orderdetails__totals__checkout checkoutbtn yellowbtn br60">Checkout</div>
+          </div>
+          <div class="basketmodal__X">
+            <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.6569 16.2426L13.4142 12L17.6569 7.75735C17.8444 7.56981 17.9497 7.31546 17.9497 7.05024C17.9497 6.78502 17.8444 6.53067 17.6569 6.34313C17.4693 6.1556 17.215 6.05024 16.9497 6.05024C16.6845 6.05024 16.4302 6.1556 16.2426 6.34313L12 10.5858L7.75736 6.34313C7.56982 6.1556 7.31547 6.05024 7.05025 6.05024C6.78504 6.05024 6.53068 6.1556 6.34315 6.34313C6.15561 6.53067 6.05025 6.78502 6.05025 7.05024C6.05025 7.31546 6.15561 7.56981 6.34315 7.75735L10.5858 12L6.34314 16.2426C6.15561 16.4302 6.05025 16.6845 6.05025 16.9497C6.05025 17.215 6.15561 17.4693 6.34314 17.6568C6.53068 17.8444 6.78503 17.9497 7.05025 17.9497C7.31547 17.9497 7.56982 17.8444 7.75736 17.6568L12 13.4142L16.2426 17.6568C16.4302 17.8444 16.6845 17.9497 16.9497 17.9497C17.215 17.9497 17.4693 17.8444 17.6569 17.6568C17.8444 17.4693 17.9497 17.215 17.9497 16.9497C17.9497 16.6845 17.8444 16.4302 17.6569 16.2426Z" fill="#343434"></path>
+            </svg>
+          </div>
+        </div>
+        <div class="basketmodal__mains__ordering">
+          <div class="basketmodal__mains__ordering__staticinfo">
+            <div class="dsm">dsm.ge</div>
+            <div class="chkout">checkout</div>
+            <div class="basketmodal__mains__ordering__staticinfo__back backtostore">back</div>
+          </div>
+          <form class="basketmodal__mains__ordering__form" id="basketmodalform" data-pg="1">
+            <div class="basketmodal__mains__ordering__form__nav"><span></span><span></span><span></span></div>
+            <div class="basketmodal__mains__ordering__form__contents basketform">
+              <div class="basketform__who">
+                <div class="form__fixer basketform__heading__fixer">
+                  <h6 class="basketform__heading">Who is placing this order?</h6>
+                </div>
+                <div class="form__fixer basketform__label__fixer">
+                  <label class="basketform__label" for="basketemail">email</label>
+                </div>
+                <div class="form__fixer basketform__input__fixer">
+                  <input class="basketform__input" id="basketemail" type="text" placeholder="example@gmail.com" name="email">
+                </div>
+                <div class="basketform__inputcombiner">
+                  <div class="basketform__inputcombiner__item">
+                    <div class="form__fixer basketform__label__fixer">
+                      <label class="basketform__label" for="basketfirstname">first name</label>
+                    </div>
+                    <div class="form__fixer basketform__input__fixer">
+                      <input class="basketform__input" id="basketfirstname" type="text" name="firstname" placeholder="first name">
+                    </div>
+                  </div>
+                  <div class="basketform__inputcombiner__item">
+                    <div class="form__fixer basketform__label__fixer">
+                      <label class="basketform__label" for="basketlastname">last name</label>
+                    </div>
+                    <div class="form__fixer basketform__input__fixer">
+                      <input class="basketform__input" id="basketlastname" type="text" name="lastname" placeholder="last name">
+                    </div>
+                  </div>
+                </div>
+                <div class="form__fixer proctosheep__fixer">
+                  <div class="proctosheep towhere yellowbtn">proceed to shipping</div>
+                </div>
+              </div>
+              <div class="basketform__where">
+                <div class="form__fixer basketform__heading__fixer">
+                  <h6 class="basketform__heading">Where would you like your order to be sent?</h6>
+                </div>
+                <div class="form__fixer basketform__label__fixer">
+                  <div class="basketform__label">city</div>
+                </div>
+                <div class="form__fixer basketform__input__fixer" style="z-index: 10">
+                  <div class="ns__container input-div">
+                    <div class="ns gr">
+                      <div class="ns__activetext" data-value="Tbilisi"></div>
+                      <select id="basketcity" name="city">
+                        <option value="1" selected>Tbilisi</option>
+                        <option value="2">Batumi</option>
+                        <option value="3">Kutaisi</option>
+                      </select>
+                      <ul class="ns__ul"></ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="form__fixer basketform__label__fixer">
+                  <label class="basketform__label" for="basketaddress">address</label>
+                </div>
+                <div class="form__fixer basketform__input__fixer">
+                  <input class="basketform__input" id="basketaddress" type="text" placeholder="address" name="address">
+                </div>
+                <div class="form__fixer basketform__label__fixer">
+                  <label class="basketform__label" for="basketphone">mobile phone</label>
+                </div>
+                <div class="form__fixer basketform__input__fixer">
+                  <input class="basketform__input" id="basketphone" type="tel" placeholder="phone" value="+995 ">
+                </div>
+                <div class="form__fixer basketform__heading__fixer f18__fixer">
+                  <h6 class="basketform__heading f18">Delivery option</h6>
+                </div>
+                <label class="form__fixer basketform__radio__label first" for="standartshipping"> 
+                  <input id="standartshipping" type="radio" name="shipping" value="1" checked>
+                  <div class="customcheck"></div>
+                  <div class="descr">Standart (3-5 bussines day) shipping</div>
+                  <div class="price">$ <span>10.00</span></div>
+                </label>
+                <label class="form__fixer basketform__radio__label express" for="expressshipping"> 
+                  <input id="expressshipping" type="radio" name="shipping" value="2">
+                  <div class="customcheck"></div>
+                  <div class="descr">Express (1-2 bussines day) shipping</div>
+                  <div class="price">$ <span>20.00</span></div>
+                </label>
+                <div class="form__fixer proctosheep__fixer">
+                  <div class="proctosheep topaytype yellowbtn">proceed to payment</div>
+                </div>
+              </div>
+              <div class="basketform__paytype">
+                <div class="form__fixer basketform__heading__fixer">
+                  <h6 class="basketform__heading">Where would you like to pay?</h6>
+                </div>
+                <label class="form__fixer basketform__radio__label first" for="creditcard"> 
+                  <input id="creditcard" type="radio" name="payment" value="1" checked>
+                  <div class="customcheck"></div>
+                  <div class="descr">Pay with Credit Card</div>
+                </label>
+                <label class="form__fixer basketform__radio__label emoney" for="emoney"> 
+                  <input id="emoney" type="radio" name="payment" value="2">
+                  <div class="customcheck"></div>
+                  <div class="descr">Pay with E-money</div>
+                </label>
+                <label class="form__fixer basketform__radio__label terms" for="acceptterms">
+                  <input id="acceptterms" type="checkbox" name="terms">
+                  <div class="customcheckmark"></div>
+                  <div class="descr">I accept DSM Terms & Conditions</div>
+                </label>
+                <div class="form__fixer proctosheep__fixer">
+                  <button class="proctosheep topay yellowbtn" type="submit">pay</button>
+                </div>
+              </div>
+            </div>
+          </form>
+          <div class="basketmodal__mains__ordering__right itemsinfo">
+            <div class="item__restmobile">
+              <div class="item__restmobile__yellows" data-pg="1">
+                <div class="proctosheep towhere yellowbtn">proceed to shipping</div>
+                <div class="proctosheep topaytype yellowbtn">proceed to payment</div>
+                <button class="proctosheep topay yellowbtn" type="submit">pay</button>
+              </div>
+              <div class="item__restmobile__left">
+                <p class="item__restmobile__qty">You have <span>3</span> in the bag</p>
+                <div class="item__restmobile__checkbag">checkbag</div>
+              </div>
+              <div class="itemsinfo__editbag">edit bag</div>
+            </div>
+            <div class="itemsinfo__rest__bg"></div>
+            <div class="itemsinfo__rest">
+              <div class="itemsinfo__rest__X">
+                <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M17.6569 16.2426L13.4142 12L17.6569 7.75735C17.8444 7.56981 17.9497 7.31546 17.9497 7.05024C17.9497 6.78502 17.8444 6.53067 17.6569 6.34313C17.4693 6.1556 17.215 6.05024 16.9497 6.05024C16.6845 6.05024 16.4302 6.1556 16.2426 6.34313L12 10.5858L7.75736 6.34313C7.56982 6.1556 7.31547 6.05024 7.05025 6.05024C6.78504 6.05024 6.53068 6.1556 6.34315 6.34313C6.15561 6.53067 6.05025 6.78502 6.05025 7.05024C6.05025 7.31546 6.15561 7.56981 6.34315 7.75735L10.5858 12L6.34314 16.2426C6.15561 16.4302 6.05025 16.6845 6.05025 16.9497C6.05025 17.215 6.15561 17.4693 6.34314 17.6568C6.53068 17.8444 6.78503 17.9497 7.05025 17.9497C7.31547 17.9497 7.56982 17.8444 7.75736 17.6568L12 13.4142L16.2426 17.6568C16.4302 17.8444 16.6845 17.9497 16.9497 17.9497C17.215 17.9497 17.4693 17.8444 17.6569 17.6568C17.8444 17.4693 17.9497 17.215 17.9497 16.9497C17.9497 16.6845 17.8444 16.4302 17.6569 16.2426Z" fill="#343434"></path>
+                </svg>
+              </div>
+              <div class="itemsinfo__header">
+                <div class="itemsinfo__heading">items</div>
+                <div class="itemsinfo__editbag">edit bag</div>
+              </div>
+              <div class="itemsinfo__list">
+                <div class="itemsinfo__list__item">
+                  <p class="itemsinfo__list__item__title">1 Powerful Olive Oil &amp; Honey Cream</p>
+                  <div class="itemsinfo__list__item__qtyprice">
+                    <div class="itemsinfo__list__item__qtyprice__qty">3x</div>
+                    <div class="itemsinfo__list__item__qtyprice__price">9.99 USD</div>
+                  </div>
+                </div>
+                <div class="itemsinfo__list__item">
+                  <p class="itemsinfo__list__item__title">Effective Extra Rich Shea Butter Cream</p>
+                  <div class="itemsinfo__list__item__qtyprice">
+                    <div class="itemsinfo__list__item__qtyprice__qty">1x</div>
+                    <div class="itemsinfo__list__item__qtyprice__price">12.1 USD</div>
+                  </div>
+                </div>
+                <div class="itemsinfo__list__item">
+                  <p class="itemsinfo__list__item__title">3 Powerful Olive Oil &amp; Honey Cream</p>
+                  <div class="itemsinfo__list__item__qtyprice">
+                    <div class="itemsinfo__list__item__qtyprice__qty">5x</div>
+                    <div class="itemsinfo__list__item__qtyprice__price">20 USD</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="orderdetails__promocode">
+              <label for="promocodeinput2">promocode</label>
+              <input class="promocodeinput" id="promocodeinput2" type="text" name="promocode" placeholder="enter code">
+            </div>
+            <div class="orderdetails__totals">
+              <p>Total:</p>
+              <p class="orderdetails__totals__value"><span>0.00</span> USD</p>
+            </div>
+          </div>
+        </div>
+        <div class="basketmodal__mains__finished">
+          <div class="basketmodal__mains__content"></div>
+        </div>
+      </div>
+    </div>
     <footer class="footer">
       <div class="footer__content">
         <div class="footer__columns container">
@@ -324,7 +772,8 @@
       
       
     </script>
-    <script src="assets/js/main.js?ver=1"></script>
+    <script src="assets/js/main.js?v=0.2"></script>
     <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/profile.js"> </script>
   </body>
 </html>

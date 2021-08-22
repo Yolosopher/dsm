@@ -113,11 +113,11 @@ html(lang="en")
                                 span=Math.floor(Math.random() * 30 * 100) / 100
                                 span  USD
                             a.homemain__sales__item__imgbox(href="productin.html")
-                                img(src=slide.image_link, alt="")
+                                img(src=slide.image, alt="")
                             .homemain__sales__item__textcontent
-                                p.homemain__sales__item__category=slide.brand
+                                p.homemain__sales__item__category=slide.category
                                 h5.homemain__sales__item__title
-                                    a(href="productin.html")=slide.name
+                                    a(href="productin.html")=slide.title
                                 .homemain__sales__item__bagNprice.addinbasketbtn(data-id=slide.id)
                                     .addtobag
                                         include ../components/bag

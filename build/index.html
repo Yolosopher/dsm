@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css?v=0.2">
   </head>
-  <body> 
+  <body>
     <header class="header"><a class="header__logo" href="index.html"> <img src="assets/img/logo.svg" alt="dsm.ge" title="dsm_logo"></a>
       <div class="header__left">
         <nav class="header__navbar">
@@ -65,10 +65,26 @@
           </svg><span class="length" data-length="0"></span>
         </div>
         <div class="header__hr"></div>
-        <div class="header__loginbtn login">
+        <div class="header__loginbtn loggedin">
           <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M15.71 12.71C16.6904 11.9387 17.406 10.8809 17.7572 9.68394C18.1085 8.48697 18.0779 7.21027 17.6698 6.03147C17.2617 4.85267 16.4963 3.83039 15.4801 3.10686C14.4639 2.38332 13.2474 1.99451 12 1.99451C10.7525 1.99451 9.53611 2.38332 8.51993 3.10686C7.50374 3.83039 6.73834 4.85267 6.33021 6.03147C5.92208 7.21027 5.89151 8.48697 6.24276 9.68394C6.59401 10.8809 7.3096 11.9387 8.29 12.71C6.61007 13.383 5.14428 14.4994 4.04889 15.9399C2.95349 17.3805 2.26956 19.0913 2.07 20.89C2.05555 21.0213 2.06711 21.1542 2.10402 21.2811C2.14093 21.4079 2.20246 21.5263 2.28511 21.6293C2.45202 21.8375 2.69478 21.9708 2.96 22C3.22521 22.0292 3.49116 21.9518 3.69932 21.7849C3.90749 21.618 4.04082 21.3752 4.07 21.11C4.28958 19.1552 5.22168 17.3498 6.68822 16.0388C8.15475 14.7278 10.0529 14.003 12.02 14.003C13.9871 14.003 15.8852 14.7278 17.3518 16.0388C18.8183 17.3498 19.7504 19.1552 19.97 21.11C19.9972 21.3557 20.1144 21.5827 20.2991 21.747C20.4838 21.9114 20.7228 22.0015 20.97 22H21.08C21.3421 21.9698 21.5817 21.8373 21.7466 21.6313C21.9114 21.4252 21.9881 21.1624 21.96 20.9C21.7595 19.0962 21.0719 17.381 19.9708 15.9382C18.8698 14.4954 17.3969 13.3795 15.71 12.71ZM12 12C11.2089 12 10.4355 11.7654 9.77772 11.3259C9.11992 10.8864 8.60723 10.2616 8.30448 9.53074C8.00173 8.79983 7.92251 7.99557 8.07686 7.21964C8.2312 6.44372 8.61216 5.73099 9.17157 5.17158C9.73098 4.61217 10.4437 4.2312 11.2196 4.07686C11.9956 3.92252 12.7998 4.00173 13.5307 4.30448C14.2616 4.60724 14.8863 5.11993 15.3259 5.77772C15.7654 6.43552 16 7.20888 16 8C16 9.06087 15.5786 10.0783 14.8284 10.8284C14.0783 11.5786 13.0609 12 12 12Z" fill="white"></path>
-          </svg><span>login</span>
+          </svg><span>Hello, Mikheil</span>
+          <div class="loggedinmenu desktop">
+            <div class="loggedinmenu__balance">
+              <div class="loggedinmenu__balance__left">
+                <div class="balancesvg"></div>
+                <div class="loggedinmenu__balance__left__content">
+                  <p>balance</p>
+                  <div class="loggedinmenu__balance__price"><span class="loggedinmenu__balance__price__value">30.40</span> USD</div>
+                </div>
+              </div><a class="loggedinmenu__balance__right" href="payment.html">Payment settings</a>
+            </div>
+            <ul class="loggedinmenu__nav">
+              <li class="loggedinmenu__nav__li"><a class="prof" href="profile-details.html">profile</a></li>
+              <li class="loggedinmenu__nav__li ordhs" data-orders="13"><a class="ordhs" href="profile-orders.html">order history</a></li>
+              <li class="loggedinmenu__nav__li reffs" data-reffs="135"><a class="reffs" href="profile-refferals.html">refferals</a></li>
+            </ul><a class="logout" href="/logout">Log out! </a>
+          </div>
         </div>
         <div class="header__basket">
           <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -88,6 +104,22 @@
         <path d="M17.6569 16.2426L13.4142 12L17.6569 7.75735C17.8444 7.56981 17.9497 7.31546 17.9497 7.05024C17.9497 6.78502 17.8444 6.53067 17.6569 6.34313C17.4693 6.1556 17.215 6.05024 16.9497 6.05024C16.6845 6.05024 16.4302 6.1556 16.2426 6.34313L12 10.5858L7.75736 6.34313C7.56982 6.1556 7.31547 6.05024 7.05025 6.05024C6.78504 6.05024 6.53068 6.1556 6.34315 6.34313C6.15561 6.53067 6.05025 6.78502 6.05025 7.05024C6.05025 7.31546 6.15561 7.56981 6.34315 7.75735L10.5858 12L6.34315 16.2426C6.15561 16.4302 6.05025 16.6845 6.05025 16.9497C6.05025 17.215 6.15561 17.4693 6.34315 17.6568C6.53068 17.8444 6.78504 17.9497 7.05025 17.9497C7.31547 17.9497 7.56982 17.8444 7.75736 17.6568L12 13.4142L16.2426 17.6568C16.4302 17.8444 16.6845 17.9497 16.9497 17.9497C17.215 17.9497 17.4693 17.8444 17.6569 17.6568C17.8444 17.4693 17.9497 17.215 17.9497 16.9497C17.9497 16.6845 17.8444 16.4302 17.6569 16.2426Z" fill="white"></path>
       </svg>
     </form>
+    <div class="loggedinmenu mobile">
+      <div class="loggedinmenu__balance">
+        <div class="loggedinmenu__balance__left">
+          <div class="balancesvg"></div>
+          <div class="loggedinmenu__balance__left__content">
+            <p>balance</p>
+            <div class="loggedinmenu__balance__price"><span class="loggedinmenu__balance__price__value">30.40</span> USD</div>
+          </div>
+        </div><a class="loggedinmenu__balance__right" href="payment.html">Payment settings</a>
+      </div>
+      <ul class="loggedinmenu__nav">
+        <li class="loggedinmenu__nav__li"><a class="prof" href="profile-details.html">profile</a></li>
+        <li class="loggedinmenu__nav__li ordhs" data-orders="13"><a class="ordhs" href="profile-orders.html">order history</a></li>
+        <li class="loggedinmenu__nav__li reffs" data-reffs="135"><a class="reffs" href="profile-refferals.html">refferals</a></li>
+      </ul><a class="logout" href="/logout">Log out! </a>
+    </div>
     <div class="header__navbar__bg"></div>
     <div class="header__navbar__content">
       <div class="header__navbar__content__withscroll">
@@ -227,7 +259,7 @@
     <main class="main homemain container">
       <div class="homemain__slider fadein fadeinimg">
         <div class="homemain__swiper left swiper-container">
-          <div class="homemain__wrapper swiper-wrapper">
+          <div class="homemain__wrapper swiper-wrapper animstartpoint">
             <div class="homemain__slide swiper-slide starting">
               <div class="homemain__slide__left">
                 <div class="homemain__slide__left__category__container">
@@ -789,7 +821,7 @@
           <div class="homemain__sales__coverbox"><img src="assets/img/homesales/coverall.jpg" alt=""></div>
           <div class="homemain__sales__products">
             <div class="homemain__sales__item" data-id="1">
-              <div class="homemain__sales__item__saving"><span>save </span><span>1.54</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/1.png" alt=""></a>
+              <div class="homemain__sales__item__saving"><span>save </span><span>0.19</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/1.png" alt=""></a>
               <div class="homemain__sales__item__textcontent">
                 <p class="homemain__sales__item__category">1 moisturize</p>
                 <h5 class="homemain__sales__item__title"><a href="productin.html">1 Powerful Olive Oil &amp; Honey Cream</a></h5>
@@ -820,7 +852,7 @@
               </div>
             </div>
             <div class="homemain__sales__item" data-id="2">
-              <div class="homemain__sales__item__saving"><span>save </span><span>29.71</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/2.png" alt=""></a>
+              <div class="homemain__sales__item__saving"><span>save </span><span>3.59</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/2.png" alt=""></a>
               <div class="homemain__sales__item__textcontent">
                 <p class="homemain__sales__item__category">2 moisturize</p>
                 <h5 class="homemain__sales__item__title"><a href="productin.html">Effective Extra Rich Shea Butter Cream</a></h5>
@@ -851,7 +883,7 @@
               </div>
             </div>
             <div class="homemain__sales__item" data-id="3">
-              <div class="homemain__sales__item__saving"><span>save </span><span>11.41</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/3.png" alt=""></a>
+              <div class="homemain__sales__item__saving"><span>save </span><span>3.54</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/3.png" alt=""></a>
               <div class="homemain__sales__item__textcontent">
                 <p class="homemain__sales__item__category">3 moisturize</p>
                 <h5 class="homemain__sales__item__title"><a href="productin.html">3 Powerful Olive Oil &amp; Honey Cream</a></h5>
@@ -882,7 +914,7 @@
               </div>
             </div>
             <div class="homemain__sales__item" data-id="4">
-              <div class="homemain__sales__item__saving"><span>save </span><span>0.37</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/4.png" alt=""></a>
+              <div class="homemain__sales__item__saving"><span>save </span><span>0.69</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/4.png" alt=""></a>
               <div class="homemain__sales__item__textcontent">
                 <p class="homemain__sales__item__category">4 moisturize</p>
                 <h5 class="homemain__sales__item__title"><a href="productin.html">4 Powerful Olive Oil &amp; Honey Cream</a></h5>
@@ -913,7 +945,7 @@
               </div>
             </div>
             <div class="homemain__sales__item" data-id="1">
-              <div class="homemain__sales__item__saving"><span>save </span><span>20.34</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/1.png" alt=""></a>
+              <div class="homemain__sales__item__saving"><span>save </span><span>22.36</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/1.png" alt=""></a>
               <div class="homemain__sales__item__textcontent">
                 <p class="homemain__sales__item__category">1 moisturize</p>
                 <h5 class="homemain__sales__item__title"><a href="productin.html">1 Powerful Olive Oil &amp; Honey Cream</a></h5>
@@ -944,7 +976,7 @@
               </div>
             </div>
             <div class="homemain__sales__item" data-id="2">
-              <div class="homemain__sales__item__saving"><span>save </span><span>4.11</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/2.png" alt=""></a>
+              <div class="homemain__sales__item__saving"><span>save </span><span>20.36</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/2.png" alt=""></a>
               <div class="homemain__sales__item__textcontent">
                 <p class="homemain__sales__item__category">2 moisturize</p>
                 <h5 class="homemain__sales__item__title"><a href="productin.html">Effective Extra Rich Shea Butter Cream</a></h5>
@@ -975,7 +1007,7 @@
               </div>
             </div>
             <div class="homemain__sales__item" data-id="3">
-              <div class="homemain__sales__item__saving"><span>save </span><span>0.73</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/3.png" alt=""></a>
+              <div class="homemain__sales__item__saving"><span>save </span><span>24.19</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/3.png" alt=""></a>
               <div class="homemain__sales__item__textcontent">
                 <p class="homemain__sales__item__category">3 moisturize</p>
                 <h5 class="homemain__sales__item__title"><a href="productin.html">3 Powerful Olive Oil &amp; Honey Cream</a></h5>
@@ -1006,7 +1038,7 @@
               </div>
             </div>
             <div class="homemain__sales__item" data-id="4">
-              <div class="homemain__sales__item__saving"><span>save </span><span>26.94</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/4.png" alt=""></a>
+              <div class="homemain__sales__item__saving"><span>save </span><span>15.99</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/4.png" alt=""></a>
               <div class="homemain__sales__item__textcontent">
                 <p class="homemain__sales__item__category">4 moisturize</p>
                 <h5 class="homemain__sales__item__title"><a href="productin.html">4 Powerful Olive Oil &amp; Honey Cream</a></h5>
@@ -1037,7 +1069,7 @@
               </div>
             </div>
             <div class="homemain__sales__item" data-id="1">
-              <div class="homemain__sales__item__saving"><span>save </span><span>20.43</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/1.png" alt=""></a>
+              <div class="homemain__sales__item__saving"><span>save </span><span>9.63</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/1.png" alt=""></a>
               <div class="homemain__sales__item__textcontent">
                 <p class="homemain__sales__item__category">1 moisturize</p>
                 <h5 class="homemain__sales__item__title"><a href="productin.html">1 Powerful Olive Oil &amp; Honey Cream</a></h5>
@@ -1068,7 +1100,7 @@
               </div>
             </div>
             <div class="homemain__sales__item" data-id="2">
-              <div class="homemain__sales__item__saving"><span>save </span><span>29.17</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/2.png" alt=""></a>
+              <div class="homemain__sales__item__saving"><span>save </span><span>3.17</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/2.png" alt=""></a>
               <div class="homemain__sales__item__textcontent">
                 <p class="homemain__sales__item__category">2 moisturize</p>
                 <h5 class="homemain__sales__item__title"><a href="productin.html">Effective Extra Rich Shea Butter Cream</a></h5>
@@ -1099,7 +1131,7 @@
               </div>
             </div>
             <div class="homemain__sales__item" data-id="3">
-              <div class="homemain__sales__item__saving"><span>save </span><span>12.62</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/3.png" alt=""></a>
+              <div class="homemain__sales__item__saving"><span>save </span><span>25.99</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/3.png" alt=""></a>
               <div class="homemain__sales__item__textcontent">
                 <p class="homemain__sales__item__category">3 moisturize</p>
                 <h5 class="homemain__sales__item__title"><a href="productin.html">3 Powerful Olive Oil &amp; Honey Cream</a></h5>
@@ -1130,7 +1162,7 @@
               </div>
             </div>
             <div class="homemain__sales__item" data-id="4">
-              <div class="homemain__sales__item__saving"><span>save </span><span>11.09</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/4.png" alt=""></a>
+              <div class="homemain__sales__item__saving"><span>save </span><span>29.25</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/4.png" alt=""></a>
               <div class="homemain__sales__item__textcontent">
                 <p class="homemain__sales__item__category">4 moisturize</p>
                 <h5 class="homemain__sales__item__title"><a href="productin.html">4 Powerful Olive Oil &amp; Honey Cream</a></h5>
@@ -1161,7 +1193,7 @@
               </div>
             </div>
             <div class="homemain__sales__item" data-id="1">
-              <div class="homemain__sales__item__saving"><span>save </span><span>16.57</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/1.png" alt=""></a>
+              <div class="homemain__sales__item__saving"><span>save </span><span>26.1</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/1.png" alt=""></a>
               <div class="homemain__sales__item__textcontent">
                 <p class="homemain__sales__item__category">1 moisturize</p>
                 <h5 class="homemain__sales__item__title"><a href="productin.html">1 Powerful Olive Oil &amp; Honey Cream</a></h5>
@@ -1192,7 +1224,7 @@
               </div>
             </div>
             <div class="homemain__sales__item" data-id="2">
-              <div class="homemain__sales__item__saving"><span>save </span><span>7.44</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/2.png" alt=""></a>
+              <div class="homemain__sales__item__saving"><span>save </span><span>7.89</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/2.png" alt=""></a>
               <div class="homemain__sales__item__textcontent">
                 <p class="homemain__sales__item__category">2 moisturize</p>
                 <h5 class="homemain__sales__item__title"><a href="productin.html">Effective Extra Rich Shea Butter Cream</a></h5>
@@ -1223,7 +1255,7 @@
               </div>
             </div>
             <div class="homemain__sales__item" data-id="3">
-              <div class="homemain__sales__item__saving"><span>save </span><span>24.43</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/3.png" alt=""></a>
+              <div class="homemain__sales__item__saving"><span>save </span><span>12.01</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/3.png" alt=""></a>
               <div class="homemain__sales__item__textcontent">
                 <p class="homemain__sales__item__category">3 moisturize</p>
                 <h5 class="homemain__sales__item__title"><a href="productin.html">3 Powerful Olive Oil &amp; Honey Cream</a></h5>
@@ -1254,7 +1286,7 @@
               </div>
             </div>
             <div class="homemain__sales__item" data-id="4">
-              <div class="homemain__sales__item__saving"><span>save </span><span>22.91</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/4.png" alt=""></a>
+              <div class="homemain__sales__item__saving"><span>save </span><span>13.05</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/4.png" alt=""></a>
               <div class="homemain__sales__item__textcontent">
                 <p class="homemain__sales__item__category">4 moisturize</p>
                 <h5 class="homemain__sales__item__title"><a href="productin.html">4 Powerful Olive Oil &amp; Honey Cream</a></h5>
@@ -1297,7 +1329,7 @@
         </div>
         <ul class="homemain__newproducts__list">
           <li class="homemain__sales__item" data-id="1">
-            <div class="homemain__sales__item__saving"><span>save </span><span>17.18</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/1.png" alt=""></a>
+            <div class="homemain__sales__item__saving"><span>save </span><span>7.44</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/1.png" alt=""></a>
             <div class="homemain__sales__item__textcontent">
               <p class="homemain__sales__item__category">1 moisturize</p>
               <h5 class="homemain__sales__item__title"><a href="productin.html">1 Powerful Olive Oil &amp; Honey Cream</a></h5>
@@ -1328,7 +1360,7 @@
             </div>
           </li>
           <li class="homemain__sales__item" data-id="2">
-            <div class="homemain__sales__item__saving"><span>save </span><span>0.38</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/2.png" alt=""></a>
+            <div class="homemain__sales__item__saving"><span>save </span><span>16.02</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/2.png" alt=""></a>
             <div class="homemain__sales__item__textcontent">
               <p class="homemain__sales__item__category">2 moisturize</p>
               <h5 class="homemain__sales__item__title"><a href="productin.html">Effective Extra Rich Shea Butter Cream</a></h5>
@@ -1359,7 +1391,7 @@
             </div>
           </li>
           <li class="homemain__sales__item" data-id="3">
-            <div class="homemain__sales__item__saving"><span>save </span><span>18.98</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/3.png" alt=""></a>
+            <div class="homemain__sales__item__saving"><span>save </span><span>6.45</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/3.png" alt=""></a>
             <div class="homemain__sales__item__textcontent">
               <p class="homemain__sales__item__category">3 moisturize</p>
               <h5 class="homemain__sales__item__title"><a href="productin.html">3 Powerful Olive Oil &amp; Honey Cream</a></h5>
@@ -1390,7 +1422,7 @@
             </div>
           </li>
           <li class="homemain__sales__item" data-id="4">
-            <div class="homemain__sales__item__saving"><span>save </span><span>9.14</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/4.png" alt=""></a>
+            <div class="homemain__sales__item__saving"><span>save </span><span>2.19</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/4.png" alt=""></a>
             <div class="homemain__sales__item__textcontent">
               <p class="homemain__sales__item__category">4 moisturize</p>
               <h5 class="homemain__sales__item__title"><a href="productin.html">4 Powerful Olive Oil &amp; Honey Cream</a></h5>
@@ -1421,7 +1453,7 @@
             </div>
           </li>
           <li class="homemain__sales__item" data-id="1">
-            <div class="homemain__sales__item__saving"><span>save </span><span>17.49</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/1.png" alt=""></a>
+            <div class="homemain__sales__item__saving"><span>save </span><span>7.58</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/1.png" alt=""></a>
             <div class="homemain__sales__item__textcontent">
               <p class="homemain__sales__item__category">1 moisturize</p>
               <h5 class="homemain__sales__item__title"><a href="productin.html">1 Powerful Olive Oil &amp; Honey Cream</a></h5>
@@ -1452,7 +1484,7 @@
             </div>
           </li>
           <li class="homemain__sales__item" data-id="2">
-            <div class="homemain__sales__item__saving"><span>save </span><span>5.3</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/2.png" alt=""></a>
+            <div class="homemain__sales__item__saving"><span>save </span><span>19.96</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/2.png" alt=""></a>
             <div class="homemain__sales__item__textcontent">
               <p class="homemain__sales__item__category">2 moisturize</p>
               <h5 class="homemain__sales__item__title"><a href="productin.html">Effective Extra Rich Shea Butter Cream</a></h5>
@@ -1483,7 +1515,7 @@
             </div>
           </li>
           <li class="homemain__sales__item" data-id="3">
-            <div class="homemain__sales__item__saving"><span>save </span><span>28.13</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/3.png" alt=""></a>
+            <div class="homemain__sales__item__saving"><span>save </span><span>1.11</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/3.png" alt=""></a>
             <div class="homemain__sales__item__textcontent">
               <p class="homemain__sales__item__category">3 moisturize</p>
               <h5 class="homemain__sales__item__title"><a href="productin.html">3 Powerful Olive Oil &amp; Honey Cream</a></h5>
@@ -1514,7 +1546,7 @@
             </div>
           </li>
           <li class="homemain__sales__item" data-id="4">
-            <div class="homemain__sales__item__saving"><span>save </span><span>22.31</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/4.png" alt=""></a>
+            <div class="homemain__sales__item__saving"><span>save </span><span>21.92</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/4.png" alt=""></a>
             <div class="homemain__sales__item__textcontent">
               <p class="homemain__sales__item__category">4 moisturize</p>
               <h5 class="homemain__sales__item__title"><a href="productin.html">4 Powerful Olive Oil &amp; Honey Cream</a></h5>
@@ -1545,7 +1577,7 @@
             </div>
           </li>
           <li class="homemain__sales__item" data-id="1">
-            <div class="homemain__sales__item__saving"><span>save </span><span>12.79</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/1.png" alt=""></a>
+            <div class="homemain__sales__item__saving"><span>save </span><span>0.19</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/1.png" alt=""></a>
             <div class="homemain__sales__item__textcontent">
               <p class="homemain__sales__item__category">1 moisturize</p>
               <h5 class="homemain__sales__item__title"><a href="productin.html">1 Powerful Olive Oil &amp; Honey Cream</a></h5>
@@ -1576,7 +1608,7 @@
             </div>
           </li>
           <li class="homemain__sales__item" data-id="2">
-            <div class="homemain__sales__item__saving"><span>save </span><span>26.26</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/2.png" alt=""></a>
+            <div class="homemain__sales__item__saving"><span>save </span><span>11.78</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/2.png" alt=""></a>
             <div class="homemain__sales__item__textcontent">
               <p class="homemain__sales__item__category">2 moisturize</p>
               <h5 class="homemain__sales__item__title"><a href="productin.html">Effective Extra Rich Shea Butter Cream</a></h5>
@@ -1607,7 +1639,7 @@
             </div>
           </li>
           <li class="homemain__sales__item" data-id="3">
-            <div class="homemain__sales__item__saving"><span>save </span><span>7.51</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/3.png" alt=""></a>
+            <div class="homemain__sales__item__saving"><span>save </span><span>12.48</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/3.png" alt=""></a>
             <div class="homemain__sales__item__textcontent">
               <p class="homemain__sales__item__category">3 moisturize</p>
               <h5 class="homemain__sales__item__title"><a href="productin.html">3 Powerful Olive Oil &amp; Honey Cream</a></h5>
@@ -1638,7 +1670,7 @@
             </div>
           </li>
           <li class="homemain__sales__item" data-id="4">
-            <div class="homemain__sales__item__saving"><span>save </span><span>8.22</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/4.png" alt=""></a>
+            <div class="homemain__sales__item__saving"><span>save </span><span>17.5</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/4.png" alt=""></a>
             <div class="homemain__sales__item__textcontent">
               <p class="homemain__sales__item__category">4 moisturize</p>
               <h5 class="homemain__sales__item__title"><a href="productin.html">4 Powerful Olive Oil &amp; Honey Cream</a></h5>
@@ -1669,7 +1701,7 @@
             </div>
           </li>
           <li class="homemain__sales__item" data-id="1">
-            <div class="homemain__sales__item__saving"><span>save </span><span>16.32</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/1.png" alt=""></a>
+            <div class="homemain__sales__item__saving"><span>save </span><span>13.74</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/1.png" alt=""></a>
             <div class="homemain__sales__item__textcontent">
               <p class="homemain__sales__item__category">1 moisturize</p>
               <h5 class="homemain__sales__item__title"><a href="productin.html">1 Powerful Olive Oil &amp; Honey Cream</a></h5>
@@ -1700,7 +1732,7 @@
             </div>
           </li>
           <li class="homemain__sales__item" data-id="2">
-            <div class="homemain__sales__item__saving"><span>save </span><span>0.18</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/2.png" alt=""></a>
+            <div class="homemain__sales__item__saving"><span>save </span><span>26.66</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/2.png" alt=""></a>
             <div class="homemain__sales__item__textcontent">
               <p class="homemain__sales__item__category">2 moisturize</p>
               <h5 class="homemain__sales__item__title"><a href="productin.html">Effective Extra Rich Shea Butter Cream</a></h5>
@@ -1731,7 +1763,7 @@
             </div>
           </li>
           <li class="homemain__sales__item" data-id="3">
-            <div class="homemain__sales__item__saving"><span>save </span><span>0.03</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/3.png" alt=""></a>
+            <div class="homemain__sales__item__saving"><span>save </span><span>7.81</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/3.png" alt=""></a>
             <div class="homemain__sales__item__textcontent">
               <p class="homemain__sales__item__category">3 moisturize</p>
               <h5 class="homemain__sales__item__title"><a href="productin.html">3 Powerful Olive Oil &amp; Honey Cream</a></h5>
@@ -1762,7 +1794,7 @@
             </div>
           </li>
           <li class="homemain__sales__item" data-id="4">
-            <div class="homemain__sales__item__saving"><span>save </span><span>11.4</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/4.png" alt=""></a>
+            <div class="homemain__sales__item__saving"><span>save </span><span>19.21</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/4.png" alt=""></a>
             <div class="homemain__sales__item__textcontent">
               <p class="homemain__sales__item__category">4 moisturize</p>
               <h5 class="homemain__sales__item__title"><a href="productin.html">4 Powerful Olive Oil &amp; Honey Cream</a></h5>
@@ -1793,7 +1825,7 @@
             </div>
           </li>
           <li class="homemain__sales__item" data-id="1">
-            <div class="homemain__sales__item__saving"><span>save </span><span>5.26</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/1.png" alt=""></a>
+            <div class="homemain__sales__item__saving"><span>save </span><span>0.45</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/1.png" alt=""></a>
             <div class="homemain__sales__item__textcontent">
               <p class="homemain__sales__item__category">1 moisturize</p>
               <h5 class="homemain__sales__item__title"><a href="productin.html">1 Powerful Olive Oil &amp; Honey Cream</a></h5>
@@ -1824,7 +1856,7 @@
             </div>
           </li>
           <li class="homemain__sales__item" data-id="2">
-            <div class="homemain__sales__item__saving"><span>save </span><span>16.98</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/2.png" alt=""></a>
+            <div class="homemain__sales__item__saving"><span>save </span><span>1.28</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/2.png" alt=""></a>
             <div class="homemain__sales__item__textcontent">
               <p class="homemain__sales__item__category">2 moisturize</p>
               <h5 class="homemain__sales__item__title"><a href="productin.html">Effective Extra Rich Shea Butter Cream</a></h5>
@@ -1855,7 +1887,7 @@
             </div>
           </li>
           <li class="homemain__sales__item" data-id="3">
-            <div class="homemain__sales__item__saving"><span>save </span><span>4.61</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/3.png" alt=""></a>
+            <div class="homemain__sales__item__saving"><span>save </span><span>4.4</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/3.png" alt=""></a>
             <div class="homemain__sales__item__textcontent">
               <p class="homemain__sales__item__category">3 moisturize</p>
               <h5 class="homemain__sales__item__title"><a href="productin.html">3 Powerful Olive Oil &amp; Honey Cream</a></h5>
@@ -1886,7 +1918,7 @@
             </div>
           </li>
           <li class="homemain__sales__item" data-id="4">
-            <div class="homemain__sales__item__saving"><span>save </span><span>2.94</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/4.png" alt=""></a>
+            <div class="homemain__sales__item__saving"><span>save </span><span>23.71</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/4.png" alt=""></a>
             <div class="homemain__sales__item__textcontent">
               <p class="homemain__sales__item__category">4 moisturize</p>
               <h5 class="homemain__sales__item__title"><a href="productin.html">4 Powerful Olive Oil &amp; Honey Cream</a></h5>
@@ -1917,7 +1949,7 @@
             </div>
           </li>
           <li class="homemain__sales__item" data-id="1">
-            <div class="homemain__sales__item__saving"><span>save </span><span>29.82</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/1.png" alt=""></a>
+            <div class="homemain__sales__item__saving"><span>save </span><span>0.48</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/1.png" alt=""></a>
             <div class="homemain__sales__item__textcontent">
               <p class="homemain__sales__item__category">1 moisturize</p>
               <h5 class="homemain__sales__item__title"><a href="productin.html">1 Powerful Olive Oil &amp; Honey Cream</a></h5>
@@ -1948,7 +1980,7 @@
             </div>
           </li>
           <li class="homemain__sales__item" data-id="2">
-            <div class="homemain__sales__item__saving"><span>save </span><span>17.35</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/2.png" alt=""></a>
+            <div class="homemain__sales__item__saving"><span>save </span><span>9.39</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/2.png" alt=""></a>
             <div class="homemain__sales__item__textcontent">
               <p class="homemain__sales__item__category">2 moisturize</p>
               <h5 class="homemain__sales__item__title"><a href="productin.html">Effective Extra Rich Shea Butter Cream</a></h5>
@@ -1979,7 +2011,7 @@
             </div>
           </li>
           <li class="homemain__sales__item" data-id="3">
-            <div class="homemain__sales__item__saving"><span>save </span><span>10.2</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/3.png" alt=""></a>
+            <div class="homemain__sales__item__saving"><span>save </span><span>7.68</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/3.png" alt=""></a>
             <div class="homemain__sales__item__textcontent">
               <p class="homemain__sales__item__category">3 moisturize</p>
               <h5 class="homemain__sales__item__title"><a href="productin.html">3 Powerful Olive Oil &amp; Honey Cream</a></h5>
@@ -2010,7 +2042,7 @@
             </div>
           </li>
           <li class="homemain__sales__item" data-id="4">
-            <div class="homemain__sales__item__saving"><span>save </span><span>24.14</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/4.png" alt=""></a>
+            <div class="homemain__sales__item__saving"><span>save </span><span>26.98</span><span> USD</span></div><a class="homemain__sales__item__imgbox" href="productin.html"><img src="assets/img/homeslider/4.png" alt=""></a>
             <div class="homemain__sales__item__textcontent">
               <p class="homemain__sales__item__category">4 moisturize</p>
               <h5 class="homemain__sales__item__title"><a href="productin.html">4 Powerful Olive Oil &amp; Honey Cream</a></h5>
@@ -2152,15 +2184,15 @@
             <div class="orderdetails__rest">
               <h6>Summary</h6>
               <div class="orderdetails__infos">
-                <div class="orderdetails__infos__item">
+                <div class="orderdetails__infos__item" data-id="1">
                   <p class="orderdetails__infos__label">subtotal</p>
                   <p class="orderdetails__infos__value subtotal"><span>0.00</span> USD</p>
                 </div>
-                <div class="orderdetails__infos__item">
+                <div class="orderdetails__infos__item" data-id="2">
                   <p class="orderdetails__infos__label">product</p>
                   <p class="orderdetails__infos__value product"><span>0.00</span> USD</p>
                 </div>
-                <div class="orderdetails__infos__item">
+                <div class="orderdetails__infos__item" data-id="3">
                   <p class="orderdetails__infos__label">sale</p>
                   <p class="orderdetails__infos__value sale"><span>0.00</span> USD</p>
                 </div>
@@ -2228,10 +2260,20 @@
                   <h6 class="basketform__heading">Where would you like your order to be sent?</h6>
                 </div>
                 <div class="form__fixer basketform__label__fixer">
-                  <label class="basketform__label" for="basketcity">city</label>
+                  <div class="basketform__label">city</div>
                 </div>
-                <div class="form__fixer basketform__input__fixer">
-                  <input class="basketform__input" id="basketcity" type="text" placeholder="city" name="city">
+                <div class="form__fixer basketform__input__fixer" style="z-index: 10">
+                  <div class="ns__container input-div">
+                    <div class="ns gr">
+                      <div class="ns__activetext" data-value="Tbilisi"></div>
+                      <select id="basketcity" name="city">
+                        <option value="1" selected>Tbilisi</option>
+                        <option value="2">Batumi</option>
+                        <option value="3">Kutaisi</option>
+                      </select>
+                      <ul class="ns__ul"></ul>
+                    </div>
+                  </div>
                 </div>
                 <div class="form__fixer basketform__label__fixer">
                   <label class="basketform__label" for="basketaddress">address</label>
@@ -2451,7 +2493,7 @@
       
       
     </script>
-    <script src="assets/js/main.js?ver=1"></script>
+    <script src="assets/js/main.js?v=0.2"></script>
     <script src="assets/js/swiper-bundle.min.js"></script>
     <script src="assets/js/homepage.js"> </script>
   </body>

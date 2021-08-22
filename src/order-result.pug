@@ -1,0 +1,59 @@
+- const title = 'Home'
+- const loggedin = "Mikheil"
+doctype html
+html(lang="en")
+    head
+        //- link(rel="stylesheet", href="assets/css/swiper-bundle.min.css")
+        include ../layouts/_head
+    body.orderresult
+        main.orderresultmain
+            h6.orderresultmain__title.mob dsm.ge
+            .orderresultmain__left
+                h6.orderresultmain__title.desk dsm.ge
+                h1.orderresultmain__left__message
+                    | Thank you for shopping with 
+                    b DSM.
+                    |  You've made a great choice
+                p.orderresultmain__left__confirmation
+                    | Confirmation letter has been sent to 
+                    a(href="mailto:example@gmail.com") example@gmail.com
+                .orderresultmain__left__bottom
+                    .orderresultmain__left__bottom__left
+                        p.orderresultmain__left__bottom__hello Hello Michael Gabson
+                        p.orderresultmain__left__bottom__message Your order has been successfully completed and will be delivered to you in the near future. You can track the delivery status in the Personal Account. You could also receive a notification with a link to track the parcel from our partner.
+                    a.transparentbtn(href="product.html") back to store
+            .orderresultmain__summary
+                .orderresultmain__summary__headtext Order summary
+                .orderresultmain__summary__details
+                    .orderresultmain__summary__details__item
+                        .orderresultmain__summary__details__label Order N:
+                        .orderresultmain__summary__details__value 9PM2EQ
+                    .orderresultmain__summary__details__item
+                        .orderresultmain__summary__details__label Est delivery date:
+                        .orderresultmain__summary__details__value 26.07.2021
+                    .orderresultmain__summary__details__item
+                        .orderresultmain__summary__details__label Shipping details:
+                        .orderresultmain__summary__details__value.3line
+                            span Michael Gabson
+                            span Tbilisi, Didi digomi 3 / King Mirian 94
+                            span +995 555 444 333
+                .orderresultmain__summary__prods
+                    .orderresultmain__summary__prods__header__container
+                        .orderresultmain__summary__prods__header
+                            .orderresultmain__summary__prods__header__label Total
+                            .orderresultmain__summary__prods__header__value 33.10 USD
+                    ul.orderresultmain__summary__prods__ul
+                        each product, index in slides
+                            li.orderresultmain__summary__prods__ul__li
+                                .orderresultmain__summary__prods__ul__li__imgbox
+                                    img(src=product.image, alt=product.title)
+                                h2.orderresultmain__summary__prods__ul__li__title=product.title
+                                .orderresultmain__summary__prods__ul__li__right
+                                    .orderresultmain__summary__prods__ul__li__qty=product.review + 'x'
+                                    .orderresultmain__summary__prods__ul__li__price=product.price + ' USD'
+                    .orderresultmain__summary__prods__header__container
+                        .orderresultmain__summary__prods__header
+                            .orderresultmain__summary__prods__header__label Delivery
+                            .orderresultmain__summary__prods__header__value 10.10 USD
+
+        script(src="assets/js/order-result.js") 

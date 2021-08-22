@@ -1,0 +1,104 @@
+- const title = 'Profile'
+- const loggedin = "Mikheil"
+doctype html
+html(lang="en")
+    head
+        link(rel="stylesheet", href="assets/css/swiper-bundle.min.css")
+        include ../layouts/_head
+
+    body 
+        include ../layouts/_header
+        include ../layouts/_loginmodal
+
+        main.main.profilemain.container
+            .profilemain__greetings__container
+                .profilemain__greetings
+                    h6.profilemain__greetings__hello="Hello " + loggedin
+                    p.profilemain__greetings__welcome welcome to your dsm account!
+                    p.profilemain__greetings__instruction Here you will be able to edit your details, view your order status and update your wishlist.
+                .loggedinmenu__balance
+                    .loggedinmenu__balance__left
+                        .balancesvg
+                        .loggedinmenu__balance__left__content
+                            p balance
+                            .loggedinmenu__balance__price
+                                span.loggedinmenu__balance__price__value 30.40
+                                |  USD
+                    a.loggedinmenu__balance__right(href="payment.html") Payment settings
+            .profilemain__nav
+                ul.profilemain__nav__ul
+                    li.profilemain__nav__ul__li.details.active
+                        a(href="profile-details.html") my details
+                    li.profilemain__nav__ul__li.history
+                        a(href="profile-orders.html") order history
+                    li.profilemain__nav__ul__li.wishlist
+                        a(href="profile-wishlist.html", data-wishes="13") my wishlist
+                    li.profilemain__nav__ul__li.referalls
+                        a(href="profile-referrals.html", data-reffs="135") referrals
+                a.profilemain__nav__logout(href="/logout") Log out!
+            //- here comes changing content
+            form.profilemain__detailforms.detailforms(action="/profile", method="post")
+                .detailforms__each
+                    h2.detailforms__title my details
+                    #mydetails__info.form(action="/profile", method="post")
+                        label.detailforms__label(for="profileemail") email
+                        input#profileemail.input-div(type="text", name="email", placeholder="example@gmail.com")
+                        .detailforms__inputcontainer
+                            .detailforms__inputcontainer__item
+                                label.detailforms__label(for="profilefirstname") first name
+                                input#profilefirstname.input-div(type="text", name="first_name", placeholder="first name")
+                            .detailforms__inputcontainer__item
+                                label.detailforms__label(for="profilelastname") last name
+                                input#profilelastname.input-div(type="text", name="last_name", placeholder="last name")
+                        .detailforms__inputcontainer
+                            .detailforms__inputcontainer__item
+                                label.detailforms__label(for="profilepersonalid") personal id
+                                input#profilepersonalid.input-div(type="number", name="personal_id", placeholder="010050xxxxxx")
+                            .detailforms__inputcontainer__item
+                                .detailforms__label gender
+                                .ns__container.input-div
+                                    .ns
+                                        .ns__activetext(data-value="male")
+                                        select#genderselect(name="gender")
+                                            option(value="1" selected) male
+                                            option(value="2") female
+                                        ul.ns__ul
+                        button.transparentbtn(type="submit") edit
+                .detailforms__each
+                    h2.detailforms__title change password
+                    #mydetails__password.form
+                        label.detailforms__label(for="profilecurrentpassword") current password
+                        input#profilecurrentpassword.input-div(type="text", name="password", placeholder="*******")
+                        label.detailforms__label(for="profilenewpassword") new password
+                        input#profilenewpassword.input-div(type="text", name="new_password", placeholder="*******")
+                        label.detailforms__label(for="profileconfirmnewpassword") confirm new password
+                        input#profileconfirmnewpassword.input-div(type="text", name="confirm_new_password", placeholder="*******")
+                        button.transparentbtn(type="submit") edit
+                .detailforms__each
+                    h2.detailforms__title delivery address
+                    #mydetails__address.form
+                        .detailforms__label city
+                        .ns__container.input-div
+                            .ns
+                                .ns__activetext(data-value="Tbilisi")
+                                select#cityselect(name="city")
+                                    option(value="1" selected) Tbilisi
+                                    option(value="2") Batumi
+                                    option(value="3") Kutaisi
+                                ul.ns__ul
+                        label.detailforms__label(for="profileaddress") address
+                        input#profileaddress.input-div(type="text", name="address", placeholder="Type address")
+                        label.detailforms__label(for="profiletel") tel
+                        input#profiletel.input-div(type="number", name="tel", placeholder="+995 __ __ __")
+
+                        button.transparentbtn(type="submit") edit
+
+
+
+        include ../layouts/_basket
+        include ../layouts/_footer
+        
+        include ../layouts/_respomenu
+        
+        include ../layouts/_scripts
+        script(src="assets/js/profile.js") 

@@ -4,9 +4,11 @@
 
 body
     // background: darkblue
-    padding-top: 90px
+    &:not(.orderresult)
+        padding-top: 90px
     &.noscroll
         overflow-y: hidden
+
 .main
     // min-height: 150vh
     min-height: 150vh
@@ -38,988 +40,136 @@ html
 @import _productin
 
 
-.basketmodal
-    position: fixed
-    top: 20px
-    left: 20px
-    height: calc( 100vh - 40px )
-    z-index: 16
-    overflow: hidden
-    transform: translateX(100vw)
-    transition: .4s ease-out
-    width: calc( 100% - 40px )
-    @include plus1025()
-        width: calc( 100% - 20px )
-        top: 10px
-        left: 10px
-        height: calc( 100vh - 20px )
-    
-    // for toggle
-    &.toggled
-        transform: translateX(0)
-    &__X
-        cursor: pointer
+@import _basketmodal
 
-    &__bg
-        position: fixed
-        right: 0
-        top: 0
-        width: 0
-        height: 0
-        background-color: rgba(19, 19, 19, 0.6)
-        z-index: 15
-        transition: 0s .4s linear
-        // for toggle
-        
-        &.toggled
-            transition: none
+@import _ns
+
+
+@import _profilemain
+
+@import _orderresult
+
+
+.profilemain__referrals
+    &__content
+        // 
+    &__h1
+        font-family: firagothin
+        font-weight: 100
+        @include font(64px, 76.8px)
+        color: $dark
+        margin-bottom: 70px
+        text-align: center
+        span
+            font-style: italic
+            font-family: firagothinitalic
+
+    &__progressbar
+        height: 63px
+        position: relative
+        margin: 0 auto
+        max-width: 845px
+        display: flex
+        align-items: center
+        margin-bottom: 70px
+
+        &__line
+            // position: relative
+            // left: 0
             width: 100%
-            height: 100vh
-            // fasdf
-    &__mains
-        width: 100%
-        // overflow: hidden
-        display: grid
-        grid-template-columns: repeat(3, 100%)
-        height: 100%
-        transform: translateX(100vw)
-
-        @include plus1025()
-        > div
-            top: 0
-            border-radius: 30px
-            display: flex
-            overflow: hidden
-            opacity: 1
-            width: 100%
-            height: 100%
-            background-color: #fff
-            padding: 20px
-            // transform: translateX(100vw)
-            position: absolute
-            right: 0
-
-            transition: right .4s ease-out, opacity .1s ease-out
-            @include plus1025()
-                padding: 40px 0 20px 50px
-            &.ordering
-                transform: translateX(0)
-        &.basket
-            .basketmodal__mains__basket
-                opacity: 1 !important
-                right: 100vw
-                transition: right .4s ease-out, opacity .4s ease-out
-                > *
-                    opacity: 1
-                    transition: opacity .8s ease-out
-            .basketmodal__mains__basket__list__li
-                opacity: 1 
-                transform: translateY(0)
-            .basketmodal__mains__basket__list__li__fixer
-                @for $i from 1 through 50
-                    &:nth-child(#{$i})
-                        .basketmodal__mains__basket__list__li
-                            transition-delay: calc(#{$i} * 40ms + 400ms)
-        &.ordering
-            .basketmodal__mains__basket
-                opacity: 1 !important
-                right: 100vw
-                transition: right .4s ease-out, opacity .4s ease-out
-                > *
-                    opacity: 0
-                    transition: opacity .01s ease-in
-            .basketmodal__mains__ordering
-                opacity: 1 !important
-                right: 100vw
-                transition: right .4s ease-out, opacity .4s ease-out
-                > *
-                    opacity: 1
-                    // transition: opacity .4s ease-out
-                    transition: opacity 1.2s ease-in
-            // > div
-            //     opacity: 1
-            //     transform: translateX(-100%)
-            // .basketmodal__mains__basket
-                // @include plus1025()
-                //     transform: translateX(calc(-100% - 105px))
-                // @include sizePlus(1400px)
-                //     transform: translateX(calc(-100% - 155px))
-
-
-
-            #basketmodalform
-                &[data-pg="1"]
-                    .basketform
-                        > div
-                            transform: translateX(0)
-                    .basketform__who
-                        opacity: 1
-                        transition: opacity .05s ease-out
-                        .form__fixer
-                            > *
-                                opacity: 1
-                                transform: translate(0)
-                                transition-delay: calc(var(--delay-que) * 40ms + 400ms)
-                &[data-pg="2"]
-                    .basketform
-                        > div
-                            transform: translateX(-100%)
-                    .basketform__where
-                        opacity: 1
-                        transition: opacity .05s ease-out
-                        .form__fixer
-                            > *
-                                opacity: 1
-                                transform: translate(0)
-                                transition-delay: calc(var(--delay-que) * 40ms + 400ms)
-                &[data-pg="3"]
-                    .basketform
-                        > div
-                            transform: translateX(-200%)
-                    .basketform__paytype
-                        opacity: 1
-                        transition: opacity .05s ease-out
-                        .form__fixer
-                            > *
-                                opacity: 1
-                                transform: translate(0)
-                                transition-delay: calc(var(--delay-que) * 40ms + 400ms)
-
-
-
-
-
-
-
-
-
-        &__basket
-            width: 100%
+            height: 6px
             z-index: 1
-            position: relative
-            @include plus1025()
-                justify-self: flex-end
-                width: calc(100% - 105px) !important
-                // margin-left: 105px
-            @include sizePlus(1400px)
-                width: calc(100% - 155px) !important
-            > *
-                opacity: 0
-                transition: opacity .1s ease-out
-            > .basketmodal__X
-                position: absolute
-                right: 20px
-                top: 20px
-                height: 24px
-                width: 24px
-                z-index: 2
-            &__content
-                width: 100%
-                display: flex
-                flex-direction: column
-                height: calc(100% - 320px)
-                @include plus1025()
-                    height: 100%
-                    padding-right: #{315px + 30px}
-                &__header
-                    margin-bottom: 30px
-                    @include plus1025()
-                        display: flex
-                        align-items: center
-                        justify-content: space-between
-                        margin-bottom: 50px
-                    .ptitle
-                        z-index: 1
-                        margin-bottom: 8px
-                        @include plus1025()
-                            margin-bottom: 0
-                    &__qty
-                        color: $gr
-                        font-family: firagobold
-                        font-weight: 700
-                        @include font(14px, 16.8px)
-            &__list
-                height: 0
-                flex-grow: 1
-                overflow: auto
-                display: grid
-                align-content: flex-start
-                width: 100%
-                grid-gap: 20px
-                &::-webkit-scrollbar
-                    width: 2px
-                    background-color: transparent
-                &::-webkit-scrollbar-thumb
-                    border-radius: 30px
-                    background-color: rgba($dark, .2)
-                &::-webkit-scrollbar-track
-                    margin: 15px 0
-                    background-color: transparent
-                @include plus1025()
-                    grid-gap: 30px
-                &__titles
-                    display: none
-                    margin-bottom: 40px
-                    grid-template-columns: minmax(auto, 350px) minmax(97px, 1fr) minmax(116px, 1fr) minmax(148px, 1fr) 1fr
-                    padding-right: 48px
-                    @include plus1025()
-                        display: grid
-                    @include plus1900()
-                    li
-                        font-family: firagobook
-                        @include font(14px, 25.2px)
-                        color: $gr
-                        font-weight: 400
-                        text-transform: capitalize
-                &__li
-                    position: relative
-                    height: var(--height-toggled)
-                    overflow: hidden
-                    display: grid
-                    grid-gap: 20px
-                    align-content: flex-start
-                    transition: transform .15s ease-out, opacity .15s ease-out
-                    opacity: 0
-                    will-change: all
-                    transform: translateY(100%)
-                    @include plus1025()
-                        padding-right: 48px
-                        height: 90px !important
-                        grid-gap: 0
-                        display: grid
-                        align-content: center
-                        align-items: center
-                        grid-template-columns: minmax(auto, 350px) minmax(97px, 1fr) minmax(116px, 1fr) minmax(148px, 1fr) 1fr
-                    @include plus1900()
-
-                    .labelll
-                        font-family: firagobook !important
-                        @include font(14px !important, 25.2px !important)
-                        color: $gr !important
-                        font-weight: 400 !important
-                        @include plus1025()
-                            display: none
-                    &__fixer
-                        width: 100%
-                        overflow: hidden
-                        --height: #{113px + 21px}
-                        --height-toggled: #{113px + 61px}
-                        height: var(--height)
-                        transition: height .3s ease-out
-                        will-change: height
-                        border-bottom: 1px solid #E6E6E6
-                        @include plus1025()
-                            height: 90px !important
-                            border: none
-                        &.toggled
-                            height: var(--height-toggled)
-                            // .basketmodal__mains__basket__list__li
-                            //     height: var(--height-toggled)
-                        
-
-                    &__item
-                        height: 70px
-                        display: flex
-                        align-items: stretch
-                        margin-right: 30px
-                        @include plus1025()
-                            height: 100%
-                            margin-bottom: 0
-                    &__imgbox
-                        height: 100%
-                        width: 70px
-                        margin-right: 20px
-                        @include plus1025()
-                            width: 90px
-                            margin-right: 20px
-                        img
-                            width: 100%
-                            height: 100%
-                            object-fit: contain
-                    &__category
-                        font-family: firagobook
-                        color: $gr
-                        @include font(14px, 19.6px)
-                        text-transform: uppercase
-                        font-weight: 400
-                        margin-bottom: 8px
-                    &__title, &__category
-                        max-width: 130px
-                        @include plus1025()
-                            max-width: 230px
-                    &__title, &__title a
-                        font-family: firago
-                        @include font(14px, 19.6px)
-                        font-weight: 400
-                        min-height: 40px
-                        overflow: hidden
-                        max-height: 40px
-                        @include maxcolumn(2)
-                        @include plus1025()
-                            min-height: 51px
-                            max-height: 51px
-                            @include font(18px, 25.2px)
-                    &__size
-                        font-family: firago !important
-                        @include font(18px, 25.2px)
-                        font-weight: 400
-                        color: $dark !important
-                        .labelll
-                            margin-right: 20px
-                        @media screen and ( max-width: 1024px )
-                            position: absolute
-                            top: #{113px + 20px}
-                            right: calc(50% + 15px)
-                            // transform: translateX(100%)
-                            height: 26px
-                    &__color
-                        display: flex
-                        width: max-content
-                        align-items: center
-                        @media screen and ( max-width: 1024px )
-                            height: 26px
-                            top: #{113px + 20px}
-                            position: absolute
-                            left: calc(50% + 15px)
-                            // transform: translateX(-100%)
-                        .labelll
-                            margin-right: 10px
-
-                        &::after
-                            content: ''
-                            background-color: var(--color)
-                            width: 20px
-                            height: 20px
-                            border-radius: 50%
-                            @include plus1025()
-                                width: 34px
-                                height: 34px
-                    &__quantity
-                        width: 88px
-                        height: 24px
-                        display: flex
-                        align-items: center
-                        justify-content: space-between
-                        
-                        input
-                            width: 0
-                            height: 24px
-                            display: flex
-                            justify-content: center
-                            align-items: center
-                            text-align: center
-                            font-family: firagosemibold
-                            @include font(18px, initial)
-                            color: $dark
-                            font-weight: 600
-                            
-                            margin: 0 3px
-                            flex-basis: 0
-                            flex-grow: 1
-                        div
-                            height: 100%
-                            cursor: pointer
-                        .basket
-                            &__minus
-                                &.inactive
-                                    pointer-events: none
-                                    svg path 
-                                        fill: $gr
-                    &__price
-                        font-family: firagosemibold
-                        @include font(14px, 19.6px)
-                        color: $dark
-                        font-weight: 600
-                        @media screen and ( max-width: 1024px )
-                            position: absolute
-                            top: 91px
-                            left: #{88px + 20px}
-                    &__moredetails
-                        cursor: pointer
-                        position: absolute
-                        right: 10px
-                        top: 93px
-                        font-family: firagobook
-                        color: #4260FF
-                        @include font(12px, 16.8px)
-                        font-weight: 400
-                        text-transform: uppercase
-                        @include plus1025()
-                            display: none
-                            right: 0
-                    &__removebtn
-                        position: absolute
-                        z-index: 1
-                        top: 25px
-                        right: 10px
-                        display: flex
-                        justify-content: center
-                        align-items: center
-                        height: 18px
-                        width: 18px
-                        cursor: pointer
-                        @include plus1025()
-                            right: 0
-                            top: 50%
-                            transform: translateY(-50%)
-                        &::after
-                            content: url(../img/basketremove.svg)
-                            display: inline-block
-                            width: 100%
-                            height: 100%
-
-            &__right
-                position: absolute
-                right: 0
-                width: 100%
-                height: 320px
-                background-color: #F8F8F8
-                z-index: 1
-                bottom: 0
-                padding: 20px
-                @include plus1025()
-                    height: max-content
-                    padding: 10px
-                    padding-top: 105px
-                    padding-bottom: 20px
-                    bottom: unset
-                    top: 0
-                    height: 100%
-                    width: 315px
-                    display: flex
-                    flex-direction: column
-
-        &__ordering
-            background-color: #F8F8F8 !important
-            position: relative
-            z-index: 2
-            @media screen and ( max-width: 1024px )
-                padding: 20px 10px !important
-            > *
-                opacity: 0
-                transition: opacity .1s ease-out
-            &__staticinfo
-                width: 0
-                height: 0
-                overflow: visible
-                @include plus1025()
-                    width: unset
-                    height: unset
-                    position: absolute
-                    left: 40px
-                    top: 40px
-                .dsm
-                    text-transform: uppercase
-                    color: $dark
-                    font-family: firagobold
-                    font-weight: 700
-                    @include font(24px, 28.8px)
-                    margin-bottom: 72px
-                    display: none
-                    @include plus1025()
-                        display: block
-                .chkout
-                    @include font(24px, 28.8px)
-                    display: none
-                    text-transform: capitalize
-                    font-family: firagosemibold
-                    color: $dark
-                    margin-bottom: 50px
-                    @include plus1025()
-                        display: block
-                .backtostore
-                    position: absolute
-                    top: 20px
-                    left: 20px
-                    z-index: 1
-                    display: flex
-                    margin-bottom: 0
-                    @include plus1025()
-                        position: static
-            &__form // #basketform
-                display: flex
-                flex-direction: column
-                align-items: center
-                width: 100%
-                height: 100%
-                padding-bottom: 272px
-                @include plus1025()
-                    padding-bottom: 0
-                    align-items: flex-start
-                    padding-left: 210px
-                    padding-right: 345px
-                @for $ii from 1 through 3
-                    &[data-pg="#{$ii}"]
-                        .basketmodal__mains__ordering__form__nav
-                            span
-                                &:nth-child(-n+#{$ii})
-                                    background-color: $yellow
-
-                &__nav
-                    display: grid
-                    grid-template-columns: auto auto auto
-                    grid-gap: 20px
-                    height: 10px
-                    margin-bottom: 34px
-                    @include plus1025()
-                        margin-bottom: 79px
-                        height: 14px
-                    span
-                        cursor: pointer
-                        display: inline-block
-                        width: 10px
-                        height: 100%
-                        border-radius: 50%
-                        background-color: #E6E6E6
-                        transition: background-color .4s ease-out
-                        @include plus1025()
-                            width: 14px
-                        
-                .basketform // &__contents
-                    flex-grow: 1
-                    height: 0
-                    flex-basis: 0
-                    width: 100%
-                    overflow: hidden
-                    display: flex
-                    justify-content: flex-start
-                    // flex-direction: column
-                    
-                    @include plus1025()
-                        max-width: 540px
-                    > div
-                        transition: transform .4s ease-out
-                        flex-shrink: 0
-                        width: 100%
-                        height: 100%
-                        padding-bottom: 50px
-                        display: block
-                        max-width: 
-                        // padding-right: 15px
-                        overflow: auto
-                        opacity: 0
-                        transform: translateY(0)
-                        // border-left: 10px solid transparent
-                        padding-left: 10px
-                        padding-right: 10px
-                        // border-right: 10px solid transparent
-                        &::-webkit-scrollbar
-                            width: 2px
-                            background-color: transparent
-                        &::-webkit-scrollbar-thumb
-                            border-radius: 30px
-                            background-color: rgba($dark, .2)
-                        &::-webkit-scrollbar-track
-                            margin: 15px 0
-                            background-color: transparent
-
-                            
-                    &__heading
-                        font-family: firagobook
-                        font-weight: 400
-                        @include font(18px, 21.6px)
-                        color: $dark
-                        @include plus1025()            
-                            @include font(24px, 28.8px)
-                        &__fixer
-                            margin-bottom: 30px
-                            @include plus1025()
-                                margin-bottom: 50px
-                            &.f18__fixer
-                                margin-bottom: 26px
-                                @include plus1025()
-                                    margin-bottom: 30px
-                        &.f18
-                            @include font(16px, 19.2px)
-                            @include plus1025()
-                                @include font(18px, 21.6px)
-                            
-                    &__label
-                        text-transform: uppercase
-                        font-family: firagosemibold
-                        @include font(12px, 16.8px)
-                        font-weight: 600
-                        color: $dark
-                        letter-spacing: 0.012em
-                        &__fixer
-                            margin-bottom: 8px
-                    &__input
-                        font-family: firagobook
-                        color: $dark
-                        font-weight: 400
-                        height: 54px
-                        width: 100%
-                        border-radius: 12px
-                        border: 1px solid #E6E6E6
-                        padding: 0 20px
-                        display: flex
-                        align-items: center
-                        @include font(12px, 16.8px)
-                        letter-spacing: 0.012em
-                        &:focus
-                            border-color: $dark
-                        &__fixer
-                            margin-bottom: 20px
-                    &__inputcombiner
-                        @include plus1025()
-                            margin-bottom: 20px
-                            display: grid
-                            grid-template-columns: 1fr 1fr
-                            grid-gap: 30px
-            &__right
-                position: absolute
-                z-index: 1
-                width: 100%
-                height: 272px
-                right: 0
-                bottom: 0
-                background-color: #fff
-                @include plus1025()
-                    width: 315px
-                    height: 100%
-                    bottom: unset
-                    top: 0
-
-.basketform__radio__label
-    display: flex
-    cursor: pointer
-    align-items: center
-    height: 30px
-    @include plus1025()
-        margin-bottom: 36px
-    input
-        display: none !important
-        &:checked
-            + .customcheck
-                &::after
-                    width: 12px
-                    height: 12px
-                    opacity: 1
-            + .customcheckmark
-                border-color: $yellow
-                background-color: $yellow
-    .customcheck
-        display: flex
-        width: 30px
-        height: 30px
-        border-radius: 50%
-        overflow: hidden
-        background-color: #fff
-        border: 1px solid $dark
-        &::after
-            content: ''
-            z-index: 1
-            position: absolute
-            left: 50%
-            top: 50%
-            transform: translate(-50%, -50%)
             display: flex
-            width: 0
-            height: 0
-            opacity: 0
-            border-radius: 50%
-            border: 2px solid #fff
-            background-color: #FED67E
-            transition: 0.3s ease-out
-    .customcheckmark
-        width: 18px
-        height: 18px
-        border-radius: 4px
-        background-color: transparent
-        border: 1px solid #E6E6E6
-    .descr
-        font-family: firagobook
-        font-weight: 400
-        @include font(12px, 14.4px)
-        color: #000
-        flex-grow: 1
-        margin: 0 10px
-        flex-basis: 0
-    .price
-        color: $dark
-        font-family: firagosemibold
-        @include font(14px, 16.8px)
-        font-weight: 600
-    &.first
-        margin-bottom: 20px
-    &.emoney, &.express, &.terms
-        margin-bottom: 50px
-.orderdetails
-    &__rest, &__totals
-        @include plus1025()
-            padding: 0 10px
-    &__rest
-        @include plus1025()
-            flex-grow: 1
-    h6
-        font-family: firagosemibold
-        @include font(18px, 25.2px)
-        letter-spacing: 0.012em
-        color: $dark
-        font-weight: 600
-        margin-bottom: 10px
-        text-transform: capitalize
-        @include plus1025()
-            margin-bottom: 50px
-    &__infos
-        display: grid
-        grid-gap: 16px
-        width: 100%
-        margin-bottom: 20px
-        @include plus1025()
-            margin-bottom: 50px
-        &__item
-            display: flex
-            align-items: center
-            justify-content: space-between
-            p
-                font-family: firagobook
-                font-weight: 400
-                @include font(14px, 19.6px)
-                
-        &__label
-            color: $dark34
-            text-transform: capitalize
-
-    &__promocode
-        display: flex
-        align-items: center
-        justify-content: space-between
-        margin-bottom: 20px
-        @include plus1025()
-            margin-bottom: 0
-        input, label
-            font-family: firagosemibold
-            @include font(14px, 19.6px)
-        label
-            text-transform: capitalize
-        input
-            display: flex
-            flex-basis: 0
-            min-width: 69px
-            color: $gr
-            width: max-content
-
-    &__totals
-        display: flex
-        align-items: center
-        justify-content: space-between
-        margin-bottom: 20px
-        p
-            color: $dark
-            font-weight: 600
-            @include font(18px, 25.2px)
-            font-family: firagosemibold
-            &:first-child
-                color: $dark34
-                text-transform: capitalize
-
-.form__fixer
-    height: max-content
-    overflow: hidden
-    --delay-que: 1
-    > *
-        transition: transform .05s ease-out, opacity .1s ease-out
-        transition-delay: 0s
-        opacity: 0
-        transform: translateY(100%)
-
-// .proctosheep
-//     @media screen and ( max-width: 1024px )
-//         position: fixed
-//         bottom: 20px
-
-
-.backtostore
-    cursor: pointer
-    max-width: max-content
-    align-items: center
-    font-family: firagobold
-    text-transform: uppercase
-    @include font(14px, 17px)
-    font-weight: 700
-    
-    color: $gr
-    display: none
-    margin-bottom: 40px
-    @include plus1025()
-        display: flex
-
-    &::before
-        content: url(../img/backtostore.svg)
-        height: 24px
-        margin-right: 10px
-
-.itemsinfo
-    padding: 20px
-    padding-bottom: 94px
-    display: flex
-    flex-direction: column
-    @include plus1025()
-        padding: 30px 20px
-    .orderdetails__promocode
-        margin-bottom: 20px
-        @include plus1025()
-            margin-bottom: 30px
-    .orderdetails__totals
-        padding: 0
-    &__rest
-        position: fixed
-        max-height: 80vh
-        z-index: 18
-        padding: 20px
-        width: calc(100% - 40px)
-        width: 100%
-        top: 151vh
-        left: 0
-        border-radius: 30px
-        transform: translateY(-50%)
-        background-color: #fff
-        transition: top .4s ease-out
-        @include plus1025()
-            border-radius: 0
-            padding: 0
-            transform: none
-            width: 100%
-            background-color: transparent
-            max-height: unset
-            flex-grow: 1
-            position: static
-        &.toggled
-            top: 50%
-        &__bg
-            position: fixed
-            right: 0
-            top: 0
-            width: 0
-            height: 0
-            background-color: rgba($dark, .7)
-            z-index: 17
-            transition: 0s .4s linear
-            &.toggled
-                transition: none
-                width: 100%
-                height: 100vh
-            @include plus1025()
-                display: none
-
-        &__X
-            height: 24px
-            width: 24px
-            position: absolute
-            right: 20px
-            top: 20px
-            cursor: pointer
-            &::after
-                content: url(../img/)
-                
-            @include plus1025()
-                display: none
-    &__header
-        margin-bottom: 30px
-        @include plus1025()
-            display: flex
-            align-items: center
-            justify-content: space-between
-            margin-bottom: 50px
-
-    &__heading
-        text-transform: capitalize
-        color: $dark
-        font-weight: 600
-        font-family: firagosemibold
-        margin-bottom: 8px
-        letter-spacing: 0.012em
-        @include font(18px, 25.2px)
-        
-        @include plus1025()
-            margin-bottom: 0
-    &__editbag
-        cursor: pointer
-        color: $gr
-        font-family: firagobook
-        text-transform: lowercase
-        font-weight: 400
-        @include font(14px, 16.8px)
-    
-    &__list
-        display: grid
-        width: 100%
-        grid-gap: 30px
-        &__item
-            display: flex
-            justify-content: space-between
-            align-items: center
-            &__title
-                font-family: firago
-                color: $dark
-                @include font(14px, 19.6px)
-                overflow: hidden
-                max-width: 150px
-                @include maxcolumn(2)
-                text-transform: uppercase
-                font-weight: 400
-            &__qtyprice
-                display: grid
-                grid-template-columns: auto auto
-                width: max-content
-                align-items: center
-                grid-gap: 15px
-                &__qty, &__price
-                    font-family: firagobook
-                    @include font(14px, 19.6px)
-                    color: $dark
-                    font-weight: 400
-                &__price
-                    font-family: firagosemibold
-                    font-weight: 600
-                    
-.item__restmobile
-    flex-grow: 1
-    width: 100%
-    display: flex
-    justify-content: space-between
-    align-items: flex-start
-    @include plus1025()
-        display: none
-    &__qty
-        font-family: firagosemibold
-        color: $dark
-        @include font(14px, 19.6px)
-        font-weight: 600
-        margin-bottom: 8px
-    &__checkbag
-        color: #4260FF
-        text-transform: uppercase
-        @include font(12px, 16.8px)
-        font-family: firagobook
-        font-weight: 400
-    &__yellows
-        display: grid
-        grid-template-columns: repeat(3, 100%)
-        align-items: center
-        position: absolute
-        bottom: 20px
-        left: 20px
-        overflow: hidden
-        width: calc(100% - 40px)
-        @include plus1025()
-            display: none
-        > *
+            border-radius: 10px
             
-            flex-shrink: 0
-            width: 100%
-            transition: .4s ease-out
-        &[data-pg="1"]
-            > *
-                transform: translateX(0)
-        &[data-pg="2"]
-            > *
-                transform: translateX(-100%)
-        &[data-pg="3"]
-            > *
-                transform: translateX(-200%)
-.basketform
-    .yellowbtn
-        @media screen and ( max-width: 1024px )
-            display: none !important
+            &.grey
+                background-color: $e6
+                position: absolute
+                top: 50%
+                transform: translateY(-50%)
+            &.yellow
+                --width: 25.00
+                z-index: 2
+                position: relative
+                background-color: $yellow
+                width: calc(var(--width) / 50 * 100%)
+                &[data-price="0"]
+                    display: none
+                &::before
+                    border-color: $yellow
+                &::after
+                    border: none
+                    right: 0
+                    background-color: $yellow
+                    width: 4px
+                    height: 18px
+                    border-radius: 0
+                    transform: translate(50%, -50%)
+            &::before, &::after
+                content: ''
+                display: inline-block
+                width: 20px
+                height: 20px
+                border-radius: 50%
+                border: 5px solid $e6
+                background-color: #fff
+                position: absolute
+                top: 50%
+                transform: translateY(-50%)
+                // top: 0
+                box-sizing: border-box
+            &::before
+                left: 0
+                transform: translate(-50%, -50%)
+            &::after
+                right: 0
+                transform: translate(50%, -50%)
+        span
+            position: absolute
+            top: 46px
+            font-family: firagosemibold
+            @include font(14px, 16.8px)
+            color: $gr
+            font-weight: 600
+            &.current
+                top: 0
+                font-family: firagobold
+                @include font(14px, 16.8px)
+                color: $dark
+                @include upperCase()
+                
+                font-weight: 700
+                left: calc(var(--left) / 50 * 100%)
+                transform: translateX(-50%)
+                &[data-price="0"]
+                    display: none
+            &.lowest
+                left: 0
+                @include plus1025()
+                    transform: translateX(-50%)
+            &.highest
+                right: 0
+                @include plus1025()
+                    transform: translateX(50%)
+
+    .homemain__interestedInDiscounts
+        @include plus1025()
+            max-width: 1086px
+            margin: 0 auto
+
+
+    
+// updated profile details forms
+
+
+
+
+
+
+
+
+
+
+
+
+

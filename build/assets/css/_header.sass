@@ -42,9 +42,11 @@
             width: 20px
             opacity: .6
             pointer-events: none
-            svg
+            svg, img
                 width: 100%
                 height: 100%
+            img
+                object-fit: contain
             &.active
                 order: -1
                 opacity: 1
@@ -193,7 +195,7 @@
             margin-bottom: 16px
             font-family: firagosemibold
             font-weight: 600
-            text-transform: uppercase
+            @include upperCase()
         &__bg, .loginmodal__bg
             position: fixed
             right: 0
@@ -289,8 +291,9 @@
         svg
             margin-right: 10px
         span
-            text-transform: uppercase
+            @include upperCase()
         &.loggedin
+            position: relative
             span
                 text-transform: capitalize
     .header__searchform
@@ -398,3 +401,171 @@
     &.notempty
         &::after
             opacity: 1
+
+
+.loggedinmenu
+    position: fixed
+    z-index: 20
+    border-radius: 30px
+    height: 270px
+    padding: 20px
+    background-color: #f8f8f8
+    opacity: 0
+    width: calc(100% - 40px)
+    bottom: #{-270px - 86px}
+    right: 20px
+    transition: opacity 0.4s ease-out, bottom 0s 0.4s linear
+    @include plus1025()
+        width: 100%
+        bottom: unset
+        top: #{-270px - 110px}
+        right: -20px
+        position: absolute
+        width: 300px
+    &.toggled
+        opacity: 1
+        bottom: 86px
+        transition: opacity 0.4s ease-out
+        @include plus1025()
+            top: #{43px + 24px}
+            max-width: 300px
+    &::after
+        content: ''
+        position: absolute
+        width: 16px
+        height: 16px
+        display: inline-block
+        
+        z-index: -1
+        background-color: #f8f8f8
+    &__balance
+        // height: 36px
+        display: flex
+        justify-content: space-between
+        align-items: center
+        padding-bottom: 21px
+        border-bottom: 1px solid #E6E6E6
+        margin-bottom: 20px
+
+        &__left
+            display: flex
+            width: max-content
+            align-items: center
+            .balancesvg
+                width: 36px
+                height: 36px
+                margin-right: 10px
+                &::after
+                    display: flex
+                    width: 100%
+                    height: 100%
+                    content: url(../img/balance.svg)
+            &__content
+                p
+                    font-family: firagosemibold
+                    @include font(12px, 14.4px)
+                    color: $gr
+                    font-weight: 600
+                    @include upperCase()
+                    margin-bottom: 3px
+        &__price, &__price span
+            font-family: firagosemibold
+            color: $dark
+            font-weight: 600
+            @include upperCase()
+            @include font(16px, 19.2px)
+            
+        &__right
+            display: inline-block
+            font-family: firagobook
+            @include font(12px, 14.4px)
+            color: #4260FF
+            cursor: pointer
+
+
+    &__nav
+        display: grid
+        grid-auto-rows: 18px
+        grid-gap: 20px
+        margin-bottom: 20px
+        padding-bottom: 21px
+        border-bottom: 1px solid #E6E6E6
+        &__li
+            display: flex
+            width: 100%
+            height: 18px
+            justify-content: space-between
+            align-items: center
+            &.ordhs
+                &::after
+                    content: attr(data-orders)
+                    height: 18px
+                    display: flex
+                    align-items: center
+                    color: #fff
+                    padding: 2px 3px
+                    border-radius: 4px
+                    @include font(12px, 14.4px)
+                    font-weight: 600
+                    background-color: #7E8BFE
+                    font-family: firagosemibold
+                    
+            &.reffs
+                &::after
+                    content: attr(data-reffs)
+                    height: 18px
+                    display: flex
+                    align-items: center
+                    color: #fff
+                    padding: 2px 3px
+                    border-radius: 4px
+                    @include font(12px, 14.4px)
+                    font-weight: 600
+                    background-color: #FB7EFE
+                    font-family: firagosemibold
+            a
+                color: $dark
+                font-family: firagobook
+                @include font(14px, 16.8px)
+                text-transform: capitalize
+                display: flex
+                align-items: center
+                height: 18px
+                width: max-content
+                &::before
+                    margin-right: 12px
+                    min-width: 18px
+                    height: 18px
+                    display: inline-block
+                &.prof
+                    &::before
+                        content: url(../img/prof.svg)
+                &.ordhs
+                    &::before
+                        content: url(../img/ordhs.svg)
+                &.reffs
+                    &::before
+                        content: url(../img/reffs.svg)
+    .logout
+        font-family: firagobook
+        color: #000
+        float: right
+        font-weight: 400
+        @include font(14px, 16.8px)
+    &.desktop
+        display: none
+        @include plus1025()
+            display: block
+        &::after
+            top: 0
+            right: 50px
+            border-radius: 4px 0 0 0
+            transform: translateY(-50%) rotate(45deg)
+    &.mobile
+        @include plus1025()
+            display: none
+        &::after
+            bottom: 0
+            right: 80px
+            border-radius: 0 0 4px 0
+            transform: translateY(50%) rotate(45deg)

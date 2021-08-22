@@ -1,0 +1,84 @@
+-
+    const randomDate = (start, end) => new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()))
+
+- const title = 'Order History'
+- const loggedin = "Mikheil"
+doctype html
+html(lang="en")
+    head
+        link(rel="stylesheet", href="assets/css/swiper-bundle.min.css")
+        include ../layouts/_head
+
+    body 
+        include ../layouts/_header
+        include ../layouts/_loginmodal
+
+        main.main.profilemain.container
+            .profilemain__greetings__container
+                .profilemain__greetings
+                    h6.profilemain__greetings__hello="Hello " + loggedin
+                    p.profilemain__greetings__welcome welcome to your dsm account!
+                    p.profilemain__greetings__instruction Here you will be able to edit your details, view your order status and update your wishlist.
+                .loggedinmenu__balance
+                    .loggedinmenu__balance__left
+                        .balancesvg
+                        .loggedinmenu__balance__left__content
+                            p balance
+                            .loggedinmenu__balance__price
+                                span.loggedinmenu__balance__price__value 30.40
+                                |  USD
+                    a.loggedinmenu__balance__right(href="payment.html") Payment settings
+            .profilemain__nav
+                ul.profilemain__nav__ul
+                    li.profilemain__nav__ul__li.details
+                        a(href="profile-details.html") my details
+                    li.profilemain__nav__ul__li.history.active
+                        a(href="profile-orders.html") order history
+                    li.profilemain__nav__ul__li.wishlist
+                        a(href="profile-wishlist.html", data-wishes="13") my wishlist
+                    li.profilemain__nav__ul__li.referalls
+                        a(href="profile-referrals.html", data-reffs="135") referrals
+                a.profilemain__nav__logout(href="/logout") Log out!
+            //- here comes changing content
+            section.profilemain__orderhistory
+                h2.detailforms__title Order History
+                ul.profilemain__orderhistory__header
+                    li Order #
+                    li Date
+                    li Shit to
+                    li Order total
+                    li Order status
+                ul.profilemain__orderhistory__list
+                    each order, index in Array(5)
+                        li.profilemain__orderhistory__list__li
+                            .profilemain__orderhistory__list__li__order 
+                                .profilemain__orderhistory__list__li__lab Order #
+                                .profilemain__orderhistory__list__li__val=143241
+                            .profilemain__orderhistory__list__li__date
+                                .profilemain__orderhistory__list__li__lab Date
+                                .profilemain__orderhistory__list__li__val= randomDate(new Date(2012, 0, 1), new Date()).toLocaleDateString()
+                            .profilemain__orderhistory__list__li__shipto 
+                                .profilemain__orderhistory__list__li__lab Ship to
+                                .profilemain__orderhistory__list__li__val Michael Gabson
+                            .profilemain__orderhistory__list__li__pricetotal
+                                .profilemain__orderhistory__list__li__lab Order total
+                                .profilemain__orderhistory__list__li__val
+                                    span 44.00
+                                    |  USD
+                            .profilemain__orderhistory__list__li__status
+                                .profilemain__orderhistory__list__li__lab Order status
+                                .profilemain__orderhistory__list__li__val Delivered
+                            a.profilemain__orderhistory__list__li__link(href="profile-orderin.html") View order
+
+                            
+
+
+
+
+        include ../layouts/_basket
+        include ../layouts/_footer
+        
+        include ../layouts/_respomenu
+        
+        include ../layouts/_scripts
+        script(src="assets/js/profile.js") 

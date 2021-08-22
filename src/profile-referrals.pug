@@ -1,0 +1,65 @@
+- const title = 'Referrals'
+- const loggedin = "Mikheil"
+doctype html
+html(lang="en")
+    head
+        link(rel="stylesheet", href="assets/css/swiper-bundle.min.css")
+        include ../layouts/_head
+
+    body 
+        include ../layouts/_header
+        include ../layouts/_loginmodal
+
+        main.main.profilemain.container
+            .profilemain__greetings__container
+                .profilemain__greetings
+                    h6.profilemain__greetings__hello="Hello " + loggedin
+                    p.profilemain__greetings__welcome welcome to your dsm account!
+                    p.profilemain__greetings__instruction Here you will be able to edit your details, view your order status and update your wishlist.
+                .loggedinmenu__balance
+                    .loggedinmenu__balance__left
+                        .balancesvg
+                        .loggedinmenu__balance__left__content
+                            p balance
+                            .loggedinmenu__balance__price
+                                span.loggedinmenu__balance__price__value 30.40
+                                |  USD
+                    a.loggedinmenu__balance__right(href="payment.html") Payment settings
+            .profilemain__nav
+                ul.profilemain__nav__ul
+                    li.profilemain__nav__ul__li.details
+                        a(href="profile-details.html") my details
+                    li.profilemain__nav__ul__li.history
+                        a(href="profile-orders.html") order history
+                    li.profilemain__nav__ul__li.wishlist
+                        a(href="profile-wishlist.html", data-wishes="13") my wishlist
+                    li.profilemain__nav__ul__li.referalls.active
+                        a(href="profile-referrals.html", data-reffs="135") referrals
+                a.profilemain__nav__logout(href="/logout") Log out!
+            //- here comes changing content
+            section.profilemain__referrals
+                h2.detailforms__title.referalls(data-reffs="135") Referrals
+                .profilemain__referrals__loader
+                    .profilemain__referrals__content
+                        h1.profilemain__referrals__h1
+                            | To join 
+                            span referral
+                            |  system
+                    .profilemain__referrals__progressbar
+                        .profilemain__referrals__progressbar__line.grey
+                        .profilemain__referrals__progressbar__line.yellow(style="--width: 18.32", data-price="18.32")
+                        span.current(style="--left: 18.32", data-price="18.32") 18.32 USD
+                        span.lowest 0.00 USD
+                        span.highest 50.00 USD
+                .homemain__interestedInDiscounts
+                    h6.homemain__interestedInDiscounts__title Are you interested about Referalls?
+                    p.homemain__interestedInDiscounts__text Products that give you options but never cover you up, turn you into someone else, or over-complicate your routine. Because beauty should make you feel good.
+                    a.homemain__slide__left__link(href='#') about referalls
+
+        include ../layouts/_basket
+        include ../layouts/_footer
+        
+        include ../layouts/_respomenu
+        
+        include ../layouts/_scripts
+        script(src="assets/js/profile.js") 

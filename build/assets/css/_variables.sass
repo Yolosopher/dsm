@@ -9,7 +9,7 @@ $green: #B7C88E
 $red: #DC6848
 $redstock: #FF5E5E
 $gr: #707477
-
+$e6: #E6E6E6
     
 $width380: 380px
 $width450: 450px
@@ -70,13 +70,9 @@ $padL: calc( ((100vw - 10px) - 1697px) / 2)
     @media screen and (min-width: $width)
         @content
 
-// @mixin upperCase($bold)
-//     font-family: mtavruli !important
-//     text-transform: uppercase !important
-//     font-weight: 500 !important
-//     text-transform: uppercase
-//     @if $bold
-//         font-weight: 600 !important
+@mixin upperCase()
+    text-transform: uppercase
+    font-feature-settings: "case" on
 
         
 
@@ -97,6 +93,11 @@ $padL: calc( ((100vw - 10px) - 1697px) / 2)
 @mixin font($size, $lnh)
     font-size: $size
     line-height: $lnh
+
+@mixin centering()
+    display: flex
+    justify-content: center
+    align-items: center
 
 // .container
 //     padding: 0 20px

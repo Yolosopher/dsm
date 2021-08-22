@@ -55,7 +55,7 @@
                 width: max-content
                 font-family: firagosemibold
                 font-weight: 600
-                text-transform: uppercase
+                @include upperCase()
                 @include font(14px, 18px)
 
         &__list
@@ -98,7 +98,7 @@
                 right: 0
                 flex-direction: column
                 a
-                    text-transform: uppercase
+                    @include upperCase()
                 p
                     font-family: firagobook
                     @include font(14px, 18px)
@@ -106,7 +106,7 @@
                         margin-bottom: 16px
 
             &__title
-                text-transform: uppercase
+                @include upperCase()
                 @include font(18px, 26px)
                 font-weight: 600
                 text-align: center
@@ -266,9 +266,9 @@
                 font-weight: 400
                 color: #707477
                 margin-bottom: 8px
-                text-transform: uppercase
+                @include upperCase()
             &__title
-                text-transform: uppercase
+                @include upperCase()
                 overflow: hidden
                 @include maxcolumn(2)
                 min-height: 50px
@@ -498,7 +498,7 @@
                 width: 100%
 
             &__category
-                text-transform: uppercase
+                @include upperCase()
                 width: 100%
                 color: #707477
                 font-weight: 400
@@ -508,7 +508,7 @@
                 margin-bottom: 8px
             &__title
                 padding: 0 10px
-                text-transform: uppercase
+                @include upperCase()
                 font-family: firagobook
                 font-weight: 400
                 @include font(18px, 25.2px)
@@ -594,7 +594,7 @@
                 padding: 10px 20px
                 font-size: 12px
                 font-family: firagosemibold
-                text-transform: uppercase
+                @include upperCase()
                 font-weight: 600
                 &:not(.static)    
                     position: absolute
@@ -691,7 +691,7 @@
         font-weight: 600
         transform: translateY(1px)
         color: $dark
-        text-transform: uppercase
+        @include upperCase()
 .addtofav, .addtocompare
     cursor: pointer
     svg

@@ -32,9 +32,29 @@ header.header
             span.length(data-length="0")
         .header__hr
         if loggedin
-            a.header__loginbtn.loggedin(href='#')
+            .header__loginbtn.loggedin
                 include ../components/person
                 span= `Hello, ${loggedin}`
+                .loggedinmenu.desktop
+                    //- if referal
+                    .loggedinmenu__balance
+                        .loggedinmenu__balance__left
+                            .balancesvg
+                            .loggedinmenu__balance__left__content
+                                p balance
+                                .loggedinmenu__balance__price
+                                    span.loggedinmenu__balance__price__value 30.40
+                                    |  USD
+                        a.loggedinmenu__balance__right(href="payment.html") Payment settings
+                    ul.loggedinmenu__nav
+                        li.loggedinmenu__nav__li
+                            a.prof(href="profile-details.html") profile
+                        li.loggedinmenu__nav__li.ordhs(data-orders="13")
+                            a.ordhs(href="profile-orders.html") order history
+                        li.loggedinmenu__nav__li.reffs(data-reffs="135")
+                            a.reffs(href="profile-refferals.html") refferals
+                    a.logout(href="/logout") Log out! 
+
         else
             .header__loginbtn.login
                 include ../components/person
@@ -46,6 +66,27 @@ form.header__searchform.mobile
         include ../components/search_header
     input#searchmob(type="text", name="search", placeholder="Search your product")
     include ../components/searchx
+if loggedin
+    .loggedinmenu.mobile
+        //- if referal
+        .loggedinmenu__balance
+            .loggedinmenu__balance__left
+                .balancesvg
+                .loggedinmenu__balance__left__content
+                    p balance
+                    .loggedinmenu__balance__price
+                        span.loggedinmenu__balance__price__value 30.40
+                        |  USD
+            a.loggedinmenu__balance__right(href="payment.html") Payment settings
+        ul.loggedinmenu__nav
+            li.loggedinmenu__nav__li
+                a.prof(href="profile-details.html") profile
+            li.loggedinmenu__nav__li.ordhs(data-orders="13")
+                a.ordhs(href="profile-orders.html") order history
+            li.loggedinmenu__nav__li.reffs(data-reffs="135")
+                a.reffs(href="profile-refferals.html") refferals
+        a.logout(href="/logout") Log out! 
+
 .header__navbar__bg
 .header__navbar__content
     .header__navbar__content__withscroll

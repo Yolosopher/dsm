@@ -1,6 +1,9 @@
 // import regeneratorRuntime from '@babel/runtime/regenerator'
 // import axios from 'axios'
 // import autoGrow from './components/autoGrow';
+const profileToggle = document.querySelector('.header__loginbtn.loggedin')
+const loggedinmenu = document.querySelector('.loggedinmenu.desktop')
+const loggedinmenumob = document.querySelector('.loggedinmenu.mobile')
 const autoGrow = (ul) => {
 	let liNum = [...ul.querySelectorAll('li')].length
 	let mobheight = liNum * 18 + (liNum - 1) * 16
@@ -168,10 +171,15 @@ header__loginbtn.addEventListener('click', () => {
 	body.classList.toggle('noscroll')
 })
 header__loginbtnMobile.addEventListener('click', () => {
-	if (header__loginbtn.classList.contains('loggedin')) return
-	loginmodal.classList.toggle('toggled')
-	loginmodal__bg.classList.toggle('toggled')
-	body.classList.toggle('noscroll')
+	
+	if (profileToggle) {
+		loggedinmenumob.classList.toggle('toggled')
+	} else {
+		if (header__loginbtn.classList.contains('loggedin')) return
+		loginmodal.classList.toggle('toggled')
+		loginmodal__bg.classList.toggle('toggled')
+		body.classList.toggle('noscroll')
+	}
 })
 
 loginmodal__bg.addEventListener('click', () => {
@@ -246,13 +254,16 @@ const appendBasketUl = (link, image, category, title, size = false, color = fals
 	ul.appendChild(newbasketli)
 	let moredetailsbtn = newbasketli.querySelector('.basketmodal__mains__basket__list__li__moredetails')
 	let removerbtn = newbasketli.querySelector('.basketmodal__mains__basket__list__li__removebtn')
-	moredetailsbtn.addEventListener('click', () => {
-		handleMoreDetails(moredetaills)
-	})
+	if (!!moredetailsbtn) {
+		moredetailsbtn.addEventListener('click', () => {
+			handleMoreDetails(moredetaills)
+		})
+	}
 	removerbtn.addEventListener('click', async () => {
-		let result = await handleRemoveFromBasket(each)
+		let result = await handleRemoveFromBasket(removerbtn)
 		console.log(result)
 		updateBasketPrices()
+		
 	})
 	// itemsinfo__list
 	const itemsinfo__list = document.querySelector('.itemsinfo__list')
@@ -268,6 +279,27 @@ const appendBasketUl = (link, image, category, title, size = false, color = fals
 	itemsinfo__list.appendChild(new__itemsinfo__list__li)
 }
 
+
+// TODO: insert this 'appendBasketSmallUl' function on vasos backend code server
+const appendBasketSmallUl = (id, title, qty = 1, price) => {
+	let itemsinfo__list = document.querySelector('.itemsinfo__list')
+	// small_ul.innerHTML = '' // RESET UL (currently only adding or removing one li and not needed)
+
+	let newItem = document.createElement('div')
+	newItem.classList.add('itemsinfo__list__item')
+	newItem.dataset.id = id
+	newItem.innerHTML = `
+	<div class="itemsinfo__list__item">
+		<p class="itemsinfo__list__item__title">${title}</p>
+		<div class="itemsinfo__list__item__qtyprice">
+			<div class="itemsinfo__list__item__qtyprice__qty">${qty}x</div>
+			<div class="itemsinfo__list__item__qtyprice__price">${Math.round(price * 100) / 100} USD</div>
+		</div>
+	</div>
+	`
+	itemsinfo__list.appendChild(newItem)
+
+}
 
 let addBtns = document.querySelectorAll('.addinbasketbtn:not(.inform)')
 let addToFavBtns = document.querySelectorAll('.addtofav')
@@ -287,6 +319,7 @@ const addInBasket = async (id, btn) => {
 			data = response.data
 			btn.classList.toggle('added')
 			appendBasketUl(data.link, data.image, data.category, data.title, data.size ? data.size : false, data.color ? data.color : false, data.price, data.id, data.qty ? data.qty : 1)
+			appendBasketSmallUl(data.id, data.title, data.qty, data.price)
 			if (data.total > 0) {
 				document.querySelector('header .header__basket').classList.add('notempty')
 				document.querySelector('.respomenu .header__basket').classList.add('notempty')
@@ -294,6 +327,7 @@ const addInBasket = async (id, btn) => {
 				document.querySelector('header .header__basket').classList.remove('notempty')
 				document.querySelector('.respomenu .header__basket').classList.remove('notempty')
 			}
+			applyFixarIndexs()
 			return data
 		}
 	} catch (error) {
@@ -468,6 +502,15 @@ const scrollToEle = (ele, paddingtop = 20) => {
 const basketmodal = document.querySelector('.basketmodal')
 const basketmodal__bg = document.querySelector('.basketmodal__bg')
 const basketmodal__Xs = document.querySelectorAll('.basketmodal__X')
+
+// TODO: insert this code on vasos server
+const handleRemoveFromSmallBasket = (id) => {
+	let item = document.querySelector(`.itemsinfo__list__item[data-id="${id}"]`)
+	console.log(item)
+	if (!!item) {
+		item.remove()
+	}
+}
 const handleRemoveFromBasket = async (el) => {
 	let id = parseInt(el.dataset.id)
 	
@@ -481,10 +524,15 @@ const handleRemoveFromBasket = async (el) => {
 		console.log(error)
 	}
 	if (response.data.ok) {
+		// remove from real basket
 		let addBtnsOnDom = [...document.querySelectorAll(`.addinbasketbtn[data-id="${id}"]`)]
 		addBtnsOnDom.forEach(each => {
 			each.classList.remove('added')
 		})
+		// TODO: insert this code on vasos server
+		// remove from small basket 
+		handleRemoveFromSmallBasket(id)
+
 		let fxrli = el.closest('.basketmodal__mains__basket__list__li__fixer')
 		fxrli.remove()
 		return new Promise((resolve, reject) => {
@@ -514,9 +562,9 @@ const handleBasketClick = (on = true) => {
 		// }, 400);
 	}
 }
-// whenbuild
+// when dev mode
 // handleBasketClick()
-// whenbuild END
+// when dev mode END
 
 basketButton.addEventListener('click', () => {
 	handleBasketClick()
@@ -547,6 +595,8 @@ if (moredetaills[0]) {
 	})
 }
 // rmvbuttons
+
+
 let removebtnsInBasket = document.querySelectorAll('.basketmodal__mains__basket__list__li__removebtn')
 removebtnsInBasket = [...removebtnsInBasket]
 
@@ -643,20 +693,22 @@ editbagbtns.forEach(each => {
 		document.querySelector('.basketmodal__mains').className = 'basketmodal__mains basket'
 	})
 })
+const applyFixarIndexs = () => {
 
-const basketorderingcontents = document.querySelectorAll('.basketform > div')
-basketorderingcontents.forEach(each => {
-	if (!each.querySelector('.form__fixer')) {
-		return
-	} else {
-		let fixars = [...each.querySelectorAll('.form__fixer')]
-		console.log(fixars)
-		fixars[0] && fixars.forEach((fixar, index) => {
-			fixar.style.setProperty('--delay-que', index + 1)
-		})
-	}
-})
-
+	const basketorderingcontents = document.querySelectorAll('.basketform > div')
+	basketorderingcontents.forEach(each => {
+		if (!each.querySelector('.form__fixer')) {
+			return
+		} else {
+			let fixars = [...each.querySelectorAll('.form__fixer')]
+			// console.log(fixars)
+			fixars[0] && fixars.forEach((fixar, index) => {
+				fixar.style.setProperty('--delay-que', index + 1)
+			})
+		}
+	})
+}
+applyFixarIndexs()
 const changeCheckoutBagContent = (pg = 1) => {
 	const basketmodalform = document.getElementById('basketmodalform')
 	basketmodalform.dataset.pg = pg
@@ -678,3 +730,255 @@ proctosheepTopaytype.forEach(each => {
 const checkoutBagNavBtns = [...document.querySelectorAll('.basketmodal__mains__ordering__form__nav span')]
 checkoutBagNavBtns.forEach((each, index) => each.addEventListener('click', () => {changeCheckoutBagContent(index + 1)}))
 // checkout basket END
+
+
+
+// VALIDATION FUNCTIONS
+const nameChecker = (el, onInput = false, atleast = 5) => {
+	let val = el.value
+	if (onInput) {
+		if (val === '') {
+			el.classList.add('invalid')
+			el.classList.remove('invalid-shown')
+		} else if (val.length < atleast) {
+			el.classList.add('invalid')
+			el.classList.add('invalid-shown')
+		} else {
+			el.classList.remove('invalid')
+			el.classList.remove('invalid-shown')
+		}
+	} else {
+		if (val === '') {
+			el.parentElement.classList.add('invalid')
+			el.parentElement.classList.remove('invalid-shown')
+		} else if (val.length < atleast) {
+			el.parentElement.classList.add('invalid')
+			el.parentElement.classList.add('invalid-shown')
+		} else {
+			el.parentElement.classList.remove('invalid')
+			el.parentElement.classList.remove('invalid-shown')
+		}
+	}
+}
+
+const emailChecker = (el, onInput = false) => {
+	let val = el.value
+	let ifEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(val)
+	if (onInput) {
+		if (val === '') {
+			el.classList.add('invalid')
+			el.classList.remove('invalid-shown')
+		} else if (!ifEmail) {
+			el.classList.add('invalid')
+			el.classList.add('invalid-shown')
+		} else {
+			el.classList.remove('invalid')
+			el.classList.remove('invalid-shown')
+		}
+	} else {
+		if (val === '') {
+			el.parentElement.classList.add('invalid')
+			el.parentElement.classList.remove('invalid-shown')
+		} else if (!ifEmail) {
+			el.parentElement.classList.add('invalid')
+			el.parentElement.classList.add('invalid-shown')
+		} else {
+			el.parentElement.classList.remove('invalid')
+			el.parentElement.classList.remove('invalid-shown')
+		}
+	}
+}
+
+const repeatPassChecker = (el, inputToCheck, onInput = false) => {
+    let repeatedVal = el.value
+    let passVal = inputToCheck.value
+
+	if (onInput) {
+		if (repeatedVal === '') {
+			el.classList.add('invalid')
+			el.classList.remove('invalid-shown')
+		} else if (repeatedVal !== passVal) {
+			el.classList.add('invalid')
+			el.classList.add('invalid-shown')
+		} else {
+			el.classList.remove('invalid')
+			el.classList.remove('invalid-shown')
+		}
+	} else {
+		if (repeatedVal === '') {
+			el.parentElement.classList.add('invalid')
+			el.parentElement.classList.remove('invalid-shown')
+		} else if (repeatedVal !== passVal) {
+			el.parentElement.classList.add('invalid')
+			el.parentElement.classList.add('invalid-shown')
+		} else {
+			el.parentElement.classList.remove('invalid')
+			el.parentElement.classList.remove('invalid-shown')
+		}
+	}
+}
+
+// VALIDATIONS LOGIN
+const loginform = document.getElementById('loginform')
+
+// LOGIN INPUTS
+const loginemail = document.getElementById('loginemail')
+const loginpassword = document.getElementById('loginpassword')
+
+loginemail.addEventListener('change', () => {
+	emailChecker(loginemail, false)
+})
+loginpassword.addEventListener('change', () => {
+	nameChecker(loginpassword, false, 2)
+})
+loginform.addEventListener('submit', e => {
+	emailChecker(loginemail, false)
+	nameChecker(loginpassword, false, 2)
+	if (loginform.querySelectorAll('.invalid')[0]) {
+		e.preventDefault()
+		loginform.querySelectorAll('.invalid').forEach((each) => {
+			each.classList.add('invalid-shown')
+		})
+	}
+})
+
+// VALIDATIONS REGISTER
+const registerform = document.getElementById('registerform')
+
+// REGISTER INPUTS
+const registeremail = document.getElementById('registeremail')
+const registername = document.getElementById('registername')
+const registerpassword = document.getElementById('registerpassword')
+const registerconfirmpassword = document.getElementById('registerconfirmpassword')
+
+registeremail.addEventListener('change', () => {
+	emailChecker(registeremail, false)
+})
+registername.addEventListener('change', () => {
+	nameChecker(registername, false, 2)
+})
+
+registerpassword.addEventListener('change', () => {
+	nameChecker(registerpassword, false, 2)
+})
+registerconfirmpassword.addEventListener('change', () => {
+	repeatPassChecker(registerconfirmpassword, registerpassword)
+})
+
+registerform.addEventListener('submit', e => {
+	emailChecker(registeremail, false)
+	nameChecker(registername, false, 2)
+	nameChecker(registerpassword, false, 2)
+	repeatPassChecker(registerconfirmpassword, registerpassword)
+	if (registerform.querySelectorAll('.invalid')[0]) {
+		e.preventDefault()
+		registerform.querySelectorAll('.invalid').forEach((each) => {
+			each.classList.add('invalid-shown')
+		})
+	}
+})
+
+
+
+if (profileToggle) {
+	profileToggle.addEventListener('click', () => {
+		loggedinmenu.classList.toggle('toggled')
+	})
+};
+
+
+
+// ns
+
+
+const nsClickHandler = (select, ns__ul, clickedLi, activetext) => {
+	select.value = clickedLi.dataset.value
+	activetext.dataset.value = clickedLi.innerText
+	if (!!ns__ul.querySelector('li.active')) {
+		ns__ul.querySelector('li.active').classList.remove('active')
+	}
+	clickedLi.classList.add('active')
+	// remove toggled from ns
+	select.parentElement.classList.remove('toggled')
+}
+const generateNs = (select) => {
+	const ns__ul = select.nextElementSibling
+	const activetext = select.previousElementSibling
+	ns__ul.innerHTML = ''
+	
+	activetext.addEventListener('click', () => {
+		if (!!select.closest('.form__fixer')) {
+			if (select.parentElement.classList.contains('toggled')) {
+				setTimeout(() => {
+					select.closest('.form__fixer').style.overflow = 'hidden'
+				}, 200);
+			} else {
+				select.closest('.form__fixer').style.overflow = 'visible'
+			}
+		}
+		select.parentElement.classList.toggle('toggled')
+	});
+
+	[...select.querySelectorAll('option')].forEach((option, index) => {
+		let newLi = document.createElement('li')
+		newLi.dataset.value = option.value
+		newLi.innerText = option.innerText
+		ns__ul.appendChild(newLi)
+
+		// if (index === 0) {
+		// }
+		if (option.selected) {
+			activetext.dataset.value = option.innerText
+			nsClickHandler(select, ns__ul, newLi, activetext)
+		}
+		newLi.addEventListener('click', () => {
+			nsClickHandler(select, ns__ul, newLi, activetext)
+		})
+	})
+	window.addEventListener('load', () => {
+		[...document.querySelectorAll('.ns')].forEach(ns => {
+			let __height = ns.scrollHeight
+			ns.style.setProperty('--height', __height + 'px')
+		})
+	})
+}
+
+
+// ns declares
+const genderselect = document.getElementById('genderselect')
+const cityselect = document.getElementById('cityselect')
+const basketcity = document.getElementById('basketcity')
+
+if (genderselect) {
+	generateNs(genderselect)
+}
+if (cityselect) {
+	generateNs(cityselect)
+}
+if (basketcity) {
+	generateNs(basketcity)
+}
+
+// if wishlist
+const formsec_qty_list = [...document.querySelectorAll('.formsec_qty')]
+formsec_qty_list.forEach(each => {
+	// declarations
+	let minusBtn = each.querySelector('.minus_quantity_in_wishlist')
+	let input = each.querySelector('.inputquantity_in_wishlist')
+	let plusBtn = each.querySelector('.plus_quantity_in_wishlist')
+	// events
+	minusBtn.addEventListener('click', () => {
+		let oldInputVal = +input.value
+		if (oldInputVal !== 1) {
+			input.value = oldInputVal - 1
+		}
+		if (+input.value === 1) {
+			minusBtn.classList.add('inactive')
+		}
+	})
+	plusBtn.addEventListener('click', () => {
+		input.value = +input.value + 1
+		minusBtn.classList.remove('inactive')
+	})
+})
+

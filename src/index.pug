@@ -1,19 +1,19 @@
 - const title = 'Home'
-- const loggedin = false
+- const loggedin = "Mikheil"
 doctype html
 html(lang="en")
     head
         link(rel="stylesheet", href="assets/css/swiper-bundle.min.css")
         include ../layouts/_head
 
-    body 
+    body
         include ../layouts/_header
         include ../layouts/_loginmodal
 
         main.main.homemain.container
             .homemain__slider.fadein.fadeinimg
                 .homemain__swiper.left.swiper-container
-                    .homemain__wrapper.swiper-wrapper
+                    .homemain__wrapper.swiper-wrapper.animstartpoint
                         each slide, index in slides
                             .homemain__slide.swiper-slide.starting
                                 .homemain__slide__left
