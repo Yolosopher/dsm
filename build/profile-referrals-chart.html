@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Referrals</title>
     <link rel="stylesheet" href="assets/css/style.css?v=0.2">
   </head>
   <body> 
@@ -65,10 +65,26 @@
           </svg><span class="length" data-length="0"></span>
         </div>
         <div class="header__hr"></div>
-        <div class="header__loginbtn login">
+        <div class="header__loginbtn loggedin">
           <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M15.71 12.71C16.6904 11.9387 17.406 10.8809 17.7572 9.68394C18.1085 8.48697 18.0779 7.21027 17.6698 6.03147C17.2617 4.85267 16.4963 3.83039 15.4801 3.10686C14.4639 2.38332 13.2474 1.99451 12 1.99451C10.7525 1.99451 9.53611 2.38332 8.51993 3.10686C7.50374 3.83039 6.73834 4.85267 6.33021 6.03147C5.92208 7.21027 5.89151 8.48697 6.24276 9.68394C6.59401 10.8809 7.3096 11.9387 8.29 12.71C6.61007 13.383 5.14428 14.4994 4.04889 15.9399C2.95349 17.3805 2.26956 19.0913 2.07 20.89C2.05555 21.0213 2.06711 21.1542 2.10402 21.2811C2.14093 21.4079 2.20246 21.5263 2.28511 21.6293C2.45202 21.8375 2.69478 21.9708 2.96 22C3.22521 22.0292 3.49116 21.9518 3.69932 21.7849C3.90749 21.618 4.04082 21.3752 4.07 21.11C4.28958 19.1552 5.22168 17.3498 6.68822 16.0388C8.15475 14.7278 10.0529 14.003 12.02 14.003C13.9871 14.003 15.8852 14.7278 17.3518 16.0388C18.8183 17.3498 19.7504 19.1552 19.97 21.11C19.9972 21.3557 20.1144 21.5827 20.2991 21.747C20.4838 21.9114 20.7228 22.0015 20.97 22H21.08C21.3421 21.9698 21.5817 21.8373 21.7466 21.6313C21.9114 21.4252 21.9881 21.1624 21.96 20.9C21.7595 19.0962 21.0719 17.381 19.9708 15.9382C18.8698 14.4954 17.3969 13.3795 15.71 12.71ZM12 12C11.2089 12 10.4355 11.7654 9.77772 11.3259C9.11992 10.8864 8.60723 10.2616 8.30448 9.53074C8.00173 8.79983 7.92251 7.99557 8.07686 7.21964C8.2312 6.44372 8.61216 5.73099 9.17157 5.17158C9.73098 4.61217 10.4437 4.2312 11.2196 4.07686C11.9956 3.92252 12.7998 4.00173 13.5307 4.30448C14.2616 4.60724 14.8863 5.11993 15.3259 5.77772C15.7654 6.43552 16 7.20888 16 8C16 9.06087 15.5786 10.0783 14.8284 10.8284C14.0783 11.5786 13.0609 12 12 12Z" fill="white"></path>
-          </svg><span>login</span>
+          </svg><span>Hello, Mikheil</span>
+          <div class="loggedinmenu desktop">
+            <div class="loggedinmenu__balance">
+              <div class="loggedinmenu__balance__left">
+                <div class="balancesvg"></div>
+                <div class="loggedinmenu__balance__left__content">
+                  <p>balance</p>
+                  <div class="loggedinmenu__balance__price"><span class="loggedinmenu__balance__price__value">30.40</span> USD</div>
+                </div>
+              </div><a class="loggedinmenu__balance__right" href="payment.html">Payment settings</a>
+            </div>
+            <ul class="loggedinmenu__nav">
+              <li class="loggedinmenu__nav__li"><a class="prof" href="profile-details.html">profile</a></li>
+              <li class="loggedinmenu__nav__li ordhs" data-orders="13"><a class="ordhs" href="profile-orders.html">order history</a></li>
+              <li class="loggedinmenu__nav__li reffs" data-reffs="135"><a class="reffs" href="profile-refferals.html">refferals</a></li>
+            </ul><a class="logout" href="/logout">Log out! </a>
+          </div>
         </div>
         <div class="header__basket">
           <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -88,6 +104,22 @@
         <path d="M17.6569 16.2426L13.4142 12L17.6569 7.75735C17.8444 7.56981 17.9497 7.31546 17.9497 7.05024C17.9497 6.78502 17.8444 6.53067 17.6569 6.34313C17.4693 6.1556 17.215 6.05024 16.9497 6.05024C16.6845 6.05024 16.4302 6.1556 16.2426 6.34313L12 10.5858L7.75736 6.34313C7.56982 6.1556 7.31547 6.05024 7.05025 6.05024C6.78504 6.05024 6.53068 6.1556 6.34315 6.34313C6.15561 6.53067 6.05025 6.78502 6.05025 7.05024C6.05025 7.31546 6.15561 7.56981 6.34315 7.75735L10.5858 12L6.34315 16.2426C6.15561 16.4302 6.05025 16.6845 6.05025 16.9497C6.05025 17.215 6.15561 17.4693 6.34315 17.6568C6.53068 17.8444 6.78504 17.9497 7.05025 17.9497C7.31547 17.9497 7.56982 17.8444 7.75736 17.6568L12 13.4142L16.2426 17.6568C16.4302 17.8444 16.6845 17.9497 16.9497 17.9497C17.215 17.9497 17.4693 17.8444 17.6569 17.6568C17.8444 17.4693 17.9497 17.215 17.9497 16.9497C17.9497 16.6845 17.8444 16.4302 17.6569 16.2426Z" fill="white"></path>
       </svg>
     </form>
+    <div class="loggedinmenu mobile">
+      <div class="loggedinmenu__balance">
+        <div class="loggedinmenu__balance__left">
+          <div class="balancesvg"></div>
+          <div class="loggedinmenu__balance__left__content">
+            <p>balance</p>
+            <div class="loggedinmenu__balance__price"><span class="loggedinmenu__balance__price__value">30.40</span> USD</div>
+          </div>
+        </div><a class="loggedinmenu__balance__right" href="payment.html">Payment settings</a>
+      </div>
+      <ul class="loggedinmenu__nav">
+        <li class="loggedinmenu__nav__li"><a class="prof" href="profile-details.html">profile</a></li>
+        <li class="loggedinmenu__nav__li ordhs" data-orders="13"><a class="ordhs" href="profile-orders.html">order history</a></li>
+        <li class="loggedinmenu__nav__li reffs" data-reffs="135"><a class="reffs" href="profile-refferals.html">refferals</a></li>
+      </ul><a class="logout" href="/logout">Log out! </a>
+    </div>
     <div class="header__navbar__bg"></div>
     <div class="header__navbar__content">
       <div class="header__navbar__content__withscroll">
@@ -224,7 +256,63 @@
         </form>
       </div>
     </div>
-    <main class="main homemain container"></main>
+    <main class="main profilemain container">
+      <div class="profilemain__greetings__container">
+        <div class="profilemain__greetings">
+          <h6 class="profilemain__greetings__hello">Hello Mikheil</h6>
+          <p class="profilemain__greetings__welcome">welcome to your dsm account!</p>
+          <p class="profilemain__greetings__instruction">Here you will be able to edit your details, view your order status and update your wishlist.</p>
+        </div>
+        <div class="loggedinmenu__balance">
+          <div class="loggedinmenu__balance__left">
+            <div class="balancesvg"></div>
+            <div class="loggedinmenu__balance__left__content">
+              <p>balance</p>
+              <div class="loggedinmenu__balance__price"><span class="loggedinmenu__balance__price__value">30.40</span> USD</div>
+            </div>
+          </div><a class="loggedinmenu__balance__right" href="payment.html">Payment settings</a>
+        </div>
+      </div>
+      <div class="profilemain__nav">
+        <ul class="profilemain__nav__ul">
+          <li class="profilemain__nav__ul__li details"><a href="profile-details.html">my details</a></li>
+          <li class="profilemain__nav__ul__li history"><a href="profile-orders.html">order history</a></li>
+          <li class="profilemain__nav__ul__li wishlist"><a href="profile-wishlist.html" data-wishes="13">my wishlist</a></li>
+          <li class="profilemain__nav__ul__li referalls active"><a href="profile-referrals.html" data-reffs="135">referrals</a></li>
+        </ul><a class="profilemain__nav__logout" href="/logout">Log out!</a>
+      </div>
+      <div class="forchart__reflink"><span class="forchart__reflink__title">my referal link</span>
+        <input id="reflink" type="text" name="reflink" value="https://dsm.ge/?ref%id=4">
+      </div>
+      <section class="profilemain__referrals forchart">
+        <div class="forchart__header">
+          <div class="forchart__header__left">
+            <h2 class="detailforms__title referalls" data-reffs="135">Referrals</h2>
+            <div class="legends">
+              <div class="legends__refs">Referalls</div>
+              <div class="legends__earned">Earned</div>
+            </div>
+          </div>
+          <div class="forchart__header__right">
+            <div class="ns__container input-div">
+              <div class="ns">
+                <div class="ns__activetext" data-value="Weekly"></div>
+                <select id="basketcity" name="city">
+                  <option value="1" selected>Weekly</option>
+                  <option value="2">Monthly</option>
+                  <option value="3">Yearly</option>
+                  <option value="4">Totally</option>
+                </select>
+                <ul class="ns__ul chartul"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="profilemain__referrals__charts">
+          <div id="refchart"></div>
+        </div>
+      </section>
+    </main>
     <div class="basketmodal__bg"></div>
     <div class="basketmodal">
       <div class="basketmodal__mains">
@@ -645,6 +733,7 @@
     </script>
     <script src="assets/js/main.js?v=0.2"></script>
     <script src="assets/js/swiper-bundle.min.js"></script>
-    <script src="assets/js/homepage.js"> </script>
+    <script src="assets/js/profile.js"> </script>
+    <script src="assets/js/chart/chart.js"> </script>
   </body>
 </html>

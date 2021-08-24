@@ -5,7 +5,40 @@ import { brands } from './brands.js'
 // const cors = require('cors')
 // const brands = require('./brands')
 // const { urlencoded, json } = express
-
+const chartData1 = {
+	referalls: [],
+	earned: [],
+}
+const chartData2 = {
+	referalls: [],
+	earned: [],
+}
+const chartData3 = {
+	referalls: [],
+	earned: [],
+}
+const chartData4 = {
+	referalls: [],
+	earned: [],
+}
+const getRandomInt = (min, max) => {
+	min = Math.ceil(min)
+	max = Math.floor(max)
+	return Math.floor(Math.random() * (max - min) + min) //The maximum is exclusive and the minimum is inclusive
+}
+const fillArray = (arr, times = 12) => {
+	for (let i = 0; i < times; i++) {
+		arr.push(getRandomInt(100, 999))
+	}
+}
+fillArray(chartData1.referalls)
+fillArray(chartData1.earned)
+fillArray(chartData2.referalls)
+fillArray(chartData2.earned)
+fillArray(chartData3.referalls)
+fillArray(chartData3.earned)
+fillArray(chartData4.referalls)
+fillArray(chartData4.earned)
 let brandsWithId = brands.map((br) => {
 	br = br
 	switch (br.brand) {
@@ -168,6 +201,34 @@ app.post('/update-review', (req, res) => {
 		reviews.push(newreview)
 		res.json({ ok: true, deleted: false, newreview, total: reviews.length })
 	}
+})
+
+app.get('/chart/:time', (req, res) => {
+	let timeId = +req.params.time
+	let dataToSend = null
+
+	switch (timeId) {
+		case 1:
+			dataToSend = chartData1
+			break
+		case 2:
+			dataToSend = chartData2
+
+			break
+		case 3:
+			dataToSend = chartData3
+
+			break
+		case 4:
+			dataToSend = chartData4
+
+			break
+
+		default:
+			break
+	}
+	dataToSend.ok = true
+	res.json(dataToSend)
 })
 
 const port = 2000

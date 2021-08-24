@@ -1,0 +1,73 @@
+- const title = 'Referrals'
+- const loggedin = "Mikheil"
+doctype html
+html(lang="en")
+    head
+        link(rel="stylesheet", href="assets/css/swiper-bundle.min.css")
+        include ../layouts/_head
+
+    body 
+        include ../layouts/_header
+        include ../layouts/_loginmodal
+
+        main.main.profilemain.container
+            .profilemain__greetings__container
+                .profilemain__greetings
+                    h6.profilemain__greetings__hello="Hello " + loggedin
+                    p.profilemain__greetings__welcome welcome to your dsm account!
+                    p.profilemain__greetings__instruction Here you will be able to edit your details, view your order status and update your wishlist.
+                .loggedinmenu__balance
+                    .loggedinmenu__balance__left
+                        .balancesvg
+                        .loggedinmenu__balance__left__content
+                            p balance
+                            .loggedinmenu__balance__price
+                                span.loggedinmenu__balance__price__value 30.40
+                                |  USD
+                    a.loggedinmenu__balance__right(href="payment.html") Payment settings
+            .profilemain__nav
+                ul.profilemain__nav__ul
+                    li.profilemain__nav__ul__li.details
+                        a(href="profile-details.html") my details
+                    li.profilemain__nav__ul__li.history
+                        a(href="profile-orders.html") order history
+                    li.profilemain__nav__ul__li.wishlist
+                        a(href="profile-wishlist.html", data-wishes="13") my wishlist
+                    li.profilemain__nav__ul__li.referalls.active
+                        a(href="profile-referrals.html", data-reffs="135") referrals
+                a.profilemain__nav__logout(href="/logout") Log out!
+            //- here comes changing content
+            .forchart__reflink
+                span.forchart__reflink__title my referal link
+                input#reflink(type="text", name="reflink", value="https://dsm.ge/?ref%id=4")
+            section.profilemain__referrals.forchart
+
+                .forchart__header
+                    .forchart__header__left
+                        h2.detailforms__title.referalls(data-reffs="135") Referrals
+                        .legends
+                            .legends__refs Referalls
+                            .legends__earned Earned
+                    .forchart__header__right
+                        .ns__container.input-div
+                            .ns
+                                .ns__activetext(data-value="Weekly")
+                                select#basketcity(name="city")
+                                    option(value="1" selected) Weekly
+                                    option(value="2") Monthly
+                                    option(value="3") Yearly
+                                    option(value="4") Totally
+                                ul.ns__ul.chartul
+
+                .profilemain__referrals__charts
+                    #refchart
+                
+
+        include ../layouts/_basket
+        include ../layouts/_footer
+        
+        include ../layouts/_respomenu
+        
+        include ../layouts/_scripts
+        script(src="assets/js/profile.js") 
+        script(src="assets/js/chart/chart.js") 

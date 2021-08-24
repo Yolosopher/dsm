@@ -51,6 +51,8 @@ html
 
 
 .profilemain__referrals
+    &.forchart
+        position: relative
     &__content
         // 
     &__h1
@@ -157,19 +159,142 @@ html
             max-width: 1086px
             margin: 0 auto
 
-
+    &__charts
+        *
+            font-family: firagobook !important
+            @include font(14px !important, 16.8px !important) 
+            color: $gr !important
+            font-weight: 350 !important
+.apexcharts-legend-marker
+    border-radius: 50% !important
     
 // updated profile details forms
 
 
 
+.apexcharts-legend.apexcharts-align-center.position-bottom
+    display: none !important
 
 
 
 
+.forchart
+    @include plus1025()
+        padding: 40px
+        border-radius: 30px
+        border: 1px solid $e6
+
+    &__reflink
+        display: grid
+        margin-bottom: 38px
+        cursor: pointer
+        border-radius: 50px
+        padding: 15px 20px
+        background-color: #FAF2F4
+        // border: 
+        grid-gap: 10px
+        justify-content: center
+        justify-items: center
+        @include plus700()
+            grid-template-columns: repeat(3, 1fr)
+            justify-items: flex-start
+        @include plus1025()
+            margin-bottom: 50px
+        &__title
+            @include upperCase()
+            font-family: firagosemibold
+            @include font(14px, 25.2px)
+            font-weight: normal
+            color: $dark
+        input
+            color: $dark
+            pointer-events: none
+            font-family: firago
+            @include font(18px, 25.2px)
+            font-weight: 400
+            @include plus700()
+                justify-self: center
+        &::after
+            content: url(../img/clipboard.svg)
+            display: inline-block
+            height: 24px
+            width: 24px
+            @include plus700()
+                justify-self: flex-end
+
+    &__header
+        display: grid
+        margin-bottom: 30px
+        grid-gap: 10px
+        @include plus1025()
+            grid-template-columns: auto 1fr
+            margin-bottom: 50px
+            grid-gap: 114px
+            align-items: center
+        &__left
+            display: grid
+            grid-gap: 10px
+            margin-bottom: 10px
+            @include plus1025()
+                grid-template-columns: auto 1fr
+                margin-bottom: 50px
+                grid-gap: 114px
+                align-items: center
+                margin-bottom: 0
+        &__right
+            @include plus1025()
+                width: 150px
+            // max-width: 250px
+            justify-self: flex-end
+            .ns
+                border-radius: 30px !important
+            .ns__activetext
+                padding: 0 20px
+        .detailforms__title
+            margin-bottom: 0 !important
+        .legends
+            display: grid
+            grid-template-columns: auto auto
+            grid-gap: 40px
+            width: max-content
+            align-items: center
+            &__refs, &__earned
+                display: flex
+                align-items: center
+                font-family: firagobook
+                @include font(14px, 16.8px)
+                color: $dark
+                font-weight: 350
+                text-transform: capitalize
+                &::before
+                    content: ''
+                    border-radius: 50%
+                    display: inline-block
+                    width: 14px
+                    height: 14px
+                    margin-right: 12px
+            &__refs
+                &::before
+                    background-color: #9D8EC8
+            &__earned
+                &::before
+                    background-color: #B7C88E
 
 
-
-
-
-
+.apexcharts-tooltip.apexcharts-theme-light.apexcharts-active, .apexcharts-tooltip-title
+    border: none !important
+    background: $dark !important
+    color: #fff !important
+    border-radius: 10px !important
+    padding: 20px !important
+    padding-left: 25px !important
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 5px 100%)
+    // border-top-left-radius: 0% !important
+    border-bottom-left-radius: 0% !important
+    *
+        // background-color: $dark !important
+        color: #fff !important
+.apexcharts-tooltip.apexcharts-theme-light .apexcharts-tooltip-title
+    color: #fff !important
+    border-bottom: none !important
+    display: none !important

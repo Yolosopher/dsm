@@ -6,7 +6,9 @@
   "scripts": {
     "pug": "pug src --out ./build --watch -P -O options.json",
     "sass": "sass build/assets/css/style.sass build/assets/css/style.css --watch",
-    "serve": "nodemon index"
+    "serve": "nodemon index",
+    "dev": "webpack --watch",
+    "build": "webpack build"
   },
   "keywords": [],
   "author": "",
@@ -16,7 +18,9 @@
     "@rollup/plugin-commonjs": "^19.0.1",
     "@rollup/plugin-node-resolve": "^13.0.2",
     "@rollup/plugin-replace": "^3.0.0",
+    "apexcharts": "^3.27.3",
     "axios": "^0.21.1",
+    "chart.js": "^2.9.4",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "parcel-bundler": "^1.12.5",
@@ -26,6 +30,8 @@
     "@babel/plugin-transform-runtime": "^7.14.5",
     "pug": "^3.0.2",
     "rollup-plugin-terser": "^7.0.2",
-    "sass": "^1.35.2"
+    "sass": "^1.35.2",
+    "webpack": "^5.51.1",
+    "webpack-cli": "^4.8.0"
   }
 }
