@@ -53,6 +53,9 @@ html
 .profilemain__referrals
     &.forchart
         position: relative
+        margin-bottom: 38px
+        @include plus1025()
+            margin-bottom: 50px
     &__content
         // 
     &__h1
@@ -244,8 +247,7 @@ html
         &__right
             @include plus1025()
                 width: 150px
-            // max-width: 250px
-            justify-self: flex-end
+                justify-self: flex-end
             .ns
                 border-radius: 30px !important
             .ns__activetext
@@ -298,3 +300,93 @@ html
     color: #fff !important
     border-bottom: none !important
     display: none !important
+
+
+.addtofav.added
+    background-color: #FED67E !important
+    border-color: #FED67E !important
+
+.addtofav, .addtocompare
+    height: 36px
+    width: 36px
+    border-radius: 50%
+    @include centering()
+
+
+.referralusers
+    h2.detailforms__title
+        @include plus1025()
+            margin-bottom: 40px
+    &__inviter
+        margin-bottom: 30px
+        span
+            font-family: firagobook
+            @include font(18px, 25.2px)
+            color: $dark
+            font-weight: 350
+            &.bold
+                font-family: firagosemibold
+                font-weight: 600
+                text-transform: capitalize
+    &__table
+        &__headings
+            display: none
+            grid-template-columns: repeat(5, 1fr)
+            grid-gap: 5px
+            align-items: center
+            justify-items: center
+            margin-bottom: 10px
+            @include plus1025()
+                display: grid
+            li
+                font-family: firagobook
+                @include font(14px, 25.2px)
+                color: $gr
+                font-weight: 350
+        &__list
+            width: 100%
+            li
+                grid-gap: 5px
+                display: grid
+                padding-top: 17px
+                padding-bottom: 17px
+                @include plus1025()
+                    padding-top: 37px
+                    padding-bottom: 37px
+                    align-items: center
+                    justify-items: center
+                    grid-template-columns: repeat(5, 1fr)
+                
+                &:not(:last-child)
+                    padding-bottom: 18px
+                    border-bottom: 1px solid $e6
+                    @include plus1025()
+                        padding-bottom: 38px
+            &__item
+                display: flex
+                align-items: center
+                justify-content: space-between
+                @include plus1025()
+                    display: block
+                span
+                    font-family: firagobook
+                    @include font(18px, 25.2px)
+                    font-weight: 350
+                    color: #000
+                .label
+                    @include plus1025()
+                        display: none
+
+                .value
+                    &.activeness
+                        &::after
+                            content: attr(data-activeness)
+                            color: #CB4141
+                            display: inline-block
+                            text-transform: capitalize
+                            font-family: firagobook
+                            @include font(18px, 25.2px)
+                            font-weight: 350
+                        &[data-color="green"]
+                            &::after
+                                color: #41CB71

@@ -61,7 +61,54 @@ html(lang="en")
 
                 .profilemain__referrals__charts
                     #refchart
-                
+            section.referralusers
+                h2.detailforms__title My Referrals
+                p.referralusers__inviter
+                    span My inviter: 
+                    span.bold Mikheil Babunashvili
+                .referralusers__table
+                    ul.referralusers__table__headings
+                        li #
+                        li Date
+                        li Name
+                        li Earned
+                        li Status
+                    ul.referralusers__table__list
+                        li
+                            .referralusers__table__list__item
+                                span.label #
+                                span.value 1
+                            .referralusers__table__list__item
+                                span.label Date
+                                span.value 18/07/2021
+                            .referralusers__table__list__item
+                                span.label Name
+                                span.value Michael Gabson
+                            .referralusers__table__list__item
+                                span.label Earned
+                                span.value 44.00 GEL
+                            .referralusers__table__list__item
+                                span.label Status
+                                span.value.activeness(data-activeness="active", data-color="green")
+                                
+                        li
+                            .referralusers__table__list__item
+                                span.label #
+                                span.value 1
+                            .referralusers__table__list__item
+                                span.label Date
+                                span.value 18/07/2021
+                            .referralusers__table__list__item
+                                span.label Name
+                                span.value Michael Gabson
+                            .referralusers__table__list__item
+                                span.label Earned
+                                span.value 44.00 GEL
+                            .referralusers__table__list__item
+                                span.label Status
+                                span.value.activeness(data-activeness="inactive")
+                                
+
 
         include ../layouts/_basket
         include ../layouts/_footer
