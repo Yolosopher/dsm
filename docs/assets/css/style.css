@@ -4553,6 +4553,11 @@ html {
   width: 24px;
   z-index: 2;
 }
+.basketmodal__mains__basket__cleaner {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
 .basketmodal__mains__basket__content {
   width: 100%;
   display: flex;
@@ -4648,6 +4653,7 @@ html {
   opacity: 0;
   will-change: all;
   transform: translateY(100%);
+  padding-left: 15px;
 }
 @media screen and (min-width: 1025px) {
   .basketmodal__mains__basket__list__li {
@@ -4659,6 +4665,12 @@ html {
     align-items: center;
     grid-template-columns: minmax(auto, 350px) minmax(97px, 1fr) minmax(116px, 1fr) minmax(148px, 1fr) 1fr;
   }
+}
+.basketmodal__mains__basket__list__li__checkbox {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
 }
 .basketmodal__mains__basket__list__li .labelll {
   font-family: firagobook !important;

@@ -39,6 +39,7 @@
 .basketmodal
     .basketmodal__mains
         .basketmodal__mains__basket
+            .basketmodal__mains__basket__cleaner.yellowbtn Remove Selected
             .basketmodal__mains__basket__content
                 .basketmodal__X.backtostore back to store
                 .basketmodal__mains__basket__content__header
@@ -56,6 +57,7 @@
                     each item, indexx in basketitems
                         li.basketmodal__mains__basket__list__li__fixer.fixer
                             .basketmodal__mains__basket__list__li
+                                input.basketmodal__mains__basket__list__li__checkbox(type="checkbox")
                                 .basketmodal__mains__basket__list__li__item
                                     a.basketmodal__mains__basket__list__li__imgbox(href="#")
                                         img(src=item.image, alt=item.title)

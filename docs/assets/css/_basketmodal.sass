@@ -173,6 +173,10 @@
                 height: 24px
                 width: 24px
                 z-index: 2
+            &__cleaner
+                position: absolute
+                bottom: 10px
+                left: 10px
             &__content
                 width: 100%
                 display: flex
@@ -242,6 +246,7 @@
                     opacity: 0
                     will-change: all
                     transform: translateY(100%)
+                    padding-left: 15px
                     @include plus1025()
                         padding-right: 48px
                         height: 90px !important
@@ -252,6 +257,13 @@
                         grid-template-columns: minmax(auto, 350px) minmax(97px, 1fr) minmax(116px, 1fr) minmax(148px, 1fr) 1fr
                     @include plus1900()
 
+                    &__checkbox
+                        position: absolute
+                        left: 0
+
+                        top: 50%
+                        transform: translateY(-50%)
+                        
                     .labelll
                         font-family: firagobook !important
                         @include font(14px !important, 25.2px !important)

@@ -982,3 +982,12 @@ formsec_qty_list.forEach(each => {
 	})
 })
 
+const basketClearner = () => {
+	[...document.querySelectorAll('.basketmodal__mains__basket__list input:checked')].forEach(each => {
+		each.closest('li').querySelector('.basketmodal__mains__basket__list__li__removebtn').click()
+	})
+}
+
+const basketmodal__mains__basket__cleaner = document.querySelector('.basketmodal__mains__basket__cleaner')
+
+basketmodal__mains__basket__cleaner.addEventListener('click', basketClearner)
