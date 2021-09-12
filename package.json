@@ -4,8 +4,8 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "pug": "pug src --out ./build --watch -P -O options.json",
-    "sass": "sass build/assets/css/style.sass build/assets/css/style.css --watch",
+    "pug": "pug src --out ./docs --watch -P -O options.json",
+    "sass": "sass docs/assets/css/style.sass docs/assets/css/style.css --watch",
     "serve": "nodemon index",
     "dev": "webpack --watch",
     "build": "webpack build"
