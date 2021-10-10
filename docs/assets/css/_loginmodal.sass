@@ -1,5 +1,5 @@
 
-.loginmodal, .reviewmodal
+.loginmodal, .reviewmodal, .fastordermodal
     position: fixed
     z-index: 11
     width: calc(100% - 20px)
@@ -234,8 +234,15 @@
     @include upperCase()
     &.br60
         border-radius: 60px
-
-
+.yellowbtnRounded 
+    cursor: pointer
+    padding: 8px 16px
+    border-radius: 60px
+    background-color: $yellow
+    color: $dark
+    @include font(14px, 19.6px)
+    font-weight: 600
+    font-family: firagosemibold
 #registerform
     .input-div.lastinlogin
         margin-bottom: 20px

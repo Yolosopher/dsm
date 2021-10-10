@@ -1,0 +1,101 @@
+- const title = 'Compare'
+- const loggedin = false
+-
+	const getRandomMilligram = () => {
+		let randomnum = Math.random()
+		if (randomnum < .255) {
+			return ".5 ML"
+		} else if (randomnum < .555) {
+			return "1 ML"
+		} else if (randomnum < .755) {
+			return "3 ML"
+		} else {
+			return "5 ML"
+		}
+	}
+-
+	const getRandomBool = () => {
+		let randomnum = Math.random()
+		if (randomnum < .5) {
+			return true
+		} else {
+			return false
+		}
+	}
+-
+	const getRndInteger = (min, max) => {
+		return Math.floor(Math.random() * (max - min) ) + min;
+	}
+-
+	const getRandomColor = () => {
+		return `rgba(${getRndInteger(0, 255)}, ${getRndInteger(0, 255)}, ${getRndInteger(0, 255)})`
+	}
+doctype html
+html(lang="en")
+	head
+		link(rel="stylesheet" href="assets/css/swiper-bundle.min.css")
+		include ../layouts/_head
+
+	body 
+		include ../layouts/_header
+		include ../layouts/_loginmodal
+
+		main.main.comparemain.container
+			.comparemain__content
+				table.comparemain__table
+					thead
+						tr.heading
+							td
+							each slide, index in slides
+								td
+									.td_item.td_image
+										img(src=slide.image, alt="")
+									h2=slide.title
+					tbody
+						tr.heading
+							td brand
+							each slide, index in slides
+								td
+									.td_item=slide.category
+						tr.heading
+							td milligrams
+							each slide, index in slides
+								td
+									.td_item=getRandomMilligram()
+						tr.heading
+							td color
+							each slide, index in slides
+								td
+									.td_item(data-color=getRandomColor())=getRandomColor()
+						tr
+							td.td_break ingredients
+						tr.heading
+							td argan oil
+							each slide, index in slides
+								td
+									.td_item.td_ingr(data-value=getRandomBool())
+
+						tr.heading
+							td red sea herb
+							each slide, index in slides
+								td
+									.td_item.td_ingr(data-value=getRandomBool())
+
+						tr.heading
+							td dead sea salt
+							each slide, index in slides
+								td
+									.td_item.td_ingr(data-value=getRandomBool())
+
+
+
+
+
+
+
+		include ../layouts/_basket
+		include ../layouts/_footer
+
+		include ../layouts/_respomenu
+
+		include ../layouts/_scripts

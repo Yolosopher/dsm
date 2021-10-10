@@ -1047,11 +1047,34 @@ bankinfomodal__X.addEventListener('click', () => {
 
 // profilemain mobile toggle
 const profilemain__nav = document.querySelector('.profilemain__nav')
+if (!!profilemain__nav) {
+	profilemain__nav.addEventListener('click', () => {
+		if (window.innerWidth < 1025) {
+			profilemain__nav.classList.toggle('toggled')
+		} else {
+			profilemain__nav.classList.remove('toggled')
+		}
+	})
+}
+const fastorderbtn = document.querySelector('.fastorderbtn')
+const fastordermodal = document.querySelector('.fastordermodal')
+const fastordermodal__bg = document.querySelector('.fastordermodal__bg')
+const fastordermodal__X = document.querySelector('.fastordermodal__X')
 
-profilemain__nav.addEventListener('click', () => {
-	if (window.innerWidth < 1025) {
-		profilemain__nav.classList.toggle('toggled')
-	} else {
-		profilemain__nav.classList.remove('toggled')
-	}
-})
+
+if (!!fastorderbtn) {
+	fastorderbtn.addEventListener('click', () => {
+		fastordermodal.classList.add('toggled')
+		fastordermodal__bg.classList.add('toggled')
+	})
+
+	fastordermodal__bg.addEventListener('click', () => {
+		fastordermodal.classList.remove('toggled')
+		fastordermodal__bg.classList.remove('toggled')
+	})
+
+	fastordermodal__X.addEventListener('click', () => {
+		fastordermodal.classList.remove('toggled')
+		fastordermodal__bg.classList.remove('toggled')
+	})
+}

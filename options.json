@@ -10,7 +10,21 @@
             "category": "1 moisturize",
             "sp": true,
             "image": "assets/img/homeslider/1.png",
-            "id": 1
+            "id": 1,
+            "ingredients": [
+                {
+                    "name": "argan oil",
+                    "image": "assets/img/ingredients/1.png"
+                },
+                {
+                    "name": "dead sea salt",
+                    "image": "assets/img/ingredients/2.png"
+                },
+                {
+                    "name": "peanut oil",
+                    "image": "assets/img/ingredients/3.png"
+                }
+            ]
         },
         {
             "title": "Effective Extra Rich Shea Butter Cream",
@@ -22,7 +36,21 @@
             "category": "2 moisturize",
             "sp": true,
             "image": "assets/img/homeslider/2.png",
-            "id": 2
+            "id": 2,
+            "ingredients": [
+                {
+                    "name": "argan oil",
+                    "image": "assets/img/ingredients/1.png"
+                },
+                {
+                    "name": "dead sea salt",
+                    "image": "assets/img/ingredients/2.png"
+                },
+                {
+                    "name": "peanut oil",
+                    "image": "assets/img/ingredients/3.png"
+                }
+            ]
         },
         {
             "title": "3 Powerful Olive Oil & Honey Cream",
@@ -34,7 +62,21 @@
             "category": "3 moisturize",
             "sp": false,
             "image": "assets/img/homeslider/3.png",
-            "id": 3
+            "id": 3,
+            "ingredients": [
+                {
+                    "name": "argan oil",
+                    "image": "assets/img/ingredients/1.png"
+                },
+                {
+                    "name": "dead sea salt",
+                    "image": "assets/img/ingredients/2.png"
+                },
+                {
+                    "name": "peanut oil",
+                    "image": "assets/img/ingredients/3.png"
+                }
+            ]
         },
         {
             "title": "4 Powerful Olive Oil & Honey Cream",
@@ -46,7 +88,21 @@
             "category": "4 moisturize",
             "sp": true,
             "image": "assets/img/homeslider/4.png",
-            "id": 4
+            "id": 4,
+            "ingredients": [
+                {
+                    "name": "argan oil",
+                    "image": "assets/img/ingredients/1.png"
+                },
+                {
+                    "name": "dead sea salt",
+                    "image": "assets/img/ingredients/2.png"
+                },
+                {
+                    "name": "peanut oil",
+                    "image": "assets/img/ingredients/3.png"
+                }
+            ]
         },
         {
             "title": "1 Powerful Olive Oil & Honey Cream",
@@ -58,7 +114,21 @@
             "category": "1 moisturize",
             "sp": true,
             "image": "assets/img/homeslider/1.png",
-            "id": 1
+            "id": 1,
+            "ingredients": [
+                {
+                    "name": "argan oil",
+                    "image": "assets/img/ingredients/1.png"
+                },
+                {
+                    "name": "dead sea salt",
+                    "image": "assets/img/ingredients/2.png"
+                },
+                {
+                    "name": "peanut oil",
+                    "image": "assets/img/ingredients/3.png"
+                }
+            ]
         },
         {
             "title": "Effective Extra Rich Shea Butter Cream",
@@ -70,7 +140,21 @@
             "category": "2 moisturize",
             "sp": true,
             "image": "assets/img/homeslider/2.png",
-            "id": 2
+            "id": 2,
+            "ingredients": [
+                {
+                    "name": "argan oil",
+                    "image": "assets/img/ingredients/1.png"
+                },
+                {
+                    "name": "dead sea salt",
+                    "image": "assets/img/ingredients/2.png"
+                },
+                {
+                    "name": "peanut oil",
+                    "image": "assets/img/ingredients/3.png"
+                }
+            ]
         },
         {
             "title": "3 Powerful Olive Oil & Honey Cream",
@@ -82,7 +166,21 @@
             "category": "3 moisturize",
             "sp": false,
             "image": "assets/img/homeslider/3.png",
-            "id": 3
+            "id": 3,
+            "ingredients": [
+                {
+                    "name": "argan oil",
+                    "image": "assets/img/ingredients/1.png"
+                },
+                {
+                    "name": "dead sea salt",
+                    "image": "assets/img/ingredients/2.png"
+                },
+                {
+                    "name": "peanut oil",
+                    "image": "assets/img/ingredients/3.png"
+                }
+            ]
         },
         {
             "title": "4 Powerful Olive Oil & Honey Cream",
@@ -94,7 +192,21 @@
             "category": "4 moisturize",
             "sp": true,
             "image": "assets/img/homeslider/4.png",
-            "id": 4
+            "id": 4,
+            "ingredients": [
+                {
+                    "name": "argan oil",
+                    "image": "assets/img/ingredients/1.png"
+                },
+                {
+                    "name": "dead sea salt",
+                    "image": "assets/img/ingredients/2.png"
+                },
+                {
+                    "name": "peanut oil",
+                    "image": "assets/img/ingredients/3.png"
+                }
+            ]
         }
     ],
     "categories": [

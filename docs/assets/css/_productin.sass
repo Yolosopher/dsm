@@ -386,6 +386,11 @@
         &__otherbtns
             display: flex
             grid-gap: 10px
+            margin-bottom: 20px
+            @include plus1025()
+                margin-bottom: 0
+            .addtofav
+                margin-right: 0
             .addtocompare, .addtofav
                 // border: 1px solid #E6E6E6
                 border-radius: 50%
@@ -727,7 +732,7 @@
         opacity: 1
         
 
-.reviewmodal
+.reviewmodal, .fastordermodal
     // max-height: 520px
     max-width: 640px
     &__form
@@ -739,7 +744,7 @@
         display: none !important
     h5
         margin-bottom: 30px !important
-    .reviewmodal__names
+    &__names
         @include plus1025()
             display: grid
             grid-template-columns: 1fr 1fr
@@ -823,3 +828,12 @@
                 position: absolute
                 z-index: 2
                 opacity: 0
+.fastordermodal
+    @include plus1025()
+        height: unset !important
+        max-height: 732px
+    input
+        flex: unset
+    form
+        label
+            align-self: flex-start

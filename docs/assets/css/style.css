@@ -349,7 +349,7 @@ body.noscroll {
   text-transform: uppercase;
   font-feature-settings: "case" on;
 }
-.header__navbar__bg, .loginmodal__bg, .reviewmodal__bg, .header__navbar .loginmodal__bg {
+.header__navbar__bg, .loginmodal__bg, .reviewmodal__bg, .fastordermodal__bg, .header__navbar .loginmodal__bg {
   position: fixed;
   right: 0;
   top: 0;
@@ -358,7 +358,7 @@ body.noscroll {
   background-color: rgba(19, 19, 19, 0.6);
   z-index: 5;
 }
-.header__navbar__bg.toggled, .toggled.loginmodal__bg, .toggled.reviewmodal__bg, .header__navbar .loginmodal__bg.toggled {
+.header__navbar__bg.toggled, .toggled.loginmodal__bg, .toggled.reviewmodal__bg, .toggled.fastordermodal__bg, .header__navbar .loginmodal__bg.toggled {
   width: 100%;
   height: 100vh;
 }
@@ -1606,7 +1606,7 @@ html {
   border-color: #FF5E5E;
 }
 
-.loginmodal, .reviewmodal {
+.loginmodal, .reviewmodal, .fastordermodal {
   position: fixed;
   z-index: 11;
   width: calc(100% - 20px);
@@ -1623,14 +1623,14 @@ html {
   padding-bottom: 74px;
 }
 @media screen and (min-width: 1025px) {
-  .loginmodal, .reviewmodal {
+  .loginmodal, .reviewmodal, .fastordermodal {
     max-width: 540px;
     height: 732px;
     min-height: auto;
     max-height: calc(100vh - 20px);
   }
 }
-.loginmodal::after, .reviewmodal::after {
+.loginmodal::after, .reviewmodal::after, .fastordermodal::after {
   content: "";
   background-image: url(../img/loginmodalbg.png);
   background-repeat: no-repeat;
@@ -1644,12 +1644,12 @@ html {
   max-width: 236px;
   z-index: -1;
 }
-.loginmodal__forms, .reviewmodal__forms {
+.loginmodal__forms, .reviewmodal__forms, .fastordermodal__forms {
   padding: 0 10px;
   height: 100%;
   display: flex;
 }
-.loginmodal__X, .reviewmodal__X {
+.loginmodal__X, .reviewmodal__X, .fastordermodal__X {
   cursor: pointer;
   position: absolute;
   bottom: 10px;
@@ -1657,16 +1657,16 @@ html {
   left: 50%;
   transform: translateX(-50%);
 }
-.loginmodal__X svg circle, .loginmodal__X svg path, .reviewmodal__X svg circle, .reviewmodal__X svg path {
+.loginmodal__X svg circle, .loginmodal__X svg path, .reviewmodal__X svg circle, .reviewmodal__X svg path, .fastordermodal__X svg circle, .fastordermodal__X svg path {
   transition: 0.1s ease;
 }
-.loginmodal__X:hover svg circle, .reviewmodal__X:hover svg circle {
+.loginmodal__X:hover svg circle, .reviewmodal__X:hover svg circle, .fastordermodal__X:hover svg circle {
   opacity: 1;
 }
-.loginmodal__X:hover svg path, .reviewmodal__X:hover svg path {
+.loginmodal__X:hover svg path, .reviewmodal__X:hover svg path, .fastordermodal__X:hover svg path {
   fill: #FED67E;
 }
-.loginmodal form, .reviewmodal form {
+.loginmodal form, .reviewmodal form, .fastordermodal form {
   width: 100%;
   height: 100%;
   overflow: auto;
@@ -1675,32 +1675,32 @@ html {
   padding: 40px 15px;
 }
 @media screen and (min-width: 1025px) {
-  .loginmodal form, .reviewmodal form {
+  .loginmodal form, .reviewmodal form, .fastordermodal form {
     padding: 40px 95px;
   }
 }
-.loginmodal form::-webkit-scrollbar, .reviewmodal form::-webkit-scrollbar {
+.loginmodal form::-webkit-scrollbar, .reviewmodal form::-webkit-scrollbar, .fastordermodal form::-webkit-scrollbar {
   width: 2px;
   background-color: transparent;
 }
-.loginmodal form::-webkit-scrollbar-thumb, .reviewmodal form::-webkit-scrollbar-thumb {
+.loginmodal form::-webkit-scrollbar-thumb, .reviewmodal form::-webkit-scrollbar-thumb, .fastordermodal form::-webkit-scrollbar-thumb {
   border-radius: 30px;
   background-color: rgba(19, 19, 19, 0.2);
 }
-.loginmodal form::-webkit-scrollbar-track, .reviewmodal form::-webkit-scrollbar-track {
+.loginmodal form::-webkit-scrollbar-track, .reviewmodal form::-webkit-scrollbar-track, .fastordermodal form::-webkit-scrollbar-track {
   margin: 15px 0;
   background-color: transparent;
 }
-.loginmodal__bg, .reviewmodal__bg {
+.loginmodal__bg, .reviewmodal__bg, .fastordermodal__bg {
   z-index: 10;
 }
-.loginmodal.toggled, .reviewmodal.toggled {
+.loginmodal.toggled, .reviewmodal.toggled, .fastordermodal.toggled {
   opacity: 1;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.loginmodal h5, .reviewmodal h5 {
+.loginmodal h5, .reviewmodal h5, .fastordermodal h5 {
   font-family: firagosemibold;
   font-size: 24px;
   line-height: 34px;
@@ -1711,7 +1711,7 @@ html {
   text-transform: uppercase;
   font-feature-settings: "case" on;
 }
-.loginmodal label, .reviewmodal label {
+.loginmodal label, .reviewmodal label, .fastordermodal label {
   margin-bottom: 8px;
   font-family: firagosemibold;
   color: #131313;
@@ -1722,7 +1722,7 @@ html {
   letter-spacing: 0.012em;
   display: block;
 }
-.loginmodal .input-div, .reviewmodal .input-div {
+.loginmodal .input-div, .reviewmodal .input-div, .fastordermodal .input-div {
   background-color: #fff;
   display: flex;
   width: 100%;
@@ -1734,12 +1734,12 @@ html {
   padding: 0 15px;
   margin-bottom: 20px;
 }
-.loginmodal .input-div__icon, .reviewmodal .input-div__icon {
+.loginmodal .input-div__icon, .reviewmodal .input-div__icon, .fastordermodal .input-div__icon {
   width: max-content;
   flex-shrink: 0;
   height: 24px;
 }
-.loginmodal .input-div__icon::after, .reviewmodal .input-div__icon::after {
+.loginmodal .input-div__icon::after, .reviewmodal .input-div__icon::after, .fastordermodal .input-div__icon::after {
   content: "";
   width: 1px;
   display: inline-block;
@@ -1748,7 +1748,7 @@ html {
   background-color: #E6E6E6;
   margin: 0 15px;
 }
-.loginmodal .input-div input, .reviewmodal .input-div input {
+.loginmodal .input-div input, .reviewmodal .input-div input, .fastordermodal .input-div input {
   flex-grow: 1;
   font-family: firagobook;
   font-weight: 400;
@@ -1758,10 +1758,10 @@ html {
   display: flex;
   align-items: center;
 }
-.loginmodal .input-div.lastinlogin, .reviewmodal .input-div.lastinlogin {
+.loginmodal .input-div.lastinlogin, .reviewmodal .input-div.lastinlogin, .fastordermodal .input-div.lastinlogin {
   margin-bottom: 8px;
 }
-.loginmodal .forgotpass, .reviewmodal .forgotpass {
+.loginmodal .forgotpass, .reviewmodal .forgotpass, .fastordermodal .forgotpass {
   cursor: pointer;
   display: block;
   text-align: right;
@@ -1777,10 +1777,10 @@ html {
   margin-bottom: 30px;
   text-transform: capitalize;
 }
-.loginmodal .yellowbtn, .reviewmodal .yellowbtn {
+.loginmodal .yellowbtn, .reviewmodal .yellowbtn, .fastordermodal .yellowbtn {
   margin-bottom: 30px;
 }
-.loginmodal p, .reviewmodal p {
+.loginmodal p, .reviewmodal p, .fastordermodal p {
   text-align: center;
   margin-bottom: 8px;
   font-family: firagobook;
@@ -1791,7 +1791,7 @@ html {
   color: #131313;
   letter-spacing: 0.012em;
 }
-.loginmodal .register, .loginmodal .login, .reviewmodal .register, .reviewmodal .login {
+.loginmodal .register, .loginmodal .login, .reviewmodal .register, .reviewmodal .login, .fastordermodal .register, .fastordermodal .login {
   cursor: pointer;
   text-align: center;
   align-self: center;
@@ -1804,32 +1804,32 @@ html {
   letter-spacing: 0.012em;
   margin-bottom: 40px;
 }
-.loginmodal #recoveryform, .loginmodal #registerform, .reviewmodal #recoveryform, .reviewmodal #registerform {
+.loginmodal #recoveryform, .loginmodal #registerform, .reviewmodal #recoveryform, .reviewmodal #registerform, .fastordermodal #recoveryform, .fastordermodal #registerform {
   display: none;
 }
-.loginmodal.recovery #loginform, .loginmodal.recovery #registerform, .reviewmodal.recovery #loginform, .reviewmodal.recovery #registerform {
+.loginmodal.recovery #loginform, .loginmodal.recovery #registerform, .reviewmodal.recovery #loginform, .reviewmodal.recovery #registerform, .fastordermodal.recovery #loginform, .fastordermodal.recovery #registerform {
   display: none;
 }
-.loginmodal.recovery #recoveryform, .reviewmodal.recovery #recoveryform {
+.loginmodal.recovery #recoveryform, .reviewmodal.recovery #recoveryform, .fastordermodal.recovery #recoveryform {
   display: flex;
 }
-.loginmodal.recovery .recovery__bottom, .reviewmodal.recovery .recovery__bottom {
+.loginmodal.recovery .recovery__bottom, .reviewmodal.recovery .recovery__bottom, .fastordermodal.recovery .recovery__bottom {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.loginmodal.register #loginform, .loginmodal.register #recoveryform, .reviewmodal.register #loginform, .reviewmodal.register #recoveryform {
+.loginmodal.register #loginform, .loginmodal.register #recoveryform, .reviewmodal.register #loginform, .reviewmodal.register #recoveryform, .fastordermodal.register #loginform, .fastordermodal.register #recoveryform {
   display: none;
 }
-.loginmodal.register #registerform, .reviewmodal.register #registerform {
+.loginmodal.register #registerform, .reviewmodal.register #registerform, .fastordermodal.register #registerform {
   display: flex;
 }
-.loginmodal .loginwithFBorGmail, .reviewmodal .loginwithFBorGmail {
+.loginmodal .loginwithFBorGmail, .reviewmodal .loginwithFBorGmail, .fastordermodal .loginwithFBorGmail {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
 }
-.loginmodal .loginwithFBorGmail a, .reviewmodal .loginwithFBorGmail a {
+.loginmodal .loginwithFBorGmail a, .reviewmodal .loginwithFBorGmail a, .fastordermodal .loginwithFBorGmail a {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1865,6 +1865,18 @@ html {
 }
 .yellowbtn.br60 {
   border-radius: 60px;
+}
+
+.yellowbtnRounded {
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 60px;
+  background-color: #FED67E;
+  color: #131313;
+  font-size: 14px;
+  line-height: 19.6px;
+  font-weight: 600;
+  font-family: firagosemibold;
 }
 
 #registerform .input-div.lastinlogin {
@@ -3725,6 +3737,15 @@ html {
 .productinmain__info__otherbtns {
   display: flex;
   grid-gap: 10px;
+  margin-bottom: 20px;
+}
+@media screen and (min-width: 1025px) {
+  .productinmain__info__otherbtns {
+    margin-bottom: 0;
+  }
+}
+.productinmain__info__otherbtns .addtofav {
+  margin-right: 0;
 }
 .productinmain__info__otherbtns .addtocompare, .productinmain__info__otherbtns .addtofav {
   border-radius: 50%;
@@ -4132,36 +4153,36 @@ html {
     opacity: 1;
   }
 }
-.reviewmodal {
+.reviewmodal, .fastordermodal {
   max-width: 640px;
 }
-.reviewmodal__form {
+.reviewmodal__form, .fastordermodal__form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.reviewmodal::after {
+.reviewmodal::after, .fastordermodal::after {
   content: none !important;
   display: none !important;
 }
-.reviewmodal h5 {
+.reviewmodal h5, .fastordermodal h5 {
   margin-bottom: 30px !important;
 }
 @media screen and (min-width: 1025px) {
-  .reviewmodal .reviewmodal__names {
+  .reviewmodal__names, .fastordermodal__names {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 29px;
   }
 }
-.reviewmodal input {
+.reviewmodal input, .fastordermodal input {
   flex: 1;
   width: 1px;
 }
-.reviewmodal input.hidden {
+.reviewmodal input.hidden, .fastordermodal input.hidden {
   display: none !important;
 }
-.reviewmodal input, .reviewmodal textarea {
+.reviewmodal input, .reviewmodal textarea, .fastordermodal input, .fastordermodal textarea {
   background-color: #fff;
   display: flex !important;
   width: 100%;
@@ -4180,23 +4201,23 @@ html {
   /* or 140% */
   letter-spacing: 0.012em;
 }
-.reviewmodal textarea {
+.reviewmodal textarea, .fastordermodal textarea {
   height: 100px;
   padding: 10px;
   overflow-y: scroll;
   margin-bottom: 30px;
   scrollbar-width: none !important;
 }
-.reviewmodal textarea::-webkit-scrollbar {
+.reviewmodal textarea::-webkit-scrollbar, .fastordermodal textarea::-webkit-scrollbar {
   display: none !important;
 }
-.reviewmodal__names {
+.reviewmodal__names, .fastordermodal__names {
   width: 100%;
 }
-.reviewmodal__writereview {
+.reviewmodal__writereview, .fastordermodal__writereview {
   margin-bottom: 30px;
 }
-.reviewmodal__writereview__stars {
+.reviewmodal__writereview__stars, .fastordermodal__writereview__stars {
   --multix: 1;
   height: 24px;
   width: 200px;
@@ -4206,22 +4227,22 @@ html {
   position: relative;
   z-index: 1;
 }
-.reviewmodal__writereview__stars__parent {
+.reviewmodal__writereview__stars__parent, .fastordermodal__writereview__stars__parent {
   height: 24px;
   width: 200px;
   margin: 0 auto;
   position: relative;
 }
-.reviewmodal__writereview__stars .star {
+.reviewmodal__writereview__stars .star, .fastordermodal__writereview__stars .star {
   cursor: pointer;
   height: 100%;
 }
-.reviewmodal__writereview__stars .star::after {
+.reviewmodal__writereview__stars .star::after, .fastordermodal__writereview__stars .star::after {
   content: url(../img/reviewmodalstar.svg);
   height: 100%;
   display: inline-block;
 }
-.reviewmodal__writereview__stars:not(.hidden)::after {
+.reviewmodal__writereview__stars:not(.hidden)::after, .fastordermodal__writereview__stars:not(.hidden)::after {
   content: "";
   position: absolute;
   top: 0;
@@ -4233,10 +4254,23 @@ html {
   opacity: 0.7;
   background-color: #fff;
 }
-.reviewmodal__writereview__stars.hidden {
+.reviewmodal__writereview__stars.hidden, .fastordermodal__writereview__stars.hidden {
   position: absolute;
   z-index: 2;
   opacity: 0;
+}
+
+@media screen and (min-width: 1025px) {
+  .fastordermodal {
+    height: unset !important;
+    max-height: 732px;
+  }
+}
+.fastordermodal input {
+  flex: unset;
+}
+.fastordermodal form label {
+  align-self: flex-start;
 }
 
 .basketmodal {
@@ -7670,6 +7704,24 @@ html {
 }
 .referralusers__table__list__item .value.activeness[data-color=green]::after {
   color: #41CB71;
+}
+
+.comparemain__content {
+  width: 100%;
+  overflow: hidden;
+  overflow-x: auto;
+}
+.comparemain__table {
+  border: 1px solid #E6E6E6;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+.comparemain__table tbody, .comparemain__table thead {
+  width: 100%;
+  overflow: auto;
+}
+.comparemain__table td {
+  border: 1px solid #E6E6E6;
 }
 
 /*# sourceMappingURL=style.css.map */
