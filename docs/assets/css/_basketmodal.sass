@@ -174,9 +174,20 @@
                 width: 24px
                 z-index: 2
             &__cleaner
+                @include font(14px, 16.8px)
                 position: absolute
-                bottom: 10px
-                left: 10px
+                cursor: pointer
+                color: #FE7E7E
+                font-weight: 700
+                top: 60px
+                left: 84px
+                font-family: firagobook
+                font-weight: 400
+                @include plus1025()
+                    font-family: firagobold
+                    top: unset
+                    bottom: 77px
+                    left: 50px
             &__content
                 width: 100%
                 display: flex
@@ -221,6 +232,9 @@
                     background-color: transparent
                 @include plus1025()
                     grid-gap: 30px
+                    margin-left: -31px
+                    width: calc(100% + 31px)
+                    margin-bottom: 124px
                 &__titles
                     display: none
                     margin-bottom: 40px
@@ -247,6 +261,7 @@
                     will-change: all
                     transform: translateY(100%)
                     padding-left: 15px
+                    
                     @include plus1025()
                         padding-right: 48px
                         height: 90px !important
@@ -255,15 +270,31 @@
                         align-content: center
                         align-items: center
                         grid-template-columns: minmax(auto, 350px) minmax(97px, 1fr) minmax(116px, 1fr) minmax(148px, 1fr) 1fr
+                        padding-left: #{15px + 15px}
                     @include plus1900()
 
                     &__checkbox
                         position: absolute
-                        left: 0
-
-                        top: 50%
-                        transform: translateY(-50%)
-                        
+                        right: 11px
+                        top: 0
+                        @include plus1025()
+                            right: unset
+                            left: 0
+                            top: 50%
+                            transform: translateY(-50%)
+                        .customcheckbox
+                            width: 16px
+                            height: 16px
+                            border-radius: 4px
+                            background-color: transparent
+                            border: 1px solid $yellow
+                            cursor: pointer
+                        input
+                            display: none
+                            &:checked
+                                + .customcheckbox
+                                    background-color: $yellow
+                         
                     .labelll
                         font-family: firagobook !important
                         @include font(14px !important, 25.2px !important)
@@ -577,11 +608,11 @@
                         padding-right: 10px
                         // border-right: 10px solid transparent
                         &::-webkit-scrollbar
-                            width: 2px
+                            width: 1px
                             background-color: transparent
                         &::-webkit-scrollbar-thumb
                             border-radius: 30px
-                            background-color: rgba($dark, .2)
+                            background-color: $yellow
                         &::-webkit-scrollbar-track
                             margin: 15px 0
                             background-color: transparent
@@ -653,13 +684,44 @@
                     bottom: unset
                     top: 0
 
+.banklogos
+    height: 0
+    transition: .1s ease
+    overflow: hidden
+    padding: 0
+    width: 100%
+    grid-row: 2 / 3
+    grid-column: 1 / 3
+    padding-left: 40px
+    display: flex
+    flex-direction: column
+    width: 100%
+    // active
+    // padding-bottom: 10px
+    // height: 80px
+    @include plus1025()
+        display: grid
+        width: max-content
+        align-items: center
+        grid-gap: 10px
+        grid-template-columns: repeat(3, auto)
+    &__item
+        height: 40px
+        width: 130px
+        @include centering()
+        border-radius: 10px
+        background-color: #fff
+        overflow: hidden
+        cursor: pointer
 .basketform__radio__label
     display: flex
     cursor: pointer
     align-items: center
     height: 30px
+    margin-bottom: 20px
+
     @include plus1025()
-        margin-bottom: 36px
+        margin-bottom: 20px
     input
         display: none !important
         &:checked
@@ -671,6 +733,7 @@
             + .customcheckmark
                 border-color: $yellow
                 background-color: $yellow
+
     .customcheck
         display: flex
         width: 30px
@@ -713,10 +776,14 @@
         font-family: firagosemibold
         @include font(14px, 16.8px)
         font-weight: 600
-    &.first
-        margin-bottom: 20px
     &.emoney, &.express, &.terms
-        margin-bottom: 50px
+        // margin-bottom: 50px
+
+    &.seld
+        margin-bottom: 30px 
+        + .banklogos
+            height: 80px
+            padding-bottom: 30px
 .orderdetails
     &__rest, &__totals
         @include plus1025()
@@ -838,9 +905,9 @@
     .orderdetails__totals
         padding: 0
     &__rest
-        position: fixed
+        position: absolute
         max-height: 80vh
-        z-index: 18
+        z-index: 999
         padding: 20px
         width: calc(100% - 40px)
         width: 100%
@@ -860,19 +927,19 @@
             flex-grow: 1
             position: static
         &.toggled
-            top: 50%
+            top: -50%
         &__bg
-            position: fixed
-            right: 0
-            top: 0
+            position: absolute
+            right: -5px
+            bottom: -5px
             width: 0
             height: 0
             background-color: rgba($dark, .7)
-            z-index: 17
+            z-index: 998
             transition: 0s .4s linear
             &.toggled
                 transition: none
-                width: 100%
+                width: 100vw
                 height: 100vh
             @include plus1025()
                 display: none
@@ -997,3 +1064,78 @@
     .yellowbtn
         @media screen and ( max-width: 1024px )
             display: none !important
+
+.proctosheep.yellowbtn
+    @include plus1025()
+        margin-top: 30px
+
+
+.bankinfomodal
+    position: fixed
+    max-height: 80vh
+    z-index: 999
+    padding: 50px
+    width: 100%
+    width: calc(100% - 40px)
+    top: 151vh
+    max-width: 640px
+    left: 20px
+    border-radius: 30px
+    transform: translateY(-50%)
+    background-color: #fff
+    transition: top .4s ease-out
+    @include plus1025()
+        left: 50%
+        transform: translate(-50%, -50%)
+    &.toggled
+        top: 50%
+
+    &__bg
+        position: fixed
+        left: 0
+        top: 0
+        width: 0
+        height: 0
+        background-color: rgba($dark, .2)
+        z-index: 998
+        transition: 0s .4s linear
+        &.toggled
+            transition: none
+            width: 100vw
+            height: 100vh
+    &__X
+        height: 24px
+        width: 24px
+        position: absolute
+        right: 20px
+        top: 20px
+        cursor: pointer
+        &::after
+            content: url(../img/)
+            
+    &__info
+        display: grid
+        grid-template-columns: 1fr 1fr
+        justify-content: space-between
+        grid-gap: 16px 3px
+        align-items: center
+        max-width: 280px
+        margin: 0 auto
+        span
+            @include font(16px, 22.4px)
+            color: $dark
+            font-family: firagobook
+            font-weight: 400
+            &:nth-of-type(odd)
+                font-family: firagosemibold
+                font-weight: 600
+                @include upperCase()
+                
+    h6
+        font-family: firagosemibold
+        @include font(22px, 30.8px)
+        color: $dark
+        margin-bottom: 30px
+        font-weight: 600
+        text-align: center
+        @include upperCase()

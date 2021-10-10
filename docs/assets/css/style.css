@@ -4554,9 +4554,24 @@ html {
   z-index: 2;
 }
 .basketmodal__mains__basket__cleaner {
+  font-size: 14px;
+  line-height: 16.8px;
   position: absolute;
-  bottom: 10px;
-  left: 10px;
+  cursor: pointer;
+  color: #FE7E7E;
+  font-weight: 700;
+  top: 60px;
+  left: 84px;
+  font-family: firagobook;
+  font-weight: 400;
+}
+@media screen and (min-width: 1025px) {
+  .basketmodal__mains__basket__cleaner {
+    font-family: firagobold;
+    top: unset;
+    bottom: 77px;
+    left: 50px;
+  }
 }
 .basketmodal__mains__basket__content {
   width: 100%;
@@ -4621,6 +4636,9 @@ html {
 @media screen and (min-width: 1025px) {
   .basketmodal__mains__basket__list {
     grid-gap: 30px;
+    margin-left: -31px;
+    width: calc(100% + 31px);
+    margin-bottom: 124px;
   }
 }
 .basketmodal__mains__basket__list__titles {
@@ -4664,13 +4682,35 @@ html {
     align-content: center;
     align-items: center;
     grid-template-columns: minmax(auto, 350px) minmax(97px, 1fr) minmax(116px, 1fr) minmax(148px, 1fr) 1fr;
+    padding-left: 30px;
   }
 }
 .basketmodal__mains__basket__list__li__checkbox {
   position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  right: 11px;
+  top: 0;
+}
+@media screen and (min-width: 1025px) {
+  .basketmodal__mains__basket__list__li__checkbox {
+    right: unset;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+.basketmodal__mains__basket__list__li__checkbox .customcheckbox {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  background-color: transparent;
+  border: 1px solid #FED67E;
+  cursor: pointer;
+}
+.basketmodal__mains__basket__list__li__checkbox input {
+  display: none;
+}
+.basketmodal__mains__basket__list__li__checkbox input:checked + .customcheckbox {
+  background-color: #FED67E;
 }
 .basketmodal__mains__basket__list__li .labelll {
   font-family: firagobook !important;
@@ -5082,12 +5122,12 @@ html {
   padding-right: 10px;
 }
 .basketmodal__mains__ordering__form .basketform > div::-webkit-scrollbar {
-  width: 2px;
+  width: 1px;
   background-color: transparent;
 }
 .basketmodal__mains__ordering__form .basketform > div::-webkit-scrollbar-thumb {
   border-radius: 30px;
-  background-color: rgba(19, 19, 19, 0.2);
+  background-color: #FED67E;
 }
 .basketmodal__mains__ordering__form .basketform > div::-webkit-scrollbar-track {
   margin: 15px 0;
@@ -5191,15 +5231,50 @@ html {
   }
 }
 
+.banklogos {
+  height: 0;
+  transition: 0.1s ease;
+  overflow: hidden;
+  padding: 0;
+  width: 100%;
+  grid-row: 2/3;
+  grid-column: 1/3;
+  padding-left: 40px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+@media screen and (min-width: 1025px) {
+  .banklogos {
+    display: grid;
+    width: max-content;
+    align-items: center;
+    grid-gap: 10px;
+    grid-template-columns: repeat(3, auto);
+  }
+}
+.banklogos__item {
+  height: 40px;
+  width: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background-color: #fff;
+  overflow: hidden;
+  cursor: pointer;
+}
+
 .basketform__radio__label {
   display: flex;
   cursor: pointer;
   align-items: center;
   height: 30px;
+  margin-bottom: 20px;
 }
 @media screen and (min-width: 1025px) {
   .basketform__radio__label {
-    margin-bottom: 36px;
+    margin-bottom: 20px;
   }
 }
 .basketform__radio__label input {
@@ -5263,11 +5338,12 @@ html {
   line-height: 16.8px;
   font-weight: 600;
 }
-.basketform__radio__label.first {
-  margin-bottom: 20px;
+.basketform__radio__label.seld {
+  margin-bottom: 30px;
 }
-.basketform__radio__label.emoney, .basketform__radio__label.express, .basketform__radio__label.terms {
-  margin-bottom: 50px;
+.basketform__radio__label.seld + .banklogos {
+  height: 80px;
+  padding-bottom: 30px;
 }
 
 @media screen and (min-width: 1025px) {
@@ -5425,9 +5501,9 @@ html {
   padding: 0;
 }
 .itemsinfo__rest {
-  position: fixed;
+  position: absolute;
   max-height: 80vh;
-  z-index: 18;
+  z-index: 999;
   padding: 20px;
   width: calc(100% - 40px);
   width: 100%;
@@ -5451,21 +5527,21 @@ html {
   }
 }
 .itemsinfo__rest.toggled {
-  top: 50%;
+  top: -50%;
 }
 .itemsinfo__rest__bg {
-  position: fixed;
-  right: 0;
-  top: 0;
+  position: absolute;
+  right: -5px;
+  bottom: -5px;
   width: 0;
   height: 0;
   background-color: rgba(19, 19, 19, 0.7);
-  z-index: 17;
+  z-index: 998;
   transition: 0s 0.4s linear;
 }
 .itemsinfo__rest__bg.toggled {
   transition: none;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
 }
 @media screen and (min-width: 1025px) {
@@ -5630,6 +5706,96 @@ html {
   .basketform .yellowbtn {
     display: none !important;
   }
+}
+
+@media screen and (min-width: 1025px) {
+  .proctosheep.yellowbtn {
+    margin-top: 30px;
+  }
+}
+
+.bankinfomodal {
+  position: fixed;
+  max-height: 80vh;
+  z-index: 999;
+  padding: 50px;
+  width: 100%;
+  width: calc(100% - 40px);
+  top: 151vh;
+  max-width: 640px;
+  left: 20px;
+  border-radius: 30px;
+  transform: translateY(-50%);
+  background-color: #fff;
+  transition: top 0.4s ease-out;
+}
+@media screen and (min-width: 1025px) {
+  .bankinfomodal {
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+.bankinfomodal.toggled {
+  top: 50%;
+}
+.bankinfomodal__bg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  background-color: rgba(19, 19, 19, 0.2);
+  z-index: 998;
+  transition: 0s 0.4s linear;
+}
+.bankinfomodal__bg.toggled {
+  transition: none;
+  width: 100vw;
+  height: 100vh;
+}
+.bankinfomodal__X {
+  height: 24px;
+  width: 24px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+}
+.bankinfomodal__X::after {
+  content: url(../img/);
+}
+.bankinfomodal__info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+  grid-gap: 16px 3px;
+  align-items: center;
+  max-width: 280px;
+  margin: 0 auto;
+}
+.bankinfomodal__info span {
+  font-size: 16px;
+  line-height: 22.4px;
+  color: #131313;
+  font-family: firagobook;
+  font-weight: 400;
+}
+.bankinfomodal__info span:nth-of-type(odd) {
+  font-family: firagosemibold;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-feature-settings: "case" on;
+}
+.bankinfomodal h6 {
+  font-family: firagosemibold;
+  font-size: 22px;
+  line-height: 30.8px;
+  color: #131313;
+  margin-bottom: 30px;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  font-feature-settings: "case" on;
 }
 
 .ns {

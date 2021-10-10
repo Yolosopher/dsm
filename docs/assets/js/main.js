@@ -233,6 +233,10 @@ const appendBasketUl = (link, image, category, title, size = false, color = fals
 	newbasketli.classList.add('fixer')
 	newbasketli.innerHTML = `
 	<div class="basketmodal__mains__basket__list__li">
+		<label class="basketmodal__mains__basket__list__li__checkbox">
+			<input type="checkbox">
+			<div class="customcheckbox"></div>
+		</label>
 		<div class="basketmodal__mains__basket__list__li__item"><a class="basketmodal__mains__basket__list__li__imgbox" href="${link}"><img src="${image}" alt="${title}"></a>
 		<div class="basketmodal__mains__basket__list__li__texts">
 			<p class="basketmodal__mains__basket__list__li__category">${category}</p>
@@ -991,3 +995,51 @@ const basketClearner = () => {
 const basketmodal__mains__basket__cleaner = document.querySelector('.basketmodal__mains__basket__cleaner')
 
 basketmodal__mains__basket__cleaner.addEventListener('click', basketClearner)
+
+
+const basketform__radio__labels = [...document.querySelectorAll('.basketform__paytype .basketform__radio__label input[type="radio"]')];
+
+basketform__radio__labels.forEach(each => {
+	each.addEventListener('change', () => {
+		[...document.querySelectorAll('.basketform__paytype .basketform__radio__label.withbanks input[type="radio"]')].forEach(eachin => {
+			if (eachin.checked) {
+				eachin.parentElement.classList.add('seld')
+			} else {
+				eachin.parentElement.classList.remove('seld')
+			}
+		})
+	})
+})
+
+const bankinfomodal = document.querySelector('.bankinfomodal')
+const bankinfomodal__bg = document.querySelector('.bankinfomodal__bg')
+const bankinfomodal__X = document.querySelector('.bankinfomodal__X')
+
+const bankname = document.querySelector('.bankname')
+const bankiban = document.querySelector('.bankiban')
+const bankrecipient = document.querySelector('.bankrecipient')
+const bankdestination = document.querySelector('.bankdestination')
+
+
+
+;[...document.querySelectorAll('div.banklogos__item')].forEach(each => {
+	each.addEventListener('click', () => {
+		bankname.innerText = each.dataset.bankname
+		bankiban.innerText = each.dataset.iban
+		bankrecipient.innerText = each.dataset.recipient
+		bankdestination.innerText = each.dataset.desination
+
+		// show
+		bankinfomodal.classList.add('toggled')
+		bankinfomodal__bg.classList.add('toggled')
+	})
+})
+
+bankinfomodal__bg.addEventListener('click', () => {
+	bankinfomodal.classList.remove('toggled')
+	bankinfomodal__bg.classList.remove('toggled')
+})
+bankinfomodal__X.addEventListener('click', () => {
+	bankinfomodal.classList.remove('toggled')
+	bankinfomodal__bg.classList.remove('toggled')
+})
