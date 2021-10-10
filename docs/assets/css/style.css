@@ -6002,18 +6002,39 @@ html {
     height: 42px;
   }
 }
+.profilemain__nav.toggled .profilemain__nav__ul {
+  height: max-content;
+  border-color: #E6E6E6;
+  margin-bottom: 20px;
+}
+.profilemain__nav.toggled .profilemain__nav__ul__li a {
+  pointer-events: all !important;
+}
+.profilemain__nav.toggled .profilemain__nav__ul__li.active::after {
+  transform: translateY(-50%) rotate(-180deg);
+}
+.profilemain__nav.toggled .profilemain__nav__ul__li.active a {
+  width: 100%;
+}
+.profilemain__nav.toggled .profilemain__nav__logout {
+  display: flex;
+}
 .profilemain__nav__ul {
   display: grid;
   grid-gap: 10px;
   padding-bottom: 11px;
-  margin-bottom: 20px;
-  border-bottom: 1px solid #E6E6E6;
+  margin-bottom: 0;
+  border-bottom: 1px solid transparent;
+  height: 40px;
+  overflow: hidden;
 }
 @media screen and (min-width: 1025px) {
   .profilemain__nav__ul {
+    height: unset !important;
+    overflow: unset !important;
     border: none;
     padding-bottom: 0;
-    margin-bottom: 0;
+    margin-bottom: 0 !important;
     grid-template-columns: repeat(4, auto);
     grid-gap: 0;
   }
@@ -6023,9 +6044,37 @@ html {
   width: 100%;
   height: 40px;
 }
-.profilemain__nav__ul__li.active a {
-  width: 100%;
-  background-color: #FED67E;
+.profilemain__nav__ul__li a {
+  pointer-events: none;
+}
+.profilemain__nav__ul__li.active {
+  order: -1;
+  cursor: pointer;
+  position: relative;
+}
+.profilemain__nav__ul__li.active::after {
+  transition: 0.1s ease-out;
+}
+@media screen and (max-width: 1024px) {
+  .profilemain__nav__ul__li.active::after {
+    content: url(../img/prof-mob-details-down.svg);
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%) rotate(0deg);
+  }
+}
+@media screen and (min-width: 1025px) {
+  .profilemain__nav__ul__li a {
+    pointer-events: all !important;
+  }
+  .profilemain__nav__ul__li.active {
+    order: 0 !important;
+  }
+  .profilemain__nav__ul__li.active a {
+    width: 100%;
+    background-color: #FED67E;
+  }
 }
 .profilemain__nav__ul__li.wishlist a::after {
   content: attr(data-wishes);
@@ -6061,7 +6110,6 @@ html {
   border-radius: 50px;
   display: flex;
   height: 100%;
-  padding: 0 50px;
   align-items: center;
   font-family: firagosemibold;
   font-size: 14px;
@@ -6069,7 +6117,12 @@ html {
   color: #131313;
   text-transform: capitalize;
   font-weight: 600;
-  padding: 0 50px;
+  padding: 0 20px;
+}
+@media screen and (min-width: 1025px) {
+  .profilemain__nav__ul__li a {
+    padding: 0 50px;
+  }
 }
 .profilemain__nav__ul__li a::after {
   margin-left: 10px;
@@ -6083,12 +6136,13 @@ html {
   height: 40px;
   width: 100%;
   text-transform: center;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
 }
 @media screen and (min-width: 1025px) {
   .profilemain__nav__logout {
+    display: flex !important;
     max-width: 150px;
   }
 }

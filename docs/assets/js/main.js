@@ -1043,3 +1043,15 @@ bankinfomodal__X.addEventListener('click', () => {
 	bankinfomodal.classList.remove('toggled')
 	bankinfomodal__bg.classList.remove('toggled')
 })
+
+
+// profilemain mobile toggle
+const profilemain__nav = document.querySelector('.profilemain__nav')
+
+profilemain__nav.addEventListener('click', () => {
+	if (window.innerWidth < 1025) {
+		profilemain__nav.classList.toggle('toggled')
+	} else {
+		profilemain__nav.classList.remove('toggled')
+	}
+})
