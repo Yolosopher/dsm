@@ -41,8 +41,6 @@ html(lang="en")
                 .detailforms__each
                     h2.detailforms__title my details
                     #mydetails__info.form(action="/profile", method="post")
-                        label.detailforms__label(for="profileemail") email
-                        input#profileemail.input-div(type="text", name="email", placeholder="example@gmail.com")
                         .detailforms__inputcontainer
                             .detailforms__inputcontainer__item
                                 label.detailforms__label(for="profilefirstname") first name
@@ -50,6 +48,10 @@ html(lang="en")
                             .detailforms__inputcontainer__item
                                 label.detailforms__label(for="profilelastname") last name
                                 input#profilelastname.input-div(type="text", name="last_name", placeholder="last name")
+                        label.detailforms__label(for="profiletel") tel
+                        input#profiletel.input-div(type="number", name="tel", placeholder="+995 __ __ __")                                
+                        label.detailforms__label(for="profileemail") email
+                        input#profileemail.input-div(type="text", name="email", placeholder="example@gmail.com")
                         .detailforms__inputcontainer
                             .detailforms__inputcontainer__item
                                 label.detailforms__label(for="profilepersonalid") personal id
@@ -86,10 +88,13 @@ html(lang="en")
                                     option(value="2") Batumi
                                     option(value="3") Kutaisi
                                 ul.ns__ul
+                        label.detailforms__label(for="profiledistrict") district
+                        input#profiledistrict.input-div(type="text", name="district", placeholder="Type district")
                         label.detailforms__label(for="profileaddress") address
                         input#profileaddress.input-div(type="text", name="address", placeholder="Type address")
-                        label.detailforms__label(for="profiletel") tel
-                        input#profiletel.input-div(type="number", name="tel", placeholder="+995 __ __ __")
+                        label.detailforms__label(for="profilefloor") floor
+                        input#profilefloor.input-div(type="text", name="floor", placeholder="Type floor")
+
 
                         button.transparentbtn(type="submit") edit
 

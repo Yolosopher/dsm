@@ -285,8 +285,6 @@
         <div class="detailforms__each">
           <h2 class="detailforms__title">my details</h2>
           <div class="form" id="mydetails__info" action="/profile" method="post">
-            <label class="detailforms__label" for="profileemail">email</label>
-            <input class="input-div" id="profileemail" type="text" name="email" placeholder="example@gmail.com">
             <div class="detailforms__inputcontainer">
               <div class="detailforms__inputcontainer__item">
                 <label class="detailforms__label" for="profilefirstname">first name</label>
@@ -297,6 +295,10 @@
                 <input class="input-div" id="profilelastname" type="text" name="last_name" placeholder="last name">
               </div>
             </div>
+            <label class="detailforms__label" for="profiletel">tel</label>
+            <input class="input-div" id="profiletel" type="number" name="tel" placeholder="+995 __ __ __">
+            <label class="detailforms__label" for="profileemail">email</label>
+            <input class="input-div" id="profileemail" type="text" name="email" placeholder="example@gmail.com">
             <div class="detailforms__inputcontainer">
               <div class="detailforms__inputcontainer__item">
                 <label class="detailforms__label" for="profilepersonalid">personal id</label>
@@ -346,10 +348,12 @@
                 <ul class="ns__ul"></ul>
               </div>
             </div>
+            <label class="detailforms__label" for="profiledistrict">district</label>
+            <input class="input-div" id="profiledistrict" type="text" name="district" placeholder="Type district">
             <label class="detailforms__label" for="profileaddress">address</label>
             <input class="input-div" id="profileaddress" type="text" name="address" placeholder="Type address">
-            <label class="detailforms__label" for="profiletel">tel</label>
-            <input class="input-div" id="profiletel" type="number" name="tel" placeholder="+995 __ __ __">
+            <label class="detailforms__label" for="profilefloor">floor</label>
+            <input class="input-div" id="profilefloor" type="text" name="floor" placeholder="Type floor">
             <button class="transparentbtn" type="submit">edit</button>
           </div>
         </div>
