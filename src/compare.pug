@@ -122,7 +122,7 @@ html(lang="en")
 			function setTdBreak () {
 				[...document.querySelectorAll('.td_sticky')].forEach(each => {
 					let h = each.closest('td').nextElementSibling.scrollHeight
-					each.height = h + 2
+					each.height = h + 4
 					//- each.style.marginTop = '1px'
 				})
 			};

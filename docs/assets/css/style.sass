@@ -108,26 +108,30 @@ $leftTdWidthMob: 135px
                         &:not(.td_break)
                             span
                                 border-right: 1px solid $e6 !important
-                        &:first-child
-                            span
-                                // border-top: 0px solid transparent !important    
+                        // &:first-child
+                        //     span
+                        //         // border-top: 0px solid transparent !important    
                         &.td_break
                             span
                                 padding: 36px 10px
+                                padding-left: 0
                 &:not(:last-of-type)
                     td:first-child
                         span
-                            margin-right: -5px
-
-                            display: inline-block
-                            width: 100%
-                            height: 100%
-                            background-color: white
                             border-bottom: 1px solid $e6
-                            // border-collapse: collapse
+                            
+                td:first-child
+                    span
+                        margin-right: -5px
 
-                            padding: 16px 10px
-                            padding-left: 0
+                        display: inline-block
+                        width: 100%
+                        height: 100%
+                        background-color: white
+                        // border-collapse: collapse
+
+                        padding: 16px 10px
+                        padding-left: 0
                         // .td_item
                     
             // overflow: auto
@@ -193,21 +197,20 @@ $leftTdWidthMob: 135px
     @include plus1025()
         margin-bottom: 80px
 .td_break
-    border: none
-    // padding: 36px 10px !important
+    border-color: transparent
     text-align: left
     position: relative
     overflow: hidden
-    border: none !important
+    border-color: transparent !important
     min-width: $leftTdWidthMob
     @include plus1025()
         min-width: $leftTdWidth
     ~ td
-        border: none !important
+        border-color: transparent !important
         padding: 33px 0
     > span
         border: none !important
-        border-right: none !important
+        border-right-color: $e6 !important
         border-color: transparent !important
         display: flex !important
         z-index: 10
@@ -228,20 +231,20 @@ $leftTdWidthMob: 135px
         top: 50%
         transform: translateY(-50%)
         left: $leftTdWidthMob
-        width: calc(100% - $leftTdWidthMob)
+        width: calc(100% - #{$leftTdWidthMob})
         @include plus1025()
             left: $leftTdWidth
-            width: calc(100% - $leftTdWidth)
+            width: calc(100% - #{$leftTdWidth})
         // margin-left: 30px
         
 .nobottombr
     td
-        border-bottom: none !important
+        border-bottom-color: transparent !important
         span
-            border-bottom: none !important
+            border-bottom-color: transparent !important
 .notopbr
     td
-        border-top: none !important
+        border-top-color: transparent !important
 
 
 .addtobag.addinbasketbtn.inform

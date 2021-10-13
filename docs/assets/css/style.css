@@ -7805,14 +7805,17 @@ html {
 }
 .comparemain__table tbody tr td.td_sticky.td_break span {
   padding: 36px 10px;
+  padding-left: 0;
 }
 .comparemain__table tbody tr:not(:last-of-type) td:first-child span {
+  border-bottom: 1px solid #E6E6E6;
+}
+.comparemain__table tbody tr td:first-child span {
   margin-right: -5px;
   display: inline-block;
   width: 100%;
   height: 100%;
   background-color: white;
-  border-bottom: 1px solid #E6E6E6;
   padding: 16px 10px;
   padding-left: 0;
 }
@@ -7887,11 +7890,11 @@ html {
 }
 
 .td_break {
-  border: none;
+  border-color: transparent;
   text-align: left;
   position: relative;
   overflow: hidden;
-  border: none !important;
+  border-color: transparent !important;
   min-width: 135px;
 }
 @media screen and (min-width: 1025px) {
@@ -7900,12 +7903,12 @@ html {
   }
 }
 .td_break ~ td {
-  border: none !important;
+  border-color: transparent !important;
   padding: 33px 0;
 }
 .td_break > span {
   border: none !important;
-  border-right: none !important;
+  border-right-color: #E6E6E6 !important;
   border-color: transparent !important;
   display: flex !important;
   z-index: 10;
@@ -7930,24 +7933,24 @@ html {
   top: 50%;
   transform: translateY(-50%);
   left: 135px;
-  width: calc(100% - $leftTdWidthMob);
+  width: calc(100% - 135px);
 }
 @media screen and (min-width: 1025px) {
   .tr_break::after {
     left: 350px;
-    width: calc(100% - $leftTdWidth);
+    width: calc(100% - 350px);
   }
 }
 
 .nobottombr td {
-  border-bottom: none !important;
+  border-bottom-color: transparent !important;
 }
 .nobottombr td span {
-  border-bottom: none !important;
+  border-bottom-color: transparent !important;
 }
 
 .notopbr td {
-  border-top: none !important;
+  border-top-color: transparent !important;
 }
 
 .addtobag.addinbasketbtn.inform.added svg path {
