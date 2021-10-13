@@ -1,8 +1,15 @@
+// new colors
+$newf8: #F2FBFF
+$linearbg: linear-gradient(180deg, #F2FBFF 0%, rgba(242, 251, 255, 0) 59.16%)
+$newyellow: #00B4FB
+$linearbgoff: #F2FBFF
 // colors
 $dark: #131313
 $dark24: #242424
 $dark34: #343434
-$yellow: #FED67E
+// $yellow: #FED67E
+$yellow: $newyellow
+
 $brown: #ECE5D1
 $brownlight: #FDF8E8
 $green: #B7C88E
@@ -10,7 +17,7 @@ $red: #DC6848
 $redstock: #FF5E5E
 $gr: #707477
 $e6: #E6E6E6
-    
+
 $width380: 380px
 $width450: 450px
 $width700: 700px
@@ -115,4 +122,14 @@ $padL: calc( ((100vw - 10px) - 1697px) / 2)
 //     &.invalid.invalid-shown
 //         border-color: $darkred
 
-    
+@mixin scrollSetup($thumbcolor, $width: 2px, $bgcolor: transparent) 
+    &::-webkit-scrollbar
+        width: $width
+        height: $width
+        background-color: $bgcolor
+    &::-webkit-scrollbar-thumb
+        border-radius: 30px
+        background-color: $thumbcolor
+    &::-webkit-scrollbar-track
+        margin: 15px 0
+        background-color: $bgcolor

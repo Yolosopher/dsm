@@ -5,12 +5,13 @@
     @include plus1025()
         margin-bottom: 0
     &__content
-        background-color: $dark
         border-radius: 30px
-        color: #fff
+        color: $dark
         padding: 40px
         padding-bottom: 30px
+        background: $linearbgoff
         @include plus1025()
+            background: $linearbg
             padding: 70px 20px
             padding-bottom: 60px
 
@@ -23,16 +24,6 @@
         grid-template-columns: auto auto auto
         grid-gap: 10px
         align-items: center
-        &::before
-            display: inline-block
-            content: ''
-            position: absolute
-            top: 0
-            left: 50%
-            transform: translateX(-50%)
-            width: 46px
-            height: 1px
-            background-color: $dark34
         a
             opacity: .3
             display: flex

@@ -477,7 +477,7 @@
                 right: 0
                 width: 100%
                 height: 320px
-                background-color: #F8F8F8
+                background-color: $newf8
                 z-index: 1
                 bottom: 0
                 padding: 20px
@@ -494,7 +494,7 @@
                     flex-direction: column
 
         &__ordering
-            background-color: #F8F8F8 !important
+            background-color: $newf8 !important
             position: relative
             z-index: 2
             @media screen and ( max-width: 1024px )
@@ -696,6 +696,7 @@
     display: flex
     flex-direction: column
     width: 100%
+    grid-gap: 20px
     // active
     // padding-bottom: 10px
     // height: 80px
@@ -755,7 +756,7 @@
             opacity: 0
             border-radius: 50%
             border: 2px solid #fff
-            background-color: #FED67E
+            background-color: $yellow
             transition: 0.3s ease-out
     .customcheckmark
         width: 18px
@@ -782,8 +783,10 @@
     &.seld
         margin-bottom: 30px 
         + .banklogos
-            height: 80px
+            height: #{120px + 40px}
             padding-bottom: 30px
+            @include plus1025()
+                height: 80px
 .orderdetails
     &__rest, &__totals
         @include plus1025()
@@ -1139,3 +1142,6 @@
         font-weight: 600
         text-align: center
         @include upperCase()
+.orderdetails__totals__checkout.checkoutbtn.yellowbtn.br60
+    @media screen and ( max-width: 1024px )
+        max-width: unset

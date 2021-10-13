@@ -141,7 +141,7 @@
         cursor: pointer
         border-radius: 50px
         padding: 15px 20px
-        background-color: #FAF2F4
+        background-color: $newf8
         // border: 
         grid-gap: 10px
         justify-content: center
@@ -251,15 +251,19 @@
 
 
 .addtofav.added
-    background-color: #FED67E !important
-    border-color: #FED67E !important
+    background-color: $yellow !important
+    border-color: $yellow !important
+
 
 .addtofav, .addtocompare
     height: 36px
     width: 36px
     border-radius: 50%
     @include centering()
-
+    &.added
+        svg
+            path
+                fill: white
 
 .referralusers
     h2.detailforms__title

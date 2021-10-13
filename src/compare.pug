@@ -1,5 +1,6 @@
 - const title = 'Compare'
 - const loggedin = false
+- const pagenavoff = "Comaparison"
 -
 	const getRandomMilligram = () => {
 		let randomnum = Math.random()
@@ -17,9 +18,9 @@
 	const getRandomBool = () => {
 		let randomnum = Math.random()
 		if (randomnum < .5) {
-			return true
+			return 'true'
 		} else {
-			return false
+			return 'false'
 		}
 	}
 -
@@ -39,6 +40,7 @@ html(lang="en")
 	body 
 		include ../layouts/_header
 		include ../layouts/_loginmodal
+		include ../layouts/_pagenav
 
 		main.main.comparemain.container
 			.comparemain__content
@@ -48,50 +50,115 @@ html(lang="en")
 							td
 							each slide, index in slides
 								td
-									.td_item.td_image
-										img(src=slide.image, alt="")
-									h2=slide.title
+									a.td_item.td_image(href="productin.html", draggable="false") 
+										img(src=slide.image, alt="", draggable="false")
+									h2
+										a(href="productin.html", draggable="false")=slide.title
+									.homemain__sales__item__bagNprice.addinbasketbtn(data-id=slide.id)
+										.addtobag
+											include ../components/bag
+											.flip
+												span.add add to bag
+												span.remove remove
+										.homemain__sales__item__prices
+											.homemain__sales__item__price.discount
+												span=slide.price
+												|  USD
+											.homemain__sales__item__price.current
+												span=slide.price
+												|  USD
 					tbody
-						tr.heading
+						tr
 							td brand
 							each slide, index in slides
 								td
 									.td_item=slide.category
-						tr.heading
+						tr
 							td milligrams
 							each slide, index in slides
 								td
 									.td_item=getRandomMilligram()
-						tr.heading
+						tr
 							td color
 							each slide, index in slides
 								td
-									.td_item(data-color=getRandomColor())=getRandomColor()
+									.td_item(data-color="true", style=`--color: ${getRandomColor()};`)
 						tr
-							td.td_break ingredients
-						tr.heading
+							td.td_break(colspan="0") ingredients
+							
+						tr
 							td argan oil
 							each slide, index in slides
 								td
 									.td_item.td_ingr(data-value=getRandomBool())
 
-						tr.heading
+						tr
 							td red sea herb
 							each slide, index in slides
 								td
 									.td_item.td_ingr(data-value=getRandomBool())
 
-						tr.heading
+						tr
 							td dead sea salt
 							each slide, index in slides
 								td
 									.td_item.td_ingr(data-value=getRandomBool())
+			button.clearcomparison.yellowbtn(type="button") clear comparison
 
 
 
 
+		script.
+			//- const ele = document.querySelector('.comparemain__content')
+			function setTdBreak () {
+				let lngth = [...document.querySelector('tbody tr').querySelectorAll('td')].length;
+				//- console.log
+				document.querySelector('.td_break').setAttribute('colspan', lngth)
+			};
+			setTdBreak();
+			document.addEventListener('DOMContentLoaded', function () {
+				const ele = document.querySelector('.comparemain__content');
+				ele.style.cursor = 'grab';
 
+				let pos = { top: 0, left: 0, x: 0, y: 0 };
 
+				const mouseDownHandler = function (e) {
+					ele.style.cursor = 'grabbing';
+					ele.style.userSelect = 'none';
+
+					pos = {
+						left: ele.scrollLeft,
+						top: ele.scrollTop,
+						// Get the current mouse position
+						x: e.clientX,
+						y: e.clientY,
+					};
+
+					document.addEventListener('mousemove', mouseMoveHandler);
+					document.addEventListener('mouseup', mouseUpHandler);
+				};
+
+				const mouseMoveHandler = function (e) {
+					// How far the mouse has been moved
+					const dx = e.clientX - pos.x;
+					const dy = e.clientY - pos.y;
+
+					// Scroll the element
+					ele.scrollTop = pos.top - dy;
+					ele.scrollLeft = pos.left - dx;
+				};
+
+				const mouseUpHandler = function () {
+					ele.style.cursor = 'grab';
+					ele.style.removeProperty('user-select');
+
+					document.removeEventListener('mousemove', mouseMoveHandler);
+					document.removeEventListener('mouseup', mouseUpHandler);
+				};
+
+				// Attach the handler
+				ele.addEventListener('mousedown', mouseDownHandler);
+			});
 
 		include ../layouts/_basket
 		include ../layouts/_footer
