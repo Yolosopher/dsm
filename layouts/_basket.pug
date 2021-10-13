@@ -96,13 +96,13 @@
                             p.orderdetails__infos__value.subtotal
                                 span 0.00
                                 |  USD
-                        
+
                         .orderdetails__infos__item(data-id="2")
                             p.orderdetails__infos__label product
                             p.orderdetails__infos__value.product
                                 span 0.00
                                 |  USD
-                        
+
                         .orderdetails__infos__item(data-id="3")
                             p.orderdetails__infos__label sale
                             p.orderdetails__infos__value.sale
@@ -110,7 +110,7 @@
                                 |  USD
                     .orderdetails__promocode
                         label(for="promocodeinput1") promocode
-                        input#promocodeinput1.promocodeinput(type="text", name="promocode", placeholder="enter code")
+                        input#promocodeinput1.promocodeinput(type="text" name="promocode" placeholder="enter code")
                 .orderdetails__totals
                     p Total:
                     p.orderdetails__totals__value
@@ -141,35 +141,34 @@
                                 .form__fixer.basketform__label__fixer
                                     label.basketform__label(for="basketfirstname") first name
                                 .form__fixer.basketform__input__fixer
-                                    input#basketfirstname.basketform__input(type="text", name="firstname", placeholder="first name")
+                                    input#basketfirstname.basketform__input(type="text" name="firstname" placeholder="first name")
                             .basketform__inputcombiner__item
                                 .form__fixer.basketform__label__fixer
                                     label.basketform__label(for="basketlastname") last name
                                 .form__fixer.basketform__input__fixer
-                                    input#basketlastname.basketform__input(type="text", name="lastname", placeholder="last name")
+                                    input#basketlastname.basketform__input(type="text" name="lastname" placeholder="last name")
                         .basketform__inputcombiner
                             .basketform__inputcombiner__item
                                 .form__fixer.basketform__label__fixer
                                     label.basketform__label(for="basketphone") mobile phone
                                 .form__fixer.basketform__input__fixer
-                                    input#basketphone.basketform__input(type="tel", placeholder="phone", value="+995 ")
+                                    input#basketphone.basketform__input(type="tel" placeholder="phone" value="+995 ")
                             .basketform__inputcombiner__item
                                 .form__fixer.basketform__label__fixer
                                     label.basketform__label(for="basketemail") email
                                 .form__fixer.basketform__input__fixer
-                                    input#basketemail.basketform__input(type="text", placeholder="example@gmail.com", name="email")
+                                    input#basketemail.basketform__input(type="text" placeholder="example@gmail.com" name="email")
                         .basketform__inputcombiner
                             .basketform__inputcombiner__item
                                 .form__fixer.basketform__label__fixer
                                     label.basketform__label(for="personalid") personal id
                                 .form__fixer.basketform__input__fixer
-                                    input#personalid.basketform__input(type="text", placeholder="010050xxxxx", name="personalid")
+                                    input#personalid.basketform__input(type="text" placeholder="010050xxxxx" name="personalid")
                             .basketform__inputcombiner__item
                                 .form__fixer.basketform__label__fixer
                                     .basketform__label Gender
                                 //- .form__fixer.basketform__input__fixer
                                 .form__fixer.basketform__input__fixer(style="z-index: 10")
-                                    //- input#basketcity.basketform__input(type="text", placeholder="city", name="city")
                                     .ns__container.input-div
                                         .ns.gr
                                             .ns__activetext(data-value="Male")
@@ -187,7 +186,7 @@
                         .form__fixer.basketform__label__fixer
                             .basketform__label city
                         .form__fixer.basketform__input__fixer(style="z-index: 10")
-                            //- input#basketcity.basketform__input(type="text", placeholder="city", name="city")
+                            //- input#basketcity.basketform__input(type="text" placeholder="city" name="city")
                             .ns__container.input-div
                                 .ns.gr
                                     .ns__activetext(data-value="Tbilisi")
@@ -199,29 +198,29 @@
                         .form__fixer.basketform__label__fixer
                             label.basketform__label(for="basketdistrict") district
                         .form__fixer.basketform__input__fixer
-                            input#basketdistrict.basketform__input(type="text", placeholder="type district", name="basketdistrict")
+                            input#basketdistrict.basketform__input(type="text" placeholder="type district" name="basketdistrict")
 
                         .form__fixer.basketform__label__fixer
                             label.basketform__label(for="basketaddress") address
                         .form__fixer.basketform__input__fixer
-                            input#basketaddress.basketform__input(type="text", placeholder="type address", name="address")       
+                            input#basketaddress.basketform__input(type="text" placeholder="type address" name="address")       
 
                         .form__fixer.basketform__label__fixer
                             label.basketform__label(for="basketfloor") floor
                         .form__fixer.basketform__input__fixer
-                            input#basketfloor.basketform__input(type="text", placeholder="type floor", name="floor")   
-                        
+                            input#basketfloor.basketform__input(type="text" placeholder="type floor" name="floor")   
+
                         .form__fixer.basketform__heading__fixer.f18__fixer
                             h6.basketform__heading.f18 Delivery option
                         label.form__fixer.basketform__radio__label.first(for="standartshipping") 
-                            input#standartshipping(type="radio", name="shipping", value="1", checked)
+                            input#standartshipping(type="radio" name="shipping" value="1", checked)
                             .customcheck
                             .descr Standart (3-5 bussines day) shipping
                             .price
                                 | $ 
                                 span 10.00
                         label.form__fixer.basketform__radio__label.express(for="expressshipping") 
-                            input#expressshipping(type="radio", name="shipping", value="2")
+                            input#expressshipping(type="radio" name="shipping" value="2")
                             .customcheck
                             .descr Express (1-2 bussines day) shipping
                             .price
@@ -235,44 +234,44 @@
                             h6.basketform__heading Where would you like to pay?
 
                         label.form__fixer.basketform__radio__label.first(for="creditcard") 
-                            input#creditcard(type="radio", name="payment", value="1", checked)
+                            input#creditcard(type="radio" name="payment" value="1", checked)
                             .customcheck
                             .descr Pay with Credit Card
 
                         label.form__fixer.basketform__radio__label.withbanks.emoney(for="banktransfer") 
-                            input#banktransfer(type="radio", name="payment", value="2")
+                            input#banktransfer(type="radio" name="payment" value="2")
                             .customcheck
                             .descr Transfer with bank
                         .banklogos
-                            .banklogos__item(data-bankname="tbc bank", data-iban="GE432TB154u2332000", data-recipient="DSM Group", data-desination="#32532")
-                                img(src="assets/img/banks/tbc.png", alt="")
-                            .banklogos__item(data-bankname="bank of georgia", data-iban="GE432TB154u2332000", data-recipient="DSM Group", data-desination="#32532")
-                                img(src="assets/img/banks/bog.png", alt="")
-                            .banklogos__item(data-bankname="credo bank", data-iban="GE432TB154u2332000", data-recipient="DSM Group", data-desination="#32532")
-                                img(src="assets/img/banks/credo.png", alt="")
-                    
+                            .banklogos__item(data-bankname="tbc bank" data-iban="GE432TB154u2332000" data-recipient="DSM Group" data-desination="#32532")
+                                img(src="assets/img/banks/tbc.png" alt="")
+                            .banklogos__item(data-bankname="bank of georgia" data-iban="GE432TB154u2332000" data-recipient="DSM Group" data-desination="#32532")
+                                img(src="assets/img/banks/bog.png" alt="")
+                            .banklogos__item(data-bankname="credo bank" data-iban="GE432TB154u2332000" data-recipient="DSM Group" data-desination="#32532")
+                                img(src="assets/img/banks/credo.png" alt="")
+
 
                         label.form__fixer.basketform__radio__label.withbanks.emoney(for="bankinstallments") 
-                            input#bankinstallments(type="radio", name="payment", value="2")
+                            input#bankinstallments(type="radio" name="payment" value="2")
                             .customcheck
                             .descr installments
                         .banklogos
                             a.banklogos__item(href="#")
-                                img(src="assets/img/banks/tbc.png", alt="")
+                                img(src="assets/img/banks/tbc.png" alt="")
                             a.banklogos__item(href="#")
-                                img(src="assets/img/banks/bog.png", alt="")
+                                img(src="assets/img/banks/bog.png" alt="")
                             a.banklogos__item(href="#")
-                                img(src="assets/img/banks/credo.png", alt="")   
+                                img(src="assets/img/banks/credo.png" alt="")   
 
                         label.form__fixer.basketform__radio__label.terms(for="acceptterms")
-                            input#acceptterms(type="checkbox", name="terms")
+                            input#acceptterms(type="checkbox" name="terms")
                             .customcheckmark
                             .descr I accept DSM Terms & Conditions
 
 
                         .form__fixer.proctosheep__fixer
                             button.proctosheep.topay.yellowbtn(type="submit") pay
-            
+
             .basketmodal__mains__ordering__right.itemsinfo
                 .item__restmobile
                     .item__restmobile__yellows(data-pg="1")
@@ -302,13 +301,13 @@
                                     .itemsinfo__list__item__qtyprice__price=`${item.price} USD`
                 .orderdetails__promocode
                     label(for="promocodeinput2") promocode
-                    input#promocodeinput2.promocodeinput(type="text", name="promocode", placeholder="enter code")
+                    input#promocodeinput2.promocodeinput(type="text" name="promocode" placeholder="enter code")
                 .orderdetails__totals
                     p Total:
                     p.orderdetails__totals__value
                         span 0.00
                         |  USD
-                        
+
 
 
         .basketmodal__mains__finished

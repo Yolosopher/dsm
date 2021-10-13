@@ -1,20 +1,25 @@
 - const title = 'Home'
 - const loggedin = false
+- const pagenavoff = "Contact"
+
 doctype html
 html(lang="en")
     head
-        link(rel="stylesheet", href="assets/css/swiper-bundle.min.css")
+        link(rel="stylesheet" href="assets/css/swiper-bundle.min.css")
         include ../layouts/_head
 
     body 
         include ../layouts/_header
         include ../layouts/_loginmodal
+        include ../layouts/_pagenav
 
-        main.main.homemain.container
-
+        main.main.contactmain.container
+            .contactmain__content
+                form.contactmain__form
+                    
         include ../layouts/_basket
         include ../layouts/_footer
-        
+
         include ../layouts/_respomenu
-        
+
         include ../layouts/_scripts

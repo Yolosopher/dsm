@@ -949,9 +949,16 @@ const generateNs = (select) => {
 
 
 // ns declares
-const genderselect = document.getElementById('genderselect')
+const basketgender = document.getElementById('basketgender')
 const cityselect = document.getElementById('cityselect')
 const basketcity = document.getElementById('basketcity')
+
+// TODO:
+const genderselect = document.getElementById('genderselect')
+if (basketgender) {
+	generateNs(basketgender)
+}
+// TODOEND:
 
 if (genderselect) {
 	generateNs(genderselect)
@@ -1045,7 +1052,7 @@ bankinfomodal__X.addEventListener('click', () => {
 })
 
 
-// profilemain mobile toggle
+// profilemain mobile toggle TODO:
 const profilemain__nav = document.querySelector('.profilemain__nav')
 if (!!profilemain__nav) {
 	profilemain__nav.addEventListener('click', () => {
@@ -1078,3 +1085,4 @@ if (!!fastorderbtn) {
 		fastordermodal__bg.classList.remove('toggled')
 	})
 }
+// TODOEND:
