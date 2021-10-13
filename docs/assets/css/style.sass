@@ -52,7 +52,8 @@ html
 
 @import _referrals
 
-
+$leftTdWidth: 350px
+$leftTdWidthMob: 135px
 .comparemain
     &__content
         width: 100%
@@ -81,6 +82,54 @@ html
                     fill: $dark
         tbody, thead
             width: 100%
+        tbody
+            position: relative
+            tr
+                td
+                    &:first-child
+                        border-right-color: transparent !important
+                    &:nth-child(2)
+                        border-left-color: transparent !important
+                    &.td_sticky
+                        text-align: left
+                        font-family: firagobold
+                        font-weight: 600
+                        border: none !important
+                        position: sticky
+                        left: -1px
+                        z-index: 1
+                        // border-collapse: separate
+                        background-color: white
+                        // border: 1px solid $e6 !important
+                        padding: 0
+                        
+                        span
+                            display: inline-block
+                        &:not(.td_break)
+                            span
+                                border-right: 1px solid $e6 !important
+                        &:first-child
+                            span
+                                // border-top: 0px solid transparent !important    
+                        &.td_break
+                            span
+                                padding: 36px 10px
+                &:not(:last-of-type)
+                    td:first-child
+                        span
+                            margin-right: -5px
+
+                            display: inline-block
+                            width: 100%
+                            height: 100%
+                            background-color: white
+                            border-bottom: 1px solid $e6
+                            // border-collapse: collapse
+
+                            padding: 16px 10px
+                            padding-left: 0
+                        // .td_item
+                    
             // overflow: auto
         td
             // word-break: 2
@@ -112,29 +161,7 @@ html
                     aspect-ratio: 1 / 1
                     border-radius: 50%
                     height: 19px
-            &.td_break
-                border: none
-                padding: 36px 0
-                text-align: left
-                position: relative
-                font-family: firagobold
-                @include upperCase()
-                text-transform: uppercase !important
-                @include font(18px, 25.2px)
-                overflow: hidden
-                &::after
-                    width: 100px
-                    height: 1px
-                    // background: $e6
-                    border-bottom: 1px solid $e6
-                    position: absolute
-                    content: ''
-                    top: 50%
-                    left: unset
-                    width: 100%
-                    margin-left: 30px
-                    
-                    transform: translateY(-50%)
+        
         tr
             td
                 padding: 16px
@@ -165,6 +192,57 @@ html
     
     @include plus1025()
         margin-bottom: 80px
+.td_break
+    border: none
+    // padding: 36px 10px !important
+    text-align: left
+    position: relative
+    overflow: hidden
+    border: none !important
+    min-width: $leftTdWidthMob
+    @include plus1025()
+        min-width: $leftTdWidth
+    ~ td
+        border: none !important
+        padding: 33px 0
+    > span
+        border: none !important
+        border-right: none !important
+        border-color: transparent !important
+        display: flex !important
+        z-index: 10
+        font-family: firagobold
+        @include upperCase()
+        text-transform: uppercase !important
+        @include font(18px, 25.2px)
+.tr_break
+    position: relative
+    overflow: hidden
+    &::after
+        width: 100px
+        height: 1px
+        // background: $e6
+        border-bottom: 1px solid $e6
+        position: absolute
+        content: ''
+        top: 50%
+        transform: translateY(-50%)
+        left: $leftTdWidthMob
+        width: calc(100% - $leftTdWidthMob)
+        @include plus1025()
+            left: $leftTdWidth
+            width: calc(100% - $leftTdWidth)
+        // margin-left: 30px
+        
+.nobottombr
+    td
+        border-bottom: none !important
+        span
+            border-bottom: none !important
+.notopbr
+    td
+        border-top: none !important
+
 
 .addtobag.addinbasketbtn.inform
     &.added
@@ -174,3 +252,16 @@ html
     svg
         path
             fill: $dark
+.relative_td
+    position: relative
+.removeFromCompare
+    position: absolute
+    top: 30px
+    cursor: pointer
+    z-index: 2
+    right: 30px
+    &::after
+        content: url(../img/basketremove.svg)
+        display: inline-block
+        width: 100%
+        height: 100%
