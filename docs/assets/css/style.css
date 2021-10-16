@@ -4212,7 +4212,10 @@ html {
   letter-spacing: 0.012em;
 }
 .reviewmodal input:focus, .reviewmodal input:active, .reviewmodal textarea:focus, .reviewmodal textarea:active, .fastordermodal input:focus, .fastordermodal input:active, .fastordermodal textarea:focus, .fastordermodal textarea:active {
-  border-color: #131313;
+  border-color: #131313 !important;
+}
+.reviewmodal input.invalid.invalid-shown, .reviewmodal textarea.invalid.invalid-shown, .fastordermodal input.invalid.invalid-shown, .fastordermodal textarea.invalid.invalid-shown {
+  border-color: #DC6848;
 }
 .reviewmodal textarea, .fastordermodal textarea {
   height: 100px;

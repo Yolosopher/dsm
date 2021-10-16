@@ -1186,6 +1186,41 @@ if (!!fastorderbtn) {
 	})
 }
 
+// VALIDATIONS FASTORDER
+const fastorderform = document.getElementById('fastorderform')
+
+if (!!fastorderform) {
+	// FASTORDER INPUTS
+	const fastorderfirstname = document.getElementById('fastorderfirstname')
+	const fastorderlastname = document.getElementById('fastorderlastname')
+	const fastordertel = document.getElementById('fastordertel')
+
+
+	fastorderfirstname.addEventListener('change', () => {
+		nameChecker(fastorderfirstname, true, 2)
+	})
+	fastorderlastname.addEventListener('change', () => {
+		nameChecker(fastorderlastname, true, 2)
+	})
+	fastordertel.addEventListener('change', () => {
+		nameChecker(fastordertel, true, 9)
+	})
+
+	fastorderform.addEventListener('submit', (e) => {
+		nameChecker(fastorderfirstname, true, 2)
+		nameChecker(fastorderlastname, true, 2)
+		nameChecker(fastordertel, true, 9)
+
+		if (fastorderform.querySelectorAll('.invalid')[0]) {
+			e.preventDefault()
+			fastorderform.querySelectorAll('.invalid').forEach((each) => {
+				each.classList.add('invalid-shown')
+			})
+		}
+	})
+}
+
+
 // VALIDATIONS CONTACT
 const contactform = document.getElementById('contactform')
 
@@ -1244,7 +1279,7 @@ if (!!newpasswordform) {
 	newpasswordform.addEventListener('submit', (e) => {
 		nameChecker(newpassword_newpass, false, 2)
 		repeatPassChecker(newpassword_newpassrepeat, newpassword_newpass)
-		
+
 		if (newpasswordform.querySelectorAll('.invalid')[0]) {
 			e.preventDefault()
 			newpasswordform.querySelectorAll('.invalid').forEach((each) => {

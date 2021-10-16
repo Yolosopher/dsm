@@ -3,15 +3,15 @@
 	.fastordermodal__X
 		include ../components/loginx
 	.fastordermodal__forms
-		form#reviewform.fastordermodal__form.reviewform
+		form#fastorderform.fastordermodal__form.reviewform
 			h5 fast order
 			.fastordermodal__names
 				.label__parent
 					label(for="fastorderfirstname") first name
-					input#fastorderfirstname(type="text" name="firstname" placeholder="first name")
+					input#fastorderfirstname.input-div(type="text" name="firstname" placeholder="first name")
 				.label__parent
 					label(for="fastorderlastname") last name
-					input#fastorderlastname(type="text" name="lastname" placeholder="last name")
+					input#fastorderlastname.input-div(type="text" name="lastname" placeholder="last name")
 			//- .label__parent
 			label(for="fastordertel") mobile phone
 			input#fastordertel.input-div(type="number", name="tel", placeholder="+995 __ __ __")           

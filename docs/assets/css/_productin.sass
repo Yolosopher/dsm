@@ -773,8 +773,9 @@
         font-size: 12px
         line-height: 16.8px
         &:focus, &:active
-            border-color: $dark
-            
+            border-color: $dark !important
+        &.invalid.invalid-shown
+            border-color: $red
         /* or 140% */
 
         letter-spacing: 0.012em
