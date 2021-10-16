@@ -1,0 +1,33 @@
+- const title = 'Compare'
+- const loggedin = 'Nika'
+
+doctype html
+html(lang="en")
+  head
+    link(rel="stylesheet" href="assets/css/swiper-bundle.min.css")
+    include ../layouts/_head
+
+  body 
+    include ../layouts/_header
+    include ../layouts/_loginmodal
+
+    .emptycomparedots
+      .emptycomparedots_left
+      .emptycomparedots_right
+    main.main.compareemptymain.container
+      h1 Comparison
+      h2 isempty
+      .compareemptymain__content
+        .compareemptymain__combiner
+          .compareemptymain__cover
+          .compareemptymain__text
+            h3 Go choose product and comparison
+            a.iconbtn.icon_rightarrow(href="product.html") 
+              include ../components/iconbtn-arrowright
+
+    include ../layouts/_basket
+    include ../layouts/_footer
+
+    include ../layouts/_respomenu
+
+    include ../layouts/_scripts
