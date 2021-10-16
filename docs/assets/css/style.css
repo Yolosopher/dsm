@@ -4199,7 +4199,7 @@ html {
   height: 54px;
   min-height: 54px;
   border-radius: 12px;
-  border: 1px solid #131313;
+  border: 1px solid #E6E6E6;
   align-items: center;
   padding: 0 15px;
   margin-bottom: 20px;
@@ -4210,6 +4210,9 @@ html {
   line-height: 16.8px;
   /* or 140% */
   letter-spacing: 0.012em;
+}
+.reviewmodal input:focus, .reviewmodal input:active, .reviewmodal textarea:focus, .reviewmodal textarea:active, .fastordermodal input:focus, .fastordermodal input:active, .fastordermodal textarea:focus, .fastordermodal textarea:active {
+  border-color: #131313;
 }
 .reviewmodal textarea, .fastordermodal textarea {
   height: 100px;
