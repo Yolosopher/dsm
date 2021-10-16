@@ -1,0 +1,144 @@
+.contactmain
+    padding-top: 20px
+    padding-top: 50px
+    margin-bottom: 40px
+    @include plus1025()
+        margin-bottom: 80px
+    &__content
+        display: grid
+        grid-gap: 80px
+        @include plus1025()
+            grid-gap: 0
+            grid-template-columns: 1fr 50%
+            align-items: stretch
+    &__form
+        color: $dark
+        @include plus1025()
+            padding-right: 142px
+        label
+            font-family: firagosemibold
+            font-weight: 600
+            display: block
+            margin-bottom: 8px
+            cursor: pointer
+            @include upperCase()
+            
+        .input-div
+            height: 54px
+            padding: 0 15px
+            border-radius: 12px
+            display: flex
+            align-items: center
+            border: 1px solid $e6
+            margin-bottom: 20px
+            &.focused
+                border-color: $dark
+            &.invalid.invalid-shown
+                border-color: $red
+            input, textarea
+                width: 100%
+                height: 100%
+                display: inline-block
+                color: $dark
+                letter-spacing: 0.012em
+                @include font(12px, 16.8px)
+                font-family: firagosemibold
+                &::placeholder
+                    font-family: firagobook
+                    font-weight: 350
+                    color: $dark
+                    letter-spacing: 0.012em
+
+                    
+            textarea
+                // padding: 15px
+                @include scrollSetup($yellow, 2px, transparent)
+                
+            &.textarea-input
+                padding: 15px
+                height: 120px
+                margin-bottom: 40px
+            &__icon
+                width: 24px
+                height: 24px
+                min-width: 24px
+            &__hr
+                height: 24px
+                width: 1px
+                background-color: $e6
+                border-radius: 2px
+                margin: 0 15px
+        button
+            max-width: unset !important
+
+
+    &__info
+        order: -1
+        @include plus1025()
+            order: 0
+        &__map
+            width: 100%
+            height: 220px
+            overflow: hidden
+            border-radius: 30px
+            margin-bottom: 20px
+            @include plus1025()
+                margin-bottom: 40px
+            #map
+                width: 100%
+                height: 100%
+        &__contacts
+            display: grid
+            color: $dark
+            grid-gap: 20px
+            @include plus700()
+                grid-template-columns: 1fr 1fr
+            &__item
+                display: flex
+                align-items: center
+                color: $dark
+                .icon
+                    width: 60px
+                    min-width: 60px
+                    height: 60px
+                    border-radius: 50%
+                    background-color: $newf8
+                    margin-right: 20px
+
+                    @include centering()
+                    &::before
+                        width: 24px
+                        height: 24px
+                        display: inline-block
+                span
+                    display: block
+                    text-align: left
+                    &:first-child
+                        margin-bottom: 8px
+                div, span
+                    font-family: firagobook
+                    font-weight: 350
+                    color: $dark
+                    @include font(16px, 19.2px)
+                    
+                &.tel .icon
+                    
+                    &::before
+                        content: url(../img/contacticons/tel.svg)
+
+                &.wh .icon
+                    
+                    &::before
+                        content: url(../img/contacticons/wh.svg)
+
+                &.email .icon
+                    
+                    &::before
+                        content: url(../img/contacticons/email.svg)
+
+                &.addr .icon
+                    
+                    &::before
+                        content: url(../img/contacticons/addr.svg)
+
+

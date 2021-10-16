@@ -398,6 +398,7 @@ body.noscroll {
 }
 @media screen and (min-width: 1025px) {
   .header__searchform button {
+    bacground: white;
     margin-right: 12px;
   }
 }
@@ -1726,10 +1727,13 @@ html {
   height: 54px;
   min-height: 54px;
   border-radius: 12px;
-  border: 1px solid #131313;
+  border: 1px solid #E6E6E6;
   align-items: center;
   padding: 0 15px;
   margin-bottom: 20px;
+}
+.loginmodal .input-div.focused, .reviewmodal .input-div.focused, .fastordermodal .input-div.focused {
+  border-color: #131313;
 }
 .loginmodal .input-div__icon, .reviewmodal .input-div__icon, .fastordermodal .input-div__icon {
   width: max-content;
@@ -8156,6 +8160,296 @@ html {
 }
 .iconbtn:hover svg path {
   fill: white;
+}
+.contactmain {
+  padding-top: 20px;
+  padding-top: 50px;
+  margin-bottom: 40px;
+}
+@media screen and (min-width: 1025px) {
+  .contactmain {
+    margin-bottom: 80px;
+  }
+}
+.contactmain__content {
+  display: grid;
+  grid-gap: 80px;
+}
+@media screen and (min-width: 1025px) {
+  .contactmain__content {
+    grid-gap: 0;
+    grid-template-columns: 1fr 50%;
+    align-items: stretch;
+  }
+}
+.contactmain__form {
+  color: #131313;
+}
+@media screen and (min-width: 1025px) {
+  .contactmain__form {
+    padding-right: 142px;
+  }
+}
+.contactmain__form label {
+  font-family: firagosemibold;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 8px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-feature-settings: "case" on;
+}
+.contactmain__form .input-div {
+  height: 54px;
+  padding: 0 15px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #E6E6E6;
+  margin-bottom: 20px;
+}
+.contactmain__form .input-div.focused {
+  border-color: #131313;
+}
+.contactmain__form .input-div.invalid.invalid-shown {
+  border-color: #DC6848;
+}
+.contactmain__form .input-div input, .contactmain__form .input-div textarea {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  color: #131313;
+  letter-spacing: 0.012em;
+  font-size: 12px;
+  line-height: 16.8px;
+  font-family: firagosemibold;
+}
+.contactmain__form .input-div input::placeholder, .contactmain__form .input-div textarea::placeholder {
+  font-family: firagobook;
+  font-weight: 350;
+  color: #131313;
+  letter-spacing: 0.012em;
+}
+.contactmain__form .input-div textarea::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+  background-color: transparent;
+}
+.contactmain__form .input-div textarea::-webkit-scrollbar-thumb {
+  border-radius: 30px;
+  background-color: #00B4FB;
+}
+.contactmain__form .input-div textarea::-webkit-scrollbar-track {
+  margin: 15px 0;
+  background-color: transparent;
+}
+.contactmain__form .input-div.textarea-input {
+  padding: 15px;
+  height: 120px;
+  margin-bottom: 40px;
+}
+.contactmain__form .input-div__icon {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+}
+.contactmain__form .input-div__hr {
+  height: 24px;
+  width: 1px;
+  background-color: #E6E6E6;
+  border-radius: 2px;
+  margin: 0 15px;
+}
+.contactmain__form button {
+  max-width: unset !important;
+}
+.contactmain__info {
+  order: -1;
+}
+@media screen and (min-width: 1025px) {
+  .contactmain__info {
+    order: 0;
+  }
+}
+.contactmain__info__map {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  border-radius: 30px;
+  margin-bottom: 20px;
+}
+@media screen and (min-width: 1025px) {
+  .contactmain__info__map {
+    margin-bottom: 40px;
+  }
+}
+.contactmain__info__map #map {
+  width: 100%;
+  height: 100%;
+}
+.contactmain__info__contacts {
+  display: grid;
+  color: #131313;
+  grid-gap: 20px;
+}
+@media screen and (min-width: 700px) {
+  .contactmain__info__contacts {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.contactmain__info__contacts__item {
+  display: flex;
+  align-items: center;
+  color: #131313;
+}
+.contactmain__info__contacts__item .icon {
+  width: 60px;
+  min-width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #F2FBFF;
+  margin-right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contactmain__info__contacts__item .icon::before {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+}
+.contactmain__info__contacts__item span {
+  display: block;
+  text-align: left;
+}
+.contactmain__info__contacts__item span:first-child {
+  margin-bottom: 8px;
+}
+.contactmain__info__contacts__item div, .contactmain__info__contacts__item span {
+  font-family: firagobook;
+  font-weight: 350;
+  color: #131313;
+  font-size: 16px;
+  line-height: 19.2px;
+}
+.contactmain__info__contacts__item.tel .icon::before {
+  content: url(../img/contacticons/tel.svg);
+}
+.contactmain__info__contacts__item.wh .icon::before {
+  content: url(../img/contacticons/wh.svg);
+}
+.contactmain__info__contacts__item.email .icon::before {
+  content: url(../img/contacticons/email.svg);
+}
+.contactmain__info__contacts__item.addr .icon::before {
+  content: url(../img/contacticons/addr.svg);
+}
+
+.newpasswordmain {
+  color: #131313;
+  padding-top: 40px;
+  min-height: unset;
+  padding-bottom: 40px;
+}
+@media screen and (min-width: 1025px) {
+  .newpasswordmain {
+    padding-bottom: 80px;
+  }
+}
+.newpasswordmain h1 {
+  font-family: firagosemibold;
+  font-size: 34px;
+  line-height: 47.6px;
+  margin-bottom: 30px;
+  text-transform: capitalize;
+}
+@media screen and (min-width: 1025px) {
+  .newpasswordmain h1 {
+    margin-bottom: 70px;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .newpasswordmain__content {
+    display: flex;
+    align-items: center;
+  }
+}
+.newpasswordmain__form {
+  width: 100%;
+  max-width: 350px;
+  margin: 0 auto;
+  color: #131313;
+}
+.newpasswordmain__form label {
+  font-family: firagosemibold;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 8px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-feature-settings: "case" on;
+}
+.newpasswordmain__form .input-div {
+  height: 54px;
+  padding: 0 15px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #E6E6E6;
+  margin-bottom: 20px;
+}
+.newpasswordmain__form .input-div:last-of-type {
+  margin-bottom: 40px;
+}
+.newpasswordmain__form .input-div.focused {
+  border-color: #131313;
+}
+.newpasswordmain__form .input-div.invalid.invalid-shown {
+  border-color: #DC6848;
+}
+.newpasswordmain__form .input-div input, .newpasswordmain__form .input-div textarea {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  color: #131313;
+  letter-spacing: 0.012em;
+  font-size: 12px;
+  line-height: 16.8px;
+  font-family: firagosemibold;
+}
+.newpasswordmain__form .input-div input::placeholder, .newpasswordmain__form .input-div textarea::placeholder {
+  font-family: firagobook;
+  font-weight: 350;
+  color: #131313;
+  letter-spacing: 0.012em;
+}
+.newpasswordmain__form .input-div textarea::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+  background-color: transparent;
+}
+.newpasswordmain__form .input-div textarea::-webkit-scrollbar-thumb {
+  border-radius: 30px;
+  background-color: #00B4FB;
+}
+.newpasswordmain__form .input-div textarea::-webkit-scrollbar-track {
+  margin: 15px 0;
+  background-color: transparent;
+}
+.newpasswordmain__form .input-div__icon {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+}
+.newpasswordmain__form .input-div__hr {
+  height: 24px;
+  width: 1px;
+  background-color: #E6E6E6;
+  border-radius: 2px;
+  margin: 0 15px;
+}
+.newpasswordmain__form button {
+  max-width: unset !important;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,0 +1,364 @@
+$leftTdWidth: 350px
+$leftTdWidthMob: 135px
+
+.comparemain
+    &__content
+        width: 100%
+        height: auto
+        // overflow: hidden
+        overflow: hidden
+        cursor: grab
+        overflow-x: auto
+        // scroll-snap-type: y proximity
+        margin-bottom: 50px
+        padding-bottom: 20px
+        @include scrollSetup(transparent, 0)
+        @include plus1025()
+            @include scrollSetup($yellow, 5px)
+            margin-bottom: 90px
+    &__table
+        margin: -1px
+        border: 2px solid #fff
+        table-layout: fixed
+        border-collapse: collapse
+        display: inline-table
+            // @include scrollSetup($yellow, 2px)
+        .homemain__sales__item__bagNprice 
+            svg
+                path
+                    fill: $dark
+        tbody, thead
+            width: 100%
+        tbody
+            position: relative
+            tr
+                td
+                    &:first-child
+                        border-right-color: transparent !important
+                    &:nth-child(2)
+                        border-left-color: transparent !important
+                    &.td_sticky
+                        text-align: left
+                        font-family: firagobold
+                        font-weight: 600
+                        border: none !important
+                        position: sticky
+                        left: -1px
+                        z-index: 1
+                        // border-collapse: separate
+                        background-color: white
+                        // border: 1px solid $e6 !important
+                        padding: 0
+                        
+                        span
+                            display: inline-block
+                        &:not(.td_break)
+                            span
+                                border-right: 1px solid $e6 !important
+                        // &:first-child
+                        //     span
+                        //         // border-top: 0px solid transparent !important    
+                        &.td_break
+                            span
+                                padding: 36px 10px
+                                padding-left: 0
+                &:not(:last-of-type)
+                    td:first-child
+                        span
+                            border-bottom: 1px solid $e6
+                            
+                td:first-child
+                    span
+                        margin-right: -5px
+
+                        display: inline-block
+                        width: 100%
+                        height: 100%
+                        background-color: white
+                        // border-collapse: collapse
+
+                        padding: 14px 10px
+                        padding-left: 0
+                        // .td_item
+                    
+            // overflow: auto
+        td
+            // word-break: 2
+            border: 1px solid $e6
+            text-align: center
+            @include font(14px, 19.6px)
+
+            
+            h2
+                margin-bottom: 20px
+                font-family: firagosemibold
+                @include font(18px, 25.2px)
+                @include upperCase()
+                a
+                    font-family: inherit
+                    font-weight: inherit
+                    color: inherit
+            .td_ingr
+                &::after
+                    content: url(../img/ingr-x.svg)
+                &[data-value="true"]
+                    &::after
+                        content: url(../img/ingr-check.svg)
+            .td_item[data-color]
+                &::after
+                    content: ''
+                    background-color: var(--color)
+                    display: inline-block
+                    aspect-ratio: 1 / 1
+                    border-radius: 50%
+                    height: 19px
+        
+        tr
+            td
+                padding: 14px
+                &:first-of-type
+                    font-family: firagosemibold
+                    text-transform: capitalize
+                // &:not(:first-of-type)
+                    
+            &.heading
+                cursor: default
+                // img
+                td
+                    padding: 20px 10px
+        .td_image
+            display: block
+            margin: 0 32px
+            width: 250px
+            aspect-ratio: 1 / 1
+            height: 250px
+            margin-bottom: 16px
+            img
+                width: 100%
+                height: 1005
+                object-fit: contain
+.clearcomparison
+    margin: 0 auto
+    margin-bottom: 40px
+    
+    @include plus1025()
+        margin-bottom: 80px
+.td_break
+    border-color: transparent
+    text-align: left
+    position: relative
+    overflow: hidden
+    border-color: transparent !important
+    min-width: $leftTdWidthMob
+    @include plus1025()
+        min-width: $leftTdWidth
+    ~ td
+        border-color: transparent !important
+        padding: 33px 0
+    > span
+        border: none !important
+        border-right-color: $e6 !important
+        border-color: transparent !important
+        display: flex !important
+        z-index: 10
+        font-family: firagobold
+        @include upperCase()
+        text-transform: uppercase !important
+        @include font(18px, 25.2px)
+.tr_break
+    position: relative
+    overflow: hidden
+    &::after
+        width: 100px
+        height: 1px
+        // background: $e6
+        border-bottom: 1px solid $e6
+        position: absolute
+        content: ''
+        top: 50%
+        transform: translateY(-50%)
+        left: $leftTdWidthMob
+        width: calc(100% - #{$leftTdWidthMob})
+        @include plus1025()
+            left: $leftTdWidth
+            width: calc(100% - #{$leftTdWidth})
+        // margin-left: 30px
+        
+.nobottombr
+    td
+        border-bottom-color: transparent !important
+        span
+            border-bottom-color: transparent !important
+.notopbr
+    td
+        border-top-color: transparent !important
+
+
+.addtobag.addinbasketbtn.inform
+    &.added
+        svg
+            path
+                fill: $yellow
+    svg
+        path
+            fill: $dark
+.relative_td
+    position: relative
+.removeFromCompare
+    position: absolute
+    top: 30px
+    cursor: pointer
+    z-index: 2
+    right: 30px
+    &::after
+        content: url(../img/basketremove.svg)
+        display: inline-block
+        width: 100%
+        height: 100%
+
+
+.heading_td_fixed
+    text-align: left
+    font-family: firagobold
+    font-weight: 600
+    border: none !important
+    position: sticky
+    left: -1px
+    z-index: 3
+    // border-collapse: separate
+    background-color: white
+    // border: 1px solid $e6 !important
+    padding: 0
+    
+    span
+        display: inline-block
+    &:not(.td_break)
+        span
+            border-right: 1px solid $e6 !important
+    // &:first-child
+    //     span
+    //         // border-top: 0px solid transparent !important    
+    &.td_break
+        span
+            padding: 36px 10px
+            padding-left: 0
+
+.emptycomparedots
+    // position: relative
+    height: 0
+    width: 100%
+
+    overflow-x: hidden
+    &_left, &_right
+        position: absolute
+        display: inline-block
+        // position: relative
+    &_left
+        background: url(../img/emptycomparedotsleft.png) no-repeat
+        background-size: contain
+        top: 367px
+        left: -35px
+        width: 174px
+        height: 101.72px
+
+    &_right
+        background: url(../img/emptycomparedotsright.png) no-repeat
+        background-size: contain
+        top: 310px
+        right: 0
+        backgrou
+        width: 32px
+        height: 152px
+        opacity: .2
+.compareemptymain
+    position: relative
+    
+    padding-top: 50px
+    color: $dark
+    margin-bottom: 40px !important
+    @include plus1025()
+        margin-bottom: 80px !important
+    @include plus1025()
+        padding-top: 90px
+    > h1, > h2
+        text-align: center
+        font-family: firagosemibold
+        font-weight: 600
+        color: $dark
+        margin-bottom: 0
+        @include font(48px, 72px)
+        @include plus1025()
+            @include font(64px, 102px)
+        
+    > h2
+        @include font(34px, 54px)
+        font-family: firagomedium
+        font-weight: 500
+        margin-bottom: 50px
+        @include plus1025()
+            margin-bottom: 90px
+    &__content
+
+    &__combiner
+        grid-template-columns: max(55%, 642px) auto
+        justify-content: space-between
+        grid-gap: 10px
+        @include plus1025()
+            display: grid
+    &__cover
+        background: url(../img/emptycomparecover.png) no-repeat
+        background-size: contain
+        aspect-ratio: 26.4 / 19
+        position: relative
+        &::before
+            content: url(../img/emptycomparelines.svg)
+            position: absolute
+            left: 125px
+            bottom: calc(100% - 3px)
+    &__text
+        position: relative
+        &::after
+            content: url(../img/emptycomparelines.svg)
+            margin-bottom: 20px
+            display: inline-block
+            width: 100%
+            text-align: right
+            @include plus1025()
+                text-align: left
+                width: unset
+            // position: absolute
+            // left: 125px
+            // bottom: calc(100% - 3px)
+        h3
+            color: $dark
+            font-family: firagomedium
+            font-weight: 500
+            max-width: 250px
+            @include font(18px, 28.4px)
+            margin-bottom: 30px
+            @include plus1025()
+                margin-bottom: 40px
+                @include font(24px, 38.4px)
+        .iconbtn
+            margin-bottom: 10px
+            @include plus1025()
+                margin-bottom: 90px
+.iconbtn
+    cursor: pointer
+    width: 70px
+    height: 70px
+    border-radius: 50%
+    @include centering()
+    background-color: $newf8
+    transition: background-color .1s ease
+    svg
+        path
+            transition: fill .1s ease
+            // fill: white
+    &:hover
+        background-color: $yellow
+        svg
+            path
+                fill: white
+    &.icon_rightarrow
+        

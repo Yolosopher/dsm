@@ -30,7 +30,6 @@ const header_searchform_mobile = document.querySelector(
 const basketform = document.getElementById('basketform')
 const addInBag_InTheFormBtn = document.querySelector('.inform')
 
-
 const navbar = document.querySelector('.header__navbar')
 const navbariconsheader = document.querySelector('.header__navbar__icons')
 const header__navbar__icons__bottom = document.querySelector(
@@ -92,8 +91,6 @@ header__bg.addEventListener('click', () => {
 
 // navbar.click()
 const footerUls = document.querySelectorAll('.footer__columns__column ul')
-
-
 
 footerUls.forEach((ul) => {
 	autoGrow(ul)
@@ -163,7 +160,6 @@ header__searchform__X.addEventListener('click', () => {
 	header_searchform_mobile.classList.remove('toggled')
 })
 
-
 header__loginbtn.addEventListener('click', () => {
 	if (header__loginbtn.classList.contains('loggedin')) return
 	loginmodal.classList.toggle('toggled')
@@ -171,7 +167,6 @@ header__loginbtn.addEventListener('click', () => {
 	body.classList.toggle('noscroll')
 })
 header__loginbtnMobile.addEventListener('click', () => {
-	
 	if (profileToggle) {
 		loggedinmenumob.classList.toggle('toggled')
 	} else {
@@ -201,7 +196,7 @@ registerbtn.addEventListener('click', () => {
 	loginmodal.classList.remove('recovery')
 	loginmodal.classList.add('register')
 })
-loginbtnsInRecovery.forEach(each => {
+loginbtnsInRecovery.forEach((each) => {
 	each.addEventListener('click', () => {
 		loginmodal.classList.remove('recovery')
 		loginmodal.classList.remove('register')
@@ -226,7 +221,17 @@ let plusvg = `
 // color: '#3BCEAC',
 // price: 9.99,
 // id: 1,
-const appendBasketUl = (link, image, category, title, size = false, color = false, price, id, qty = 1) => {
+const appendBasketUl = (
+	link,
+	image,
+	category,
+	title,
+	size = false,
+	color = false,
+	price,
+	id,
+	qty = 1
+) => {
 	let ul = document.querySelector('.basketmodal__mains__basket__list')
 	let newbasketli = document.createElement('li')
 	newbasketli.classList.add('basketmodal__mains__basket__list__li__fixer')
@@ -244,20 +249,30 @@ const appendBasketUl = (link, image, category, title, size = false, color = fals
 		</div>
 		</div>
 		<div class="basketmodal__mains__basket__list__li__size"><span class="labelll">Size</span><span>${size}</span></div>
-		<div class="basketmodal__mains__basket__list__li__color" style="--color: ${color ? color : 'transparent'}"><span class="labelll">Color</span></div>
+		<div class="basketmodal__mains__basket__list__li__color" style="--color: ${
+			color ? color : 'transparent'
+		}"><span class="labelll">Color</span></div>
 		<div class="basketmodal__mains__basket__list__li__quantity" data-id="${id}">
 		<div class="basket__minus ${qty > 1 ? '' : 'inactive'}">${minusvg}</div>
 		<input type="number" value="${qty}" name="quantity">
 		<div class="basket__plus">${plusvg}</div>
 		</div>
 		<div class="basketmodal__mains__basket__list__li__price"><span>${price}</span> USD</div>
-		${size || color ? `<div class="basketmodal__mains__basket__list__li__moredetails">more details</div>` : ''}
+		${
+			size || color
+				? `<div class="basketmodal__mains__basket__list__li__moredetails">more details</div>`
+				: ''
+		}
 		<div class="basketmodal__mains__basket__list__li__removebtn" data-id="${id}"></div>
 	</div>
 	`
 	ul.appendChild(newbasketli)
-	let moredetailsbtn = newbasketli.querySelector('.basketmodal__mains__basket__list__li__moredetails')
-	let removerbtn = newbasketli.querySelector('.basketmodal__mains__basket__list__li__removebtn')
+	let moredetailsbtn = newbasketli.querySelector(
+		'.basketmodal__mains__basket__list__li__moredetails'
+	)
+	let removerbtn = newbasketli.querySelector(
+		'.basketmodal__mains__basket__list__li__removebtn'
+	)
 	if (!!moredetailsbtn) {
 		moredetailsbtn.addEventListener('click', () => {
 			handleMoreDetails(moredetaills)
@@ -267,7 +282,6 @@ const appendBasketUl = (link, image, category, title, size = false, color = fals
 		let result = await handleRemoveFromBasket(removerbtn)
 		console.log(result)
 		updateBasketPrices()
-		
 	})
 	// itemsinfo__list
 	const itemsinfo__list = document.querySelector('.itemsinfo__list')
@@ -283,7 +297,6 @@ const appendBasketUl = (link, image, category, title, size = false, color = fals
 	itemsinfo__list.appendChild(new__itemsinfo__list__li)
 }
 
-
 // TODO: insert this 'appendBasketSmallUl' function on vasos backend code server
 const appendBasketSmallUl = (id, title, qty = 1, price) => {
 	let itemsinfo__list = document.querySelector('.itemsinfo__list')
@@ -297,12 +310,13 @@ const appendBasketSmallUl = (id, title, qty = 1, price) => {
 		<p class="itemsinfo__list__item__title">${title}</p>
 		<div class="itemsinfo__list__item__qtyprice">
 			<div class="itemsinfo__list__item__qtyprice__qty">${qty}x</div>
-			<div class="itemsinfo__list__item__qtyprice__price">${Math.round(price * 100) / 100} USD</div>
+			<div class="itemsinfo__list__item__qtyprice__price">${
+				Math.round(price * 100) / 100
+			} USD</div>
 		</div>
 	</div>
 	`
 	itemsinfo__list.appendChild(newItem)
-
 }
 
 let addBtns = document.querySelectorAll('.addinbasketbtn:not(.inform)')
@@ -322,14 +336,32 @@ const addInBasket = async (id, btn) => {
 		if (response.data.ok) {
 			data = response.data
 			btn.classList.toggle('added')
-			appendBasketUl(data.link, data.image, data.category, data.title, data.size ? data.size : false, data.color ? data.color : false, data.price, data.id, data.qty ? data.qty : 1)
+			appendBasketUl(
+				data.link,
+				data.image,
+				data.category,
+				data.title,
+				data.size ? data.size : false,
+				data.color ? data.color : false,
+				data.price,
+				data.id,
+				data.qty ? data.qty : 1
+			)
 			appendBasketSmallUl(data.id, data.title, data.qty, data.price)
 			if (data.total > 0) {
-				document.querySelector('header .header__basket').classList.add('notempty')
-				document.querySelector('.respomenu .header__basket').classList.add('notempty')
+				document
+					.querySelector('header .header__basket')
+					.classList.add('notempty')
+				document
+					.querySelector('.respomenu .header__basket')
+					.classList.add('notempty')
 			} else {
-				document.querySelector('header .header__basket').classList.remove('notempty')
-				document.querySelector('.respomenu .header__basket').classList.remove('notempty')
+				document
+					.querySelector('header .header__basket')
+					.classList.remove('notempty')
+				document
+					.querySelector('.respomenu .header__basket')
+					.classList.remove('notempty')
 			}
 			applyFixarIndexs()
 			return data
@@ -348,17 +380,20 @@ const updateBasket = async (id, btn, qty, color = false, milligram = false) => {
 				params: {
 					id,
 				},
-			})		
-			console.log(response)	
+			})
+			console.log(response)
 			if (response.data.ok) {
 				data = response.data
-
 
 				// not changable quantityInput
 				let qtyInp = document.getElementById('quantity')
 				qtyInp.value = 1
-				document.querySelector('.productinmain__info__basketform__quantity__minusbtn').style.pointerEvents = 'all'
-				document.querySelector('.productinmain__info__basketform__quantity__plusbtn').style.pointerEvents = 'all'
+				document.querySelector(
+					'.productinmain__info__basketform__quantity__minusbtn'
+				).style.pointerEvents = 'all'
+				document.querySelector(
+					'.productinmain__info__basketform__quantity__plusbtn'
+				).style.pointerEvents = 'all'
 				qtyInp.style.pointerEvents = 'all'
 
 				btn.classList.toggle('added')
@@ -382,25 +417,37 @@ const updateBasket = async (id, btn, qty, color = false, milligram = false) => {
 				id,
 				qty,
 				color,
-				milligram
+				milligram,
 			})
 			if (response.data.ok) {
 				data = response.data
 				// console.log(data)
 				btn.classList.toggle('added')
-				
+
 				// changable quantityInput
 				let qtyInp = document.getElementById('quantity')
-				document.querySelector('.productinmain__info__basketform__quantity__minusbtn').style.pointerEvents = 'none'
-				document.querySelector('.productinmain__info__basketform__quantity__plusbtn').style.pointerEvents = 'none'
+				document.querySelector(
+					'.productinmain__info__basketform__quantity__minusbtn'
+				).style.pointerEvents = 'none'
+				document.querySelector(
+					'.productinmain__info__basketform__quantity__plusbtn'
+				).style.pointerEvents = 'none'
 				qtyInp.style.pointerEvents = 'none'
-			
+
 				if (data.total > 0) {
-					document.querySelector('header .header__basket').classList.add('notempty')
-					document.querySelector('.respomenu .header__basket').classList.add('notempty')
+					document
+						.querySelector('header .header__basket')
+						.classList.add('notempty')
+					document
+						.querySelector('.respomenu .header__basket')
+						.classList.add('notempty')
 				} else {
-					document.querySelector('header .header__basket').classList.remove('notempty')
-					document.querySelector('.respomenu .header__basket').classList.remove('notempty')
+					document
+						.querySelector('header .header__basket')
+						.classList.remove('notempty')
+					document
+						.querySelector('.respomenu .header__basket')
+						.classList.remove('notempty')
 				}
 				return data
 			}
@@ -420,8 +467,12 @@ const addInFavs = async (id, btn) => {
 		if (response.data.ok) {
 			data = response.data
 			btn.classList.toggle('added')
-			document.querySelector('header .header__favourites span').dataset.length = data.total
-			document.querySelector('.respomenu .header__favourites span').dataset.length = data.total
+			document.querySelector(
+				'header .header__favourites span'
+			).dataset.length = data.total
+			document.querySelector(
+				'.respomenu .header__favourites span'
+			).dataset.length = data.total
 			return data
 		}
 	} catch (error) {
@@ -439,22 +490,29 @@ const addInCompares = async (id, btn) => {
 		if (response.data.ok) {
 			data = response.data
 			btn.classList.toggle('added')
-			document.querySelector('header .header__smth span').dataset.length = data.total
-			document.querySelector('.respomenu .header__smth span').dataset.length = data.total
+			document.querySelector('header .header__smth span').dataset.length =
+				data.total
+			document.querySelector(
+				'.respomenu .header__smth span'
+			).dataset.length = data.total
 			return data
-
 		}
 	} catch (error) {
 		return console.log(error)
 	}
 }
 if (addBtns[0]) {
-	
 	addBtns.forEach((btn) => {
 		let flipAddSpan = btn.querySelector('.flip .add')
 		let flipRemoveSpan = btn.querySelector('.flip .remove')
-		flipAddSpan.style.setProperty('--offsetwidth', `${flipAddSpan.scrollWidth + 1}px`)
-		flipRemoveSpan.style.setProperty('--offsetwidth', `${flipRemoveSpan.scrollWidth + 1}px`)
+		flipAddSpan.style.setProperty(
+			'--offsetwidth',
+			`${flipAddSpan.scrollWidth + 1}px`
+		)
+		flipRemoveSpan.style.setProperty(
+			'--offsetwidth',
+			`${flipRemoveSpan.scrollWidth + 1}px`
+		)
 		btn.addEventListener('click', () => {
 			addInBasket(+btn.dataset.id, btn)
 		})
@@ -462,27 +520,32 @@ if (addBtns[0]) {
 }
 
 if (addToFavBtns[0]) {
-	addToFavBtns.forEach(btn => {
+	addToFavBtns.forEach((btn) => {
 		btn.addEventListener('click', () => {
 			addInFavs(+btn.dataset.id, btn)
 		})
 	})
 }
 if (addToCompareBtns[0]) {
-	addToCompareBtns.forEach(btn => {
+	addToCompareBtns.forEach((btn) => {
 		btn.addEventListener('click', () => {
 			addInCompares(+btn.dataset.id, btn)
 		})
 	})
 }
 
-
 // if basketform
 let setAddBtnInForm = () => {
 	let flipAddSpan = addInBag_InTheFormBtn.querySelector('.flip .add')
 	let flipRemoveSpan = addInBag_InTheFormBtn.querySelector('.flip .remove')
-	flipAddSpan.style.setProperty('--offsetwidth', `${flipAddSpan.scrollWidth + 1}px`)
-	flipRemoveSpan.style.setProperty('--offsetwidth', `${flipRemoveSpan.scrollWidth + 1}px`)
+	flipAddSpan.style.setProperty(
+		'--offsetwidth',
+		`${flipAddSpan.scrollWidth + 1}px`
+	)
+	flipRemoveSpan.style.setProperty(
+		'--offsetwidth',
+		`${flipRemoveSpan.scrollWidth + 1}px`
+	)
 }
 if (!!basketform) {
 	setAddBtnInForm()
@@ -500,8 +563,6 @@ const scrollToEle = (ele, paddingtop = 20) => {
 	window.scrollTo(0, elementScrollHeight - paddingtop)
 }
 
-
-
 // Basket
 const basketmodal = document.querySelector('.basketmodal')
 const basketmodal__bg = document.querySelector('.basketmodal__bg')
@@ -517,7 +578,7 @@ const handleRemoveFromSmallBasket = (id) => {
 }
 const handleRemoveFromBasket = async (el) => {
 	let id = parseInt(el.dataset.id)
-	
+
 	let response, data
 	try {
 		response = await axios.post(BASKET_UPDATE, {
@@ -529,12 +590,14 @@ const handleRemoveFromBasket = async (el) => {
 	}
 	if (response.data.ok) {
 		// remove from real basket
-		let addBtnsOnDom = [...document.querySelectorAll(`.addinbasketbtn[data-id="${id}"]`)]
-		addBtnsOnDom.forEach(each => {
+		let addBtnsOnDom = [
+			...document.querySelectorAll(`.addinbasketbtn[data-id="${id}"]`),
+		]
+		addBtnsOnDom.forEach((each) => {
 			each.classList.remove('added')
 		})
 		// TODO: insert this code on vasos server
-		// remove from small basket 
+		// remove from small basket
 		handleRemoveFromSmallBasket(id)
 
 		let fxrli = el.closest('.basketmodal__mains__basket__list__li__fixer')
@@ -561,7 +624,7 @@ const handleBasketClick = (on = true) => {
 		basketmodal__bg.classList.remove('toggled')
 		setTimeout(() => {
 			basketmodal__mains.className = 'basketmodal__mains'
-		}, 400);
+		}, 400)
 		// setTimeout(() => {
 		// }, 400);
 	}
@@ -579,7 +642,7 @@ basketButtonMobile.addEventListener('click', () => {
 basketmodal__bg.addEventListener('click', () => {
 	handleBasketClick(false)
 })
-basketmodal__Xs.forEach(each => {
+basketmodal__Xs.forEach((each) => {
 	each.addEventListener('click', () => {
 		handleBasketClick(false)
 	})
@@ -587,12 +650,16 @@ basketmodal__Xs.forEach(each => {
 
 // moredetails
 const handleMoreDetails = (btn) => {
-	btn.closest('.basketmodal__mains__basket__list__li__fixer').classList.toggle('toggled')
+	btn.closest(
+		'.basketmodal__mains__basket__list__li__fixer'
+	).classList.toggle('toggled')
 }
-let moredetaills = document.querySelectorAll('.basketmodal__mains__basket__list__li__moredetails')
+let moredetaills = document.querySelectorAll(
+	'.basketmodal__mains__basket__list__li__moredetails'
+)
 moredetaills = [...moredetaills]
 if (moredetaills[0]) {
-	moredetaills.forEach(each => {
+	moredetaills.forEach((each) => {
 		each.addEventListener('click', () => {
 			handleMoreDetails(each)
 		})
@@ -600,11 +667,12 @@ if (moredetaills[0]) {
 }
 // rmvbuttons
 
-
-let removebtnsInBasket = document.querySelectorAll('.basketmodal__mains__basket__list__li__removebtn')
+let removebtnsInBasket = document.querySelectorAll(
+	'.basketmodal__mains__basket__list__li__removebtn'
+)
 removebtnsInBasket = [...removebtnsInBasket]
 
-removebtnsInBasket.forEach(each => {
+removebtnsInBasket.forEach((each) => {
 	each.addEventListener('click', async () => {
 		let result = await handleRemoveFromBasket(each)
 		console.log(result)
@@ -614,18 +682,29 @@ removebtnsInBasket.forEach(each => {
 // updateprices function
 const updateBasketPrices = (promocodeCut = 0) => {
 	// el vars
-	let subtotalSpan = document.querySelector('.orderdetails__infos__value.subtotal span')
-	let productSpan = document.querySelector('.orderdetails__infos__value.product span')
-	let salesSpan = document.querySelector('.orderdetails__infos__value.sale span')
-	let totaltotalSpan = document.querySelector('.orderdetails__totals__value span')
-
+	let subtotalSpan = document.querySelector(
+		'.orderdetails__infos__value.subtotal span'
+	)
+	let productSpan = document.querySelector(
+		'.orderdetails__infos__value.product span'
+	)
+	let salesSpan = document.querySelector(
+		'.orderdetails__infos__value.sale span'
+	)
+	let totaltotalSpan = document.querySelector(
+		'.orderdetails__totals__value span'
+	)
 
 	let subtotal = 0
 	let product = 0
 	let sales = 0
-	let allBaskLis = [...document.querySelectorAll('.basketmodal__mains__basket__list__li')]
-	allBaskLis.forEach(li => {
-		let priceSpan = li.querySelector('.basketmodal__mains__basket__list__li__price span')
+	let allBaskLis = [
+		...document.querySelectorAll('.basketmodal__mains__basket__list__li'),
+	]
+	allBaskLis.forEach((li) => {
+		let priceSpan = li.querySelector(
+			'.basketmodal__mains__basket__list__li__price span'
+		)
 		let price = +priceSpan.innerText
 		let sale = +priceSpan.dataset.sale
 		product += price
@@ -634,18 +713,18 @@ const updateBasketPrices = (promocodeCut = 0) => {
 	subtotal = product - sales
 	// changeContent
 	subtotalSpan.innerText = Math.round(subtotal * 100) / 100
-	productSpan.innerText = Math.round(product * 100) / 100 
-	salesSpan.innerText = (Math.round(sales * 100) / 100 ) * -1
+	productSpan.innerText = Math.round(product * 100) / 100
+	salesSpan.innerText = (Math.round(sales * 100) / 100) * -1
 	totaltotalSpan.innerText = Math.round(subtotal * 100) / 100 - promocodeCut
 }
 updateBasketPrices()
 
 // Basket END
 
-
 // checkout basket
 const handleCheckoutBtn = () => {
-	document.querySelector('.basketmodal__mains').className = 'basketmodal__mains ordering'
+	document.querySelector('.basketmodal__mains').className =
+		'basketmodal__mains ordering'
 }
 // tobuild
 // handleCheckoutBtn()
@@ -654,16 +733,21 @@ const checkoutbtn = document.querySelector('.checkoutbtn')
 checkoutbtn.addEventListener('click', () => {
 	handleCheckoutBtn()
 })
-const gobackfromcheckout = document.querySelector('.basketmodal__mains__ordering__staticinfo__back')
+const gobackfromcheckout = document.querySelector(
+	'.basketmodal__mains__ordering__staticinfo__back'
+)
 
 gobackfromcheckout.addEventListener('click', () => {
 	const basketmodalform = document.getElementById('basketmodalform')
-	const item__restmobile__yellows = document.querySelector('.item__restmobile__yellows')
+	const item__restmobile__yellows = document.querySelector(
+		'.item__restmobile__yellows'
+	)
 	if (+basketmodalform.dataset.pg > 1) {
 		basketmodalform.dataset.pg = +basketmodalform.dataset.pg - 1
 		item__restmobile__yellows.dataset.pg = +basketmodalform.dataset.pg - 1
 	} else {
-		document.querySelector('.basketmodal__mains').className = 'basketmodal__mains basket'
+		document.querySelector('.basketmodal__mains').className =
+			'basketmodal__mains basket'
 	}
 })
 const handeCheckBag = (on = true) => {
@@ -672,7 +756,9 @@ const handeCheckBag = (on = true) => {
 		document.querySelector('.itemsinfo__rest__bg').classList.add('toggled')
 	} else {
 		document.querySelector('.itemsinfo__rest').classList.remove('toggled')
-		document.querySelector('.itemsinfo__rest__bg').classList.remove('toggled')
+		document
+			.querySelector('.itemsinfo__rest__bg')
+			.classList.remove('toggled')
 	}
 }
 
@@ -689,26 +775,26 @@ checkbag__bg.addEventListener('click', () => {
 	handeCheckBag(false)
 })
 
-
-
 const editbagbtns = [...document.querySelectorAll('.itemsinfo__editbag')]
-editbagbtns.forEach(each => {
+editbagbtns.forEach((each) => {
 	each.addEventListener('click', () => {
-		document.querySelector('.basketmodal__mains').className = 'basketmodal__mains basket'
+		document.querySelector('.basketmodal__mains').className =
+			'basketmodal__mains basket'
 	})
 })
 const applyFixarIndexs = () => {
-
-	const basketorderingcontents = document.querySelectorAll('.basketform > div')
-	basketorderingcontents.forEach(each => {
+	const basketorderingcontents =
+		document.querySelectorAll('.basketform > div')
+	basketorderingcontents.forEach((each) => {
 		if (!each.querySelector('.form__fixer')) {
 			return
 		} else {
 			let fixars = [...each.querySelectorAll('.form__fixer')]
 			// console.log(fixars)
-			fixars[0] && fixars.forEach((fixar, index) => {
-				fixar.style.setProperty('--delay-que', index + 1)
-			})
+			fixars[0] &&
+				fixars.forEach((fixar, index) => {
+					fixar.style.setProperty('--delay-que', index + 1)
+				})
 		}
 	})
 }
@@ -716,26 +802,34 @@ applyFixarIndexs()
 const changeCheckoutBagContent = (pg = 1) => {
 	const basketmodalform = document.getElementById('basketmodalform')
 	basketmodalform.dataset.pg = pg
-	const item__restmobile__yellows = document.querySelector('.item__restmobile__yellows')
+	const item__restmobile__yellows = document.querySelector(
+		'.item__restmobile__yellows'
+	)
 	item__restmobile__yellows.dataset.pg = pg
 }
 const proctosheepTowhere = document.querySelectorAll('.proctosheep.towhere')
 const proctosheepTopaytype = document.querySelectorAll('.proctosheep.topaytype')
-proctosheepTowhere.forEach(each => {
+proctosheepTowhere.forEach((each) => {
 	each.addEventListener('click', () => {
 		changeCheckoutBagContent(2)
 	})
 })
-proctosheepTopaytype.forEach(each => {
+proctosheepTopaytype.forEach((each) => {
 	each.addEventListener('click', () => {
 		changeCheckoutBagContent(3)
 	})
 })
-const checkoutBagNavBtns = [...document.querySelectorAll('.basketmodal__mains__ordering__form__nav span')]
-checkoutBagNavBtns.forEach((each, index) => each.addEventListener('click', () => {changeCheckoutBagContent(index + 1)}))
+const checkoutBagNavBtns = [
+	...document.querySelectorAll(
+		'.basketmodal__mains__ordering__form__nav span'
+	),
+]
+checkoutBagNavBtns.forEach((each, index) =>
+	each.addEventListener('click', () => {
+		changeCheckoutBagContent(index + 1)
+	})
+)
 // checkout basket END
-
-
 
 // VALIDATION FUNCTIONS
 const nameChecker = (el, onInput = false, atleast = 5) => {
@@ -794,8 +888,8 @@ const emailChecker = (el, onInput = false) => {
 }
 
 const repeatPassChecker = (el, inputToCheck, onInput = false) => {
-    let repeatedVal = el.value
-    let passVal = inputToCheck.value
+	let repeatedVal = el.value
+	let passVal = inputToCheck.value
 
 	if (onInput) {
 		if (repeatedVal === '') {
@@ -835,7 +929,7 @@ loginemail.addEventListener('change', () => {
 loginpassword.addEventListener('change', () => {
 	nameChecker(loginpassword, false, 2)
 })
-loginform.addEventListener('submit', e => {
+loginform.addEventListener('submit', (e) => {
 	emailChecker(loginemail, false)
 	nameChecker(loginpassword, false, 2)
 	if (loginform.querySelectorAll('.invalid')[0]) {
@@ -853,7 +947,9 @@ const registerform = document.getElementById('registerform')
 const registeremail = document.getElementById('registeremail')
 const registername = document.getElementById('registername')
 const registerpassword = document.getElementById('registerpassword')
-const registerconfirmpassword = document.getElementById('registerconfirmpassword')
+const registerconfirmpassword = document.getElementById(
+	'registerconfirmpassword'
+)
 
 registeremail.addEventListener('change', () => {
 	emailChecker(registeremail, false)
@@ -869,7 +965,7 @@ registerconfirmpassword.addEventListener('change', () => {
 	repeatPassChecker(registerconfirmpassword, registerpassword)
 })
 
-registerform.addEventListener('submit', e => {
+registerform.addEventListener('submit', (e) => {
 	emailChecker(registeremail, false)
 	nameChecker(registername, false, 2)
 	nameChecker(registerpassword, false, 2)
@@ -882,18 +978,13 @@ registerform.addEventListener('submit', e => {
 	}
 })
 
-
-
 if (profileToggle) {
 	profileToggle.addEventListener('click', () => {
 		loggedinmenu.classList.toggle('toggled')
 	})
-};
-
-
+}
 
 // ns
-
 
 const nsClickHandler = (select, ns__ul, clickedLi, activetext) => {
 	select.value = clickedLi.dataset.value
@@ -909,21 +1000,20 @@ const generateNs = (select) => {
 	const ns__ul = select.nextElementSibling
 	const activetext = select.previousElementSibling
 	ns__ul.innerHTML = ''
-	
+
 	activetext.addEventListener('click', () => {
 		if (!!select.closest('.form__fixer')) {
 			if (select.parentElement.classList.contains('toggled')) {
 				setTimeout(() => {
 					select.closest('.form__fixer').style.overflow = 'hidden'
-				}, 200);
+				}, 200)
 			} else {
 				select.closest('.form__fixer').style.overflow = 'visible'
 			}
 		}
 		select.parentElement.classList.toggle('toggled')
-	});
-
-	[...select.querySelectorAll('option')].forEach((option, index) => {
+	})
+	;[...select.querySelectorAll('option')].forEach((option, index) => {
 		let newLi = document.createElement('li')
 		newLi.dataset.value = option.value
 		newLi.innerText = option.innerText
@@ -940,13 +1030,12 @@ const generateNs = (select) => {
 		})
 	})
 	window.addEventListener('load', () => {
-		[...document.querySelectorAll('.ns')].forEach(ns => {
+		;[...document.querySelectorAll('.ns')].forEach((ns) => {
 			let __height = ns.scrollHeight
 			ns.style.setProperty('--height', __height + 'px')
 		})
 	})
 }
-
 
 // ns declares
 const basketgender = document.getElementById('basketgender')
@@ -972,7 +1061,7 @@ if (basketcity) {
 
 // if wishlist
 const formsec_qty_list = [...document.querySelectorAll('.formsec_qty')]
-formsec_qty_list.forEach(each => {
+formsec_qty_list.forEach((each) => {
 	// declarations
 	let minusBtn = each.querySelector('.minus_quantity_in_wishlist')
 	let input = each.querySelector('.inputquantity_in_wishlist')
@@ -994,21 +1083,36 @@ formsec_qty_list.forEach(each => {
 })
 
 const basketClearner = () => {
-	[...document.querySelectorAll('.basketmodal__mains__basket__list input:checked')].forEach(each => {
-		each.closest('li').querySelector('.basketmodal__mains__basket__list__li__removebtn').click()
+	;[
+		...document.querySelectorAll(
+			'.basketmodal__mains__basket__list input:checked'
+		),
+	].forEach((each) => {
+		each.closest('li')
+			.querySelector('.basketmodal__mains__basket__list__li__removebtn')
+			.click()
 	})
 }
 
-const basketmodal__mains__basket__cleaner = document.querySelector('.basketmodal__mains__basket__cleaner')
+const basketmodal__mains__basket__cleaner = document.querySelector(
+	'.basketmodal__mains__basket__cleaner'
+)
 
 basketmodal__mains__basket__cleaner.addEventListener('click', basketClearner)
 
+const basketform__radio__labels = [
+	...document.querySelectorAll(
+		'.basketform__paytype .basketform__radio__label input[type="radio"]'
+	),
+]
 
-const basketform__radio__labels = [...document.querySelectorAll('.basketform__paytype .basketform__radio__label input[type="radio"]')];
-
-basketform__radio__labels.forEach(each => {
+basketform__radio__labels.forEach((each) => {
 	each.addEventListener('change', () => {
-		[...document.querySelectorAll('.basketform__paytype .basketform__radio__label.withbanks input[type="radio"]')].forEach(eachin => {
+		;[
+			...document.querySelectorAll(
+				'.basketform__paytype .basketform__radio__label.withbanks input[type="radio"]'
+			),
+		].forEach((eachin) => {
 			if (eachin.checked) {
 				eachin.parentElement.classList.add('seld')
 			} else {
@@ -1027,9 +1131,7 @@ const bankiban = document.querySelector('.bankiban')
 const bankrecipient = document.querySelector('.bankrecipient')
 const bankdestination = document.querySelector('.bankdestination')
 
-
-
-;[...document.querySelectorAll('div.banklogos__item')].forEach(each => {
+;[...document.querySelectorAll('div.banklogos__item')].forEach((each) => {
 	each.addEventListener('click', () => {
 		bankname.innerText = each.dataset.bankname
 		bankiban.innerText = each.dataset.iban
@@ -1051,7 +1153,6 @@ bankinfomodal__X.addEventListener('click', () => {
 	bankinfomodal__bg.classList.remove('toggled')
 })
 
-
 // profilemain mobile toggle TODO:
 const profilemain__nav = document.querySelector('.profilemain__nav')
 if (!!profilemain__nav) {
@@ -1067,7 +1168,6 @@ const fastorderbtn = document.querySelector('.fastorderbtn')
 const fastordermodal = document.querySelector('.fastordermodal')
 const fastordermodal__bg = document.querySelector('.fastordermodal__bg')
 const fastordermodal__X = document.querySelector('.fastordermodal__X')
-
 
 if (!!fastorderbtn) {
 	fastorderbtn.addEventListener('click', () => {
@@ -1085,4 +1185,84 @@ if (!!fastorderbtn) {
 		fastordermodal__bg.classList.remove('toggled')
 	})
 }
+
+// VALIDATIONS CONTACT
+const contactform = document.getElementById('contactform')
+
+if (!!contactform) {
+	// CONTACT INPUTS
+	const contactemail = document.getElementById('contactemail')
+	const contactfullname = document.getElementById('contactfullname')
+	const contactsubject = document.getElementById('contactsubject')
+	const contactmessage = document.getElementById('contactmessage')
+
+	contactemail.addEventListener('change', () => {
+		emailChecker(contactemail, false)
+	})
+	contactfullname.addEventListener('change', () => {
+		nameChecker(contactfullname, false, 2)
+	})
+	contactsubject.addEventListener('change', () => {
+		nameChecker(contactsubject, false, 2)
+	})
+	contactmessage.addEventListener('change', () => {
+		nameChecker(contactmessage, false, 2)
+	})
+
+	contactform.addEventListener('submit', (e) => {
+		emailChecker(contactemail, false)
+		nameChecker(contactfullname, false, 2)
+		nameChecker(contactsubject, false, 2)
+		nameChecker(contactmessage, false, 2)
+
+		if (contactform.querySelectorAll('.invalid')[0]) {
+			e.preventDefault()
+			contactform.querySelectorAll('.invalid').forEach((each) => {
+				each.classList.add('invalid-shown')
+			})
+		}
+	})
+}
+// TODO:
+// VALIDATIONS new password form
+const newpasswordform = document.getElementById('newpasswordform')
+
+if (!!newpasswordform) {
+	// new password form INPUTS
+	const newpassword_newpass = document.getElementById('newpassword_newpass')
+	const newpassword_newpassrepeat = document.getElementById(
+		'newpassword_newpassrepeat'
+	)
+
+	newpassword_newpass.addEventListener('change', () => {
+		nameChecker(newpassword_newpass, false, 2)
+	})
+	newpassword_newpassrepeat.addEventListener('change', () => {
+		repeatPassChecker(newpassword_newpassrepeat, newpassword_newpass)
+	})
+
+	newpasswordform.addEventListener('submit', (e) => {
+		nameChecker(newpassword_newpass, false, 2)
+		repeatPassChecker(newpassword_newpassrepeat, newpassword_newpass)
+		
+		if (newpasswordform.querySelectorAll('.invalid')[0]) {
+			e.preventDefault()
+			newpasswordform.querySelectorAll('.invalid').forEach((each) => {
+				each.classList.add('invalid-shown')
+			})
+		}
+	})
+}
+
+const allInputTextareas = [
+	...document.querySelectorAll('.input-div input, textarea'),
+]
+allInputTextareas.forEach((eachput) => {
+	eachput.addEventListener('focus', () => {
+		eachput.closest('.input-div').classList.add('focused')
+	})
+	eachput.addEventListener('blur', () => {
+		eachput.closest('.input-div').classList.remove('focused')
+	})
+})
 // TODOEND:

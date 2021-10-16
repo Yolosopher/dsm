@@ -15,11 +15,57 @@ html(lang="en")
 
         main.main.contactmain.container
             .contactmain__content
-                form.contactmain__form
-                    
+                form#contactform.contactmain__form(action="/contact")
+                    label(for="contactfullname") full name
+                    .input-div
+                        .input-div__icon
+                            include ../components/person
+                        .input-div__hr
+                        input#contactfullname(type="text" name="full_name" placeholder="full name")
+                    label(for="contactemail") e-mail
+                    .input-div
+                        .input-div__icon
+                            include ../components/emailicon
+                        .input-div__hr
+                        input#contactemail(type="text" name="email" placeholder="example@gmail.com")
+
+                    label(for="contactsubject") subject
+                    .input-div
+                        .input-div__icon
+                            include ../components/subject
+                        .input-div__hr
+                        input#contactsubject(type="text" name="subject" placeholder="marketing")
+                    label(for="contactmessage") message
+                    .input-div.textarea-input
+                        textarea#contactmessage(name="message")
+                    button.yellowbtn(type="submit") send
+                .contactmain__info
+                    .contactmain__info__map
+                        #map
+                    .contactmain__info__contacts
+                        a.contactmain__info__contacts__item.tel(href="tel:+995 555 444 333")
+                            .icon
+                            | +995 555 444 333
+                        .contactmain__info__contacts__item.wh
+                            .icon
+                            .spancombiner
+                                span Mon. - Sat. : 09:00 - 18:00
+                                span Sun: 09:00 - 17:00
+                        a.contactmain__info__contacts__item.email(href="mailto:example@gmail.com")
+                            .icon 
+                            | example@gmail.com
+                        address.contactmain__info__contacts__item.addr
+                            .icon 
+                            | Tbilisi, Mirian mefe
+
         include ../layouts/_basket
         include ../layouts/_footer
 
         include ../layouts/_respomenu
 
         include ../layouts/_scripts
+        script.
+            let longgg = 44.76628828594333;
+            let lattt = 41.77279316801626;
+        script(src="assets/js/contact.js")
+        script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4qXcpIcY9F-0osv8rC6voWz1fBtk06P4&callback=initMap") 
