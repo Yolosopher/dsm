@@ -588,6 +588,20 @@
                     display: flex
                     justify-content: flex-start
                     // flex-direction: column
+                    .ns
+                        border-color: $dark
+                        &::after
+                            background-color: $dark
+                        &__ul 
+                            li
+                                border-bottom-color: $dark
+                        &.toggled
+                            border-color: $yellow
+                            &::after
+                                background-color: $yellow
+                            .ns__ul 
+                                li
+                                    border-bottom-color: $yellow
                     
                     @include plus1025()
                         max-width: 540px
@@ -654,14 +668,14 @@
                         height: 54px
                         width: 100%
                         border-radius: 12px
-                        border: 1px solid #E6E6E6
+                        border: 1px solid $dark
                         padding: 0 20px
                         display: flex
                         align-items: center
                         @include font(12px, 16.8px)
                         letter-spacing: 0.012em
                         &:focus
-                            border-color: $dark
+                            border-color: $yellow
                         &__fixer
                             margin-bottom: 20px
                     &__inputcombiner
@@ -683,6 +697,12 @@
                     height: 100%
                     bottom: unset
                     top: 0
+    // .input-div
+    //     border: 1px solid $dark !important
+    //     &.focused
+    //         border-color: black !important
+    //     &.invalid.invalid-shown
+    //         border-color: $red !important
 
 .banklogos
     height: 0

@@ -5151,6 +5151,24 @@ html {
   display: flex;
   justify-content: flex-start;
 }
+.basketmodal__mains__ordering__form .basketform .ns {
+  border-color: #131313;
+}
+.basketmodal__mains__ordering__form .basketform .ns::after {
+  background-color: #131313;
+}
+.basketmodal__mains__ordering__form .basketform .ns__ul li {
+  border-bottom-color: #131313;
+}
+.basketmodal__mains__ordering__form .basketform .ns.toggled {
+  border-color: #00B4FB;
+}
+.basketmodal__mains__ordering__form .basketform .ns.toggled::after {
+  background-color: #00B4FB;
+}
+.basketmodal__mains__ordering__form .basketform .ns.toggled .ns__ul li {
+  border-bottom-color: #00B4FB;
+}
 @media screen and (min-width: 1025px) {
   .basketmodal__mains__ordering__form .basketform {
     max-width: 540px;
@@ -5239,7 +5257,7 @@ html {
   height: 54px;
   width: 100%;
   border-radius: 12px;
-  border: 1px solid #E6E6E6;
+  border: 1px solid #131313;
   padding: 0 20px;
   display: flex;
   align-items: center;
@@ -5248,7 +5266,7 @@ html {
   letter-spacing: 0.012em;
 }
 .basketmodal__mains__ordering__form .basketform__input:focus {
-  border-color: #131313;
+  border-color: #00B4FB;
 }
 .basketmodal__mains__ordering__form .basketform__input__fixer {
   margin-bottom: 20px;
