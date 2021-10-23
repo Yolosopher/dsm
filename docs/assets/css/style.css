@@ -392,13 +392,12 @@ body.noscroll {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: #F2FBFF;
+  background: white;
   justify-content: center;
   align-items: center;
 }
 @media screen and (min-width: 1025px) {
   .header__searchform button {
-    bacground: white;
     margin-right: 12px;
   }
 }
@@ -414,7 +413,7 @@ body.noscroll {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #F2FBFF;
+  background-color: white;
   border-radius: 30px;
   transition: 0.1s ease-in-out;
 }
@@ -8167,6 +8166,7 @@ html {
 .iconbtn:hover svg path {
   fill: white;
 }
+
 .contactmain {
   padding-top: 20px;
   padding-top: 50px;
