@@ -607,7 +607,7 @@ body.noscroll {
   opacity: 0;
   width: calc(100% - 40px);
   bottom: -356px;
-  box-shadow: 5px 0px 30px rgba(19, 19, 19, 0.05);
+  box-shadow: 0px 10px 30px rgba(124, 133, 166, 0.16);
   right: 20px;
   transition: opacity 0.4s ease-out, bottom 0s 0.4s linear;
 }
@@ -689,7 +689,7 @@ body.noscroll {
   font-family: firagobook;
   font-size: 12px;
   line-height: 14.4px;
-  color: #4260FF;
+  color: #00B4FB;
   cursor: pointer;
 }
 .loggedinmenu__nav {
@@ -764,7 +764,6 @@ body.noscroll {
 .loggedinmenu .logout {
   font-family: firagobook;
   color: #000;
-  float: right;
   font-weight: 400;
   font-size: 14px;
   line-height: 16.8px;
