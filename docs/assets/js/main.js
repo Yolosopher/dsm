@@ -1302,7 +1302,7 @@ allInputTextareas.forEach((eachput) => {
 
 // TODO:
 const updateCat__heights = () => {
-	;[...document.querySelectorAll('.header__navbar__shop .inner_ul')].forEach(
+	;[...document.querySelectorAll('.header__navbar__shop .inner_ul_last')].forEach(
 		(each) => {
 			each.style.setProperty(
 				'--height',

@@ -92,6 +92,32 @@
         display: none
         @include plus1025()
             display: initial
+        &__shop
+            grid-gap: 40px 20px !important
+            @include plus1025()
+                width: 100%
+                // display: flex !important
+                // flex-flow: column wrap !important
+                // align-content: space-between !important
+                // height: 120%
+                // overflow-x: hidden
+                // overflow-y: auto
+                // // column-count: 3
+                // display: flex !important
+                // flex-flow: column wrap !important
+                // column-count: 2
+                // display: block !important
+                // column-fill: balance-all
+                // grid-auto-rows: max-content
+                // grid-auto-flow: row dense
+                // display: block !important
+                grid-template-columns: repeat(6, minmax(auto, 1fr))
+                grid-template-rows: min-content min-content
+                // grid-template-columns: repeat(auto-fit, minmax(min-content, 300px))
+                // grid-auto-rows: minmax(min-content, max-content)
+                // justify-content: space-between
+                // > div, > li
+                    
         &__icons
             cursor: pointer
             height: 8px
@@ -128,9 +154,7 @@
                 height: calc(100vh - 100px)
                 // border-radius: 30px 0 0 30px
                 border-radius: 30px
-                width: 100%
-                max-width: 300px
-                width: 100%
+                width: calc(100% - 20px)
                 // &::after
                 //     content: ''
                 //     position: fixed
@@ -143,11 +167,19 @@
                 //     background-color: #fff
                 //     border-radius: 0 30px 30px 0
                 //     transition: .25s ease-out
+            a
+                text-transform: capitalize
+            &__combiner
+                width: max-content
+
             &__withscroll
                 height: 100%
                 padding: 0px 40px
                 overflow: auto
                 margin-right: 10px
+                @include plus1025()
+                    display: flex
+                    flex-wrap: wrap
             ul
                 font-family: firagobook
                 font-size: 14px
@@ -185,6 +217,7 @@
                     transition: .3s ease
             .outer_li
                 display: flex
+                width: max-content
                 flex-direction: column
                 position: relative
 
@@ -193,19 +226,19 @@
                 @include plus1025()
                     // display: block
                     // cursor: pointer
-
+            .inner_li
                 &:hover
                     font-weight: 600
-                    padding-left: 40px
-                    .outer_a
-                        &::after
-                            // left: 0
-                &:hover
-                    .inner_ul
+                    .inner_ul_last
                         transition: height .3s ease-out, opacity .3s ease-out
                         height: var(--height)
                         opacity: 1
-            .inner_ul
+                    .outer_a
+                        margin-bottom: 8px
+                        color: $yellow
+                        font-weight: 600
+                        font-family: firagosemibold
+            .inner_ul_last
                 --height: max-content
                 height: 0
                 opacity: 0
@@ -222,13 +255,27 @@
                 @include plus1025()
                     display: none
                 
+
+
         &__title
             color: #000
-            font-size: 12px
-            margin-bottom: 16px
+            font-size: 14px
+            margin-bottom: 16.8px
             font-family: firagosemibold
             font-weight: 600
             @include upperCase()
+            position: relative
+            width: max-content
+            &::after
+                content: ''
+                display: inline-block
+                position: absolute
+                top: calc(100% + 4px)
+                left: 0
+                background: $yellow
+                width: 100%
+                height: 1px
+                border-radius: 1px
         &__bg, .loginmodal__bg
             position: fixed
             right: 0
@@ -440,8 +487,14 @@
     &.notempty
         &::after
             opacity: 1
-
-
+.inner_li2
+    display: inline-block
+    padding-left: 20px
+.outer_a2
+    margin-bottom: 21px
+.outer_a
+    margin-bottom: 0
+    transition: .1s ease-out
 .loggedinmenu
     position: fixed
     z-index: 20
@@ -468,7 +521,6 @@
         transition: opacity 0.4s ease-out
         @include plus1025()
             top: #{43px + 24px}
-            max-width: 300px
     &::after
         content: ''
         position: absolute
