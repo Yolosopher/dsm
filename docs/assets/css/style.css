@@ -317,30 +317,60 @@ body.noscroll {
 .header__navbar__content.toggled .header__navbar__content__withscroll {
   padding: 50px 40px;
 }
+.header__navbar__content .outer_a {
+  display: inline-block;
+  height: 20px;
+  flex-shrink: 0;
+  pointer-events: none;
+  position: relative;
+}
 @media screen and (min-width: 1025px) {
-  .header__navbar__content li {
-    display: block;
-    position: relative;
-    overflow: hidden;
-    transition: padding-left 0.3s ease, font-weight 0.1s ease;
+  .header__navbar__content .outer_a {
+    pointer-events: all;
   }
-  .header__navbar__content li::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: -30px;
-    width: 30px;
-    height: 1px;
-    background-color: #00B4FB;
-    transition: 0.3s ease;
-  }
-  .header__navbar__content li:hover {
-    font-weight: 600;
-    padding-left: 40px;
-  }
-  .header__navbar__content li:hover::after {
-    left: 0;
+}
+.header__navbar__content .outer_a::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -40px;
+  width: 30px;
+  height: 1px;
+  background-color: #00B4FB;
+  transition: 0.3s ease;
+}
+.header__navbar__content .outer_li {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: padding-left 0.3s ease, font-weight 0.1s ease;
+}
+.header__navbar__content .outer_li:hover {
+  font-weight: 600;
+  padding-left: 40px;
+}
+.header__navbar__content .outer_li:hover .inner_ul {
+  transition: height 0.3s ease-out, opacity 0.3s ease-out;
+  height: var(--height);
+  opacity: 1;
+}
+.header__navbar__content .inner_ul {
+  --height: max-content;
+  height: 0;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: height 0.1s ease-in, opacity 0.1s ease-in;
+}
+.header__navbar__content .inner_li:first-child {
+  margin-top: 8px;
+}
+@media screen and (min-width: 1025px) {
+  .header__navbar__content .view_all {
+    display: none;
   }
 }
 .header__navbar__title {
@@ -8057,6 +8087,7 @@ html {
   height: 152px;
   opacity: 0.2;
 }
+
 .compareemptymain {
   position: relative;
   padding-top: 50px;

@@ -1195,7 +1195,6 @@ if (!!fastorderform) {
 	const fastorderlastname = document.getElementById('fastorderlastname')
 	const fastordertel = document.getElementById('fastordertel')
 
-
 	fastorderfirstname.addEventListener('change', () => {
 		nameChecker(fastorderfirstname, true, 2)
 	})
@@ -1219,7 +1218,6 @@ if (!!fastorderform) {
 		}
 	})
 }
-
 
 // VALIDATIONS CONTACT
 const contactform = document.getElementById('contactform')
@@ -1299,5 +1297,24 @@ allInputTextareas.forEach((eachput) => {
 	eachput.addEventListener('blur', () => {
 		eachput.closest('.input-div').classList.remove('focused')
 	})
+})
+// TODOEND:
+
+// TODO:
+const updateCat__heights = () => {
+	;[...document.querySelectorAll('.header__navbar__shop .inner_ul')].forEach(
+		(each) => {
+			each.style.setProperty(
+				'--height',
+				window.innerWidth > 1024
+					? (each.scrollHeight - (17 + 10)) + 'px'
+					: each.scrollHeight + 'px'
+			)
+		}
+	)
+}
+updateCat__heights()
+window.addEventListener('resize', () => {
+	updateCat__heights()
 })
 // TODOEND:

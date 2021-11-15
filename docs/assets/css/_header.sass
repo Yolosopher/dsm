@@ -165,30 +165,63 @@
                 opacity: 1
                 .header__navbar__content__withscroll
                     padding: 50px 40px
-
-            li
+            .outer_a
+                display: inline-block
+                height: 20px
+                flex-shrink: 0
+                pointer-events: none
+                position: relative
                 @include plus1025()
-                    display: block
-                    // cursor: pointer
-                    position: relative
-                    overflow: hidden
-                    transition: padding-left .3s ease, font-weight .1s ease
-                    &::after
-                        content: ''
-                        position: absolute
-                        top: 50%
-                        transform: translateY(-50%)
-                        left: -30px
-                        width: 30px
-                        height: 1px
-                        background-color: $yellow
-                        transition: .3s ease
-                    &:hover
-                        font-weight: 600
-                        padding-left: 40px
-                        &::after
-                            left: 0
+                    pointer-events: all
+                &::after
+                    content: ''
+                    position: absolute
+                    top: 50%
+                    transform: translateY(-50%)
+                    left: -40px
+                    width: 30px
+                    height: 1px
+                    background-color: $yellow
+                    transition: .3s ease
+            .outer_li
+                display: flex
+                flex-direction: column
+                position: relative
 
+                overflow: hidden
+                transition: padding-left .3s ease, font-weight .1s ease
+                @include plus1025()
+                    // display: block
+                    // cursor: pointer
+
+                &:hover
+                    font-weight: 600
+                    padding-left: 40px
+                    .outer_a
+                        &::after
+                            // left: 0
+                &:hover
+                    .inner_ul
+                        transition: height .3s ease-out, opacity .3s ease-out
+                        height: var(--height)
+                        opacity: 1
+            .inner_ul
+                --height: max-content
+                height: 0
+                opacity: 0
+                display: flex
+                flex-direction: column
+                overflow: hidden
+                transition: height .1s ease-in, opacity .1s ease-in
+
+            .inner_li
+                &:first-child
+                    margin-top: 8px
+                // margin: 4px 0
+            .view_all
+                @include plus1025()
+                    display: none
+                
         &__title
             color: #000
             font-size: 12px

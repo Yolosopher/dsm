@@ -93,18 +93,25 @@ if loggedin
         h3.header__navbar__title shop
         ul.header__navbar__shop
             each shopli, index in shopul
-                li
-                    a(href='product.html')= shopli
+                li.outer_li
+                    a.outer_a(href='product.html')= shopli
+                    ul.inner_ul
+                        each a, i in Array(5)
+                            li.inner_li
+                                a(href="product.html")=`${shopli} ${(i+1)}` 
+                        li.inner_li.view_all
+                            a(href="product.html") view all 
+
         h3.header__navbar__title company
         ul.header__navbar__company
             li
-                a(href="about.html") About us 
+                a(href="about.html") About us
             li
                 a(href="/help.html") Help & FAQ
             li
                 a(href="/blog.html") Blog
             li
-                a(href="contact.html") Contact us 
+                a(href="contact.html") Contact us
         h3.header__navbar__title refferal system
         ul.header__navbar__company
             li
