@@ -1313,7 +1313,10 @@ const updateCat__heights = () => {
 		}
 	)
 }
-updateCat__heights()
+
+window.addEventListener('load', () => {
+	updateCat__heights()
+})
 window.addEventListener('resize', () => {
 	updateCat__heights()
 })
