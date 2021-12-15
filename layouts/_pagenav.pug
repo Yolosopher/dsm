@@ -6,6 +6,6 @@
             a.pagenav__middle(href="#") Shop
             a.pagenav__current(href="#") Skin care
     else
-        if (pagenavoff !== 'Contact')
+        if (!['Contact', 'About'].includes(pagenavoff))
             .pagenav__nav
                 span total 6 products

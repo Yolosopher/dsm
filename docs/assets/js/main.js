@@ -1321,3 +1321,14 @@ window.addEventListener('resize', () => {
 	updateCat__heights()
 })
 // TODOEND:
+
+;[...document.querySelectorAll('.outer_li')].forEach((each, index) => {
+	index === 0 && each.classList.add('active')
+	each.addEventListener('click', () => {
+		[...document.querySelectorAll('.outer_li')].forEach(ea => {
+			ea.classList.remove('active')
+		})
+		each.classList.add('active')
+	})
+})
+

@@ -254,8 +254,6 @@ body.noscroll {
 @media screen and (min-width: 1025px) {
   .header__navbar__shop {
     width: 100%;
-    grid-template-columns: repeat(6, minmax(auto, 1fr));
-    grid-template-rows: min-content min-content;
   }
 }
 .header__navbar__icons {
@@ -8556,6 +8554,78 @@ html {
 }
 .newpasswordmain__form button {
   max-width: unset !important;
+}
+
+@media screen and (min-width: 1025px) {
+  html body .header__navbar__shop {
+    display: flex;
+    flex-direction: column;
+    position: static;
+    max-width: 230px;
+    grid-gap: 50px !important;
+    border-right: 1px solid #E6E6E6;
+  }
+  html body .inner_li:first-child {
+    margin-top: 0 !important;
+  }
+  html body .outer_li {
+    position: static !important;
+    cursor: pointer;
+  }
+  html body .outer_li.active > a {
+    color: #00B4FB;
+  }
+  html body .outer_li.active .inner_ul {
+    opacity: 1 !important;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 50px;
+    padding-right: 50px;
+  }
+  html body .outer_li.active .inner_ul .outer_a {
+    margin-bottom: 8px !important;
+    text-transform: uppercase;
+    font-feature-settings: "case" on;
+    font-weight: 600;
+    font-family: firagobold;
+    color: #131313 !important;
+  }
+  html body .outer_li.active .inner_ul .outer_a::after {
+    display: none !important;
+  }
+  html body .outer_li.active .inner_ul .inner_ul_last {
+    height: max-content !important;
+    opacity: 1 !important;
+  }
+  html body .outer_li.active .inner_ul .inner_li2 {
+    padding-left: 0 !important;
+  }
+  html body .inner_ul {
+    position: absolute;
+    right: 0;
+    top: 50px;
+    width: 100%;
+    opacity: 0 !important;
+    z-index: -1;
+    max-width: calc(100% - 110px - 230px);
+  }
+}
+
+.aboutmain {
+  padding-top: 20px;
+  padding-top: 50px;
+  margin-bottom: 40px;
+}
+@media screen and (min-width: 1025px) {
+  .aboutmain {
+    margin-bottom: 80px;
+  }
+}
+.aboutmain > article {
+  max-width: 964px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */

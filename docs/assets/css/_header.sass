@@ -111,8 +111,8 @@
                 // grid-auto-rows: max-content
                 // grid-auto-flow: row dense
                 // display: block !important
-                grid-template-columns: repeat(6, minmax(auto, 1fr))
-                grid-template-rows: min-content min-content
+                // grid-template-columns: repeat(6, minmax(auto, 1fr))
+                // grid-template-rows: min-content min-content
                 // grid-template-columns: repeat(auto-fit, minmax(min-content, 300px))
                 // grid-auto-rows: minmax(min-content, max-content)
                 // justify-content: space-between
@@ -224,8 +224,8 @@
                 overflow: hidden
                 transition: padding-left .3s ease, font-weight .1s ease
                 @include plus1025()
-                    // display: block
-                    // cursor: pointer
+                    &:hover
+                        
             .inner_li
                 &:hover
                     font-weight: 600
@@ -661,3 +661,5 @@
             right: 80px
             border-radius: 0 0 4px 0
             transform: translateY(50%) rotate(45deg)
+
+

@@ -136,3 +136,64 @@ html
                 margin: 0 15px
         button
             max-width: unset !important
+
+html body
+    @include plus1025()
+        .header__navbar__shop
+            display: flex
+            flex-direction: column
+            position: static
+            max-width: 230px
+            grid-gap: 50px !important
+            border-right: 1px solid $e6
+        .inner_li
+            &:first-child
+                margin-top: 0 !important
+        .outer_li
+            position: static !important
+            cursor: pointer
+            &.active
+                > a
+                    color: $yellow
+                .inner_ul
+                    opacity: 1 !important
+                    z-index: 1
+                    display: grid
+                    grid-template-columns: repeat(5, 1fr)
+                    grid-gap: 50px
+                    padding-right: 50px
+                    .outer_a
+                        margin-bottom: 8px !important
+                        @include upperCase()
+                        // color: $black
+                        font-weight: 600
+                        font-family: firagobold
+                        color: $dark !important
+                        &::after
+                            display: none !important
+                    .inner_ul_last
+                        height: max-content !important
+                        opacity: 1 !important
+                    .inner_li2
+                        padding-left: 0 !important
+        .inner_ul
+            position: absolute
+            right: 0
+            top: 50px
+            width: 100%
+            opacity: 0 !important
+            z-index: -1
+            max-width: calc(100% - 110px - 230px)
+
+
+.aboutmain
+    padding-top: 20px
+    padding-top: 50px
+    margin-bottom: 40px
+    @include plus1025()
+        margin-bottom: 80px
+
+    > article
+        max-width: 964px
+        margin: 0 auto
+        width: 100%

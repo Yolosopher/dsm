@@ -96,20 +96,23 @@ if loggedin
 .header__navbar__content
     .header__navbar__content__withscroll
         ul.header__navbar__shop
-            each shopli, index in shopul
-                li.outer_li
-                    a(href='product.html')
-                        h3.header__navbar__title=shopli
-                    ul.inner_ul
-                        each a, i in Array(getRndInteger(3, 7))
-                            li.inner_li
-                                a.outer_a(href="product.html")=`${shopli} ${(i+1)} cat`
-                                ul.inner_ul_last
-                                    each aa, ii in Array(getRndInteger(1, 3))
-                                        li.inner_li2
-                                            a(href="product.html")=`${shopli} ${(i+1)} third category`
-                                    li.inner_li2.view_all
-                                        a(href="product.html") view all 
+            .header__navbar__content__combiner
+                h3.header__navbar__title shop
+                ul.outer_li_container
+                    each shopli, index in shopul
+                        li.outer_li
+                            a(href='product.html')
+                                a=shopli
+                            ul.inner_ul
+                                each a, i in Array(getRndInteger(3, 7))
+                                    li.inner_li
+                                        a.outer_a(href="product.html")=`${shopli} ${(i+1)} cat`
+                                        ul.inner_ul_last
+                                            each aa, ii in Array(getRndInteger(1, 3))
+                                                li.inner_li2
+                                                    a(href="product.html")=`${shopli} ${(i+1)} third category`
+                                            li.inner_li2.view_all
+                                                a(href="product.html") view all 
 
             .header__navbar__content__combiner
                 h3.header__navbar__title company

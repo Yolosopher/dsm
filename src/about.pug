@@ -1,5 +1,7 @@
-- const title = 'Home'
+- const title = 'About'
 - const loggedin = false
+- const pagenavoff = "About"
+
 doctype html
 html(lang="en")
     head
@@ -9,8 +11,14 @@ html(lang="en")
     body 
         include ../layouts/_header
         include ../layouts/_loginmodal
+        include ../layouts/_pagenav
+        
 
-        main.main.homemain.container
+        main.main.aboutmain.container
+            article
+                .default-ul
+                    p ცნობილი ფაქტია, რომ გვერდის წაკითხვად შიგთავსს შეუძლია მკითხველის ყურადღება მიიზიდოს და დიზაინის აღქმაში ხელი შეუშალოს. Lorem Ipsum-ის გამოყენებით ვღებულობთ იმაზე მეტ-ნაკლებად სწორი გადანაწილების ტექსტს, ვიდრე ერთიდაიგივე გამეორებადი სიტყვებია ხოლმე. შედეგად, ტექსტი ჩვეულებრივ ინგლისურს გავს, მისი წაითხვა კი შეუძლებელია.
+                    p დღეს უამრავი პერსონალური საგამომცემლო პროგრამა და ვებგვერდი იყენებს Lorem Ipsum-ს, როგორც დროებით ტექსტს წყობის შესავსებად; Lorem Ipsum-ის მოძებნისას კი საძიებო სისტემები ბევრ დაუსრულებელ გვერდს გვიჩვენებენ. წლების მანძილზე ამ ტექსტის უამრავი ვერსია გამოჩნდა, ზოგი შემთხვევით დაშვებული შეცდომის გამო, ზოგი კი — განზრახ, ხუმრობით.
             
         include ../layouts/_basket
         include ../layouts/_footer
