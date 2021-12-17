@@ -136,15 +136,20 @@ html
                 margin: 0 15px
         button
             max-width: unset !important
-
+html body 
+    @media screen and ( max-width: 1024px )
+        .outer_li
+            > a
+                // @extend .header__navbar__title
+                
+        
 html body
     @include plus1025()
         .header__navbar__shop
-            display: flex
-            flex-direction: column
             position: static
             max-width: 230px
             grid-gap: 50px !important
+            gap: 50px !important
             border-right: 1px solid $e6
         .inner_li
             &:first-child

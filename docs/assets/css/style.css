@@ -249,7 +249,10 @@ body.noscroll {
   }
 }
 .header__navbar__shop {
-  grid-gap: 40px 20px !important;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 30px !important;
+  gap: 30px !important;
 }
 @media screen and (min-width: 1025px) {
   .header__navbar__shop {
@@ -339,12 +342,13 @@ body.noscroll {
   display: inline-block;
   height: 20px;
   flex-shrink: 0;
-  pointer-events: none;
+  pointer-events: none !important;
   position: relative;
 }
 @media screen and (min-width: 1025px) {
   .header__navbar__content .outer_a {
-    pointer-events: all;
+    height: unset;
+    pointer-events: all !important;
   }
 }
 .header__navbar__content .outer_a::after {
@@ -365,6 +369,11 @@ body.noscroll {
   position: relative;
   overflow: hidden;
   transition: padding-left 0.3s ease, font-weight 0.1s ease;
+}
+@media screen and (max-width: 1024px) {
+  .header__navbar__content .outer_li_container {
+    grid-gap: 30px;
+  }
 }
 .header__navbar__content .inner_li:hover {
   font-weight: 600;
@@ -388,9 +397,6 @@ body.noscroll {
   flex-direction: column;
   overflow: hidden;
   transition: height 0.1s ease-in, opacity 0.1s ease-in;
-}
-.header__navbar__content .inner_li:first-child {
-  margin-top: 8px;
 }
 @media screen and (min-width: 1025px) {
   .header__navbar__content .view_all {
@@ -418,6 +424,32 @@ body.noscroll {
   width: 100%;
   height: 1px;
   border-radius: 1px;
+}
+.header__navbar__title_mobonly {
+  color: #000;
+  font-size: 14px;
+}
+@media screen and (max-width: 1024px) {
+  .header__navbar__title_mobonly {
+    margin-bottom: 16.8px;
+    font-family: firagosemibold;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-feature-settings: "case" on;
+    position: relative;
+    width: max-content;
+  }
+  .header__navbar__title_mobonly::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    background: #00B4FB;
+    width: 100%;
+    height: 1px;
+    border-radius: 1px;
+  }
 }
 .header__navbar__bg, .loginmodal__bg, .reviewmodal__bg, .fastordermodal__bg, .header__navbar .loginmodal__bg {
   position: fixed;
@@ -668,6 +700,17 @@ body.noscroll {
   display: inline-block;
   padding-left: 20px;
 }
+@media screen and (max-width: 1024px) {
+  .inner_li2 {
+    pointer-events: none !important;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .inner_li.active .inner_li2 {
+    pointer-events: all !important;
+  }
+}
 
 .outer_a2 {
   margin-bottom: 21px;
@@ -675,6 +718,7 @@ body.noscroll {
 
 .outer_a {
   margin-bottom: 0;
+  pointer-events: none;
   transition: 0.1s ease-out;
 }
 
@@ -872,6 +916,18 @@ body.noscroll {
   right: 80px;
   border-radius: 0 0 4px 0;
   transform: translateY(50%) rotate(45deg);
+}
+
+@media screen and (min-width: 1025px) {
+  .only_mobile {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .only_desktop {
+    display: none !important;
+  }
 }
 
 .footer {
@@ -8558,11 +8614,10 @@ html {
 
 @media screen and (min-width: 1025px) {
   html body .header__navbar__shop {
-    display: flex;
-    flex-direction: column;
     position: static;
     max-width: 230px;
     grid-gap: 50px !important;
+    gap: 50px !important;
     border-right: 1px solid #E6E6E6;
   }
   html body .inner_li:first-child {

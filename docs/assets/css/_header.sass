@@ -93,7 +93,10 @@
         @include plus1025()
             display: initial
         &__shop
-            grid-gap: 40px 20px !important
+            display: flex
+            flex-direction: column
+            grid-gap: 30px !important
+            gap: 30px !important
             @include plus1025()
                 width: 100%
                 // display: flex !important
@@ -201,10 +204,11 @@
                 display: inline-block
                 height: 20px
                 flex-shrink: 0
-                pointer-events: none
+                pointer-events: none !important
                 position: relative
                 @include plus1025()
-                    pointer-events: all
+                    height: unset
+                    pointer-events: all !important
                 &::after
                     content: ''
                     position: absolute
@@ -223,8 +227,10 @@
 
                 overflow: hidden
                 transition: padding-left .3s ease, font-weight .1s ease
-                @include plus1025()
-                    &:hover
+                &_container    
+                    @media screen and ( max-width: 1024px )
+                        grid-gap: 30px
+                    
                         
             .inner_li
                 &:hover
@@ -238,6 +244,7 @@
                         color: $yellow
                         font-weight: 600
                         font-family: firagosemibold
+
             .inner_ul_last
                 --height: max-content
                 height: 0
@@ -249,7 +256,7 @@
 
             .inner_li
                 &:first-child
-                    margin-top: 8px
+                    // margin-top: 8px
                 // margin: 4px 0
             .view_all
                 @include plus1025()
@@ -276,6 +283,27 @@
                 width: 100%
                 height: 1px
                 border-radius: 1px
+            &_mobonly
+                color: #000
+                font-size: 14px
+                @media screen and (max-width: 1024px)
+                    margin-bottom: 16.8px
+                    font-family: firagosemibold
+                    font-weight: 600
+                    @include upperCase()
+                    position: relative
+                    width: max-content
+                    &::after
+                        content: ''
+                        display: inline-block
+                        position: absolute
+                        top: calc(100% + 4px)
+                        left: 0
+                        background: $yellow
+                        width: 100%
+                        height: 1px
+                        border-radius: 1px
+                
         &__bg, .loginmodal__bg
             position: fixed
             right: 0
@@ -490,10 +518,20 @@
 .inner_li2
     display: inline-block
     padding-left: 20px
+    @media screen and ( max-width: 1024px )
+        pointer-events: none !important
+
+.inner_li
+    &.active
+        .inner_li2
+            @media screen and ( max-width: 1024px )
+                pointer-events: all !important
+
 .outer_a2
     margin-bottom: 21px
 .outer_a
     margin-bottom: 0
+    pointer-events: none
     transition: .1s ease-out
 .loggedinmenu
     position: fixed
@@ -662,4 +700,9 @@
             border-radius: 0 0 4px 0
             transform: translateY(50%) rotate(45deg)
 
-
+.only_mobile
+    @include plus1025
+        display: none !important
+.only_desktop
+    @media screen and ( max-width: 1024px )
+        display: none !important

@@ -95,14 +95,14 @@ if loggedin
 .header__navbar__bg
 .header__navbar__content
     .header__navbar__content__withscroll
-        ul.header__navbar__shop
+        .header__navbar__shop
             .header__navbar__content__combiner
-                h3.header__navbar__title shop
+                h3.header__navbar__title.only_desktop shop
                 ul.outer_li_container
                     each shopli, index in shopul
                         li.outer_li
                             a(href='product.html')
-                                a=shopli
+                                a.header__navbar__title_mobonly=shopli
                             ul.inner_ul
                                 each a, i in Array(getRndInteger(3, 7))
                                     li.inner_li

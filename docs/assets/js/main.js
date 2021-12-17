@@ -1302,16 +1302,16 @@ allInputTextareas.forEach((eachput) => {
 
 // TODO:
 const updateCat__heights = () => {
-	;[...document.querySelectorAll('.header__navbar__shop .inner_ul_last')].forEach(
-		(each) => {
-			each.style.setProperty(
-				'--height',
-				window.innerWidth > 1024
-					? (each.scrollHeight - (17 + 10)) + 'px'
-					: each.scrollHeight + 'px'
-			)
-		}
-	)
+	;[
+		...document.querySelectorAll('.header__navbar__shop .inner_ul_last'),
+	].forEach((each) => {
+		each.style.setProperty(
+			'--height',
+			window.innerWidth > 1024
+				? each.scrollHeight - (17 + 10) + 'px'
+				: each.scrollHeight + 'px'
+		)
+	})
 }
 
 window.addEventListener('load', () => {
@@ -1321,14 +1321,25 @@ window.addEventListener('resize', () => {
 	updateCat__heights()
 })
 // TODOEND:
-
 ;[...document.querySelectorAll('.outer_li')].forEach((each, index) => {
-	index === 0 && each.classList.add('active')
-	each.addEventListener('click', () => {
-		[...document.querySelectorAll('.outer_li')].forEach(ea => {
-			ea.classList.remove('active')
+	if (window.innerWidth > 1024) {
+		index === 0 && each.classList.add('active')
+		each.addEventListener('click', () => {
+			;[...document.querySelectorAll('.outer_li')].forEach((ea) => {
+				ea.classList.remove('active')
+			})
+			each.classList.add('active')
 		})
-		each.classList.add('active')
-	})
+	}
 })
-
+;[...document.querySelectorAll('.inner_li')].forEach((each, index) => {
+	if (window.innerWidth < 1025) {
+		index === 0 && each.classList.add('active')
+		each.addEventListener('click', () => {
+			;[...document.querySelectorAll('.inner_li')].forEach((ea) => {
+				ea.classList.remove('active')
+			})
+			each.classList.add('active')
+		})
+	}
+})
