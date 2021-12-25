@@ -2021,11 +2021,17 @@ html {
   margin-bottom: 30px;
 }
 
+.messageboxmodal {
+  z-index: 999;
+}
 @media screen and (min-width: 1025px) {
   .messageboxmodal {
     max-width: 540px;
     height: max-content;
   }
+}
+.messageboxmodal__bg {
+  z-index: 998;
 }
 
 .messageboxmodal__msgicon {

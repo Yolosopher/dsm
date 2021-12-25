@@ -253,9 +253,12 @@
             margin-bottom: 30px
 
 .messageboxmodal
+    z-index: 999
     @include plus1025()
         max-width: 540px
         height: max-content
+    &__bg
+        z-index: 998
 .messageboxmodal__msgicon
     text-align: center
     margin: 50px auto 30px

@@ -1343,3 +1343,26 @@ window.addEventListener('resize', () => {
 		})
 	}
 })
+
+
+// TODOEND:
+const messageboxmodal = document.querySelector('.messageboxmodal')
+const messageboxmodal__bg = document.querySelector('.messageboxmodal__bg')
+const messageboxmodal__X = document.querySelector('.messageboxmodal__X')
+
+if (messageboxmodal) {
+	if (messagebox_active) {
+		messageboxmodal.classList.add('toggled')
+		messageboxmodal__bg.classList.add('toggled')
+	}
+	
+	messageboxmodal__bg.addEventListener('click', () => {
+		messageboxmodal.classList.remove('toggled')
+		messageboxmodal__bg.classList.remove('toggled')
+	})
+	
+	messageboxmodal__X.addEventListener('click', () => {
+		messageboxmodal.classList.remove('toggled')
+		messageboxmodal__bg.classList.remove('toggled')
+	})
+}
