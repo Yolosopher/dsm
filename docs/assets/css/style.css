@@ -451,7 +451,7 @@ body.noscroll {
     border-radius: 1px;
   }
 }
-.header__navbar__bg, .loginmodal__bg, .reviewmodal__bg, .fastordermodal__bg, .header__navbar .loginmodal__bg {
+.header__navbar__bg, .loginmodal__bg, .reviewmodal__bg, .fastordermodal__bg, .messageboxmodal__bg, .header__navbar .loginmodal__bg {
   position: fixed;
   right: 0;
   top: 0;
@@ -460,7 +460,7 @@ body.noscroll {
   background-color: rgba(19, 19, 19, 0.6);
   z-index: 5;
 }
-.header__navbar__bg.toggled, .toggled.loginmodal__bg, .toggled.reviewmodal__bg, .toggled.fastordermodal__bg, .header__navbar .loginmodal__bg.toggled {
+.header__navbar__bg.toggled, .toggled.loginmodal__bg, .toggled.reviewmodal__bg, .toggled.fastordermodal__bg, .toggled.messageboxmodal__bg, .header__navbar .loginmodal__bg.toggled {
   width: 100%;
   height: 100vh;
 }
@@ -1738,7 +1738,7 @@ html {
   border-color: #FF5E5E;
 }
 
-.loginmodal, .reviewmodal, .fastordermodal {
+.loginmodal, .reviewmodal, .fastordermodal, .messageboxmodal {
   position: fixed;
   z-index: 11;
   width: calc(100% - 20px);
@@ -1755,14 +1755,14 @@ html {
   padding-bottom: 74px;
 }
 @media screen and (min-width: 1025px) {
-  .loginmodal, .reviewmodal, .fastordermodal {
+  .loginmodal, .reviewmodal, .fastordermodal, .messageboxmodal {
     max-width: 540px;
     height: 732px;
     min-height: auto;
     max-height: calc(100vh - 20px);
   }
 }
-.loginmodal::after, .reviewmodal::after, .fastordermodal::after {
+.loginmodal::after, .reviewmodal::after, .fastordermodal::after, .messageboxmodal::after {
   content: "";
   background-image: url(../img/loginmodalbg.png);
   background-repeat: no-repeat;
@@ -1776,12 +1776,12 @@ html {
   max-width: 236px;
   z-index: -1;
 }
-.loginmodal__forms, .reviewmodal__forms, .fastordermodal__forms {
+.loginmodal__forms, .reviewmodal__forms, .fastordermodal__forms, .messageboxmodal__forms {
   padding: 0 10px;
   height: 100%;
   display: flex;
 }
-.loginmodal__X, .reviewmodal__X, .fastordermodal__X {
+.loginmodal__X, .reviewmodal__X, .fastordermodal__X, .messageboxmodal__X {
   cursor: pointer;
   position: absolute;
   bottom: 10px;
@@ -1789,16 +1789,16 @@ html {
   left: 50%;
   transform: translateX(-50%);
 }
-.loginmodal__X svg circle, .loginmodal__X svg path, .reviewmodal__X svg circle, .reviewmodal__X svg path, .fastordermodal__X svg circle, .fastordermodal__X svg path {
+.loginmodal__X svg circle, .loginmodal__X svg path, .reviewmodal__X svg circle, .reviewmodal__X svg path, .fastordermodal__X svg circle, .fastordermodal__X svg path, .messageboxmodal__X svg circle, .messageboxmodal__X svg path {
   transition: 0.1s ease;
 }
-.loginmodal__X:hover svg circle, .reviewmodal__X:hover svg circle, .fastordermodal__X:hover svg circle {
+.loginmodal__X:hover svg circle, .reviewmodal__X:hover svg circle, .fastordermodal__X:hover svg circle, .messageboxmodal__X:hover svg circle {
   opacity: 1;
 }
-.loginmodal__X:hover svg path, .reviewmodal__X:hover svg path, .fastordermodal__X:hover svg path {
+.loginmodal__X:hover svg path, .reviewmodal__X:hover svg path, .fastordermodal__X:hover svg path, .messageboxmodal__X:hover svg path {
   fill: #00B4FB;
 }
-.loginmodal form, .reviewmodal form, .fastordermodal form {
+.loginmodal form, .reviewmodal form, .fastordermodal form, .messageboxmodal form {
   width: 100%;
   height: 100%;
   overflow: auto;
@@ -1807,32 +1807,32 @@ html {
   padding: 40px 15px;
 }
 @media screen and (min-width: 1025px) {
-  .loginmodal form, .reviewmodal form, .fastordermodal form {
+  .loginmodal form, .reviewmodal form, .fastordermodal form, .messageboxmodal form {
     padding: 40px 95px;
   }
 }
-.loginmodal form::-webkit-scrollbar, .reviewmodal form::-webkit-scrollbar, .fastordermodal form::-webkit-scrollbar {
+.loginmodal form::-webkit-scrollbar, .reviewmodal form::-webkit-scrollbar, .fastordermodal form::-webkit-scrollbar, .messageboxmodal form::-webkit-scrollbar {
   width: 2px;
   background-color: transparent;
 }
-.loginmodal form::-webkit-scrollbar-thumb, .reviewmodal form::-webkit-scrollbar-thumb, .fastordermodal form::-webkit-scrollbar-thumb {
+.loginmodal form::-webkit-scrollbar-thumb, .reviewmodal form::-webkit-scrollbar-thumb, .fastordermodal form::-webkit-scrollbar-thumb, .messageboxmodal form::-webkit-scrollbar-thumb {
   border-radius: 30px;
   background-color: rgba(19, 19, 19, 0.2);
 }
-.loginmodal form::-webkit-scrollbar-track, .reviewmodal form::-webkit-scrollbar-track, .fastordermodal form::-webkit-scrollbar-track {
+.loginmodal form::-webkit-scrollbar-track, .reviewmodal form::-webkit-scrollbar-track, .fastordermodal form::-webkit-scrollbar-track, .messageboxmodal form::-webkit-scrollbar-track {
   margin: 15px 0;
   background-color: transparent;
 }
-.loginmodal__bg, .reviewmodal__bg, .fastordermodal__bg {
+.loginmodal__bg, .reviewmodal__bg, .fastordermodal__bg, .messageboxmodal__bg {
   z-index: 10;
 }
-.loginmodal.toggled, .reviewmodal.toggled, .fastordermodal.toggled {
+.loginmodal.toggled, .reviewmodal.toggled, .fastordermodal.toggled, .messageboxmodal.toggled {
   opacity: 1;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.loginmodal h5, .reviewmodal h5, .fastordermodal h5 {
+.loginmodal h5, .reviewmodal h5, .fastordermodal h5, .messageboxmodal h5 {
   font-family: firagosemibold;
   font-size: 24px;
   line-height: 34px;
@@ -1843,7 +1843,7 @@ html {
   text-transform: uppercase;
   font-feature-settings: "case" on;
 }
-.loginmodal label, .reviewmodal label, .fastordermodal label {
+.loginmodal label, .reviewmodal label, .fastordermodal label, .messageboxmodal label {
   margin-bottom: 8px;
   font-family: firagosemibold;
   color: #131313;
@@ -1854,7 +1854,7 @@ html {
   letter-spacing: 0.012em;
   display: block;
 }
-.loginmodal .input-div, .reviewmodal .input-div, .fastordermodal .input-div {
+.loginmodal .input-div, .reviewmodal .input-div, .fastordermodal .input-div, .messageboxmodal .input-div {
   background-color: #fff;
   display: flex;
   width: 100%;
@@ -1866,15 +1866,15 @@ html {
   padding: 0 15px;
   margin-bottom: 20px;
 }
-.loginmodal .input-div.focused, .reviewmodal .input-div.focused, .fastordermodal .input-div.focused {
+.loginmodal .input-div.focused, .reviewmodal .input-div.focused, .fastordermodal .input-div.focused, .messageboxmodal .input-div.focused {
   border-color: #131313;
 }
-.loginmodal .input-div__icon, .reviewmodal .input-div__icon, .fastordermodal .input-div__icon {
+.loginmodal .input-div__icon, .reviewmodal .input-div__icon, .fastordermodal .input-div__icon, .messageboxmodal .input-div__icon {
   width: max-content;
   flex-shrink: 0;
   height: 24px;
 }
-.loginmodal .input-div__icon::after, .reviewmodal .input-div__icon::after, .fastordermodal .input-div__icon::after {
+.loginmodal .input-div__icon::after, .reviewmodal .input-div__icon::after, .fastordermodal .input-div__icon::after, .messageboxmodal .input-div__icon::after {
   content: "";
   width: 1px;
   display: inline-block;
@@ -1883,7 +1883,7 @@ html {
   background-color: #E6E6E6;
   margin: 0 15px;
 }
-.loginmodal .input-div input, .reviewmodal .input-div input, .fastordermodal .input-div input {
+.loginmodal .input-div input, .reviewmodal .input-div input, .fastordermodal .input-div input, .messageboxmodal .input-div input {
   flex-grow: 1;
   font-family: firagobook;
   font-weight: 400;
@@ -1893,10 +1893,10 @@ html {
   display: flex;
   align-items: center;
 }
-.loginmodal .input-div.lastinlogin, .reviewmodal .input-div.lastinlogin, .fastordermodal .input-div.lastinlogin {
+.loginmodal .input-div.lastinlogin, .reviewmodal .input-div.lastinlogin, .fastordermodal .input-div.lastinlogin, .messageboxmodal .input-div.lastinlogin {
   margin-bottom: 8px;
 }
-.loginmodal .forgotpass, .reviewmodal .forgotpass, .fastordermodal .forgotpass {
+.loginmodal .forgotpass, .reviewmodal .forgotpass, .fastordermodal .forgotpass, .messageboxmodal .forgotpass {
   cursor: pointer;
   display: block;
   text-align: right;
@@ -1912,10 +1912,10 @@ html {
   margin-bottom: 30px;
   text-transform: capitalize;
 }
-.loginmodal .yellowbtn, .reviewmodal .yellowbtn, .fastordermodal .yellowbtn {
+.loginmodal .yellowbtn, .reviewmodal .yellowbtn, .fastordermodal .yellowbtn, .messageboxmodal .yellowbtn {
   margin-bottom: 30px;
 }
-.loginmodal p, .reviewmodal p, .fastordermodal p {
+.loginmodal p, .reviewmodal p, .fastordermodal p, .messageboxmodal p {
   text-align: center;
   margin-bottom: 8px;
   font-family: firagobook;
@@ -1926,7 +1926,7 @@ html {
   color: #131313;
   letter-spacing: 0.012em;
 }
-.loginmodal .register, .loginmodal .login, .reviewmodal .register, .reviewmodal .login, .fastordermodal .register, .fastordermodal .login {
+.loginmodal .register, .loginmodal .login, .reviewmodal .register, .reviewmodal .login, .fastordermodal .register, .fastordermodal .login, .messageboxmodal .register, .messageboxmodal .login {
   cursor: pointer;
   text-align: center;
   align-self: center;
@@ -1939,32 +1939,32 @@ html {
   letter-spacing: 0.012em;
   margin-bottom: 40px;
 }
-.loginmodal #recoveryform, .loginmodal #registerform, .reviewmodal #recoveryform, .reviewmodal #registerform, .fastordermodal #recoveryform, .fastordermodal #registerform {
+.loginmodal #recoveryform, .loginmodal #registerform, .reviewmodal #recoveryform, .reviewmodal #registerform, .fastordermodal #recoveryform, .fastordermodal #registerform, .messageboxmodal #recoveryform, .messageboxmodal #registerform {
   display: none;
 }
-.loginmodal.recovery #loginform, .loginmodal.recovery #registerform, .reviewmodal.recovery #loginform, .reviewmodal.recovery #registerform, .fastordermodal.recovery #loginform, .fastordermodal.recovery #registerform {
+.loginmodal.recovery #loginform, .loginmodal.recovery #registerform, .reviewmodal.recovery #loginform, .reviewmodal.recovery #registerform, .fastordermodal.recovery #loginform, .fastordermodal.recovery #registerform, .messageboxmodal.recovery #loginform, .messageboxmodal.recovery #registerform {
   display: none;
 }
-.loginmodal.recovery #recoveryform, .reviewmodal.recovery #recoveryform, .fastordermodal.recovery #recoveryform {
+.loginmodal.recovery #recoveryform, .reviewmodal.recovery #recoveryform, .fastordermodal.recovery #recoveryform, .messageboxmodal.recovery #recoveryform {
   display: flex;
 }
-.loginmodal.recovery .recovery__bottom, .reviewmodal.recovery .recovery__bottom, .fastordermodal.recovery .recovery__bottom {
+.loginmodal.recovery .recovery__bottom, .reviewmodal.recovery .recovery__bottom, .fastordermodal.recovery .recovery__bottom, .messageboxmodal.recovery .recovery__bottom {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.loginmodal.register #loginform, .loginmodal.register #recoveryform, .reviewmodal.register #loginform, .reviewmodal.register #recoveryform, .fastordermodal.register #loginform, .fastordermodal.register #recoveryform {
+.loginmodal.register #loginform, .loginmodal.register #recoveryform, .reviewmodal.register #loginform, .reviewmodal.register #recoveryform, .fastordermodal.register #loginform, .fastordermodal.register #recoveryform, .messageboxmodal.register #loginform, .messageboxmodal.register #recoveryform {
   display: none;
 }
-.loginmodal.register #registerform, .reviewmodal.register #registerform, .fastordermodal.register #registerform {
+.loginmodal.register #registerform, .reviewmodal.register #registerform, .fastordermodal.register #registerform, .messageboxmodal.register #registerform {
   display: flex;
 }
-.loginmodal .loginwithFBorGmail, .reviewmodal .loginwithFBorGmail, .fastordermodal .loginwithFBorGmail {
+.loginmodal .loginwithFBorGmail, .reviewmodal .loginwithFBorGmail, .fastordermodal .loginwithFBorGmail, .messageboxmodal .loginwithFBorGmail {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
 }
-.loginmodal .loginwithFBorGmail a, .reviewmodal .loginwithFBorGmail a, .fastordermodal .loginwithFBorGmail a {
+.loginmodal .loginwithFBorGmail a, .reviewmodal .loginwithFBorGmail a, .fastordermodal .loginwithFBorGmail a, .messageboxmodal .loginwithFBorGmail a {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2019,6 +2019,41 @@ html {
 }
 #registerform .input-div.lastinlogin:last-of-type {
   margin-bottom: 30px;
+}
+
+@media screen and (min-width: 1025px) {
+  .messageboxmodal {
+    max-width: 540px;
+    height: max-content;
+  }
+}
+
+.messageboxmodal__msgicon {
+  text-align: center;
+  margin: 50px auto 30px;
+  width: 90px;
+  border-radius: 50px;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(65, 203, 113, 0.1);
+}
+.messageboxmodal__msgicon .error {
+  display: none;
+}
+.messageboxmodal__msgicon.error {
+  background-color: rgba(254, 126, 126, 0.1);
+}
+.messageboxmodal__msgicon.error .error {
+  display: unset;
+}
+.messageboxmodal__msgicon.error .success {
+  display: none;
+}
+
+.messagemodal__text {
+  text-align: center;
 }
 
 .ptitle {

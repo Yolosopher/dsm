@@ -1,5 +1,6 @@
 
-.loginmodal, .reviewmodal, .fastordermodal
+
+.loginmodal, .reviewmodal, .fastordermodal, .messageboxmodal
     position: fixed
     z-index: 11
     width: calc(100% - 20px)
@@ -250,3 +251,30 @@
         margin-bottom: 20px
         &:last-of-type
             margin-bottom: 30px
+
+.messageboxmodal
+    @include plus1025()
+        max-width: 540px
+        height: max-content
+.messageboxmodal__msgicon
+    text-align: center
+    margin: 50px auto 30px
+    width: 90px
+    border-radius: 50px
+    height: 90px
+    display: flex
+    justify-content: center
+    align-items: center
+    background-color: rgba(#41CB71, .1)
+    .error
+        display: none
+    &.error
+        background-color: rgba(#FE7E7E, .1)
+        .error
+            display: unset
+        .success
+            display: none
+.messagemodal__text
+    text-align: center
+
+
