@@ -1,11 +1,20 @@
 .pagenav.container
     h1.ptitle=pagenavoff ? pagenavoff : 'Skin care'
-    if (!pagenavoff)
+    if (pagenavoff.toLowerCase() === 'blogs')
+        .pagenav__nav
+            a.pagenav__homepage(href="index.html") Home page
+            a.pagenav__current(href="#") Blogs
+    else if (pagenavoff.toLowerCase() === 'blog')
+        .pagenav__nav
+            a.pagenav__homepage(href="index.html") Home page
+            a.pagenav__middle(href="#") Blogs
+            a.pagenav__current(href="#") Blog Title
+    else if (!pagenavoff)
         .pagenav__nav
             a.pagenav__homepage(href="index.html") Home page
             a.pagenav__middle(href="#") Shop
             a.pagenav__current(href="#") Skin care
     else
-        if (!['Contact', 'About'].includes(pagenavoff))
+        if (!['Contact', 'About', 'Blog', 'Blogs'].includes(pagenavoff))
             .pagenav__nav
                 span total 6 products

@@ -17,8 +17,8 @@ html(lang="en")
                 .productsmain__mobilebtns__filterbtn filter
                 .productsmain__mobilebtns__sortbtn__container
                     .productsmain__mobilebtns__sortbtn.productsmain__filter
-                        select#sortmob(name="sort", title='sort', form='filterform')
-                            option(value="0", selected="selected") no sort
+                        select#sortmob(name="sort" title='sort' form='filterform')
+                            option(value="0" selected="selected") no sort
                             option(value="1") lastest
                             option(value="2") oldest
                             option(value="3") price(from lowest)
@@ -28,12 +28,12 @@ html(lang="en")
                                 .svgbox
                                     include ../components/mobilesorticon
                             ul.productsmain__filter__niceul
-            form#filterform.productsmain__filters(action="http://localhost:2000", method='post', name='filterform', enctype='multipart/form-data')
+            form#filterform.productsmain__filters(action="http://localhost:2000" method='post' name='filterform' enctype='multipart/form-data')
                 .productsmain__filters__content
                     .productsmain__filter.price
                         .productsmain__filter__label price
-                        select#price(name="price", title='price')
-                            option(value="0", selected="selected") any
+                        select#price(name="price" title='price')
+                            option(value="0" selected="selected") any
                             option(value="1") from 1 to 50
                             option(value="2") from 51 to 100
                         .productsmain__filter__niceselect
@@ -43,8 +43,8 @@ html(lang="en")
                             ul.productsmain__filter__niceul
                     .productsmain__filter.brand
                         .productsmain__filter__label brand
-                        select#brand(name="brand", multiple="multiple", title='brand')
-                            option(value="0", selected="selected") Any
+                        select#brand(name="brand" multiple="multiple" title='brand')
+                            option(value="0" selected="selected") Any
                             option(value="1") almay
                             option(value="2") alva
                             option(value="3") annabelle
@@ -56,8 +56,8 @@ html(lang="en")
                             ul.productsmain__filter__niceul
                     .productsmain__filter.product
                         .productsmain__filter__label product
-                        select#product(name="product", title='product')
-                            option(value="0", selected="selected") Any
+                        select#product(name="product" title='product')
+                            option(value="0" selected="selected") Any
                             option(value="1") category 1
                             option(value="2") category 2
                         .productsmain__filter__niceselect
@@ -67,8 +67,8 @@ html(lang="en")
                             ul.productsmain__filter__niceul
                     .productsmain__filter.color
                         .productsmain__filter__label color
-                        select#color(name="color", title="color",  multiple="multiple")
-                            option(value="0", selected="selected") Any
+                        select#color(name="color" title="color" multiple="multiple")
+                            option(value="0" selected="selected") Any
                             option(value="1") red
                             option(value="2") blue
                             option(value="3") yellow
@@ -81,7 +81,7 @@ html(lang="en")
                     .productsmain__filter.milligrams
                         .productsmain__filter__label milligrams
                         select#milligrams(name="milligrams")
-                            option(value="0", selected="selected") any
+                            option(value="0" selected="selected") any
                             option(value="1") milligrams 1
                             option(value="2") milligrams 2
                         .productsmain__filter__niceselect
@@ -91,8 +91,8 @@ html(lang="en")
                             ul.productsmain__filter__niceul
                     .productsmain__filter.sort
                         .productsmain__filter__label sort by
-                        select#sort(name="sort", title='sort')
-                            option(value="0", selected="selected") no sort
+                        select#sort(name="sort" title='sort')
+                            option(value="0" selected="selected") no sort
                             option(value="1") lastest
                             option(value="2") oldest
                             option(value="3") price(from lowest)
@@ -139,7 +139,7 @@ html(lang="en")
             .productsmain__pagination
                 .productsmain__pagination__left
                     include ../components/productpagleftarrow
-                    
+
                 ul.productsmain__pagination__ul
                     each a, b in Array(5)
                         if b === 0
@@ -151,9 +151,9 @@ html(lang="en")
 
         include ../layouts/_basket
         include ../layouts/_footer
-        
+
         include ../layouts/_respomenu
-        
+
         include ../layouts/_scripts
 
         script.

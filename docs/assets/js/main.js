@@ -579,37 +579,22 @@ const handleRemoveFromSmallBasket = (id) => {
 const handleRemoveFromBasket = async (el) => {
 	let id = parseInt(el.dataset.id)
 
-	let response, data
-	try {
-		response = await axios.post(BASKET_UPDATE, {
-			id,
-		})
-		console.log(response)
-	} catch (error) {
-		console.log(error)
-	}
-	if (response.data.ok) {
-		// remove from real basket
-		let addBtnsOnDom = [
-			...document.querySelectorAll(`.addinbasketbtn[data-id="${id}"]`),
-		]
-		addBtnsOnDom.forEach((each) => {
-			each.classList.remove('added')
-		})
-		// TODO: insert this code on vasos server
-		// remove from small basket
-		handleRemoveFromSmallBasket(id)
+	// remove from real basket
+	let addBtnsOnDom = [
+		...document.querySelectorAll(`.addinbasketbtn[data-id="${id}"]`),
+	]
+	addBtnsOnDom.forEach((each) => {
+		each.classList.remove('added')
+	})
+	// TODO: insert this code on vasos server
+	// remove from small basket
+	handleRemoveFromSmallBasket(id)
 
-		let fxrli = el.closest('.basketmodal__mains__basket__list__li__fixer')
-		fxrli.remove()
-		return new Promise((resolve, reject) => {
-			resolve(true)
-		})
-	} else {
-		return new Promise((resolve, reject) => {
-			resolve(false)
-		})
-	}
+	let fxrli = el.closest('.basketmodal__mains__basket__list__li__fixer')
+	fxrli.remove()
+	return new Promise((resolve, reject) => {
+		resolve(true)
+	})
 }
 const basketmodal__mains = document.querySelector('.basketmodal__mains')
 const handleBasketClick = (on = true) => {
@@ -706,7 +691,7 @@ const updateBasketPrices = (promocodeCut = 0) => {
 			'.basketmodal__mains__basket__list__li__price span'
 		)
 		let price = +priceSpan.innerText
-		let sale = +priceSpan.dataset.sale
+		let sale = +priceSpan.dataset.old_price - price
 		product += price
 		sales += sale
 	})
@@ -1344,7 +1329,6 @@ window.addEventListener('resize', () => {
 	}
 })
 
-
 // TODOEND:
 const messageboxmodal = document.querySelector('.messageboxmodal')
 const messageboxmodal__bg = document.querySelector('.messageboxmodal__bg')
@@ -1355,12 +1339,12 @@ if (messageboxmodal) {
 		messageboxmodal.classList.add('toggled')
 		messageboxmodal__bg.classList.add('toggled')
 	}
-	
+
 	messageboxmodal__bg.addEventListener('click', () => {
 		messageboxmodal.classList.remove('toggled')
 		messageboxmodal__bg.classList.remove('toggled')
 	})
-	
+
 	messageboxmodal__X.addEventListener('click', () => {
 		messageboxmodal.classList.remove('toggled')
 		messageboxmodal__bg.classList.remove('toggled')

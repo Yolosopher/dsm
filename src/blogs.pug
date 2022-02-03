@@ -1,0 +1,46 @@
+- const title = 'Blogs'
+- const loggedin = false
+- const pagenavoff = 'Blogs'
+
+doctype html
+html(lang="en")
+  head
+    link(rel="stylesheet" href="assets/css/swiper-bundle.min.css")
+    include ../layouts/_head
+
+  body 
+    include ../layouts/_header
+    include ../layouts/_loginmodal
+    include ../layouts/_pagenav
+
+
+    main.main.blogsmain.container
+      section.blogsmain__section
+        ul.blogsmain__ul
+          each slide, index in slides
+            li.blogsmain__ul__li
+              .blogsmain__ul__li__imgbox
+                img(src=slide.image, alt=slide.title)
+              h4.blogsmain__ul__li__title=slide.title
+              a.lightbluebtn.blogsmain__ul__li__link(href="blog.html") read more
+        .productsmain__pagination.blogsmain__pagination
+          a.productsmain__pagination__left.blogsmain__pagination__left(href="#") 
+            include ../components/productpagleftarrow
+
+          ul.productsmain__pagination__ul.blogsmain__pagination__ul
+            each a, b in Array(5)
+              if b === 0
+                li.active
+                  a(href="#")=b+1
+              else
+                li
+                  a(href="#")=b+1 
+          a.productsmain__pagination__right.blogsmain__pagination__right(href="#") 
+            include ../components/productpagleftarrow
+
+    include ../layouts/_basket
+    include ../layouts/_footer
+
+    include ../layouts/_respomenu
+
+    include ../layouts/_scripts
