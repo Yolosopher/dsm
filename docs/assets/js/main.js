@@ -504,15 +504,17 @@ const addInCompares = async (id, btn) => {
 if (addBtns[0]) {
 	addBtns.forEach((btn) => {
 		let flipAddSpan = btn.querySelector('.flip .add')
+		flipAddSpan.innerText = flipAddSpan.innerText.trim()
 		let flipRemoveSpan = btn.querySelector('.flip .remove')
-		flipAddSpan.style.setProperty(
-			'--offsetwidth',
-			`${flipAddSpan.scrollWidth + 1}px`
-		)
-		flipRemoveSpan.style.setProperty(
-			'--offsetwidth',
-			`${flipRemoveSpan.scrollWidth + 1}px`
-		)
+		flipRemoveSpan.innerText = flipRemoveSpan.innerText.trim()
+		// flipAddSpan.style.setProperty(
+		// 	'--offsetwidth',
+		// 	`${flipAddSpan.scrollWidth + 1}px`
+		// )
+		// flipRemoveSpan.style.setProperty(
+		// 	'--offsetwidth',
+		// 	`${flipRemoveSpan.scrollWidth + 1}px`
+		// )
 		btn.addEventListener('click', () => {
 			addInBasket(+btn.dataset.id, btn)
 		})

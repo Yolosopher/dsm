@@ -8364,6 +8364,13 @@ html {
   fill: white;
 }
 
+.td_colors {
+  display: flex;
+  grid-gap: 5px;
+  grid-gap: 5px;
+  justify-content: center;
+}
+
 .contactmain {
   padding-top: 20px;
   padding-top: 50px;
