@@ -118,6 +118,11 @@ body.noscroll {
   overflow-y: hidden;
 }
 
+.uppercase {
+  text-transform: uppercase;
+  font-feature-settings: "case" on;
+}
+
 @media screen and (min-width: 1025px) {
   .main {
     min-height: calc(100vh - 90px);
@@ -2070,6 +2075,8 @@ html {
   font-weight: 600;
   position: relative;
   width: max-content;
+  text-transform: uppercase;
+  font-feature-settings: "case" on;
 }
 @media screen and (min-width: 1025px) {
   .ptitle {
@@ -2487,6 +2494,11 @@ html {
   .homemain__sales {
     margin-bottom: 30px;
   }
+  .homemain__sales .homemain__categories__headings {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-gap: 30px;
+  }
 }
 .homemain__sales__categories {
   z-index: 6;
@@ -2503,12 +2515,18 @@ html {
 }
 @media screen and (min-width: 1025px) {
   .homemain__sales__categories {
+    border-radius: 0;
     padding: 0;
     opacity: 1;
     background: none;
     height: max-content;
     position: static;
-    width: max-content;
+    width: 100%;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .homemain__sales__categories::-webkit-scrollbar {
+    display: none;
   }
 }
 .homemain__sales__categories__activetext {
@@ -2550,7 +2568,10 @@ html {
 }
 @media screen and (min-width: 1025px) {
   .homemain__sales__categories__list {
+    width: max-content !important;
     display: flex;
+    overflow: hidden;
+    width: 100%;
     grid-gap: unset;
     padding: 0;
   }
@@ -2560,6 +2581,7 @@ html {
   font-family: firagobook;
   font-weight: normal;
   color: #131313;
+  white-space: nowrap;
 }
 @media screen and (min-width: 1025px) {
   .homemain__sales__categories__list li:not(:last-child) {
@@ -6865,6 +6887,12 @@ html {
 .detailforms .input-div:not(.ns__container):focus {
   border-color: #131313;
 }
+.detailforms .input-div.focused {
+  border-color: #131313;
+}
+.detailforms .input-div.invalid.invalid-shown {
+  border-color: #DC6848;
+}
 .detailforms .transparentbtn {
   margin-top: 10px;
 }
@@ -8836,13 +8864,15 @@ html {
 .blogmain__imgbox {
   overflow: hidden;
   border-radius: 30px;
+  margin: 0 auto;
   margin-bottom: 30px;
-  width: 100%;
+  height: max-content;
+  line-height: 0 !important;
   max-height: 450px;
 }
 .blogmain__imgbox img {
   width: 100%;
-  max-height: 450px;
+  height: 100%;
   object-fit: contain;
 }
 .blogmain__textcontent {

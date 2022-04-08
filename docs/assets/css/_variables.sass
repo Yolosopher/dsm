@@ -135,3 +135,9 @@ $padL: calc( ((100vw - 10px) - 1697px) / 2)
     &::-webkit-scrollbar-track
         margin: 15px 0
         background-color: $bgcolor
+        
+@mixin scrollHidden
+    -ms-overflow-style: none
+    scrollbar-width: none
+    &::-webkit-scrollbar
+        display: none

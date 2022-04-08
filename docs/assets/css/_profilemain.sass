@@ -547,6 +547,10 @@
             @include font(12px, 16.8px)
             &:focus
                 border-color: $dark
+        &.focused
+            border-color: $dark
+        &.invalid.invalid-shown
+            border-color: $red
     .transparentbtn
         margin-top: 10px
         @include plus1025()

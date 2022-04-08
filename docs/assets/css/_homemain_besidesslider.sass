@@ -5,9 +5,10 @@
     font-weight: 600
     position: relative
     width: max-content
+    @include upperCase()
     @include plus1025()
         @include font(34px, 44px)
-        
+
     &::after
         content: ''
         z-index: -1
@@ -30,7 +31,7 @@
         @include plus1025()
             margin-bottom: 90px
             padding: 30px 0 90px
-        
+
         &::before
             content: ''
             transform: translateY(-30px)
@@ -53,6 +54,9 @@
             align-items: center
             margin-bottom: 30px
             @include plus1025()
+                // display: grid
+                // grid-template-columns: 1fr 3fr
+                // grid-gap: 10px
                 margin-bottom: 50px
             .viewallprods
                 width: max-content
@@ -182,7 +186,7 @@
                 margin-top: 30px
             > *
                 background-color: $yellow
-                
+
                 height: 100%
                 border-radius: 3px
         &__navigation
@@ -244,7 +248,7 @@
                     border-color: transparent
                     &::after
                         background: #EEEEEE
-                    
+
             &__imgbox
                 height: 100%
                 width: 100%
@@ -258,8 +262,7 @@
                     object-fit: contain
                     @include plus1025()
                         height: 100%
-                    
-            
+
             &__textcontent
                 height: 100%
                 color: $dark
@@ -302,7 +305,7 @@
                     font-weight: 600
                     span
                         font-weight: 700
-                        
+
             &__btns
                 display: flex
                 align-items: center
@@ -326,6 +329,11 @@
         margin-bottom: 20px
         @include plus1025()
             margin-bottom: 30px
+            .homemain__categories__headings
+                display: grid
+                grid-template-columns: 1fr 3fr
+                grid-gap: 30px
+
         &__categories
             z-index: 6
             position: fixed
@@ -339,12 +347,14 @@
             height: calc(100vh - 180px)
             transition: .25s ease-out
             @include plus1025()
+                border-radius: 0
                 padding: 0
                 opacity: 1
                 background: none
                 height: max-content
                 position: static
-                width: max-content
+                width: 100%
+                @include scrollHidden
             &__activetext
                 cursor: pointer
                 display: grid
@@ -375,8 +385,11 @@
                 overflow: auto
                 margin-right: 10px
                 @include plus1025()
+                    width: max-content !important
                     display: flex
                     // height: 
+                    overflow: hidden
+                    width: 100%
                     grid-gap: unset
                     padding: 0
                 li
@@ -384,6 +397,7 @@
                     font-family: firagobook
                     font-weight: normal
                     color: $dark
+                    white-space: nowrap
                     @include plus1025()
                         &:not(:last-child)
                             margin-right: 20px
@@ -460,7 +474,6 @@
                 @include plus1025()
                     height: 930px
 
-
         &__item
             background-color: #fff
             border: 1px solid #E6E6E6
@@ -485,7 +498,7 @@
                 opacity: 0
                 width: calc(100% - 20px)
                 background: #EEEEEE
-                filter: blur(30px) 
+                filter: blur(30px)
                 transition: .5s ease
             &__imgbox
                 width: 250px
@@ -518,7 +531,7 @@
                 margin-bottom: 16px
                 overflow: hidden
                 @include maxcolumn(2)
-                
+
             &__hoverbtns
                 position: absolute
                 top: 20px
@@ -576,12 +589,12 @@
             &:hover
                 @include plus1025()
                     border-color: transparent
-                    
+
                     &::after
                         opacity: 1
                     .homemain__sales__item__hoverbtns
                         > div
-                            transition: opacity .5s ease-out, transform .1s ease-out 
+                            transition: opacity .5s ease-out, transform .1s ease-out
                             opacity: 1
                             transform: translateY(0)
                     .homemain__sales__item__bagNprice
@@ -599,7 +612,7 @@
                 font-family: firagosemibold
                 @include upperCase()
                 font-weight: 600
-                &:not(.static)    
+                &:not(.static)
                     position: absolute
                     top: 20px
                     right: 20px
@@ -678,7 +691,6 @@
         &__viewall
             margin: 0 auto
             width: max-content
-
 
 .addtobag
     display: flex
