@@ -459,7 +459,7 @@
                 align-items: center
                 width: max-content
                 color: $dark
-                white-space: break-spaces
+                white-space: nowrap
                 font-family: firagobook
                 font-weight: 400
                 @include font(16px, 24px)
@@ -467,9 +467,12 @@
                     font-size: 18px
                 &::before
                     margin-right: 12px
+                    height: 24px
                 span
                     font-weight: 600
                     font-family: firagosemibold
+                    &:not(:last-of-type)
+                        margin: 0 5px 
             &__truck
                 &::before
                     content: url(../img/truck.svg)
