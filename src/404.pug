@@ -1,0 +1,28 @@
+- const title = '404'
+- const loggedin = false
+- const pagenavoff = "404"
+
+doctype html
+html(lang="en")
+    head
+        link(rel="stylesheet", href="assets/css/swiper-bundle.min.css")
+        include ../layouts/_head
+
+    body 
+        include ../layouts/_header
+        include ../layouts/_loginmodal
+        include ../layouts/_pagenav
+        
+
+        main.main.aboutmain.error404.container
+          h1.error404__title Sorry, the page you were looking for could not be found
+          .error404__img 404
+          a.yellowbtn(href="index.html") go to homepage 
+
+            
+        include ../layouts/_basket
+        include ../layouts/_footer
+        
+        include ../layouts/_respomenu
+        
+        include ../layouts/_scripts

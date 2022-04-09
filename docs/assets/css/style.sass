@@ -15,7 +15,7 @@ body
     // min-height: 150vh
     // min-height: 150vh
     @include plus1025()
-        min-height: calc(100vh - 90px)
+        min-height: calc(100vh - #{90px + 134px + 466px})
 
         
 @import _header
@@ -173,3 +173,130 @@ html
             @include font(18px, 25.2px)
             
 
+.error404
+    display: flex
+    flex-direction: column
+    align-items: center
+    font-family: firagomedium
+    text-align: center
+    &__title
+        font-family: firagomedium
+        @include font(32px, 51.2px)
+        color: black
+        text-align: center
+    &__img
+        margin: 40px 0 50px
+        font-family: inherit
+        @include font(204px, 1.6)
+        color: $yellow
+        text-align: center
+
+
+.faq
+    grid-gap: 30px
+    gap: 30px
+    // height: 
+    overflow: auto
+    padding-top: 0
+    margin-top: 50px
+    height: calc(100vh - #{90px + 134px})
+    display: flex
+    flex-direction: column
+    @include plus1025()
+        flex-direction: row
+    &__tabs
+        // display: grid
+        width: 100%
+        flex-grow: 0
+        flex-shrink: 0
+        align-content: flex-start
+        position: sticky
+        height: max-content
+        top: 0
+        left: 0
+        // position: relative
+        overflow: hidden
+        // height: 
+        @include plus1025()
+            max-width: 305px
+        &__select
+            // visibility: hidden
+            // display: none
+            // position: absolute
+            // left: 200%
+            // top: 200%
+            display: block
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
+            z-index: 999
+            opacity: 0
+            @include plus1025()
+                display: none !important
+        // &__label
+            
+        //     display: block
+        //     position: absolute
+        //     top: 0
+        //     left: 0
+        //     width: 100%
+        //     height: 100%
+        //     z-index: 2
+        //     @include plus1025()
+        //         display: none !important
+        &__li
+            display: none
+            cursor: pointer
+            width: 100%
+            padding: 10px 20px
+            border-radius: 84px
+            height: max-content
+            background-color: transparent
+            transition: .15 ease-in
+            font-family: firagomedium
+            @include font(18px, 1.6)
+            @include plus1025()
+                display: block
+            &.active
+                font-family: firagosemibold
+                transition: .15 ease-out
+                background-color: rgba($yellow, .1)
+                // order: -1
+                display: block
+                // @include plus1025()
+                //     order: unset
+    &__contents
+        margin: 0 20px
+        display: flex
+        // height: auto
+        overflow-x: hidden
+        // height: max-content
+        @include scrollSetup($yellow, 10px, $newf8, $margin: 0)
+        @include plus1025()
+            margin: 0
+        &__li
+            --height: max-content
+            flex-shrink: 0
+            width: 100%
+            font-family: firagobook
+            @include font(14px, 20px)
+            color: $dark
+            height: 0
+            overflow: hidden
+            position: relative
+            opacity: 0
+            padding-right: 20px
+            top: -30%
+            display: block
+            transition: height 1.5s ease-in, opacity 1.5s ease-in, top 1.3s cubic-bezier(0.455, -0.445, 0.940, -0.060)
+            @for $var from 0 through 20
+                &:nth-of-type(#{$var})
+                    transform: translateX(calc(#{$var * -1} * 100% + 100%))
+                // &[data-index]
+            &.active
+                top: 0
+                opacity: 1
+                transition: height 1.5s ease-out, opacity 1.5s ease-out, top .9s cubic-bezier(0.175, 1.025, 1.000, 1.650)
+                height: var(--height)

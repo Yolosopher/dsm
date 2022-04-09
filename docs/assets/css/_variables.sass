@@ -124,7 +124,7 @@ $padL: calc( ((100vw - 10px) - 1697px) / 2)
 //     &.invalid.invalid-shown
 //         border-color: $darkred
 
-@mixin scrollSetup($thumbcolor, $width: 2px, $bgcolor: transparent) 
+@mixin scrollSetup($thumbcolor, $width: 2px, $bgcolor: transparent, $margin: 15px 0) 
     &::-webkit-scrollbar
         width: $width
         height: $width
@@ -133,7 +133,7 @@ $padL: calc( ((100vw - 10px) - 1697px) / 2)
         border-radius: 30px
         background-color: $thumbcolor
     &::-webkit-scrollbar-track
-        margin: 15px 0
+        margin: $margin
         background-color: $bgcolor
         
 @mixin scrollHidden
