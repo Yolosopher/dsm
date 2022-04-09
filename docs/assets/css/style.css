@@ -841,13 +841,13 @@ body.noscroll {
   height: 18px;
   display: flex;
   align-items: center;
-  color: #fff;
+  color: #131313;
   padding: 2px 3px;
   border-radius: 4px;
   font-size: 12px;
   line-height: 14.4px;
   font-weight: 600;
-  background-color: #7E8BFE;
+  background-color: #F2FBFF;
   font-family: firagosemibold;
 }
 .loggedinmenu__nav__li.reffs::after {
@@ -855,13 +855,13 @@ body.noscroll {
   height: 18px;
   display: flex;
   align-items: center;
-  color: #fff;
+  color: #131313;
   padding: 2px 3px;
   border-radius: 4px;
   font-size: 12px;
   line-height: 14.4px;
   font-weight: 600;
-  background-color: #FB7EFE;
+  background-color: #F2FBFF;
   font-family: firagosemibold;
 }
 .loggedinmenu__nav__li a {
