@@ -8958,7 +8958,6 @@ html {
     flex-direction: row;
     display: block;
     margin: 50px 0;
-    height: max-content;
     overflow: initial;
     gap: 0;
   }
@@ -8977,12 +8976,19 @@ html {
 }
 @media screen and (min-width: 1025px) {
   .faq__tabs {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
     padding: 0;
     margin: 0;
     position: sticky;
     margin-left: calc((100% - 1350px) / 2);
+    height: calc(100vh - 90px - 134px - 80px);
+    overflow: auto;
     margin-right: 30px;
     max-width: 305px;
+  }
+  .faq__tabs::-webkit-scrollbar {
+    display: none;
   }
 }
 .faq__tabs__select {

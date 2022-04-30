@@ -19,12 +19,12 @@ html(lang="en")
       ul.faq__tabs
         //- label.faq__tabs__label(for="faq__tabs__select")
         select.faq__tabs__select#faq__tabs__select
-          each x, i in Array(5)
+          each x, i in Array(20)
             option(value=i+1, selected=(i===0 ? true : false))='question ' + (i+1)
-        each x, i in Array(5)
+        each x, i in Array(20)
           .faq__tabs__li(class=(i===0 ? 'active' : ''),  data-id=i+1)='question ' + (i+1)
       ul.faq__contents.no-transition
-        each x, i in Array(5)
+        each x, i in Array(20)
           if (i % 2 === 0)
             .faq__contents__li(class=(i===0 ? 'active' : ''), data-id=i+1)
               | #{i+1} hiii
