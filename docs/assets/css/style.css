@@ -103,6 +103,16 @@ ul li {
   list-style: none;
 }
 
+address {
+  font-style: normal;
+}
+
+.default-ul {
+  font-size: 14px;
+  line-height: 19.6px;
+  font-family: firagobook;
+}
+
 div.default-ul > *:not(:last-child) {
   margin-bottom: 1em;
 }
@@ -683,6 +693,18 @@ body.noscroll {
 }
 
 .header__basket::after {
+  content: attr(data-qty);
+  display: none;
+  margin-left: 8px;
+  color: white;
+  font-family: firagobold;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-feature-settings: "case" on;
+  font-size: 14px;
+  line-height: 17px;
+}
+.header__basket::before {
   content: "";
   position: absolute;
   right: 31px;
@@ -698,6 +720,9 @@ body.noscroll {
   opacity: 0;
 }
 .header__basket.notempty::after {
+  display: inline-block;
+}
+.header__basket.notempty::before {
   opacity: 1;
 }
 
@@ -8922,29 +8947,40 @@ html {
   gap: 30px;
   overflow: auto;
   padding-top: 0;
-  margin-top: 50px;
-  height: calc(100vh - 224px);
   display: flex;
+  height: auto;
+  margin: 50px 0;
   flex-direction: column;
 }
 @media screen and (min-width: 1025px) {
   .faq {
+    min-height: calc(100vh - 224px);
     flex-direction: row;
+    display: block;
+    margin: 50px 0;
+    overflow: initial;
+    gap: 0;
   }
 }
 .faq__tabs {
   width: 100%;
   flex-grow: 0;
+  float: left;
   flex-shrink: 0;
-  align-content: flex-start;
-  position: sticky;
+  background: white;
   height: max-content;
-  top: 0;
+  top: 130px;
   left: 0;
+  padding: 0 20px;
   overflow: hidden;
 }
 @media screen and (min-width: 1025px) {
   .faq__tabs {
+    padding: 0;
+    margin: 0;
+    position: sticky;
+    margin-left: calc((100% - 1350px) / 2);
+    margin-right: 30px;
     max-width: 305px;
   }
 }
@@ -8988,9 +9024,9 @@ html {
   display: block;
 }
 .faq__contents {
-  margin: 0 20px;
+  margin: 0 40px;
   display: flex;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 .faq__contents::-webkit-scrollbar {
   width: 10px;
@@ -9007,7 +9043,10 @@ html {
 }
 @media screen and (min-width: 1025px) {
   .faq__contents {
-    margin: 0;
+    margin-right: calc((100% - 1390px) / 2);
+    max-width: calc(1350px - 350px);
+    margin: 50px 0;
+    overflow: initial;
   }
 }
 .faq__contents__li {

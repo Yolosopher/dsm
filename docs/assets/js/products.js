@@ -224,6 +224,7 @@ const niceLiClickHandler = (li, multiple = false, notoggle = false) => {
 				})
 		} else {
 			let firstOption = select.querySelector(`option[value="0"]`)
+			console.log(select)
 			firstOption.selected = false
 			niceSelect
 				.querySelector('ul')

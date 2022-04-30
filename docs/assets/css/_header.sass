@@ -499,6 +499,15 @@
 
 .header__basket
     &::after
+        content: attr(data-qty)
+        display: none
+        margin-left: 8px
+        color: white
+        font-family: firagobold
+        font-weight: 700
+        @include upperCase()
+        @include font(14px, 17px)
+    &::before
         content: ''
         position: absolute
         right: 31px
@@ -514,6 +523,8 @@
         opacity: 0
     &.notempty
         &::after
+            display: inline-block
+        &::before
             opacity: 1
 .inner_li2
     display: inline-block
