@@ -5314,10 +5314,10 @@ html {
   height: 100%;
   cursor: pointer;
 }
-.basketmodal__mains__basket__list__li__quantity .basket__minus.inactive {
+.basketmodal__mains__basket__list__li__quantity .basket__minus.inactive, .basketmodal__mains__basket__list__li__quantity .basket__plus.inactive {
   pointer-events: none;
 }
-.basketmodal__mains__basket__list__li__quantity .basket__minus.inactive svg path {
+.basketmodal__mains__basket__list__li__quantity .basket__minus.inactive svg path, .basketmodal__mains__basket__list__li__quantity .basket__plus.inactive svg path {
   fill: #707477;
 }
 .basketmodal__mains__basket__list__li__price {
