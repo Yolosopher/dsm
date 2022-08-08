@@ -430,14 +430,25 @@
                                     svg path 
                                         fill: $gr
                     &__price
-                        font-family: firagosemibold
+                        font-family: firagobold
                         @include font(14px, 19.6px)
-                        color: $dark
+                        display: flex
+                        flex-direction: column
+                        // align-items: center
                         font-weight: 600
                         @media screen and ( max-width: 1024px )
                             position: absolute
                             top: 91px
                             left: #{88px + 20px}
+                        .new_price
+                            white-space: nowrap
+                            color: #FE7E7E
+                            + .old_price
+                                text-decoration: line-through
+                        .old_price
+                            white-space: nowrap
+                            color: $dark
+
                     &__moredetails
                         cursor: pointer
                         position: absolute
@@ -847,21 +858,31 @@
     &__promocode
         display: flex
         align-items: center
-        justify-content: space-between
+        justify-content: flex-end
         margin-bottom: 20px
+        position: relative
         @include plus1025()
             margin-bottom: 0
         input, label
             font-family: firagosemibold
             @include font(14px, 19.6px)
         label
+            flex-grow: 1
             text-transform: capitalize
+            // @include plus1025()
+            //     margin-right: 0
         input
             display: flex
             flex-basis: 0
+            margin: 0 10px
             min-width: 69px
-            color: $gr
+            color: $dark
+            flex-grow: 5
             width: max-content
+            @include plus1025()
+                flex-grow: unset
+            &::placeholder 
+                color: $gr
 
     &__totals
         display: flex

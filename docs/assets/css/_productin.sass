@@ -639,12 +639,13 @@
                     color: $dark34
                     @include font(14px, 19.6px)
                     font-weight: 400
-                &:nth-of-type(n+3)
-                    display: none
-            &.toggled
-                .productin__reviewcomments__list__item
-                    &:nth-of-type(n+3)
-                        display: flex
+                // &:nth-of-type(n+3)
+                //     display: none
+            @for $i from 1 through 50
+                &[data-order="#{$i}"]
+                    .productin__reviewcomments__list__item
+                            &:nth-of-type(n + #{$i*5+1})
+                                display: none
 
         &__menu
             display: flex
@@ -676,29 +677,33 @@
         align-items: center
         height: calc( 100% - 2px )
         background-color: #fff
-        will-change: transform
+        // will-change: transform
         // transform: rotateY(0turn)
         // transition: .4s transform linear
-        animation: flippingBack 1s linear 
+        // animation: flippingBack 1s linear 
         span
             --offsetwidth: max-content
             overflow: hidden
             display: flex
             white-space: nowrap
             width: var(--offsetwidth)
-            transition: width 0s .5s linear, opacity 1s linear
+            // transition: width 0s .5s linear, opacity 1s linear
 
         .remove
             width: 0
             color: $yellow
 
     &.added
-        .flip
-            animation: flipping 1s linear
-            .add
-                width: 0
-            .remove
-                width: var(--offsetwidth)
+        .add
+            color: $yellow
+        svg path
+            fill: $yellow
+    //     .flip
+    //         animation: flipping 1s linear
+    //         .add
+    //             width: 0
+    //         .remove
+    //             width: var(--offsetwidth)
 
 
 .homemain__slide__left__link

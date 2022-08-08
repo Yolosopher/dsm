@@ -1,10 +1,15 @@
+-
+    function lcs(a) {
+        return a.toLowerCase()
+    }
+
 .pagenav.container
     h1.ptitle=pagenavoff ? pagenavoff : 'Skin care'
-    if (pagenavoff.toLowerCase() === 'blogs')
+    if 'blogs' === pagenavoff
         .pagenav__nav
             a.pagenav__homepage(href="index.html") Home page
             a.pagenav__current(href="#") Blogs
-    else if (pagenavoff.toLowerCase() === 'blog')
+    else if 'blog' === pagenavoff
         .pagenav__nav
             a.pagenav__homepage(href="index.html") Home page
             a.pagenav__middle(href="#") Blogs

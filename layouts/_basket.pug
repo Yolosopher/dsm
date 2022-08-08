@@ -111,6 +111,10 @@
                     .orderdetails__promocode
                         label(for="promocodeinput1") promocode
                         input#promocodeinput1.promocodeinput(type="text" name="promocode" placeholder="enter code")
+                        button.checkPromoCode
+                            include ../components/promo_svg
+
+                        .message-block(data-validtext='successful promocode' data-invalidtext='invalid promocode')
                 .orderdetails__totals
                     p Total:
                     p.orderdetails__totals__value
@@ -127,6 +131,7 @@
                 .chkout checkout
                 .basketmodal__mains__ordering__staticinfo__back.backtostore back
             form#basketmodalform.basketmodal__mains__ordering__form(data-pg="1")
+                input(type="hidden", name="promocode", id="promocodeinput3")
                 .basketmodal__mains__ordering__form__nav
                     span
                     span
@@ -302,6 +307,10 @@
                 .orderdetails__promocode
                     label(for="promocodeinput2") promocode
                     input#promocodeinput2.promocodeinput(type="text" name="promocode" placeholder="enter code")
+                    button.checkPromoCode
+                        include ../components/promo_svg
+                    .message-block(data-validtext='successful promocode' data-invalidtext='invalid promocode')
+                    
                 .orderdetails__totals
                     p Total:
                     p.orderdetails__totals__value

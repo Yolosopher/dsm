@@ -667,6 +667,7 @@ body.noscroll {
   width: 85px;
   height: 100%;
   display: flex;
+  padding-right: 2px;
   justify-content: center;
   align-items: center;
   background-color: #00B4FB;
@@ -675,7 +676,6 @@ body.noscroll {
   position: relative;
   left: 0.5px;
 }
-
 .header__navbar__content__withscroll {
   scrollbar-width: thin;
 }
@@ -695,7 +695,11 @@ body.noscroll {
 .header__basket::after {
   content: attr(data-qty);
   display: none;
-  margin-left: 8px;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  right: 22px;
+  transform: translateY(-50%);
   color: white;
   font-family: firagobold;
   font-weight: 700;
@@ -712,18 +716,22 @@ body.noscroll {
   width: 10px;
   height: 10px;
   display: flex;
-  background-color: #FF2EF7;
+  background-color: #FF2E2E;
   border: 2px solid white;
   border-radius: 50%;
   box-sizing: border-box;
   z-index: 1;
   opacity: 0;
 }
+.header__basket.notempty {
+  padding-right: 16px;
+}
 .header__basket.notempty::after {
   display: inline-block;
 }
 .header__basket.notempty::before {
   opacity: 1;
+  right: 38px;
 }
 
 .inner_li2 {
@@ -1124,13 +1132,16 @@ body.noscroll {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 60px;
+  width: 85px;
   background-color: #00B4FB;
   border-radius: 0 30px 30px 0;
 }
 .respomenu .header__basket::after {
   bottom: 17px;
-  right: 19px;
+  right: 22px;
+}
+.respomenu .header__basket::before {
+  bottom: 17px;
 }
 .respomenu .header__navbar__icons.toggled .header__navbar__icons__top {
   top: 3px;
@@ -2996,6 +3007,9 @@ html {
   text-transform: uppercase;
   font-feature-settings: "case" on;
 }
+.addtobag.added svg path {
+  fill: #00B4FB;
+}
 
 .addtofav, .addtocompare {
   cursor: pointer;
@@ -4284,11 +4298,155 @@ html {
   line-height: 19.6px;
   font-weight: 400;
 }
-.productin__reviewcomments__list__item:nth-of-type(n+3) {
+.productin__reviewcomments__list[data-order="1"] .productin__reviewcomments__list__item:nth-of-type(n + 6) {
   display: none;
 }
-.productin__reviewcomments__list.toggled .productin__reviewcomments__list__item:nth-of-type(n+3) {
-  display: flex;
+.productin__reviewcomments__list[data-order="2"] .productin__reviewcomments__list__item:nth-of-type(n + 11) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="3"] .productin__reviewcomments__list__item:nth-of-type(n + 16) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="4"] .productin__reviewcomments__list__item:nth-of-type(n + 21) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="5"] .productin__reviewcomments__list__item:nth-of-type(n + 26) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="6"] .productin__reviewcomments__list__item:nth-of-type(n + 31) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="7"] .productin__reviewcomments__list__item:nth-of-type(n + 36) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="8"] .productin__reviewcomments__list__item:nth-of-type(n + 41) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="9"] .productin__reviewcomments__list__item:nth-of-type(n + 46) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="10"] .productin__reviewcomments__list__item:nth-of-type(n + 51) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="11"] .productin__reviewcomments__list__item:nth-of-type(n + 56) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="12"] .productin__reviewcomments__list__item:nth-of-type(n + 61) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="13"] .productin__reviewcomments__list__item:nth-of-type(n + 66) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="14"] .productin__reviewcomments__list__item:nth-of-type(n + 71) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="15"] .productin__reviewcomments__list__item:nth-of-type(n + 76) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="16"] .productin__reviewcomments__list__item:nth-of-type(n + 81) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="17"] .productin__reviewcomments__list__item:nth-of-type(n + 86) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="18"] .productin__reviewcomments__list__item:nth-of-type(n + 91) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="19"] .productin__reviewcomments__list__item:nth-of-type(n + 96) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="20"] .productin__reviewcomments__list__item:nth-of-type(n + 101) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="21"] .productin__reviewcomments__list__item:nth-of-type(n + 106) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="22"] .productin__reviewcomments__list__item:nth-of-type(n + 111) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="23"] .productin__reviewcomments__list__item:nth-of-type(n + 116) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="24"] .productin__reviewcomments__list__item:nth-of-type(n + 121) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="25"] .productin__reviewcomments__list__item:nth-of-type(n + 126) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="26"] .productin__reviewcomments__list__item:nth-of-type(n + 131) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="27"] .productin__reviewcomments__list__item:nth-of-type(n + 136) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="28"] .productin__reviewcomments__list__item:nth-of-type(n + 141) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="29"] .productin__reviewcomments__list__item:nth-of-type(n + 146) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="30"] .productin__reviewcomments__list__item:nth-of-type(n + 151) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="31"] .productin__reviewcomments__list__item:nth-of-type(n + 156) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="32"] .productin__reviewcomments__list__item:nth-of-type(n + 161) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="33"] .productin__reviewcomments__list__item:nth-of-type(n + 166) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="34"] .productin__reviewcomments__list__item:nth-of-type(n + 171) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="35"] .productin__reviewcomments__list__item:nth-of-type(n + 176) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="36"] .productin__reviewcomments__list__item:nth-of-type(n + 181) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="37"] .productin__reviewcomments__list__item:nth-of-type(n + 186) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="38"] .productin__reviewcomments__list__item:nth-of-type(n + 191) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="39"] .productin__reviewcomments__list__item:nth-of-type(n + 196) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="40"] .productin__reviewcomments__list__item:nth-of-type(n + 201) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="41"] .productin__reviewcomments__list__item:nth-of-type(n + 206) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="42"] .productin__reviewcomments__list__item:nth-of-type(n + 211) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="43"] .productin__reviewcomments__list__item:nth-of-type(n + 216) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="44"] .productin__reviewcomments__list__item:nth-of-type(n + 221) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="45"] .productin__reviewcomments__list__item:nth-of-type(n + 226) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="46"] .productin__reviewcomments__list__item:nth-of-type(n + 231) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="47"] .productin__reviewcomments__list__item:nth-of-type(n + 236) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="48"] .productin__reviewcomments__list__item:nth-of-type(n + 241) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="49"] .productin__reviewcomments__list__item:nth-of-type(n + 246) {
+  display: none;
+}
+.productin__reviewcomments__list[data-order="50"] .productin__reviewcomments__list__item:nth-of-type(n + 251) {
+  display: none;
 }
 .productin__reviewcomments__menu {
   display: flex;
@@ -4323,8 +4481,6 @@ html {
   align-items: center;
   height: calc( 100% - 2px );
   background-color: #fff;
-  will-change: transform;
-  animation: flippingBack 1s linear;
 }
 .addinbasketbtn .flip span {
   --offsetwidth: max-content;
@@ -4332,20 +4488,16 @@ html {
   display: flex;
   white-space: nowrap;
   width: var(--offsetwidth);
-  transition: width 0s 0.5s linear, opacity 1s linear;
 }
 .addinbasketbtn .flip .remove {
   width: 0;
   color: #00B4FB;
 }
-.addinbasketbtn.added .flip {
-  animation: flipping 1s linear;
+.addinbasketbtn.added .add {
+  color: #00B4FB;
 }
-.addinbasketbtn.added .flip .add {
-  width: 0;
-}
-.addinbasketbtn.added .flip .remove {
-  width: var(--offsetwidth);
+.addinbasketbtn.added svg path {
+  fill: #00B4FB;
 }
 
 .homemain__slide__left__link {
@@ -5169,10 +5321,11 @@ html {
   fill: #707477;
 }
 .basketmodal__mains__basket__list__li__price {
-  font-family: firagosemibold;
+  font-family: firagobold;
   font-size: 14px;
   line-height: 19.6px;
-  color: #131313;
+  display: flex;
+  flex-direction: column;
   font-weight: 600;
 }
 @media screen and (max-width: 1024px) {
@@ -5181,6 +5334,17 @@ html {
     top: 91px;
     left: 108px;
   }
+}
+.basketmodal__mains__basket__list__li__price .new_price {
+  white-space: nowrap;
+  color: #FE7E7E;
+}
+.basketmodal__mains__basket__list__li__price .new_price + .old_price {
+  text-decoration: line-through;
+}
+.basketmodal__mains__basket__list__li__price .old_price {
+  white-space: nowrap;
+  color: #131313;
 }
 .basketmodal__mains__basket__list__li__moredetails {
   cursor: pointer;
@@ -5701,8 +5865,9 @@ html {
 .orderdetails__promocode {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   margin-bottom: 20px;
+  position: relative;
 }
 @media screen and (min-width: 1025px) {
   .orderdetails__promocode {
@@ -5715,14 +5880,25 @@ html {
   line-height: 19.6px;
 }
 .orderdetails__promocode label {
+  flex-grow: 1;
   text-transform: capitalize;
 }
 .orderdetails__promocode input {
   display: flex;
   flex-basis: 0;
+  margin: 0 10px;
   min-width: 69px;
-  color: #707477;
+  color: #131313;
+  flex-grow: 5;
   width: max-content;
+}
+@media screen and (min-width: 1025px) {
+  .orderdetails__promocode input {
+    flex-grow: unset;
+  }
+}
+.orderdetails__promocode input::placeholder {
+  color: #707477;
 }
 .orderdetails__totals {
   display: flex;
@@ -8219,6 +8395,13 @@ html {
   border-top-color: transparent !important;
 }
 
+.addtobag.added svg path {
+  fill: #00B4FB;
+}
+.addtobag.added .add {
+  color: #00B4FB;
+}
+
 .addtobag.addinbasketbtn.inform.added svg path {
   fill: #00B4FB;
 }
@@ -9141,6 +9324,52 @@ html {
   opacity: 1;
   transition: height 1.5s ease-out, opacity 1.5s ease-out, top 0.9s cubic-bezier(0.175, 1.025, 1, 1.65);
   height: var(--height);
+}
+
+.nodisplay {
+  pointer-events: none !important;
+  opacity: 0.5 !important;
+}
+
+.message-block {
+  order: 1;
+  text-align: right;
+  width: 100%;
+  flex-grow: 1;
+}
+@media screen and (min-width: 1025px) {
+  .message-block {
+    position: absolute;
+    top: 100%;
+    text-align: left;
+    left: 0;
+    order: 0;
+  }
+  .message-block::after {
+    text-transform: capitalize;
+    font-family: firagobook;
+    font-size: 12px;
+    line-height: 19.6px;
+  }
+}
+.message-block.invalid::after {
+  content: attr(data-invalidtext);
+  color: #DC6848;
+}
+.message-block.valid::after {
+  color: #00B4FB;
+  content: attr(data-validtext);
+}
+
+.checkPromoCode {
+  cursor: pointer;
+}
+.checkPromoCode svg {
+  transition: transform 0.3s ease-in-ou;
+}
+.checkPromoCode:hover svg {
+  transform: scaleX(1.2);
+  transform-origin: left;
 }
 
 /*# sourceMappingURL=style.css.map */

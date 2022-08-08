@@ -476,6 +476,7 @@
         width: 85px
         height: 100%
         display: flex
+        padding-right: 2px
         justify-content: center
         align-items: center
         background-color: $yellow
@@ -483,6 +484,8 @@
         border-radius: 0 30px 30px 0
         position: relative
         left: .5px
+        svg
+            // width: 40px
 .header__navbar__content__withscroll
     // @include plus1025()
     scrollbar-width: thin
@@ -501,7 +504,12 @@
     &::after
         content: attr(data-qty)
         display: none
-        margin-left: 8px
+        position: absolute
+        z-index: 1
+        top: 50%
+        right: 22px
+        transform: translateY(-50%)
+        // margin-left: 8px
         color: white
         font-family: firagobold
         font-weight: 700
@@ -515,17 +523,19 @@
         width: 10px
         height: 10px
         display: flex
-        background-color: $pink
+        background-color: $redpink
         border: 2px solid white
         border-radius: 50%
         box-sizing: border-box
         z-index: 1
         opacity: 0
     &.notempty
+        padding-right: 16px
         &::after
             display: inline-block
         &::before
             opacity: 1
+            right: 38px
 .inner_li2
     display: inline-block
     padding-left: 20px

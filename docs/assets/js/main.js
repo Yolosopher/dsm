@@ -1352,3 +1352,56 @@ if (messageboxmodal) {
 		messageboxmodal__bg.classList.remove('toggled')
 	})
 }
+
+// promocodes' logic
+const promocodeinput1 = document.getElementById('promocodeinput1')
+const promocodeinput2 = document.getElementById('promocodeinput2')
+const promocodeinput3 = document.getElementById('promocodeinput3')
+const checkPromoCodeBtns = document.querySelectorAll('.checkPromoCode')
+const promocodeTextBlocks = [...document.querySelectorAll('.message-block')]
+
+const checkPromoCode = (code) => {
+	return new Promise((res, rej) => {
+		setTimeout(() => {
+			res({
+				valid: Math.random() > 0.3 ? true : false,
+				items_it_worked_on: [{ item: 112 }, { item: 223 }],
+			})
+			rej({
+				valid: false,
+			})
+		}, 600)
+	})
+}
+
+const updatePromoCodeInfo = async (code) => {
+	try {
+		const result = await checkPromoCode(code)
+		if (result.valid) {
+			promocodeTextBlocks.forEach((each) => {
+				each.classList.remove('invalid')
+				each.classList.add('valid')
+			})
+		} else {
+			promocodeTextBlocks.forEach((each) => {
+				each.classList.remove('valid')
+				each.classList.add('invalid')
+			})
+		}
+	} catch (error) {
+		console.log(error)
+	}
+}
+promocodeinput1.addEventListener('input', (e) => {
+	promocodeinput2.value = e.target.value
+	promocodeinput3.value = e.target.value
+})
+promocodeinput2.addEventListener('input', (e) => {
+	promocodeinput1.value = e.target.value
+	promocodeinput3.value = e.target.value
+})
+;[...checkPromoCodeBtns].forEach((checkPromoCodeBtn) => {
+	checkPromoCodeBtn.addEventListener('click', (e) => {
+		updatePromoCodeInfo(promocodeinput1.value)
+	})
+})
